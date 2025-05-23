@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - beingAnujChaudhary</title>
+    <meta name="description" content="Get in touch with Anuj Chaudhary. Let's connect and discuss ideas or projects.">
+    <link rel="shortcut icon" href="./logo.png" type="image/png">
+
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+    <link rel="preload" href="./NeueHaasDisplayMediu.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="./NeueHaasDisplayLight.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="./NeueHaasDisplayRoman.ttf" as="font" type="font/ttf" crossorigin>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body class="bg-[#EFEAE3] overflow-x-hidden">
+
+    <div id="loader"><h1>Connecting...</h1><h1>Reach Out</h1><h1>Say Hello</h1></div>
+
+    <div id="mobile-menu" class="mobile-menu" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title-contact">
+        <button id="close-menu" aria-label="Close menu" class="absolute top-5 right-5 sm:top-6 sm:right-6 text-3xl sm:text-4xl font-semibold text-neutral-700 hover:text-[#FE320A] focus:outline-none focus:text-[#FE320A] transition-colors z-[2001]">
+            &times;
+        </button>
+        <div class="mobile-menu-content">
+             <span id="mobile-menu-title-contact" class="sr-only">Navigation Menu</span>
+            <a href="https://beinganujchaudhary.web.app/" class="mobile-menu-link">Home</a>
+            <a href="./resume.html" class="mobile-menu-link">Resume</a>
+            <a href="./projects.html" class="mobile-menu-link">Projects</a>
+            <a href="./achievements.html" class="mobile-menu-link">Achievements</a>
+            <a href="./contact.html" class="mobile-menu-link active">Contact</a>
+        </div>
+    </div>
+
+    <main id="main" class="relative">
+        <header class="w-full sticky top-0 bg-[#EFEAE3]/80 backdrop-blur-md z-[150]">
+            <nav class="w-full flex items-center justify-between py-4 md:py-6 px-4 md:px-8 relative z-[100]">
+                <a href="https://beinganujchaudhary.web.app/" aria-label="Home page" class="focus:outline-none">
+                    <div class="logo-ring w-16 h-16 md:w-24 md:h-24">
+                        <img src="./logo.png" id="logo-contact" alt="Anuj Chaudhary Logo"
+                            onerror="this.onerror=null; this.src='./logo.png?text=Logo';"
+                            class="logo-image">
+                    </div>
+                </a>
+                <div id="desktop-nav" class="hidden md:flex items-center gap-2 lg:gap-4">
+                    <a href="https://beinganujchaudhary.web.app/" class="nav-link"><h4 class="relative z-10 text-sm lg:text-base">Home</h4></a>
+                    <a href="./resume.html" class="nav-link"><h4 class="relative z-10 text-sm lg:text-base">Resume</h4></a>
+                    <a href="./projects.html" class="nav-link"><h4 class="relative z-10 text-sm lg:text-base">Projects</h4></a>
+                    <a href="./achievements.html" class="nav-link"><h4 class="relative z-10 text-sm lg:text-base">Achievements</h4></a>
+                    <a href="./contact.html" class="nav-link active"><h4 class="relative z-10 text-sm lg:text-base">Contact</h4></a>
+                </div>
+                <button id="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu"
+                    class="md:hidden px-4 py-2 border border-neutral-400 rounded-full text-sm z-[101] focus:outline-none">
+                    Menu
+                </button>
+            </nav>
+        </header>
+
+        <section id="contact-page-content"
+            class="min-h-screen w-full bg-gray-900 text-gray-200 pt-16 pb-12 md:pt-32 md:pb-20 px-5 sm:px-8 md:px-12 lg:px-16 flex flex-col justify-center"
+            data-scroll-section role="region" aria-labelledby="contact-page-heading">
+
+            <div class="max-w-4xl mx-auto w-full">
+                <h1 id="contact-page-heading" class="text-4xl sm:text-5xl md:text-6xl font-semibold text-center mb-10 md:mb-16 text-gradient-name">
+                    Get In Touch
+                </h1>
+
+                <p class="text-lg md:text-xl text-center text-gray-300 mb-12 md:mb-16 max-w-2xl mx-auto">
+                    I'm always open to discussing new projects, creative ideas, or opportunities to be part of something great.
+                    Feel free to reach out through any of the channels below.
+                </p>
+
+                <div class="flex flex-col md:flex-row justify-around items-center md:items-start gap-10 md:gap-16">
+                    <div class="text-center md:text-left">
+                         <h2 class="text-gradient-name text-3xl sm:text-4xl font-semibold leading-tight space-y-2">
+                            <span class="block">beingAnujChaudhary</span>
+                            <!-- <span class="block">Chaudhary</span> -->
+                        </h2>
+                        <p class="text-gray-400 mt-2 text-sm">Data Science Enthusiast</p>
+                    </div>
+
+                    <address class="not-italic text-center md:text-left">
+                        <h3 class="text-xl sm:text-2xl font-medium mb-5 md:mb-6 hover:text-orange-500 transition-colors duration-300 ease-in-out">
+                            Contact Channels
+                        </h3>
+                        <ul class="space-y-3 sm:space-y-4">
+                            <li>
+                                <a href="mailto:beinganujchaudhary@gmail.com"
+                                    class="inline-flex items-center group hover:text-orange-500 transition-colors duration-300 ease-in-out text-base sm:text-lg">
+                                    <svg class="w-5 h-5 mr-2 text-gray-400 group-hover:text-orange-500 transition-colors" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                                    beinganujchaudhary@gmail.com
+                                </a>
+                            </li>
+                            <li>
+                                <a href="tel:+918130105894"
+                                    class="inline-flex items-center group hover:text-orange-500 transition-colors duration-300 ease-in-out text-base sm:text-lg">
+                                     <svg class="w-5 h-5 mr-2 text-gray-400 group-hover:text-orange-500 transition-colors" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
+                                    +91-8130105894
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/beinganujchaudhary/" target="_blank" rel="noopener noreferrer"
+                                    class="inline-flex items-center group hover:text-orange-500 transition-colors duration-300 ease-in-out text-base sm:text-lg">
+                                    <svg class="w-5 h-5 mr-2 text-gray-400 group-hover:text-orange-500 transition-colors" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"/></svg>
+                                    LinkedIn Profile
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/beinganujchaudhary" target="_blank" rel="noopener noreferrer"
+                                    class="inline-flex items-center group hover:text-orange-500 transition-colors duration-300 ease-in-out text-base sm:text-lg">
+                                   <svg class="w-5 h-5 mr-2 text-gray-400 group-hover:text-orange-500 transition-colors" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.565 21.795 24 17.3 24 12c0-6.627-5.373-12-12-12z" clip-rule="evenodd"/></svg>
+                                    GitHub Profile
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/anujisonholiday" target="_blank" rel="noopener noreferrer"
+                                    class="inline-flex items-center group hover:text-orange-500 transition-colors duration-300 ease-in-out text-base sm:text-lg">
+                                    <svg class="w-5 h-5 mr-2 text-gray-400 group-hover:text-orange-500 transition-colors" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                                    X Profile (@anujisonholiday)
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://wa.me/message/QT5MJZ25KRYDA1" target="_blank" rel="noopener noreferrer"
+                                    class="inline-flex items-center group hover:text-orange-500 transition-colors duration-300 ease-in-out text-base sm:text-lg">
+                                    <svg class="w-5 h-5 mr-2 text-gray-400 group-hover:text-orange-500 transition-colors" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.38 1.25 4.8L1.66 22l5.38-1.62A9.84 9.84 0 0012.04 22c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zM12.04 20.48c-1.5 0-2.93-.4-4.2-1.1L5.32 20.3l1-2.46a8.32 8.32 0 01-1.48-4.81c0-4.63 3.76-8.39 8.39-8.39 2.26 0 4.35.88 5.93 2.46 1.58 1.58 2.46 3.67 2.46 5.93.01 4.63-3.75 8.39-8.38 8.39zm4.63-6.85c-.25-.12-1.47-.72-1.7-.8s-.39-.12-.56.12c-.17.25-.64.72-.79.88-.14.17-.29.19-.53.06-.25-.12-1.05-.38-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.1-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43s-.56-1.32-.76-1.81c-.2-.48-.4-.42-.56-.42H7.1c-.17 0-.43.06-.67.31-.25.25-.94.92-.94 2.25s.97 2.61 1.1 2.79c.12.17 1.91 2.92 4.63 4.08 2.71 1.16 2.71.77 3.2.74.49-.03 1.47-.6 1.67-1.18.21-.58.21-1.08.15-1.18s-.21-.12-.45-.24z"/></svg>
+                                    WhatsApp
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/anujisonholiday" target="_blank" rel="noopener noreferrer"
+                                    class="inline-flex items-center group hover:text-orange-500 transition-colors duration-300 ease-in-out text-base sm:text-lg">
+                                    <svg class="w-5 h-5 mr-2 text-gray-400 group-hover:text-orange-500 transition-colors" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"> <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163m0-2.163C8.74.001 8.344.001 7.053.058c-3.75.17-6.175 1.649-6.98 6.98-.056 1.291-.058 1.687-.058 4.914s.002 3.623.058 4.914c.805 5.332 3.23 6.811 6.98 6.98 1.291.056 1.687.058 4.914.058s3.623-.002 4.914-.058c5.332-.805 6.811-3.23 6.98-6.98.056-1.291.058-1.687.058-4.914s-.002-3.623-.058-4.914c-.805-5.332-3.23-6.811-6.98-6.98C15.656.001 15.26.001 12 .001z"></path><path d="M12 6.849c-2.844 0-5.151 2.307-5.151 5.151s2.307 5.151 5.151 5.151 5.151-2.307 5.151-5.151S14.844 6.849 12 6.849zm0 8.302c-1.743 0-3.151-1.408-3.151-3.151s1.408-3.151 3.151-3.151 3.151 1.408 3.151 3.151-1.408 3.151-3.151 3.151z"></path><path d="M16.949 5.596c-.738 0-1.337.6-1.337 1.337s.6 1.337 1.337 1.337 1.337-.6 1.337-1.337-.599-1.337-1.337-1.337z"></path></svg>
+                                    Instagram (@anujisonholiday)
+                                </a>
+                            </li>
+                        </ul>
+                    </address>
+                </div>
+            </div>
+
+            <div class="text-center pt-16 md:pt-24 border-t border-gray-700/50 mt-16 md:mt-24 text-sm">
+                <p class="text-gray-400">
+                    &copy; <span id="current-year">2024</span> Anuj Chaudhary. All rights reserved.
+                </p>
+                 <p class="text-xs text-gray-500 mt-2">
+                    Looking forward to hearing from you!
+                </p>
+                 <nav class="mt-4" aria-label="Legal links">
+                    <ul class="flex flex-wrap justify-center gap-x-3 sm:gap-x-4 gap-y-2 text-xs">
+                        <li><a href="privacy-policy.html" class="hover:text-orange-400 transition-colors">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html" class="hover:text-orange-400 transition-colors">Terms of Service</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+    <script src="./script.js" defer></script>
+</body>
+</html>
