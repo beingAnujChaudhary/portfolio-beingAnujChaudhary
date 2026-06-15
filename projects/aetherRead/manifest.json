@@ -1,6 +1,6 @@
 {
-  "name": "AetherRead",
-  "short_name": "AetherRead",
+  "name": "aetherRead",
+  "short_name": "aetherRead",
   "description": "AI-powered offline-first PDF reader and research workspace",
   "start_url": "/app",
   "display": "standalone",
