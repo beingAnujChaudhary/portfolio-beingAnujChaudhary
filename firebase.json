@@ -2,8 +2,6 @@
   "hosting": {
     "site": "beinganujchaudhary",
     "public": ".",
-    "cleanUrls": true,
-    "trailingSlash": false,
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -13,6 +11,13 @@
       {
         "source": "/projects/aetherRead/app/reader/**",
         "destination": "/projects/aetherRead/app/reader/_placeholder/index.html"
+      }
+    ],
+    "redirects": [
+      {
+        "source": "/projects/aetherRead",
+        "destination": "/projects/aetherRead/",
+        "type": 301
       }
     ],
     "headers": [
