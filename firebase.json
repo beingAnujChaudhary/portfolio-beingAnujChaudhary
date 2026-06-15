@@ -13,13 +13,6 @@
         "destination": "/projects/aetherRead/app/reader/_placeholder/index.html"
       }
     ],
-    "redirects": [
-      {
-        "source": "/projects/aetherRead",
-        "destination": "/projects/aetherRead/",
-        "type": 301
-      }
-    ],
     "headers": [
       {
         "source": "/projects/aetherRead/_next/static/**",
