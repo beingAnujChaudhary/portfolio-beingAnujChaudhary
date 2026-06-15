@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - beingAnujChaudhary</title>
+    <meta name="description" content="Explore featured projects by Anuj Chaudhary in Data Science, Machine Learning, and GCP.">
+    <link rel="shortcut icon" href="./logo.png" type="image/png">
+
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+    <link rel="preload" href="./NeueHaasDisplayMediu.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="./NeueHaasDisplayLight.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="./NeueHaasDisplayRoman.ttf" as="font" type="font/ttf" crossorigin>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body class="bg-[#EFEAE3] overflow-x-hidden">
+
+    <div id="loader"><h1>Showcasing...</h1><h1>My Work</h1><h1>Projects</h1></div>
+
+    <div id="fixed-image" class="fixed-image-preview" aria-hidden="true"></div>
+
+    <div id="mobile-menu" class="mobile-menu" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title-projects">
+        <button id="close-menu" aria-label="Close menu" class="absolute top-5 right-5 sm:top-6 sm:right-6 text-3xl sm:text-4xl font-semibold text-neutral-700 hover:text-[#FE320A] focus:outline-none focus:text-[#FE320A] transition-colors z-[2001]">
+            &times;
+        </button>
+        <div class="mobile-menu-content">
+            <span id="mobile-menu-title-projects" class="sr-only">Navigation Menu</span>
+            <a href="https://beinganujchaudhary.web.app/" class="mobile-menu-link">Home</a>
+            <a href="./resume.html" class="mobile-menu-link">Resume</a>
+            <a href="./projects.html" class="mobile-menu-link active">Projects</a> <a href="./achievements.html" class="mobile-menu-link">Achievements</a>
+            <a href="./contact.html" class="mobile-menu-link">Contact</a>
+        </div>
+    </div>
+
+    <main id="main-content" class="relative">
+        <header class="w-full sticky top-0 bg-[#EFEAE3]/80 backdrop-blur-md z-[150] shadow-sm">
+            <nav class="container mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between py-3 md:py-4">
+                <a href="https://beinganujchaudhary.web.app/" aria-label="Home page" class="focus:outline-none">
+                    <div class="logo-ring w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 transition-transform hover:scale-105">
+                        <img src="./logo.png" id="logo-projects" alt="Anuj Chaudhary Logo"
+                             onerror="this.onerror=null; this.src='./logo.png?text=Logo';"
+                             class="logo-image">
+                    </div>
+                </a>
+                <div id="desktop-nav" class="hidden md:flex items-center gap-2 lg:gap-3">
+                    <a href="https://beinganujchaudhary.web.app/" class="nav-link"><h4 class="relative z-10 text-sm lg:text-base">Home</h4></a>
+                    <a href="./resume.html" class="nav-link"><h4 class="relative z-10 text-sm lg:text-base">Resume</h4></a>
+                    <a href="./projects.html" class="nav-link active"><h4 class="relative z-10 text-sm lg:text-base">Projects</h4></a> <a href="./achievements.html" class="nav-link"><h4 class="relative z-10 text-sm lg:text-base">Achievements</h4></a>
+                    <a href="./contact.html" class="nav-link"><h4 class="relative z-10 text-sm lg:text-base">Contact</h4></a>
+                </div>
+                <button id="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu"
+                        class="md:hidden px-3 py-1.5 sm:px-4 sm:py-2 border border-neutral-400 rounded-full text-xs sm:text-sm focus:outline-none hover:bg-black/5 active:bg-black/10 transition-colors z-[151]">
+                    Menu
+                </button>
+            </nav>
+        </header>
+
+        <section id="projects-page-container" class="min-h-[calc(100vh-160px)] w-full bg-[#EFEAE3] py-12 sm:py-16 md:py-24 px-4 sm:px-6 md:px-8">
+            <div class="mb-10 md:mb-16">
+                <h1 id="projects-title-main" class="text-3xl sm:text-4xl md:text-5xl font-medium mb-4 text-center text-neutral-800">
+                    My Projects
+                </h1>
+                <p class="text-center text-neutral-600 text-base sm:text-lg max-w-2xl mx-auto">
+                    A selection of projects demonstrating my skills in data science, machine learning, and cloud technologies. Hover for a preview (desktop). Click to learn more.
+                </p>
+            </div>
+
+            <div id="projects-container" class="max-w-5xl mx-auto">
+                <a href="#"
+                   class="project-item group block border-b border-neutral-900/10 focus-visible:bg-neutral-200/60 transition-all duration-300 ease-in-out relative pl-4 pr-4 md:pl-6 md:pr-6 py-6 sm:py-8 border-l-4 border-transparent hover:border-l-[#FE320A] hover:bg-neutral-200/40 focus-visible:border-l-[#FE320A]"
+                   data-image="https://placehold.co/600x450/E9D5A1/333?text=Titanic+Dataset+EDA"
+                   tabindex="0" role="button" aria-label="View Project: Titanic Dataset EDA & Visualization">
+                    <div class="relative z-10 flex justify-between items-center w-full">
+                        <div>
+                            <h3 class="text-xl sm:text-2xl md:text-3xl font-medium text-neutral-800 group-hover:text-[#FE320A] transition-colors duration-300">Titanic Dataset EDA & Visualization</h3>
+                            <p class="text-sm sm:text-base text-neutral-600 mt-1 leading-relaxed group-hover:text-neutral-700 transition-colors duration-300">
+                                Performed comprehensive Exploratory Data Analysis (EDA), feature engineering, and created visualizations to uncover patterns and insights from the classic Titanic dataset. Leveraged Python, Pandas, Matplotlib, and Seaborn for in-depth analysis of survival factors.
+                            </p>
+                            <p class="text-xs sm:text-sm text-[#FE320A] mt-2 font-medium">Phase 1: Core Data Science</p>
+                        </div>
+                        <span class="text-xl sm:text-2xl text-neutral-400 group-hover:text-[#FE320A] group-hover:translate-x-2 transition-all duration-300 ease-in-out ml-4 flex-shrink-0">&rarr;</span>
+                    </div>
+                </a>
+
+                <a href="#"
+                   class="project-item group block border-b border-neutral-900/10 focus-visible:bg-neutral-200/60 transition-all duration-300 ease-in-out relative pl-4 pr-4 md:pl-6 md:pr-6 py-6 sm:py-8 border-l-4 border-transparent hover:border-l-[#FE320A] hover:bg-neutral-200/40 focus-visible:border-l-[#FE320A]"
+                   data-image="https://placehold.co/600x450/A1E9D0/333?text=House+Price+Prediction"
+                   tabindex="0" role="button" aria-label="View Project: Advanced House Price Prediction">
+                    <div class="relative z-10 flex justify-between items-center w-full">
+                        <div>
+                            <h3 class="text-xl sm:text-2xl md:text-3xl font-medium text-neutral-800 group-hover:text-[#FE320A] transition-colors duration-300">Advanced House Price Prediction</h3>
+                            <p class="text-sm sm:text-base text-neutral-600 mt-1 leading-relaxed group-hover:text-neutral-700 transition-colors duration-300">
+                                Implemented and compared various regression models (Linear, Ridge, Lasso, Polynomial) to predict house prices. Focused on advanced feature engineering techniques and rigorous model evaluation using Scikit-learn to enhance prediction accuracy.
+                            </p>
+                             <p class="text-xs sm:text-sm text-[#FE320A] mt-2 font-medium">Phase 2: Core Machine Learning</p>
+                        </div>
+                        <span class="text-xl sm:text-2xl text-neutral-400 group-hover:text-[#FE320A] group-hover:translate-x-2 transition-all duration-300 ease-in-out ml-4 flex-shrink-0">&rarr;</span>
+                    </div>
+                </a>
+
+                <a href="#"
+                   class="project-item group block border-b border-neutral-900/10 focus-visible:bg-neutral-200/60 transition-all duration-300 ease-in-out relative pl-4 pr-4 md:pl-6 md:pr-6 py-6 sm:py-8 border-l-4 border-transparent hover:border-l-[#FE320A] hover:bg-neutral-200/40 focus-visible:border-l-[#FE320A]"
+                   data-image="https://placehold.co/600x450/A1A9E9/333?text=CNN+Cats+vs+Dogs"
+                   tabindex="0" role="button" aria-label="View Project: CNN Image Classification: Cats vs. Dogs">
+                    <div class="relative z-10 flex justify-between items-center w-full">
+                        <div>
+                            <h3 class="text-xl sm:text-2xl md:text-3xl font-medium text-neutral-800 group-hover:text-[#FE320A] transition-colors duration-300">CNN Image Classification: Cats vs. Dogs</h3>
+                            <p class="text-sm sm:text-base text-neutral-600 mt-1 leading-relaxed group-hover:text-neutral-700 transition-colors duration-300">
+                                Developed a Convolutional Neural Network (CNN) from scratch and implemented transfer learning techniques (e.g., VGG16, ResNet) using TensorFlow and Keras for accurate image classification of cats versus dogs.
+                            </p>
+                            <p class="text-xs sm:text-sm text-[#FE320A] mt-2 font-medium">Phase 3: Deep Learning Fundamentals</p>
+                        </div>
+                        <span class="text-xl sm:text-2xl text-neutral-400 group-hover:text-[#FE320A] group-hover:translate-x-2 transition-all duration-300 ease-in-out ml-4 flex-shrink-0">&rarr;</span>
+                    </div>
+                </a>
+
+                <a href="#"
+                   class="project-item group block border-b border-neutral-900/10 focus-visible:bg-neutral-200/60 transition-all duration-300 ease-in-out relative pl-4 pr-4 md:pl-6 md:pr-6 py-6 sm:py-8 border-l-4 border-transparent hover:border-l-[#FE320A] hover:bg-neutral-200/40 focus-visible:border-l-[#FE320A]"
+                   data-image="https://placehold.co/600x450/E9C2A1/333?text=Deploy+Model+Vertex+AI"
+                   tabindex="0" role="button" aria-label="View Project: Deploy Scikit-learn Model on Vertex AI">
+                    <div class="relative z-10 flex justify-between items-center w-full">
+                        <div>
+                            <h3 class="text-xl sm:text-2xl md:text-3xl font-medium text-neutral-800 group-hover:text-[#FE320A] transition-colors duration-300">Deploy Scikit-learn Model on Vertex AI</h3>
+                            <p class="text-sm sm:text-base text-neutral-600 mt-1 leading-relaxed group-hover:text-neutral-700 transition-colors duration-300">
+                                Packaged a Scikit-learn model (e.g., using a pre-built container or custom Docker image), trained it using Vertex AI Custom Training, and deployed it to a Vertex AI Endpoint for real-time predictions. Explored model serving and testing on Google Cloud Platform.
+                            </p>
+                            <p class="text-xs sm:text-sm text-[#FE320A] mt-2 font-medium">Phase 4: Foundational ML on GCP</p>
+                        </div>
+                        <span class="text-xl sm:text-2xl text-neutral-400 group-hover:text-[#FE320A] group-hover:translate-x-2 transition-all duration-300 ease-in-out ml-4 flex-shrink-0">&rarr;</span>
+                    </div>
+                </a>
+
+                <a href="#"
+                   class="project-item group block border-b border-neutral-900/10 focus-visible:bg-neutral-200/60 transition-all duration-300 ease-in-out relative pl-4 pr-4 md:pl-6 md:pr-6 py-6 sm:py-8 border-l-4 border-transparent hover:border-l-[#FE320A] hover:bg-neutral-200/40 focus-visible:border-l-[#FE320A]"
+                   data-image="https://placehold.co/600x450/A1D0E9/333?text=Batch+ETL+Dataflow"
+                   tabindex="0" role="button" aria-label="View Project: E-commerce Batch ETL Pipeline (Dataflow)">
+                    <div class="relative z-10 flex justify-between items-center w-full">
+                        <div>
+                            <h3 class="text-xl sm:text-2xl md:text-3xl font-medium text-neutral-800 group-hover:text-[#FE320A] transition-colors duration-300">E-commerce Batch ETL Pipeline (Dataflow)</h3>
+                            <p class="text-sm sm:text-base text-neutral-600 mt-1 leading-relaxed group-hover:text-neutral-700 transition-colors duration-300">
+                                Designed and implemented a scalable batch ETL (Extract, Transform, Load) pipeline using Google Cloud Dataflow. The pipeline processes raw e-commerce sales data (CSVs/JSON) from Cloud Storage, performs transformations (cleaning, aggregation, joins with customer data), and loads it into a structured BigQuery data warehouse.
+                            </p>
+                            <p class="text-xs sm:text-sm text-[#FE320A] mt-2 font-medium">Phase 5: Data Engineering on GCP</p>
+                        </div>
+                        <span class="text-xl sm:text-2xl text-neutral-400 group-hover:text-[#FE320A] group-hover:translate-x-2 transition-all duration-300 ease-in-out ml-4 flex-shrink-0">&rarr;</span>
+                    </div>
+                </a>
+
+                <a href="#"
+                   class="project-item group block border-b border-neutral-900/10 focus-visible:bg-neutral-200/60 transition-all duration-300 ease-in-out relative pl-4 pr-4 md:pl-6 md:pr-6 py-6 sm:py-8 border-l-4 border-transparent hover:border-l-[#FE320A] hover:bg-neutral-200/40 focus-visible:border-l-[#FE320A]"
+                   data-image="https://placehold.co/600x450/D5A1E9/333?text=Contextual+RAG+Chatbot"
+                   tabindex="0" role="button" aria-label="View Project: Contextual Chatbot with LLM & RAG">
+                    <div class="relative z-10 flex justify-between items-center w-full">
+                        <div>
+                            <h3 class="text-xl sm:text-2xl md:text-3xl font-medium text-neutral-800 group-hover:text-[#FE320A] transition-colors duration-300">Contextual Chatbot with LLM & RAG</h3>
+                            <p class="text-sm sm:text-base text-neutral-600 mt-1 leading-relaxed group-hover:text-neutral-700 transition-colors duration-300">
+                                Developed a contextual chatbot using Large Language Models (e.g., Vertex AI Gemini), LangChain, and a Vector Database (e.g., Vertex AI Matching Engine). Implemented Retrieval Augmented Generation (RAG) to enable the chatbot to answer questions accurately based on a custom corpus of documents.
+                            </p>
+                             <p class="text-xs sm:text-sm text-[#FE320A] mt-2 font-medium">Phase 6: Generative AI on GCP</p>
+                        </div>
+                        <span class="text-xl sm:text-2xl text-neutral-400 group-hover:text-[#FE320A] group-hover:translate-x-2 transition-all duration-300 ease-in-out ml-4 flex-shrink-0">&rarr;</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+        <footer class="w-full bg-gray-900 text-gray-300 py-8 md:py-12 px-4 sm:px-6 md:px-8 lg:px-16 relative z-10 text-sm" data-scroll-section>
+            <div class="container mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8 mb-6 md:mb-8">
+                    <div class="text-center md:text-left">
+                        <a href="https://beinganujchaudhary.web.app/" class="text-gradient-name text-lg sm:text-lg font-semibold leading-tight space-y-2">Anuj Chaudhary</a>
+                        <p class="text-xs text-gray-400 mt-1">Data Science & ML Enthusiast</p>
+                         <p class="text-xs text-gray-500 mt-2">
+                            Exploring data, building models, creating impact.
+                        </p>
+                    </div>
+                    <nav class="flex flex-wrap justify-center md:justify-end items-center gap-x-4 sm:gap-x-6 gap-y-2" aria-label="Footer navigation">
+                        <a href="mailto:beinganujchaudhary@gmail.com" class="hover:text-orange-400 transition-colors focus:outline-none focus:underline">Email</a>
+                        <a href="tel:+918130105894" class="hover:text-orange-400 transition-colors focus:outline-none focus:underline">Phone</a>
+                        <a href="https://www.linkedin.com/in/beinganujchaudhary/" target="_blank" rel="noopener noreferrer" class="hover:text-orange-400 transition-colors focus:outline-none focus:underline">LinkedIn</a>
+                        <a href="https://github.com/beinganujchaudhary" target="_blank" rel="noopener noreferrer" class="hover:text-orange-400 transition-colors focus:outline-none focus:underline">GitHub</a>
+                    </nav>
+                </div>
+                <div class="border-t border-gray-700 pt-6 md:pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+                    <p class="order-2 sm:order-1 text-center sm:text-left">&copy; <time id="current-year">2024</time> Anuj Chaudhary. All Rights Reserved.</p>
+                    <nav class="order-1 sm:order-2" aria-label="Legal links">
+                        <ul class="flex flex-wrap justify-center sm:justify-end gap-x-3 sm:gap-x-4 gap-y-2">
+                            <li><a href="privacy-policy.html" class="hover:text-orange-400 transition-colors">Privacy Policy</a></li>
+                            <li><a href="terms-of-service.html" class="hover:text-orange-400 transition-colors">Terms of Service</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </footer>
+
+
+    </main>
+
+    <script src="./script.js" defer></script>
+</body>
+</html>

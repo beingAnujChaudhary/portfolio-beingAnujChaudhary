@@ -1,0 +1,311 @@
+/* style.css */
+
+/* Smooth scrolling for in-page anchors (if any) */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom Font Definitions */
+@font-face {
+    font-family: 'neu';
+    src: url('./assets/NeueHaasDisplayMediu.ttf') format('truetype'); /* Corrected path */
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'neu';
+    src: url('./assets/NeueHaasDisplayLight.ttf') format('truetype'); /* Corrected path */
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'neu';
+    src: url('./assets/NeueHaasDisplayRoman.ttf') format('truetype'); /* Corrected path */
+    font-weight: 400;
+    font-display: swap;
+}
+
+/* Base styles */
+body {
+    font-family: 'neu', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    color: #1a1a1a;
+    background-color: #EFEAE3;
+}
+
+:focus-visible {
+    outline: 2px solid #FE320A;
+    outline-offset: 2px;
+}
+
+/* Loader styles */
+#loader {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: #000;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    opacity: 1; visibility: visible;
+    will-change: opacity, visibility;
+}
+#loader h1 {
+    font-size: clamp(2rem, 4vw, 4rem); color: transparent;
+    background: linear-gradient(to right, orange, orangered);
+    -webkit-background-clip: text; background-clip: text;
+    opacity: 0; animation: load 1s linear forwards; margin: 0.5rem 0;
+    will-change: transform, opacity;
+}
+#loader h1:nth-child(1) { animation-delay: 0.5s; }
+#loader h1:nth-child(2) { animation-delay: 1.5s; }
+#loader h1:nth-child(3) { animation-delay: 2.5s; }
+
+@keyframes load {
+    0% { opacity: 0; transform: translateY(20px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-20px); }
+}
+
+/* Navigation link custom styles (for header nav) */
+.nav-link {
+    position: relative; display: inline-block;
+    padding: 0.5rem 1.25rem; border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50px; color: rgba(0, 0, 0, 0.7);
+    transition: color 0.3s ease, background-color 0.3s ease;
+    overflow: hidden; z-index: 1; text-decoration: none;
+}
+.nav-link::after {
+    content: ""; position: absolute;
+    bottom: -100%; left: 0;
+    width: 100%; height: 100%; background-color: #000;
+    border-radius: 50%;
+    transition: all 0.4s ease; z-index: -1;
+    will-change: transform, border-radius;
+}
+.nav-link:hover { color: white; }
+.nav-link:hover::after {
+    bottom: 0;
+    border-radius: 0;
+}
+.nav-link.active {
+    background-color: #000;
+    color: white;
+}
+
+/* === Standalone Logo Image Styles === */
+.logo-image {
+    position: relative; /* For potential future pseudo-elements or positioning contexts */
+    z-index: 2; /* In case it needs to sit above other elements, can be adjusted */
+    display: block; /* Allows margin auto for centering */
+    margin: 0 auto; /* Centers the logo if its parent is a block or full-width container */
+    border-radius: 50%; /* Makes the image container circular */
+    object-fit: contain; /* Ensures the image scales nicely within its bounds */
+    background-color: white; /* Provides a background if the logo image has transparency */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform, box-shadow; /* Corrected from just 'transform' */
+
+    /* Base sizes (mobile-first approach) - increased from original 50px */
+    width: 55px;
+    height: 55px;
+}
+
+.logo-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive adjustments for logo image */
+/* Medium screens (e.g., tablets) - min-width: 640px */
+@media (min-width: 640px) {
+    .logo-image {
+        width: 70px; /* Increased from original 60px */
+        height: 70px;
+    }
+}
+
+/* Large screens (e.g., desktops) - min-width: 768px */
+@media (min-width: 768px) {
+    .logo-image {
+        width: 85px; /* Adjusted from original 90px */
+        height: 85px;
+    }
+}
+
+
+/* Hero shape custom styles (decorative background elements for index.html) */
+#hero-shape { position: absolute; right: 0; top: 65vh; width: 46vw; height: 36vw; z-index: -1; }
+#hero-1, #hero-2, #hero-3 { position: absolute; filter: blur(10px); }
+#hero-1 { background-color: #FE320A; width: 100%; height: 100%; border-top-left-radius: 50%; border-bottom-left-radius: 50%; }
+#hero-2, #hero-3 {
+    background: linear-gradient(#FE320A, #fe3f0a); width: 30vw; height: 30vw;
+    border-radius: 50%; filter: blur(25px);
+    will-change: transform;
+}
+#hero-2 { animation: anime2 5s linear infinite alternate; }
+#hero-3 { animation: anime1 5s linear infinite alternate; }
+@keyframes anime1 { from { transform: translate(55%, -3%); } to { transform: translate(0%, 10%); } }
+@keyframes anime2 { from { transform: translate(5%, -5%); } to { transform: translate(-20%, 30%); } }
+
+/* Marquee custom styles (for index.html) */
+.marquee-container { overflow: hidden; white-space: nowrap; }
+.marquee-content {
+    display: inline-flex; align-items: center;
+    animation: move 20s linear infinite;
+    will-change: transform;
+}
+@keyframes move { from { transform: translateX(0); } to { transform: translateX(-100%); } }
+.marquee-dot {
+    display: inline-block;
+    width: clamp(20px, 3vw, 50px);
+    height: clamp(20px, 3vw, 50px);
+    background-color: #FE320A; border-radius: 50%; margin: 0 1.5vw;
+}
+
+/* Gooey effect custom styles (for index.html) */
+.gooey-effect {
+    position: absolute;
+    width: clamp(200px, 32vw, 400px); height: clamp(200px, 32vw, 400px);
+    background: linear-gradient(to top right, #ff2d03, #ff5c0b);
+    border-radius: 50%; filter: blur(20px);
+    animation: gooey 6s ease-in-out infinite alternate; z-index: -1;
+    will-change: transform, filter;
+}
+@keyframes gooey {
+    from { filter: blur(20px); transform: translate(10%, -10%) skew(0); }
+    to { filter: blur(30px); transform: translate(-10%, 10%) skew(-12deg); }
+}
+
+/* Project item custom styles (for projects.html) */
+.project-item {
+    position: relative;
+}
+
+/* Fixed image preview custom styles for project hover (on projects.html) */
+.fixed-image-preview {
+    position: fixed; left: 50%; top: 20%;
+    width: clamp(280px, 22vw, 420px);
+    height: clamp(220px, 18vw, 340px);
+    border-radius: 0.75rem;
+    background-size: cover; background-position: center;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 999;
+    box-shadow: 0 20px 35px -10px rgba(0,0,0,0.2), 0 10px 15px -8px rgba(0,0,0,0.1);
+    transform: translateX(-50%) scale(0.95);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    will-change: transform, opacity;
+}
+.fixed-image-preview.active {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+}
+
+/* Mobile menu custom styles (used on all pages) */
+.mobile-menu {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    display: flex; flex-direction: column; justify-content: flex-start; align-items: center;
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    z-index: 2000;
+    will-change: opacity;
+    -webkit-tap-highlight-color: transparent; /* Optional: removes tap highlight */
+}
+.mobile-menu.active { opacity: 1; visibility: visible; }
+.mobile-menu-content {
+    width: 100%; max-height: 70vh;
+    background-color: #EFEAE3;
+    border-bottom-left-radius: 1.5rem; border-bottom-right-radius: 1.5rem;
+    padding-top: 5rem; padding-bottom: 2rem;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    overflow-y: auto;
+}
+.mobile-menu-link {
+    font-size: clamp(1.25rem, 4.5vw, 1.75rem);
+    font-weight: 500; color: #1a1a1a; margin: 1rem 0;
+    transition: color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    will-change: transform;
+}
+.mobile-menu-link:hover, .mobile-menu-link:focus, .mobile-menu-link.active {
+    color: #FE320A;
+    transform: scale(1.05);
+}
+#close-menu {
+    transition: transform 0.2s ease, color 0.2s ease;
+    will-change: transform;
+}
+#close-menu:hover, #close-menu:focus {
+    transform: scale(1.1);
+    color: #FE320A;
+}
+
+/* Responsive adjustments for Hero Shapes and project preview (if on relevant pages) */
+@media (max-width: 768px) { /* md breakpoint */
+    #hero-shape {
+        top: 70vh; right: 5%;
+        width: 70vw; height: 55vw;
+    }
+    #hero-2, #hero-3 { width: 45vw; height: 45vw; filter: blur(20px); }
+    #hero-2 { animation: anime2_mobile 5s linear infinite alternate; }
+    #hero-3 { animation: anime1_mobile 5s linear infinite alternate; }
+    @keyframes anime1_mobile { from { transform: translate(50%, -5%); } to { transform: translate(0%, 10%); } }
+    @keyframes anime2_mobile { from { transform: translate(5%, -10%); } to { transform: translate(-10%, 20%); } }
+
+    .fixed-image-preview { display: none !important; }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion) {
+    html {
+        scroll-behavior: auto;
+    }
+    #hero-2, #hero-3, .marquee-content, .gooey-effect, #loader h1,
+    .nav-link::after, .fixed-image-preview, .mobile-menu,
+    .mobile-menu-link, #close-menu, .logo-image { /* .logo-image hover transition is disabled */
+        animation: none !important;
+        transition: none !important;
+        will-change: auto !important;
+    }
+    /* Removed .logo-ring::before specific reduced motion styles as the element is gone */
+}
+
+/* Accessibility class for screen readers only */
+.sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;
+}
+
+/* Gradient text style (used in footer) */
+.text-gradient-name {
+    background: linear-gradient(to right, orange, orangered);
+    -webkit-background-clip: text; -moz-background-clip: text;
+    background-clip: text; color: transparent;
+}
+@supports not (-webkit-background-clip: text) and (not (background-clip: text)) {
+    .text-gradient-name { color: #FFA500; }
+}
+
+/* Styles for placeholder pages (min-height to push footer down) */
+.placeholder-page-container {
+    min-height: calc(100vh - 200px); /* Approximate calculation */
+}
+
+/* Mobile Menu Not Working - Considerations */
+/*
+The CSS provided for `.mobile-menu` and its `.active` state appears to be functionally sound
+for controlling visibility. If the menu option (e.g., the hamburger button or the menu itself)
+is not working on mobile screens, the issue likely stems from factors outside these specific
+CSS rules, such as:
+
+1.  JavaScript: Errors in the script that toggles the `.active` class, or issues with event listeners.
+2.  HTML Structure/CSS of Menu Trigger: The menu button might be obscured or have z-index issues.
+3.  CSS Conflicts: Other CSS rules overriding menu styles.
+4.  Loader Issue: If the page loader isn't hidden correctly, it could overlay the entire page.
+
+Please check browser developer tools for JS errors, inspect the menu trigger button, and verify
+event listeners are correctly attached and firing.
+*/
