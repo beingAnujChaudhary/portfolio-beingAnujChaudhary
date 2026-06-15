@@ -1,4 +1,4 @@
-/* style.css */
+/* css/style.css */
 
 /* Smooth scrolling for in-page anchors (if any) */
 html {
@@ -8,21 +8,21 @@ html {
 /* Custom Font Definitions */
 @font-face {
     font-family: 'neu';
-    src: url('./assets/NeueHaasDisplayMediu.ttf') format('truetype'); /* Corrected path */
+    src: url('../assets/fonts/NeueHaasDisplayMediu.ttf') format('truetype');
     font-weight: 500;
     font-display: swap;
 }
 
 @font-face {
     font-family: 'neu';
-    src: url('./assets/NeueHaasDisplayLight.ttf') format('truetype'); /* Corrected path */
+    src: url('../assets/fonts/NeueHaasDisplayLight.ttf') format('truetype');
     font-weight: 300;
     font-display: swap;
 }
 
 @font-face {
     font-family: 'neu';
-    src: url('./assets/NeueHaasDisplayRoman.ttf') format('truetype'); /* Corrected path */
+    src: url('../assets/fonts/NeueHaasDisplayRoman.ttf') format('truetype');
     font-weight: 400;
     font-display: swap;
 }
@@ -67,7 +67,7 @@ body {
     100% { opacity: 0; transform: translateY(-20px); }
 }
 
-/* Navigation link custom styles (for header nav) */
+/* Navigation link styles */
 .nav-link {
     position: relative; display: inline-block;
     padding: 0.5rem 1.25rem; border: 1px solid rgba(0, 0, 0, 0.1);
@@ -93,19 +93,17 @@ body {
     color: white;
 }
 
-/* === Standalone Logo Image Styles === */
+/* Logo image styles */
 .logo-image {
-    position: relative; /* For potential future pseudo-elements or positioning contexts */
-    z-index: 2; /* In case it needs to sit above other elements, can be adjusted */
-    display: block; /* Allows margin auto for centering */
-    margin: 0 auto; /* Centers the logo if its parent is a block or full-width container */
-    border-radius: 50%; /* Makes the image container circular */
-    object-fit: contain; /* Ensures the image scales nicely within its bounds */
-    background-color: white; /* Provides a background if the logo image has transparency */
+    position: relative;
+    z-index: 2;
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+    object-fit: contain;
+    background-color: white;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    will-change: transform, box-shadow; /* Corrected from just 'transform' */
-
-    /* Base sizes (mobile-first approach) - increased from original 50px */
+    will-change: transform, box-shadow;
     width: 55px;
     height: 55px;
 }
@@ -115,25 +113,21 @@ body {
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
-/* Responsive adjustments for logo image */
-/* Medium screens (e.g., tablets) - min-width: 640px */
 @media (min-width: 640px) {
     .logo-image {
-        width: 70px; /* Increased from original 60px */
+        width: 70px;
         height: 70px;
     }
 }
 
-/* Large screens (e.g., desktops) - min-width: 768px */
 @media (min-width: 768px) {
     .logo-image {
-        width: 85px; /* Adjusted from original 90px */
+        width: 85px;
         height: 85px;
     }
 }
 
-
-/* Hero shape custom styles (decorative background elements for index.html) */
+/* Hero shape styles (index.html) */
 #hero-shape { position: absolute; right: 0; top: 65vh; width: 46vw; height: 36vw; z-index: -1; }
 #hero-1, #hero-2, #hero-3 { position: absolute; filter: blur(10px); }
 #hero-1 { background-color: #FE320A; width: 100%; height: 100%; border-top-left-radius: 50%; border-bottom-left-radius: 50%; }
@@ -147,7 +141,7 @@ body {
 @keyframes anime1 { from { transform: translate(55%, -3%); } to { transform: translate(0%, 10%); } }
 @keyframes anime2 { from { transform: translate(5%, -5%); } to { transform: translate(-20%, 30%); } }
 
-/* Marquee custom styles (for index.html) */
+/* Marquee styles (index.html) */
 .marquee-container { overflow: hidden; white-space: nowrap; }
 .marquee-content {
     display: inline-flex; align-items: center;
@@ -162,7 +156,7 @@ body {
     background-color: #FE320A; border-radius: 50%; margin: 0 1.5vw;
 }
 
-/* Gooey effect custom styles (for index.html) */
+/* Gooey effect (index.html) */
 .gooey-effect {
     position: absolute;
     width: clamp(200px, 32vw, 400px); height: clamp(200px, 32vw, 400px);
@@ -176,12 +170,12 @@ body {
     to { filter: blur(30px); transform: translate(-10%, 10%) skew(-12deg); }
 }
 
-/* Project item custom styles (for projects.html) */
+/* Project item styles (projects.html) */
 .project-item {
     position: relative;
 }
 
-/* Fixed image preview custom styles for project hover (on projects.html) */
+/* Fixed image preview on project hover (projects.html, desktop only) */
 .fixed-image-preview {
     position: fixed; left: 50%; top: 20%;
     width: clamp(280px, 22vw, 420px);
@@ -201,7 +195,7 @@ body {
     transform: translateX(-50%) scale(1);
 }
 
-/* Mobile menu custom styles (used on all pages) */
+/* Mobile menu styles */
 .mobile-menu {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background-color: rgba(0,0,0,0.9);
@@ -210,7 +204,7 @@ body {
     transition: opacity 0.4s ease, visibility 0.4s ease;
     z-index: 2000;
     will-change: opacity;
-    -webkit-tap-highlight-color: transparent; /* Optional: removes tap highlight */
+    -webkit-tap-highlight-color: transparent;
 }
 .mobile-menu.active { opacity: 1; visibility: visible; }
 .mobile-menu-content {
@@ -243,8 +237,8 @@ body {
     color: #FE320A;
 }
 
-/* Responsive adjustments for Hero Shapes and project preview (if on relevant pages) */
-@media (max-width: 768px) { /* md breakpoint */
+/* Responsive adjustments for hero shapes and project preview */
+@media (max-width: 768px) {
     #hero-shape {
         top: 70vh; right: 5%;
         width: 70vw; height: 55vw;
@@ -265,47 +259,30 @@ body {
     }
     #hero-2, #hero-3, .marquee-content, .gooey-effect, #loader h1,
     .nav-link::after, .fixed-image-preview, .mobile-menu,
-    .mobile-menu-link, #close-menu, .logo-image { /* .logo-image hover transition is disabled */
+    .mobile-menu-link, #close-menu, .logo-image {
         animation: none !important;
         transition: none !important;
         will-change: auto !important;
     }
-    /* Removed .logo-ring::before specific reduced motion styles as the element is gone */
 }
 
-/* Accessibility class for screen readers only */
+/* Accessibility: screen-reader only */
 .sr-only {
     position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
     overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;
 }
 
-/* Gradient text style (used in footer) */
+/* Gradient text (footer name) */
 .text-gradient-name {
     background: linear-gradient(to right, orange, orangered);
     -webkit-background-clip: text; -moz-background-clip: text;
     background-clip: text; color: transparent;
 }
-@supports not (-webkit-background-clip: text) and (not (background-clip: text)) {
+@supports not ((-webkit-background-clip: text) or (background-clip: text)) {
     .text-gradient-name { color: #FFA500; }
 }
 
-/* Styles for placeholder pages (min-height to push footer down) */
+/* Placeholder pages (min-height to keep footer down) */
 .placeholder-page-container {
-    min-height: calc(100vh - 200px); /* Approximate calculation */
+    min-height: calc(100vh - 200px);
 }
-
-/* Mobile Menu Not Working - Considerations */
-/*
-The CSS provided for `.mobile-menu` and its `.active` state appears to be functionally sound
-for controlling visibility. If the menu option (e.g., the hamburger button or the menu itself)
-is not working on mobile screens, the issue likely stems from factors outside these specific
-CSS rules, such as:
-
-1.  JavaScript: Errors in the script that toggles the `.active` class, or issues with event listeners.
-2.  HTML Structure/CSS of Menu Trigger: The menu button might be obscured or have z-index issues.
-3.  CSS Conflicts: Other CSS rules overriding menu styles.
-4.  Loader Issue: If the page loader isn't hidden correctly, it could overlay the entire page.
-
-Please check browser developer tools for JS errors, inspect the menu trigger button, and verify
-event listeners are correctly attached and firing.
-*/

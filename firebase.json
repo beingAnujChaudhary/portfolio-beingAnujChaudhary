@@ -1,0 +1,30 @@
+{
+  "hosting": {
+    "site": "beinganujchaudhary",
+    "public": ".",
+    "cleanUrls": true,
+    "trailingSlash": false,
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/projects/aetherRead/app/reader/**",
+        "destination": "/projects/aetherRead/app/reader/_placeholder/index.html"
+      }
+    ],
+    "headers": [
+      {
+        "source": "/projects/aetherRead/_next/static/**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=31536000, immutable"
+          }
+        ]
+      }
+    ]
+  }
+}
