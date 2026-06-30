@@ -15,6 +15,90 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <link rel="stylesheet" href="./css/style.css">
+
+    <style>
+        /* Premium profile ring animation */
+        @keyframes spin-ring {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+        .profile-ring-wrapper {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+        }
+        .profile-ring-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            background: conic-gradient(
+                from 0deg,
+                #FE320A 0%,
+                #ff7b54 20%,
+                #ffd6c8 40%,
+                #c8c8c8 55%,
+                #1a1a1a 70%,
+                #FE320A 100%
+            );
+            animation: spin-ring 6s linear infinite;
+            z-index: 0;
+        }
+        .profile-ring-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            box-shadow: 0 0 32px 6px rgba(254, 50, 10, 0.18), 0 0 0 4px #fff;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .profile-ring-wrapper img {
+            position: relative;
+            z-index: 2;
+            border-radius: 50%;
+            width: calc(100% - 12px);
+            height: calc(100% - 12px);
+            object-fit: cover;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.12);
+            background: #fff;
+        }
+
+        /* Animated red flame glow behind profile photo */
+        .profile-photo-outer {
+            position: relative;
+            width: 100%;
+            overflow: visible;
+        }
+        .profile-flame-blob {
+            position: absolute;
+            width: 115%;
+            height: 115%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            background: radial-gradient(ellipse at 45% 55%, #FE320A 0%, #ff5e1a 35%, transparent 68%);
+            filter: blur(22px);
+            opacity: 0.70;
+            z-index: 0;
+            animation: profile-flame-pulse 5s ease-in-out infinite alternate;
+            pointer-events: none;
+            will-change: transform, opacity;
+        }
+        @keyframes profile-flame-pulse {
+            0%   { transform: translate(-50%, -50%) scale(1)    rotate(0deg);   opacity: 0.60; }
+            33%  { transform: translate(-50%, -50%) scale(1.06) rotate(3deg);   opacity: 0.75; }
+            66%  { transform: translate(-50%, -50%) scale(0.96) rotate(-2deg);  opacity: 0.62; }
+            100% { transform: translate(-50%, -50%) scale(1.04) rotate(1deg);   opacity: 0.70; }
+        }
+        @media (prefers-reduced-motion) {
+            .profile-flame-blob { animation: none !important; }
+        }
+    </style>
 </head>
 
 <body class="bg-[#EFEAE3] overflow-x-hidden">
@@ -133,13 +217,19 @@
                         I believe the intersection of rigorous data science and boundless creativity is where true innovation happens. By building intelligent models that learn from the past, we can architect a future that once seemed completely impossible. Let's build that future together.
                     </p>
                 </div>
-                <div class="md:w-2/5 lg:w-1/4 mt-8 md:mt-0">
-                    <img
-                        src="./assets/images/favicon_circular.png"
-                        alt="Anuj Chaudhary"
-                        class="w-full rounded-full shadow-lg aspect-square object-cover"
-                        loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/600x600/EFEAE3/1a1a1a?text=Image+Not+Found';">
-                    <p class="font-light text-sm md:text-base mt-4 md:mt-8">
+                <div class="md:w-2/5 lg:w-1/4 mt-8 md:mt-0" style="overflow:visible;">
+                    <!-- Profile photo with animated red flame blob behind it -->
+                    <div class="profile-photo-outer">
+                        <div class="profile-flame-blob" aria-hidden="true"></div>
+                        <div class="profile-ring-wrapper" style="position:relative;z-index:1;">
+                            <img
+                                src="./assets/images/favicon_circular.png"
+                                alt="Anuj Chaudhary"
+                                loading="lazy"
+                                onerror="this.onerror=null; this.src='https://placehold.co/600x600/EFEAE3/1a1a1a?text=Image+Not+Found';">
+                        </div>
+                    </div>
+                    <p class="font-light text-sm md:text-base mt-8 md:mt-12">
                         I'm passionate about creating innovative solutions through code. My focus is on building efficient, user-friendly applications that solve real-world problems.
                     </p>
                 </div>

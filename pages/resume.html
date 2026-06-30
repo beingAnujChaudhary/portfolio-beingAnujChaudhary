@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="preload" href="../assets/fonts/NeueHaasDisplayMediu.ttf" as="font" type="font/ttf" crossorigin>
     <link rel="preload" href="../assets/fonts/NeueHaasDisplayLight.ttf" as="font" type="font/ttf" crossorigin>
-    <link rel="preload" href="../assets/fonts/NeueHaasDisplayRoman.ttf" as="font" type="font/ttf" crossorigin> </head>
+    <link rel="preload" href="../assets/fonts/NeueHaasDisplayRoman.ttf" as="font" type="font/ttf" crossorigin>
+</head>
 <body class="bg-[#EFEAE3] overflow-x-hidden">
     <div id="loader"><h1>Loading</h1><h1>My Profile</h1><h1>Resume</h1></div>
 
@@ -106,72 +107,202 @@
                         <h2 id="resume-skills" class="text-2xl sm:text-3xl font-semibold text-[#FE320A] mb-6 border-b-2 border-[#FE320A]/50 pb-3">Technical Skills</h2>
                         <div class="mb-5">
                             <h4 class="font-semibold mb-3 text-neutral-800 text-lg">Programming Languages:</h4>
-                            <div class="flex flex-wrap gap-2">
-                                <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" class="shadow-sm hover:scale-105 transition-transform duration-200 h-7"/>
-                                <img src="https://img.shields.io/badge/SQL-00758F?style=for-the-badge&logo=sql&logoColor=white" alt="SQL" class="shadow-sm hover:scale-105 transition-transform duration-200 h-7"/>
+                            <div class="flex flex-wrap gap-3">
+                                <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200/80 rounded-xl text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" class="w-5 h-5 group-hover:scale-110 transition-transform duration-300" alt="Python" onerror="this.style.display='none'" />
+                                    Python
+                                </a>
+                                <a href="https://en.wikipedia.org/wiki/SQL" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200/80 rounded-xl text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" class="w-5 h-5 group-hover:scale-110 transition-transform duration-300" alt="SQL" onerror="this.style.display='none'" />
+                                    SQL
+                                </a>
                             </div>
                         </div>
                         <div class="mb-5">
-                            <h4 class="font-semibold mb-3 text-neutral-800 text-lg">Data Science & Visualization:</h4>
-                            <div class="flex flex-wrap gap-2">
-                                <img src="https://img.shields.io/badge/pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" alt="Pandas" class="shadow-sm hover:scale-105 transition-transform duration-200 h-7"/>
-                                <img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white" alt="NumPy" class="shadow-sm hover:scale-105 transition-transform duration-200 h-7"/>
-                                <img src="https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white" alt="Scikit-learn" class="shadow-sm hover:scale-105 transition-transform duration-200 h-7"/>
-                                <img src="https://img.shields.io/badge/Matplotlib-11557c?style=for-the-badge&logo=Matplotlib&logoColor=white" alt="Matplotlib" class="shadow-sm hover:scale-105 transition-transform duration-200 h-7"/>
-                                <img src="https://img.shields.io/badge/Seaborn-1f77b4?style=for-the-badge&logo=seaborn&logoColor=white" alt="Seaborn" class="shadow-sm hover:scale-105 transition-transform duration-200 h-7"/>
-                                <img src="https://img.shields.io/badge/Plotly-3F4F75?style=for-the-badge&logo=plotly&logoColor=white" alt="Plotly" class="shadow-sm hover:scale-105 transition-transform duration-200 h-7"/>
-                                <img src="https://img.shields.io/badge/NLTK-30A9E0?style=for-the-badge&logo=nltk&logoColor=white" alt="NLTK" class="shadow-sm hover:scale-105 transition-transform duration-200 h-7"/>
+                            <h4 class="font-semibold mb-3 text-neutral-800 text-lg">Data Science &amp; Visualization:</h4>
+                            <div class="flex flex-wrap gap-3">
+                                <a href="https://pandas.pydata.org/" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200/80 rounded-xl text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" class="w-5 h-5 group-hover:scale-110 transition-transform duration-300" alt="Pandas" onerror="this.style.display='none'" />
+                                    Pandas
+                                </a>
+                                <a href="https://numpy.org/" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200/80 rounded-xl text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" class="w-5 h-5 group-hover:scale-110 transition-transform duration-300" alt="NumPy" onerror="this.style.display='none'" />
+                                    NumPy
+                                </a>
+                                <a href="https://scikit-learn.org/" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200/80 rounded-xl text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" class="w-5 h-5 group-hover:scale-110 transition-transform duration-300" alt="Scikit-learn" onerror="this.style.display='none'" />
+                                    Scikit-learn
+                                </a>
+                                <a href="https://matplotlib.org/" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200/80 rounded-xl text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matplotlib/matplotlib-original.svg" class="w-5 h-5 group-hover:scale-110 transition-transform duration-300" alt="Matplotlib" onerror="this.style.display='none'" />
+                                    Matplotlib
+                                </a>
+                                <a href="https://seaborn.pydata.org/" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200/80 rounded-xl text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+                                    <img src="https://seaborn.pydata.org/_images/logo-mark-lightbg.svg" class="w-5 h-5 group-hover:scale-110 transition-transform duration-300 flex-shrink-0" alt="Seaborn" onerror="this.style.display='none'" />
+                                    Seaborn
+                                </a>
+                                <a href="https://plotly.com/" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200/80 rounded-xl text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+                                    <img src="https://cdn.simpleicons.org/plotly/3F4F75" class="w-5 h-5 group-hover:scale-110 transition-transform duration-300" alt="Plotly" onerror="this.style.display='none'" />
+                                    Plotly
+                                </a>
+                                <a href="https://www.nltk.org/" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200/80 rounded-xl text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+                                    <svg class="w-5 h-5 group-hover:scale-110 transition-transform duration-300 flex-shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="4" fill="#1A4D8C"/><text x="3" y="17" font-family="serif" font-size="13" font-weight="bold" fill="white">NL</text></svg>
+                                    NLTK
+                                </a>
                             </div>
                         </div>
                         <div class="mb-5">
-                            <h4 class="font-semibold mb-3 text-neutral-800 text-lg">Deep Learning & AI Frameworks:</h4>
-                            <div class="flex flex-wrap gap-2">
-                                <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" alt="TensorFlow" class="shadow-sm hover:scale-105 transition-transform duration-200 h-7"/>
-                                <img src="https://img.shields.io/badge/Keras-D00000?style=for-the-badge&logo=keras&logoColor=white" alt="Keras" class="shadow-sm hover:scale-105 transition-transform duration-200 h-7"/>
-                                <img src="https://img.shields.io/badge/Hugging%20Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black" alt="Hugging Face Transformers" class="shadow-sm hover:scale-105 transition-transform duration-200 h-7"/>
-                                <img src="https://img.shields.io/badge/LangChain-4A90E2?style=for-the-badge&logo=langchain&logoColor=white" alt="LangChain" class="shadow-sm hover:scale-105 transition-transform duration-200 h-7"/>
+                            <h4 class="font-semibold mb-3 text-neutral-800 text-lg">Deep Learning &amp; AI Frameworks:</h4>
+                            <div class="flex flex-wrap gap-3">
+                                <a href="https://www.tensorflow.org/" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200/80 rounded-xl text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" class="w-5 h-5 group-hover:scale-110 transition-transform duration-300" alt="TensorFlow" onerror="this.style.display='none'" />
+                                    TensorFlow
+                                </a>
+                                <a href="https://keras.io/" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200/80 rounded-xl text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/keras/keras-original.svg" class="w-5 h-5 group-hover:scale-110 transition-transform duration-300" alt="Keras" onerror="this.style.display='none'" />
+                                    Keras
+                                </a>
+                                <a href="https://huggingface.co/" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200/80 rounded-xl text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+                                    <img src="https://cdn.simpleicons.org/huggingface/FFD21E" class="w-5 h-5 group-hover:scale-110 transition-transform duration-300" alt="Hugging Face" onerror="this.style.display='none'" />
+                                    Hugging Face
+                                </a>
+                                <a href="https://www.langchain.com/" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200/80 rounded-xl text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+                                    <svg class="w-5 h-5 group-hover:scale-110 transition-transform duration-300 flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="24" height="24" rx="4" fill="#1C3C3C"/>
+                                        <path d="M12 4 L8 10 L12 8 L16 10 Z" fill="#22C55E"/>
+                                        <path d="M8 10 L4 16 L8 14 L12 16 L16 14 L20 16 L16 10 L12 8 Z" fill="#4ADE80"/>
+                                        <path d="M4 16 L8 20 L12 18 L16 20 L20 16 L16 14 L12 16 L8 14 Z" fill="#86EFAC"/>
+                                    </svg>
+                                    LangChain
+                                </a>
                             </div>
                         </div>
                         <div class="mb-5">
-                            <h4 class="font-semibold mb-3 text-neutral-800 text-lg">Google Cloud Platform (GCP):</h4>
-                            <div class="flex flex-wrap gap-2">
-                                <img src="https://img.shields.io/badge/Google%20Cloud-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white" alt="Google Cloud Platform" class="shadow-sm hover:scale-105 transition-transform duration-200 h-7"/>
-                                <img src="https://img.shields.io/badge/Vertex%20AI-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white&labelColor=5A5A5A" alt="Vertex AI" class="shadow-sm hover:scale-105 transition-transform duration-200 h-7"/>
-                                <img src="https://img.shields.io/badge/Google%20BigQuery-669DF6?style=for-the-badge&logo=google-bigquery&logoColor=white" alt="BigQuery" class="shadow-sm hover:scale-105 transition-transform duration-200 h-7"/>
-                                <img src="https://img.shields.io/badge/Cloud%20Storage-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white&labelColor=5A5A5A" alt="Cloud Storage" class="shadow-sm hover:scale-105 transition-transform duration-200 h-7"/>
-                                <img src="https://img.shields.io/badge/Dataflow-F7B003?style=for-the-badge&logo=googlecloud&logoColor=white&labelColor=5A5A5A" alt="Dataflow" class="shadow-sm hover:scale-105 transition-transform duration-200 h-7"/>
-                                <img src="https://img.shields.io/badge/Pub%2FSub-F8981D?style=for-the-badge&logo=googlecloud&logoColor=white&labelColor=5A5A5A" alt="Pub/Sub" class="shadow-sm hover:scale-105 transition-transform duration-200 h-7"/>
-                                <img src="https://img.shields.io/badge/Compute%20Engine-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white&labelColor=5A5A5A" alt="Compute Engine" class="shadow-sm hover:scale-105 transition-transform duration-200 h-7"/>
-                                <img src="https://img.shields.io/badge/gcloud%20CLI-007BFF?style=for-the-badge&logo=googlecloud&logoColor=white" alt="gcloud CLI" class="shadow-sm hover:scale-105 transition-transform duration-200 h-7"/>
+                            <h4 class="font-semibold mb-3 text-neutral-800 text-lg">Cloud Platforms:</h4>
+                            <div class="flex flex-wrap gap-3">
+                                <a href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200/80 rounded-xl text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" class="w-7 h-5 object-contain group-hover:scale-110 transition-transform duration-300" alt="AWS" onerror="this.style.display='none'" />
+                                    AWS
+                                </a>
+                                <a href="https://cloud.google.com/" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200/80 rounded-xl text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" class="w-5 h-5 group-hover:scale-110 transition-transform duration-300" alt="Google Cloud" onerror="this.style.display='none'" />
+                                    Google Cloud
+                                </a>
+                                <a href="https://cloud.google.com/vertex-ai" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200/80 rounded-xl text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" class="w-5 h-5 group-hover:scale-110 transition-transform duration-300" alt="Vertex AI" onerror="this.style.display='none'" />
+                                    Vertex AI
+                                </a>
+                                <a href="https://cloud.google.com/bigquery" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200/80 rounded-xl text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" class="w-5 h-5 group-hover:scale-110 transition-transform duration-300" alt="Google BigQuery" onerror="this.style.display='none'" />
+                                    Google BigQuery
+                                </a>
+                                <a href="https://cloud.google.com/storage" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200/80 rounded-xl text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" class="w-5 h-5 group-hover:scale-110 transition-transform duration-300" alt="Cloud Storage" onerror="this.style.display='none'" />
+                                    Cloud Storage
+                                </a>
+                                <a href="https://cloud.google.com/dataflow" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200/80 rounded-xl text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" class="w-5 h-5 group-hover:scale-110 transition-transform duration-300" alt="Dataflow" onerror="this.style.display='none'" />
+                                    Dataflow
+                                </a>
+                                <a href="https://cloud.google.com/pubsub" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200/80 rounded-xl text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" class="w-5 h-5 group-hover:scale-110 transition-transform duration-300" alt="Pub/Sub" onerror="this.style.display='none'" />
+                                    Pub/Sub
+                                </a>
+                                <a href="https://cloud.google.com/compute" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200/80 rounded-xl text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" class="w-5 h-5 group-hover:scale-110 transition-transform duration-300" alt="Compute Engine" onerror="this.style.display='none'" />
+                                    Compute Engine
+                                </a>
+                                <a href="https://cloud.google.com/sdk/gcloud" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200/80 rounded-xl text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" class="w-5 h-5 group-hover:scale-110 transition-transform duration-300" alt="gcloud CLI" onerror="this.style.display='none'" />
+                                    gcloud CLI
+                                </a>
                             </div>
                         </div>
                         <div class="mb-5">
                             <h4 class="font-semibold mb-3 text-neutral-800 text-lg">Data Engineering:</h4>
-                             <div class="flex flex-wrap gap-2">
-                                <img src="https://img.shields.io/badge/Apache%20Airflow-017CEE?style=for-the-badge&logo=apacheairflow&logoColor=white" alt="Apache Airflow (Cloud Composer)" class="shadow-sm hover:scale-105 transition-transform duration-200 h-7"/>
+                             <div class="flex flex-wrap gap-3">
+                                <a href="https://airflow.apache.org/" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200/80 rounded-xl text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apacheairflow/apacheairflow-original.svg" class="w-5 h-5 group-hover:scale-110 transition-transform duration-300" alt="Apache Airflow" onerror="this.style.display='none'" />
+                                    Apache Airflow
+                                </a>
                             </div>
                         </div>
                         <div class="mb-5">
-                            <h4 class="font-semibold mb-3 text-neutral-800 text-lg">MLOps & Deployment:</h4>
-                            <div class="flex flex-wrap gap-2">
-                                <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" class="shadow-sm hover:scale-105 transition-transform duration-200 h-7"/>
-                                <img src="https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white" alt="Kubernetes" class="shadow-sm hover:scale-105 transition-transform duration-200 h-7"/>
-                                <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git" class="shadow-sm hover:scale-105 transition-transform duration-200 h-7"/>
-                                <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" class="shadow-sm hover:scale-105 transition-transform duration-200 h-7"/>
-                                <img src="https://img.shields.io/badge/TFX-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white&labelColor=5A5A5A" alt="TensorFlow Extended (TFX)" class="shadow-sm hover:scale-105 transition-transform duration-200 h-7"/>
-                                <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask" class="shadow-sm hover:scale-105 transition-transform duration-200 h-7"/>
-                                <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" class="shadow-sm hover:scale-105 transition-transform duration-200 h-7"/>
+                            <h4 class="font-semibold mb-3 text-neutral-800 text-lg">MLOps &amp; Deployment:</h4>
+                            <div class="flex flex-wrap gap-3">
+                                <a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200/80 rounded-xl text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" class="w-5 h-5 group-hover:scale-110 transition-transform duration-300" alt="Docker" onerror="this.style.display='none'" />
+                                    Docker
+                                </a>
+                                <a href="https://kubernetes.io/" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200/80 rounded-xl text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-plain.svg" class="w-5 h-5 group-hover:scale-110 transition-transform duration-300" alt="Kubernetes" onerror="this.style.display='none'" />
+                                    Kubernetes
+                                </a>
+                                <a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200/80 rounded-xl text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" class="w-5 h-5 group-hover:scale-110 transition-transform duration-300" alt="Git" onerror="this.style.display='none'" />
+                                    Git
+                                </a>
+                                <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200/80 rounded-xl text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" class="w-5 h-5 group-hover:scale-110 transition-transform duration-300" alt="GitHub" onerror="this.style.display='none'" />
+                                    GitHub
+                                </a>
+                                <a href="https://www.tensorflow.org/tfx" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200/80 rounded-xl text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" class="w-5 h-5 group-hover:scale-110 transition-transform duration-300" alt="TFX" onerror="this.style.display='none'" />
+                                    TFX
+                                </a>
+                                <a href="https://fastapi.tiangolo.com/" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200/80 rounded-xl text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg" class="w-5 h-5 group-hover:scale-110 transition-transform duration-300" alt="FastAPI" onerror="this.style.display='none'" />
+                                    FastAPI
+                                </a>
                             </div>
                         </div>
                         <div class="mb-5">
-                            <h4 class="font-semibold mb-3 text-neutral-800 text-lg">Development & BI Tools:</h4>
-                            <div class="flex flex-wrap gap-2">
-                                <img src="https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=Jupyter&logoColor=white" alt="Jupyter Notebooks" class="shadow-sm hover:scale-105 transition-transform duration-200 h-7"/>
-                                <img src="https://img.shields.io/badge/IBM%20Watson%20Studio-0062FF?style=for-the-badge&logo=ibm&logoColor=white" alt="IBM Watson Studio" class="shadow-sm hover:scale-105 transition-transform duration-200 h-7"/>
-                                <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Streamlit" class="shadow-sm hover:scale-105 transition-transform duration-200 h-7"/>
-                                <img src="https://img.shields.io/badge/Microsoft%20Excel-217346?style=for-the-badge&logo=microsoftexcel&logoColor=white" alt="Microsoft Excel" class="shadow-sm hover:scale-105 transition-transform duration-200 h-7"/>
-                                <img src="https://img.shields.io/badge/Microsoft%20Power%20BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black" alt="Power BI" class="shadow-sm hover:scale-105 transition-transform duration-200 h-7"/>
-                                <img src="https://img.shields.io/badge/Google%20Workspace-4285F4?style=for-the-badge&logo=google&logoColor=white" alt="Google Workspace" class="shadow-sm hover:scale-105 transition-transform duration-200 h-7"/>
+                            <h4 class="font-semibold mb-3 text-neutral-800 text-lg">Development &amp; BI Tools:</h4>
+                            <div class="flex flex-wrap gap-3">
+                                <a href="https://jupyter.org/" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200/80 rounded-xl text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original-wordmark.svg" class="w-5 h-5 group-hover:scale-110 transition-transform duration-300" alt="Jupyter Notebooks" onerror="this.style.display='none'" />
+                                    Jupyter Notebooks
+                                </a>
+                                <a href="https://streamlit.io/" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200/80 rounded-xl text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+                                    <img src="https://cdn.simpleicons.org/streamlit/FF4B4B" class="w-5 h-5 group-hover:scale-110 transition-transform duration-300" alt="Streamlit" onerror="this.style.display='none'" />
+                                    Streamlit
+                                </a>
+                                <a href="https://www.microsoft.com/en-us/microsoft-365/excel" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200/80 rounded-xl text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+                                    <!-- Microsoft Excel icon -->
+                                    <svg class="w-5 h-5 group-hover:scale-110 transition-transform duration-300 flex-shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="24" height="24" rx="3" fill="#217346"/>
+                                        <path d="M14 4h6v16h-6V4z" fill="#185C37"/>
+                                        <path d="M14 4h6v2h-6V4zm0 4h6v2h-6V8zm0 4h6v2h-6v-2zm0 4h6v2h-6v-2z" fill="#21A366" opacity="0.5"/>
+                                        <path d="M4 4l8 8-8 8" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
+                                        <path d="M12 4l-8 8 8 8" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
+                                    </svg>
+                                    Microsoft Excel
+                                </a>
+                                <a href="https://powerbi.microsoft.com/" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200/80 rounded-xl text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+                                    <!-- Power BI icon -->
+                                    <svg class="w-5 h-5 group-hover:scale-110 transition-transform duration-300 flex-shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="24" height="24" rx="3" fill="#F2C811"/>
+                                        <rect x="4" y="14" width="3" height="6" rx="1" fill="#1a1a1a"/>
+                                        <rect x="8.5" y="10" width="3" height="10" rx="1" fill="#1a1a1a"/>
+                                        <rect x="13" y="6" width="3" height="14" rx="1" fill="#1a1a1a"/>
+                                        <rect x="17.5" y="4" width="3" height="16" rx="1" fill="#1a1a1a" opacity="0.5"/>
+                                    </svg>
+                                    Power BI
+                                </a>
+                                <a href="https://www.office.com/" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200/80 rounded-xl text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+                                    <!-- Microsoft Office icon -->
+                                    <svg class="w-5 h-5 group-hover:scale-110 transition-transform duration-300 flex-shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="24" height="24" rx="3" fill="#D83B01"/>
+                                        <path d="M5 5 L13 3 L13 21 L5 19 Z" fill="white" opacity="0.9"/>
+                                        <path d="M13 6 L19 7 L19 17 L13 18 Z" fill="white" opacity="0.6"/>
+                                        <path d="M7.5 9 Q12 9 12 12 Q12 15 7.5 15 Q3 15 3 12 Q3 9 7.5 9Z" fill="#D83B01"/>
+                                    </svg>
+                                    Microsoft Office
+                                </a>
+                                <a href="https://workspace.google.com/" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200/80 rounded-xl text-sm font-medium text-gray-700 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:bg-gray-50 transition-all duration-300 cursor-pointer">
+                                    <img src="https://cdn.simpleicons.org/google/4285F4" class="w-4 h-4 group-hover:scale-110 transition-transform duration-300" alt="Google Workspace" onerror="this.style.display='none'" />
+                                    Google Workspace
+                                </a>
                             </div>
                         </div>
                     </section>
