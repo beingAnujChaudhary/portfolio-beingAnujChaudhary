@@ -17,145 +17,196 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./css/style.css">
     <style>
-        .prose h2 { color: #FE320A; font-size: 1.15rem; font-weight: 600; margin-bottom: 0.75rem; }
-        .prose p, .prose li { color: #9ca3af; line-height: 1.75; }
-        .prose ul { list-style: disc; padding-left: 1.5rem; }
-        .prose ol { list-style: decimal; padding-left: 1.5rem; }
-        .prose li { margin-bottom: 0.4rem; }
-        .prose a { color: #FE320A; text-decoration: underline; }
-        .prose a:hover { color: #ff7b54; }
-        .prose strong { color: #e5e7eb; }
+        /* Section heading hover animation — same as project titles */
+        .section-heading {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            color: #1a1a1a;
+            line-height: 1.2;
+            cursor: default;
+            transition: color 0.25s ease;
+            display: inline-block;
+        }
+        .section-heading:hover { color: #FE320A; }
+
+        /* Badge tag */
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            background: #1a1a1a;
+            color: #fff;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.75rem;
+            border-radius: 999px;
+        }
+
+        .prose-body p,
+        .prose-body li {
+            color: #3d3d3d;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+        .prose-body ul { list-style: disc; padding-left: 1.5rem; }
+        .prose-body li { margin-bottom: 0.4rem; }
+        .prose-body strong { color: #1a1a1a; }
+        .prose-body a { color: #FE320A; text-decoration: underline; }
+        .prose-body a:hover { color: #c0270a; }
+
+        /* Section card */
+        .policy-card {
+            background: #fff;
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 1.25rem;
+            padding: 2rem 2rem;
+            transition: box-shadow 0.25s ease, transform 0.25s ease;
+        }
+        .policy-card:hover {
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
+        }
+
+        .contact-card {
+            background: #1a1a1a;
+            border-radius: 1rem;
+            padding: 1.25rem 1.5rem;
+        }
     </style>
 </head>
-<body class="bg-gray-900 text-gray-200 antialiased min-h-screen">
+<body class="bg-[#EFEAE3] overflow-x-hidden">
 
-    <!-- Navbar -->
-    <header class="w-full sticky top-0 bg-gray-900/80 backdrop-blur-md z-50 border-b border-gray-800">
-        <nav class="max-w-4xl mx-auto flex items-center justify-between py-4 px-6">
-            <a href="./index.html" class="flex items-center gap-3 group">
-                <img src="./assets/images/logo.png" alt="Anuj Chaudhary" class="w-9 h-9 rounded-full object-cover ring-2 ring-orange-500/40">
-                <span class="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">beingAnujChaudhary</span>
+    <!-- Navbar (matches main site) -->
+    <header class="w-full sticky top-0 bg-[#EFEAE3]/80 backdrop-blur-md z-[150]">
+        <nav class="w-full flex items-center justify-between py-4 md:py-6 px-4 md:px-8">
+            <a href="./index.html" aria-label="Home page" class="focus:outline-none">
+                <div class="logo-ring w-16 h-16 md:w-20 md:h-20">
+                    <img src="./assets/images/logo.png" alt="Anuj Chaudhary Logo" class="logo-image">
+                </div>
             </a>
-            <a href="./index.html" class="flex items-center gap-1.5 text-sm text-gray-400 hover:text-orange-400 transition-colors">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-                Back to Portfolio
+            <a href="./index.html" class="nav-link">
+                <h4 class="relative z-10 text-sm lg:text-base">← Back</h4>
             </a>
         </nav>
     </header>
 
-    <main class="max-w-3xl mx-auto px-6 py-16 md:py-24">
+    <main class="max-w-3xl mx-auto px-5 sm:px-8 py-14 md:py-20">
 
-        <!-- Page Header -->
-        <div class="mb-12">
-            <span class="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/20 rounded-full px-4 py-1.5 text-xs text-orange-400 mb-6">
-                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/></svg>
-                Legal Document
-            </span>
-            <h1 class="text-4xl sm:text-5xl font-bold text-white mb-3">Terms of Service</h1>
-            <p class="text-sm text-gray-500">
-                Effective Date: <span class="text-orange-400">July 6, 2026</span> &nbsp;·&nbsp; Last Updated: <span class="text-orange-400">July 6, 2026</span>
-            </p>
+        <!-- Page Hero -->
+        <div class="mb-14">
+            <div class="flex flex-wrap gap-2 mb-5">
+                <span class="section-badge">
+                    <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/></svg>
+                    Legal
+                </span>
+                <span class="section-badge" style="background:#FE320A;">Effective · July 2026</span>
+            </div>
+            <h1 class="text-5xl sm:text-6xl font-bold text-[#1a1a1a] leading-tight mb-3">Terms of Service</h1>
+            <p class="text-sm text-gray-500 italic">Rules and guidelines for using this Website.</p>
         </div>
 
-        <!-- Content -->
-        <div class="space-y-10 prose">
+        <!-- Sections -->
+        <div class="space-y-5 prose-body">
 
-            <section>
-                <p>Please read these Terms of Service ("Terms") carefully before using <a href="https://beinganujchaudhary.web.app" target="_blank" rel="noopener noreferrer">beinganujchaudhary.web.app</a> (the "Website"), operated by <strong>Anuj Chaudhary</strong> ("I", "me", or "my"). By accessing or using this Website, you agree to be bound by these Terms. If you disagree with any part of these Terms, please do not use the Website.</p>
-            </section>
+            <div class="policy-card">
+                <span class="section-heading">Overview</span>
+                <p class="mt-3">Please read these Terms of Service ("Terms") carefully before using <a href="https://beinganujchaudhary.web.app" target="_blank" rel="noopener noreferrer">beinganujchaudhary.web.app</a> (the "Website"), operated by <strong>Anuj Chaudhary</strong>. By accessing or using this Website, you agree to be bound by these Terms. If you disagree with any part, please do not use the Website.</p>
+            </div>
 
-            <section>
-                <h2>1. Nature of the Website</h2>
-                <p>This Website is a <strong>personal portfolio</strong> designed to showcase the work, projects, skills, and professional background of Anuj Chaudhary. It is not a commercial platform, marketplace, or SaaS product. Content on this Website is intended for informational and professional purposes only.</p>
-            </section>
+            <div class="policy-card">
+                <span class="section-heading">1. Nature of the Website</span>
+                <p class="mt-3">This Website is a <strong>personal portfolio</strong> designed to showcase the work, projects, skills, and professional background of Anuj Chaudhary. It is not a commercial platform, marketplace, or SaaS product. All content is intended for informational and professional purposes only.</p>
+            </div>
 
-            <section>
-                <h2>2. Intellectual Property</h2>
-                <p>All content on this Website — including but not limited to text, code samples, project descriptions, graphics, logos, and design — is the intellectual property of Anuj Chaudhary unless otherwise stated.</p>
+            <div class="policy-card">
+                <span class="section-heading">2. Intellectual Property</span>
+                <p class="mt-3 mb-3">All content on this Website — including text, code samples, project descriptions, graphics, logos, and design — is the intellectual property of Anuj Chaudhary unless otherwise stated.</p>
                 <ul>
-                    <li>You may <strong>view and share</strong> content from this Website for personal, non-commercial purposes with appropriate attribution.</li>
-                    <li>You may <strong>not</strong> reproduce, redistribute, republish, or use any content for commercial purposes without prior written consent.</li>
+                    <li>You may <strong>view and share</strong> content for personal, non-commercial purposes with appropriate attribution.</li>
+                    <li>You may <strong>not</strong> reproduce, redistribute, or use any content commercially without prior written consent.</li>
                     <li>Open-source projects linked from this Website are subject to their respective licenses (e.g., MIT, Apache 2.0) as stated in each project repository.</li>
                 </ul>
-            </section>
+            </div>
 
-            <section>
-                <h2>3. Acceptable Use</h2>
-                <p>By using this Website, you agree not to:</p>
+            <div class="policy-card">
+                <span class="section-heading">3. Acceptable Use</span>
+                <p class="mt-3 mb-3">By using this Website, you agree not to:</p>
                 <ul>
-                    <li>Use automated tools (bots, scrapers, crawlers) to extract content from this Website in bulk without permission.</li>
+                    <li>Use automated tools (bots, scrapers, crawlers) to extract content in bulk without permission.</li>
                     <li>Attempt to gain unauthorised access to any part of the Website or its hosting infrastructure.</li>
                     <li>Submit false, misleading, or harmful information via the contact form.</li>
-                    <li>Engage in any activity that disrupts or interferes with the Website's functionality or availability.</li>
-                    <li>Use this Website in any manner that violates applicable local, national, or international laws or regulations.</li>
+                    <li>Engage in any activity that disrupts or interferes with the Website's functionality.</li>
+                    <li>Use this Website in any manner that violates applicable laws or regulations.</li>
                 </ul>
-            </section>
+            </div>
 
-            <section>
-                <h2>4. Contact Form</h2>
-                <p>The contact form is provided as a means for genuine professional enquiries, collaboration opportunities, and feedback. By submitting the form, you acknowledge that:</p>
+            <div class="policy-card">
+                <span class="section-heading">4. Contact Form</span>
+                <p class="mt-3 mb-3">The contact form is provided for genuine professional enquiries, collaboration, and feedback. By submitting the form, you acknowledge that:</p>
                 <ul>
                     <li>The information you provide is accurate and truthful.</li>
                     <li>Your submission will be processed by EmailJS and delivered to the site owner's inbox.</li>
-                    <li>Your approximate geographic location and IP address may be collected alongside your message for identification purposes.</li>
+                    <li>Your approximate geographic location and IP address may be collected alongside your message.</li>
                     <li>Spam, automated submissions, and abusive content are strictly prohibited.</li>
                 </ul>
-            </section>
+            </div>
 
-            <section>
-                <h2>5. Third-Party Links</h2>
-                <p>This Website may contain links to external websites, projects, or resources (e.g., GitHub, LinkedIn, project demos). These links are provided for convenience and do not imply endorsement. I am not responsible for the content, privacy practices, or availability of any third-party websites.</p>
-            </section>
+            <div class="policy-card">
+                <span class="section-heading">5. Third-Party Links</span>
+                <p class="mt-3">This Website may contain links to external websites or resources (e.g., GitHub, LinkedIn, project demos). These links are provided for convenience and do not imply endorsement. I am not responsible for the content, privacy practices, or availability of any third-party websites.</p>
+            </div>
 
-            <section>
-                <h2>6. Disclaimer of Warranties</h2>
-                <p>This Website is provided on an <strong>"as is" and "as available"</strong> basis without any warranties of any kind, either express or implied, including but not limited to:</p>
+            <div class="policy-card">
+                <span class="section-heading">6. Disclaimer of Warranties</span>
+                <p class="mt-3 mb-3">This Website is provided on an <strong>"as is" and "as available"</strong> basis without any warranties of any kind, including but not limited to:</p>
                 <ul>
                     <li>Fitness for a particular purpose.</li>
                     <li>Uninterrupted or error-free availability.</li>
                     <li>Accuracy, completeness, or timeliness of any information presented.</li>
                 </ul>
-                <p>I reserve the right to modify, suspend, or discontinue the Website at any time without notice.</p>
-            </section>
+                <p class="mt-3">I reserve the right to modify, suspend, or discontinue the Website at any time without notice.</p>
+            </div>
 
-            <section>
-                <h2>7. Limitation of Liability</h2>
-                <p>To the fullest extent permitted by applicable law, Anuj Chaudhary shall not be liable for any direct, indirect, incidental, special, consequential, or punitive damages arising from your use of (or inability to use) this Website, including but not limited to loss of data, loss of profits, or business interruption.</p>
-            </section>
+            <div class="policy-card">
+                <span class="section-heading">7. Limitation of Liability</span>
+                <p class="mt-3">To the fullest extent permitted by applicable law, Anuj Chaudhary shall not be liable for any direct, indirect, incidental, special, consequential, or punitive damages arising from your use of (or inability to use) this Website, including but not limited to loss of data, loss of profits, or business interruption.</p>
+            </div>
 
-            <section>
-                <h2>8. Privacy</h2>
-                <p>Your use of this Website is also governed by our <a href="./privacy-policy.html">Privacy Policy</a>, which is incorporated into these Terms by reference. Please review it to understand how we collect and use your information.</p>
-            </section>
+            <div class="policy-card">
+                <span class="section-heading">8. Privacy</span>
+                <p class="mt-3">Your use of this Website is also governed by our <a href="./privacy-policy.html">Privacy Policy</a>, which is incorporated into these Terms by reference. Please review it to understand how we collect and use your information.</p>
+            </div>
 
-            <section>
-                <h2>9. Governing Law</h2>
-                <p>These Terms shall be governed by and construed in accordance with the laws of <strong>India</strong>, without regard to its conflict of law provisions. Any disputes arising from these Terms or your use of the Website shall be subject to the exclusive jurisdiction of the courts located in India.</p>
-            </section>
+            <div class="policy-card">
+                <span class="section-heading">9. Governing Law</span>
+                <p class="mt-3">These Terms shall be governed by and construed in accordance with the laws of <strong>India</strong>, without regard to its conflict of law provisions. Any disputes arising from these Terms or your use of the Website shall be subject to the exclusive jurisdiction of the courts located in India.</p>
+            </div>
 
-            <section>
-                <h2>10. Changes to These Terms</h2>
-                <p>I reserve the right to update or modify these Terms at any time. Changes will be reflected by updating the "Last Updated" date at the top of this page. Your continued use of the Website after any changes constitutes your acceptance of the updated Terms.</p>
-            </section>
+            <div class="policy-card">
+                <span class="section-heading">10. Changes to These Terms</span>
+                <p class="mt-3">I reserve the right to update or modify these Terms at any time. Changes will be reflected by updating the "Last Updated" date at the top of this page. Your continued use of the Website after any changes constitutes your acceptance of the updated Terms.</p>
+            </div>
 
-            <section>
-                <h2>11. Contact</h2>
-                <p>If you have any questions or concerns about these Terms, please reach out:</p>
-                <div class="mt-4 p-5 rounded-2xl bg-gray-800/60 border border-gray-700">
+            <div class="policy-card">
+                <span class="section-heading">11. Contact</span>
+                <p class="mt-3 mb-4">If you have any questions or concerns about these Terms, please reach out:</p>
+                <div class="contact-card">
                     <p class="text-white font-semibold text-sm">Anuj Chaudhary</p>
-                    <p class="text-gray-400 text-sm mt-1">Email: <a href="mailto:beinganujchaudhary@gmail.com">beinganujchaudhary@gmail.com</a></p>
-                    <p class="text-gray-400 text-sm">Website: <a href="https://beinganujchaudhary.web.app" target="_blank" rel="noopener noreferrer">beinganujchaudhary.web.app</a></p>
+                    <p class="text-gray-400 text-sm mt-1">Email: <a href="mailto:beinganujchaudhary@gmail.com" class="text-orange-400 hover:text-orange-300">beinganujchaudhary@gmail.com</a></p>
+                    <p class="text-gray-400 text-sm">Website: <a href="https://beinganujchaudhary.web.app" target="_blank" rel="noopener noreferrer" class="text-orange-400 hover:text-orange-300">beinganujchaudhary.web.app</a></p>
                 </div>
-            </section>
+            </div>
 
         </div>
 
         <!-- Footer -->
-        <footer class="mt-20 pt-8 border-t border-gray-800 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+        <footer class="mt-16 pt-8 border-t border-black/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-500">
             <p>&copy; <span id="current-year">2026</span> Anuj Chaudhary. All Rights Reserved.</p>
             <nav class="flex gap-4">
-                <a href="./privacy-policy.html" class="hover:text-orange-400 transition-colors">Privacy Policy</a>
-                <a href="./terms-of-service.html" class="text-orange-400 font-medium">Terms of Service</a>
+                <a href="./privacy-policy.html" class="hover:text-[#FE320A] transition-colors">Privacy Policy</a>
+                <a href="./terms-of-service.html" class="text-[#FE320A] font-medium hover:underline">Terms of Service</a>
             </nav>
         </footer>
     </main>
