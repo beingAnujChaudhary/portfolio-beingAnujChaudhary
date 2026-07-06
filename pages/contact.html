@@ -82,12 +82,26 @@
                 </p>
 
                 <div class="flex flex-col md:flex-row justify-around items-center md:items-start gap-10 md:gap-16">
-                    <div class="text-center md:text-left">
-                         <h2 class="text-gradient-name text-3xl sm:text-4xl font-semibold leading-tight space-y-2">
-                            <span class="block">beingAnujChaudhary</span>
-                            <!-- <span class="block">Chaudhary</span> -->
-                        </h2>
-                        <p class="text-gray-400 mt-2 text-sm">Data Science & ML Enthusiast</p>
+                    <div class="w-full max-w-md text-left">
+                        <h3 class="text-xl sm:text-2xl font-medium mb-5 md:mb-6 hover:text-orange-500 transition-colors duration-300 ease-in-out">
+                            Send a Message
+                        </h3>
+                        <form onsubmit="sendEmail(event)" method="POST" class="flex flex-col space-y-4">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Name:</label>
+                                <input type="text" id="name" name="name" required placeholder="Your name" class="w-full rounded-md bg-gray-800 border border-gray-700 text-white shadow-sm focus:border-[#FE320A] focus:ring-1 focus:ring-[#FE320A] focus:outline-none px-4 py-2 transition-colors" />
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email:</label>
+                                <input type="email" id="email" name="email" required placeholder="email@domain.com" class="w-full rounded-md bg-gray-800 border border-gray-700 text-white shadow-sm focus:border-[#FE320A] focus:ring-1 focus:ring-[#FE320A] focus:outline-none px-4 py-2 transition-colors" />
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Message:</label>
+                                <textarea id="message" name="message" rows="4" required placeholder="Your message" class="w-full rounded-md bg-gray-800 border border-gray-700 text-white shadow-sm focus:border-[#FE320A] focus:ring-1 focus:ring-[#FE320A] focus:outline-none px-4 py-2 resize-y transition-colors"></textarea>
+                            </div>
+                            <input type="hidden" name="location" id="user-location" value="Location unavailable">
+                            <button type="submit" class="w-full bg-[#FE320A] hover:bg-orange-700 text-white font-medium py-3 px-4 rounded-md transition duration-300 shadow-lg mt-2">Send Message</button>
+                        </form>
                     </div>
 
                     <address class="not-italic text-center md:text-left">
@@ -103,10 +117,10 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="tel:+918130105894"
+                                <a href="tel:+917017707607"
                                     class="inline-flex items-center group hover:text-orange-500 transition-colors duration-300 ease-in-out text-base sm:text-lg">
                                      <svg class="w-5 h-5 mr-2 text-gray-400 group-hover:text-orange-500 transition-colors" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
-                                    +91-8130105894
+                                    +91-7017707607
                                 </a>
                             </li>
                             <li>
@@ -138,10 +152,10 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.instagram.com/anujisonholiday" target="_blank" rel="noopener noreferrer"
+                                <a href="https://www.instagram.com/beinganujchaudhary" target="_blank" rel="noopener noreferrer"
                                     class="inline-flex items-center group hover:text-orange-500 transition-colors duration-300 ease-in-out text-base sm:text-lg">
                                     <svg class="w-5 h-5 mr-2 text-gray-400 group-hover:text-orange-500 transition-colors" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"> <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163m0-2.163C8.74.001 8.344.001 7.053.058c-3.75.17-6.175 1.649-6.98 6.98-.056 1.291-.058 1.687-.058 4.914s.002 3.623.058 4.914c.805 5.332 3.23 6.811 6.98 6.98 1.291.056 1.687.058 4.914.058s3.623-.002 4.914-.058c5.332-.805 6.811-3.23 6.98-6.98.056-1.291.058-1.687.058-4.914s-.002-3.623-.058-4.914c-.805-5.332-3.23-6.811-6.98-6.98C15.656.001 15.26.001 12 .001z"></path><path d="M12 6.849c-2.844 0-5.151 2.307-5.151 5.151s2.307 5.151 5.151 5.151 5.151-2.307 5.151-5.151S14.844 6.849 12 6.849zm0 8.302c-1.743 0-3.151-1.408-3.151-3.151s1.408-3.151 3.151-3.151 3.151 1.408 3.151 3.151-1.408 3.151-3.151 3.151z"></path><path d="M16.949 5.596c-.738 0-1.337.6-1.337 1.337s.6 1.337 1.337 1.337 1.337-.6 1.337-1.337-.599-1.337-1.337-1.337z"></path></svg>
-                                    Instagram (@anujisonholiday)
+                                    Instagram (@beinganujchaudhary)
                                 </a>
                             </li>
                         </ul>
@@ -168,5 +182,45 @@
 
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
     <script src="../js/script.js" defer></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init({
+              publicKey: 'OYrVswITsNvYZmzw4', // Replace with your actual public key
+            });
+
+            // Fetch user location
+            fetch('https://get.geojs.io/v1/ip/geo.json')
+              .then(response => response.json())
+              .then(data => {
+                  const locInput = document.getElementById('user-location');
+                  if (locInput) {
+                      locInput.value = `${data.city || 'Unknown City'}, ${data.region || 'Unknown Region'}, ${data.country || 'Unknown Country'} (IP: ${data.ip || 'Unknown'})`;
+                  }
+              })
+              .catch(error => console.error("Could not fetch location", error));
+        })();
+
+        function sendEmail(e) {
+            e.preventDefault(); // Prevent default form submission
+
+            emailjs.sendForm('MYMmnAVYteKaocaAPblR2', 'template_ztyi43n', e.target)
+              .then(function(response) {
+                alert('Message sent successfully!');
+                
+                // Fire GA4 lead generation event
+                if (typeof gtag === 'function') {
+                    gtag('event', 'generate_lead', {
+                        event_category: 'Contact',
+                        event_label: 'Contact Form Submission'
+                    });
+                }
+                
+                e.target.reset();
+              }, function(error) {
+                alert('Failed to send the message. Please try again later.');
+              });
+        }
+    </script>
 </body>
 </html>
