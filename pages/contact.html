@@ -226,12 +226,13 @@
             const btn = document.getElementById('submit-btn');
             if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
 
-            // Read values explicitly — avoids sendForm() name-attribute mismatch issues
+            // Variable names must match exactly what the EmailJS template uses
             const templateParams = {
-                from_name:    document.getElementById('name').value.trim(),
-                from_email:   document.getElementById('email').value.trim(),
-                subject:      document.getElementById('subject').value.trim() || '(No subject)',
-                message:      document.getElementById('message').value.trim()
+                name:    document.getElementById('name').value.trim(),
+                email:   document.getElementById('email').value.trim(),
+                title:   document.getElementById('subject').value.trim() || '(No subject)',
+                message: document.getElementById('message').value.trim(),
+                time:    new Date().toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Asia/Kolkata' })
             };
 
             emailjs.send('service_396h6ja', 'template_ztyi43n', templateParams)
