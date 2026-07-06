@@ -96,11 +96,15 @@
                                 <input type="email" id="email" name="email" required placeholder="email@domain.com" class="w-full rounded-md bg-gray-800 border border-gray-700 text-white shadow-sm focus:border-[#FE320A] focus:ring-1 focus:ring-[#FE320A] focus:outline-none px-4 py-2 transition-colors" />
                             </div>
                             <div>
+                                <label for="subject" class="block text-sm font-medium text-gray-300 mb-1">Subject: <span class="text-gray-500 text-xs">(optional)</span></label>
+                                <input type="text" id="subject" name="subject" placeholder="What's this about?" class="w-full rounded-md bg-gray-800 border border-gray-700 text-white shadow-sm focus:border-[#FE320A] focus:ring-1 focus:ring-[#FE320A] focus:outline-none px-4 py-2 transition-colors" />
+                            </div>
+                            <div>
                                 <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Message:</label>
                                 <textarea id="message" name="message" rows="4" required placeholder="Your message" class="w-full rounded-md bg-gray-800 border border-gray-700 text-white shadow-sm focus:border-[#FE320A] focus:ring-1 focus:ring-[#FE320A] focus:outline-none px-4 py-2 resize-y transition-colors"></textarea>
                             </div>
 
-                            <button type="submit" class="w-full bg-[#FE320A] hover:bg-orange-700 text-white font-medium py-3 px-4 rounded-md transition duration-300 shadow-lg mt-2">Send Message</button>
+                            <button type="submit" id="submit-btn" class="w-full bg-[#FE320A] hover:bg-orange-700 text-white font-medium py-3 px-4 rounded-md transition duration-300 shadow-lg mt-2">Send Message</button>
                         </form>
                     </div>
 
@@ -212,18 +216,25 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
-            // EmailJS public key — this is a publishable client-side key, safe to include here.
-            // Never commit private/secret keys. Rotate this key in your EmailJS dashboard if abused.
+            // EmailJS public key — publishable client-side key, safe to include here.
             emailjs.init({ publicKey: 'OYrVswITsNvYZmzw4' });
         })();
 
         function sendEmail(e) {
             e.preventDefault();
 
-            const btn = e.target.querySelector('button[type="submit"]');
+            const btn = document.getElementById('submit-btn');
             if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
 
-            emailjs.sendForm('MYMmnAVYteKaocaAPblR2', 'template_ztyi43n', e.target)
+            // Read values explicitly — avoids sendForm() name-attribute mismatch issues
+            const templateParams = {
+                from_name:    document.getElementById('name').value.trim(),
+                from_email:   document.getElementById('email').value.trim(),
+                subject:      document.getElementById('subject').value.trim() || '(No subject)',
+                message:      document.getElementById('message').value.trim()
+            };
+
+            emailjs.send('MYMmnAVYteKaocaAPblR2', 'template_ztyi43n', templateParams)
               .then(function() {
                 alert('Message sent successfully! I will get back to you soon.');
                 if (typeof gtag === 'function') {
@@ -234,8 +245,10 @@
                 }
                 e.target.reset();
               })
-              .catch(function() {
-                alert('Failed to send the message. Please try again later or email me directly.');
+              .catch(function(err) {
+                // Log for debugging; err.text or err.status has the real reason
+                console.error('EmailJS error:', err);
+                alert('Failed to send (code ' + (err.status || 'unknown') + '). Please email me directly at beinganujchaudhary@gmail.com');
               })
               .finally(function() {
                 if (btn) { btn.disabled = false; btn.textContent = 'Send Message'; }
