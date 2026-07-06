@@ -99,7 +99,7 @@
                                 <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Message:</label>
                                 <textarea id="message" name="message" rows="4" required placeholder="Your message" class="w-full rounded-md bg-gray-800 border border-gray-700 text-white shadow-sm focus:border-[#FE320A] focus:ring-1 focus:ring-[#FE320A] focus:outline-none px-4 py-2 resize-y transition-colors"></textarea>
                             </div>
-                            <input type="hidden" name="location" id="user-location" value="Location unavailable">
+
                             <button type="submit" class="w-full bg-[#FE320A] hover:bg-orange-700 text-white font-medium py-3 px-4 rounded-md transition duration-300 shadow-lg mt-2">Send Message</button>
                         </form>
                     </div>
@@ -212,40 +212,33 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
-            emailjs.init({
-              publicKey: 'OYrVswITsNvYZmzw4', // Replace with your actual public key
-            });
-
-            // Fetch user location
-            fetch('https://get.geojs.io/v1/ip/geo.json')
-              .then(response => response.json())
-              .then(data => {
-                  const locInput = document.getElementById('user-location');
-                  if (locInput) {
-                      locInput.value = `${data.city || 'Unknown City'}, ${data.region || 'Unknown Region'}, ${data.country || 'Unknown Country'} (IP: ${data.ip || 'Unknown'})`;
-                  }
-              })
-              .catch(error => console.error("Could not fetch location", error));
+            // EmailJS public key — this is a publishable client-side key, safe to include here.
+            // Never commit private/secret keys. Rotate this key in your EmailJS dashboard if abused.
+            emailjs.init({ publicKey: 'OYrVswITsNvYZmzw4' });
         })();
 
         function sendEmail(e) {
-            e.preventDefault(); // Prevent default form submission
+            e.preventDefault();
+
+            const btn = e.target.querySelector('button[type="submit"]');
+            if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
 
             emailjs.sendForm('MYMmnAVYteKaocaAPblR2', 'template_ztyi43n', e.target)
-              .then(function(response) {
-                alert('Message sent successfully!');
-                
-                // Fire GA4 lead generation event
+              .then(function() {
+                alert('Message sent successfully! I will get back to you soon.');
                 if (typeof gtag === 'function') {
                     gtag('event', 'generate_lead', {
                         event_category: 'Contact',
                         event_label: 'Contact Form Submission'
                     });
                 }
-                
                 e.target.reset();
-              }, function(error) {
-                alert('Failed to send the message. Please try again later.');
+              })
+              .catch(function() {
+                alert('Failed to send the message. Please try again later or email me directly.');
+              })
+              .finally(function() {
+                if (btn) { btn.disabled = false; btn.textContent = 'Send Message'; }
               });
         }
     </script>

@@ -1,6 +1,5 @@
 // script.js
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("DOM Content Loaded: Optimizing scripts for speed and smoothness.");
 
     // --- Loader Hiding ---
     const loader = document.getElementById('loader');
@@ -15,12 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 if (loader.parentNode) {
                     loader.parentNode.removeChild(loader);
-                    console.log("Loader removed from DOM.");
                 }
             }, loaderFadeOutDuration);
         }, totalLoaderTime);
-    } else {
-        console.warn("Loader element not found.");
     }
 
     // --- Mobile Menu Toggle ---
@@ -37,10 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (show) {
                 const firstFocusableElement = mobileMenu.querySelector('a, button');
                 if (firstFocusableElement) firstFocusableElement.focus();
-                console.log("Mobile menu opened.");
             } else {
                 menuToggle.focus();
-                console.log("Mobile menu closed.");
             }
         };
 
@@ -67,9 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 toggleMenu(false);
             }
         });
-        console.log("Mobile menu listeners initialized.");
-    } else {
-        console.warn("Mobile menu elements not found.");
     }
 
     // --- Project Fixed Image Preview ---
@@ -102,9 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
             item.addEventListener('mouseleave', hidePreview);
             item.addEventListener('blur', hidePreview);
         });
-        console.log("Project fixed image preview listeners initialized.");
-    } else {
-        console.log("Project container or fixed image preview element not found on this page.");
     }
 
     // --- Dynamic year in footer ---
@@ -130,6 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     } catch (e) {
-        console.error("Error setting active nav link:", e);
+        // silently handle nav active state errors
     }
 });
