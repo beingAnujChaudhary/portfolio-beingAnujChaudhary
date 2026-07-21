@@ -625,54 +625,51 @@
                         </div>
                     </section>
 
-                    <section aria-labelledby="resume-experience">
-                        <h2 id="resume-experience"
+                    <section aria-labelledby="resume-projects">
+                        <h2 id="resume-projects"
                             class="text-2xl sm:text-3xl font-semibold text-[#FE320A] mb-6 border-b-2 border-[#FE320A]/50 pb-3">
-                            Key Project Experience</h2>
-                        <div class="space-y-6">
-                            <div>
-                                <h4 class="text-lg font-medium text-neutral-800">End-to-End ML Model Lifecycle on GCP
-                                </h4>
-                                <p class="text-sm text-neutral-600 leading-relaxed">
-                                    Designed and implemented projects involving custom model training
-                                    (TensorFlow/Keras), deployment to Vertex AI Endpoints, and setting up MLOps CI/CD
-                                    pipelines (Vertex AI Pipelines, TFX) for automated retraining and monitoring,
-                                    demonstrating proficiency in productionizing ML solutions on Google Cloud.
-                                </p>
+                            Projects</h2>
+                        <div class="space-y-8">
+                            <div class="bg-gray-50 p-4 sm:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                                <h3 class="text-xl font-semibold text-neutral-800"><a href="https://beinganujchaudhary-ml-rag-concepts.streamlit.app/" target="_blank" rel="noopener noreferrer" class="hover:text-orange-600 transition-colors">LLM Concepts RAG System</a></h3>
+                                <p class="text-sm text-neutral-500 mb-2">Elasticsearch, Streamlit, Docker, Groq, OpenAI | <a href="https://github.com/beingAnujChaudhary/ml-concepts-rag" target="_blank" rel="noopener noreferrer" class="text-orange-600 hover:underline">GitHub Link</a></p>
+                                <ul class="list-disc list-outside ml-5 text-neutral-600 space-y-1 text-sm sm:text-base leading-relaxed">
+                                    <li>Advanced Retrieval-Augmented Generation for Machine Learning Education</li>
+                                    <li>An end-to-end RAG application that answers ML questions using hybrid search (BM25 + Vector) and cross-encoder reranking.</li>
+                                    <li>It features dual-LLM fallback (Groq &amp; OpenAI), dynamic Mermaid diagram generation for visual learning, and a fully Dockerized architecture with PostgreSQL &amp; Grafana for monitoring interactions.</li>
+                                </ul>
                             </div>
-                            <div>
-                                <h4 class="text-lg font-medium text-neutral-800">Scalable Data Engineering Pipelines on
-                                    GCP</h4>
-                                <p class="text-sm text-neutral-600 leading-relaxed">
-                                    Developed batch and real-time data pipelines using Google Cloud services like
-                                    Dataflow, Pub/Sub, Cloud Composer and BigQuery to ingest, transform, and analyze
-                                    large datasets (e.g., e-commerce sales, streaming sentiment analysis), optimizing
-                                    for performance and scalability.
-                                </p>
+                            <div class="bg-gray-50 p-4 sm:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                                <h3 class="text-xl font-semibold text-neutral-800"><a href="https://huggingface.co/spaces/beingAnujChaudhary/SaarthiEO-Disaster-Detection" target="_blank" rel="noopener noreferrer" class="hover:text-orange-600 transition-colors">SaarthiEO &mdash; Disaster Detection from Satellite &amp; Drone Imagery</a></h3>
+                                <p class="text-sm text-neutral-500 mb-2">Python, PyTorch, Gradio, Hugging Face | <a href="https://github.com/beingAnujChaudhary/SaarthiEO/tree/main/disasterDetection" target="_blank" rel="noopener noreferrer" class="text-orange-600 hover:underline">GitHub Link</a></p>
+                                <ul class="list-disc list-outside ml-5 text-neutral-600 space-y-1 text-sm sm:text-base leading-relaxed">
+                                    <li>Fine-tuned EfficientNet-B3 on a 4-class aerial disaster dataset achieving 97.38% test accuracy (Fire, Flood, Collapsed Building, Traffic Incident).</li>
+                                    <li>Built an end-to-end Grad-CAM explainability pipeline hooking the last convolutional block to produce interpretable attention heatmaps.</li>
+                                    <li>Deployed a production-grade 3-tab Gradio web app (single predict, Grad-CAM, batch CSV export) to Hugging Face spaces with Git LFS model storage.</li>
+                                </ul>
                             </div>
-                            <div>
-                                <h4 class="text-lg font-medium text-neutral-800">Generative AI Application Development
-                                    (RAG)</h4>
-                                <p class="text-sm text-neutral-600 leading-relaxed">
-                                    Built Retrieval Augmented Generation (RAG) systems using Large Language Models
-                                    (e.g., Vertex AI Gemini), LangChain, and vector databases (Vertex AI Matching
-                                    Engine) to create contextual chatbots and Q&A systems over custom document sets.
-                                </p>
+                            <div class="bg-gray-50 p-4 sm:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                                <h3 class="text-xl font-semibold text-neutral-800"><a href="https://beinganujchaudhary.web.app/projects/aetherRead/" target="_blank" rel="noopener noreferrer" class="hover:text-orange-600 transition-colors">aetherRead &mdash; AI-powered Offline-First PDF Research Workspace</a></h3>
+                                <p class="text-sm text-neutral-500 mb-2">Python, Next.js, TypeScript, Ollama, ChromaDB | <a href="https://github.com/beingAnujChaudhary/aetherRead" target="_blank" rel="noopener noreferrer" class="text-orange-600 hover:underline">GitHub Link</a></p>
+                                <ul class="list-disc list-outside ml-5 text-neutral-600 space-y-1 text-sm sm:text-base leading-relaxed">
+                                    <li>Designed and engineered a cross-platform, production-grade PDF reader prioritizing privacy and offline-first performance, ensuring zero data dependency on external cloud services.</li>
+                                    <li>Implemented a local-first storage architecture utilizing IndexedDB (Dexie.js) for high-performance management of PDFs, reading state, and user-generated annotations.</li>
+                                    <li>Architecting a local RAG pipeline using Ollama (llama3.2:3b) and ChromaDB to enable intelligent document querying, semantic search, and AI-assisted research with verifiable citations.</li>
+                                    <li>Engineered a "Comfort Engine" featuring six customizable reading themes and page-level annotation capabilities categorized for research workflows (Important, Definition, Question, Quote).</li>
+                                </ul>
                             </div>
-                            <div>
-                                <h4 class="text-lg font-medium text-neutral-800">Core Data Science & Predictive
-                                    Analytics</h4>
-                                <p class="text-sm text-neutral-600 leading-relaxed">
-                                    Executed comprehensive Exploratory Data Analysis (EDA), feature engineering, and
-                                    built various predictive models (regression, classification) using Python (Pandas,
-                                    NumPy, Scikit-learn) for problems like Titanic survival, house price prediction, and
-                                    loan default, focusing on model evaluation and interpretability (SHAP/LIME).
-                                </p>
+                            <div class="bg-gray-50 p-4 sm:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                                <h3 class="text-xl font-semibold text-neutral-800">Customer Churn Prediction &amp; Retention Prioritization</h3>
+                                <p class="text-sm text-neutral-500 mb-2">Python, XGBoost, SHAP, Power BI | <a href="https://github.com/beinganujchaudhary/Customer-Churn-Prediction-Retention-Prioritization" target="_blank" rel="noopener noreferrer" class="text-orange-600 hover:underline">GitHub Link</a></p>
+                                <ul class="list-disc list-outside ml-5 text-neutral-600 space-y-1 text-sm sm:text-base leading-relaxed">
+                                    <li>Focus: Churn prediction, A/B testing, behavioral segmentation for proactive customer retention</li>
+                                    <li>Built churn prediction model (XGBoost, 87% AUC) using transactional and behavioral features from 10K+ credit card customers</li>
+                                    <li>Applied SHAP values to identify top 5 churn drivers (e.g., declining transaction frequency, product disengagement); created risk-based prioritization tiers (High/Medium/Low) for targeted interventions</li>
+                                    <li>Developed Power BI dashboard enabling sales teams to filter at-risk accounts by value tier, supporting proactive retention workflows</li>
+                                    <li>Designed reproducible pipeline with synthetic data generator and automated evaluation; documented limitations and monitoring considerations for production readiness</li>
+                                </ul>
                             </div>
                         </div>
-                        <p class="text-neutral-500 mt-6 italic text-center">Detailed project specifics, code
-                            repositories, and live demos (where applicable) available on my <a href="projects.html"
-                                class="text-[#FE320A] hover:underline">Projects Page</a> and GitHub.</p>
                     </section>
 
                     <div class="text-center pt-8">
