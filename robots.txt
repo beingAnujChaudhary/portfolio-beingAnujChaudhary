@@ -1,0 +1,5 @@
+# robots.txt for beinganujchaudhary.web.app
+User-agent: *
+Allow: /
+
+Sitemap: https://beinganujchaudhary.web.app/sitemap.xml
