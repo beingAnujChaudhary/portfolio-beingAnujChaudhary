@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. Machine Learning Foundation - Anuj's Notes</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <!-- MathJax for rendering math equations -->
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="../flashcards.css">
+    <link rel="icon" type="image/png" href="/assets/images/favicon_circular.png">
+    <style>
+        .note-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .note-content th {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            font-weight: 600;
+            text-align: left;
+            padding: 1rem;
+        }
+        .note-content td {
+            padding: 1rem;
+            border-top: 1px solid var(--card-border);
+            color: var(--text-secondary);
+        }
+        body {
+            /* Create a colorful gradient background for glassmorphism to reflect */
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%) !important;
+            color: #111 !important;
+            background-attachment: fixed !important;
+        }
+        
+        /* Glassmorphism overrides */
+        .sidebar, .note-card, .content-area {
+            background: rgba(255, 255, 255, 0.4) !important;
+            backdrop-filter: blur(16px) !important;
+            -webkit-backdrop-filter: blur(16px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.6) !important;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1) !important;
+            border-radius: 1.25rem !important;
+        }
+
+        /* Make sure cards inside don't double up too heavily unless intended */
+        .note-card {
+            margin-bottom: 2rem;
+            padding: 2rem;
+        }
+
+        .content-area {
+            padding: 2rem !important;
+        }
+
+        p, li {
+            color: #111 !important;
+            font-weight: 400;
+        }
+        mjx-container {
+            font-weight: 800 !important;
+            color: #000;
+        }
+        
+        /* Modern Typography enhancements */
+        h1, h2, h3, h4 {
+            color: #000 !important;
+            font-weight: 600 !important;
+            letter-spacing: -0.02em;
+        }
+        
+        /* Glassmorphism tables */
+        .note-content table {
+            background: rgba(255, 255, 255, 0.3) !important;
+            backdrop-filter: blur(8px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.5) !important;
+        }
+        .note-content th {
+            background: rgba(255, 255, 255, 0.5) !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <h1><a href="../anujsNotes.html" style="text-decoration:none;color:inherit;">Anuj's Notes</a></h1>
+            </div>
+            <nav class="nav-menu">
+                <h2 style="margin-top:0.5rem; font-size:0.75rem; color:var(--text-secondary); text-transform:uppercase; letter-spacing:1px; margin-bottom:0.5rem;">Main Hub</h2>
+                <ul id="subject-list">
+                    <li><a href="../anujsNotes.html" style="text-decoration:none;color:inherit;display:block;"><i class="fa-solid fa-house" style="width:20px;"></i> Overview</a></li>
+                </ul>
+
+                <h2 style="margin-top:1.5rem; font-size:0.75rem; color:var(--text-secondary); text-transform:uppercase; letter-spacing:1px; margin-bottom:0.5rem;">MACHINE LEARNING NOTES</h2>
+                <ul id="subject-list">
+                    <li><a href="0.1_machine_learning.html" style="text-decoration:none; display:block; font-weight:bold; color:var(--accent-primary);"><i class="fa-solid fa-robot" style="width:20px;"></i> 1. Machine Learning Foundation</a></li>
+                    <li><a href="0.2_regression.html" style="text-decoration:none; display:block; color:inherit;"><i class="fa-solid fa-chart-line" style="width:20px;"></i> 2. Regression</a></li>
+                    <li><a href="0.3_simple_linear_regression.html" style="text-decoration:none; display:block; color:inherit;"><i class="fa-solid fa-chart-bar" style="width:20px;"></i> 3. Simple Linear Regression</a></li>
+                    
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <h2 id="current-title">1. Machine Learning Foundation</h2>
+            </header>
+
+            <div class="content-area" id="main-view">
+                <div class="view-container">
+                    <div class="notes-section">
+                        <div class="note-card">
+                            <div class="note-content">
+<h1 id="1-machine-learning-foundation">1. Machine Learning Foundation</h1>
+<blockquote>
+<p>Detailed, curated, and enhanced study notes covering the absolute core fundamentals of Machine Learning.</p>
+</blockquote>
+<div class="note-card">
+<h2 id="learning-outcomes">Learning Outcomes</h2>
+<p>By the end of this module, you will understand:
+- The paradigm shift from traditional programming to <strong>Machine Learning</strong>.
+- How to separate AI, Machine Learning, and Deep Learning without relying on buzzwords.
+- How to frame a real-world business objective into a machine learning problem.
+- The mathematical foundations of how models learn, including <strong>predictions</strong>, <strong>parameters</strong>, and <strong>loss</strong>.</p>
+</div>
+<div class="note-card">
+<h2 id="1-what-is-machine-learning">1. What is Machine Learning?</h2>
+<h3 id="the-intuitive-definition">The Intuitive Definition</h3>
+<p>Machine Learning is the practice of building systems that <strong>improve at a task by learning patterns from experience</strong> (data) rather than being explicitly programmed.</p>
+<p><strong>Traditional Programming:</strong>
+A developer writes explicit rules. If the rules break, the system breaks.</p>
+<pre><code class="language-text">Rules + Data ➔ Answers
+</code></pre>
+<p><strong>Supervised Machine Learning:</strong>
+We provide the system with examples, and the machine figures out the rules.</p>
+<pre><code class="language-text">Data + Known Answers ➔ Learned Model
+Learned Model + New Data ➔ Predicted Answers
+</code></pre>
+<div class="callout example">
+<span class="callout-icon">💡</span>
+<div class="callout-content">
+<div class="callout-title">Tip</div>
+**Example: Spam Detection**
+A traditional rule (`IF subject contains "free money" THEN spam`) is brittle. An ML model learns a combination of thousands of signals (word frequencies, sender reputation, structural quirks) to map observed features to an output.
+
+</div>
+</div>
+<h3 id="the-formal-definition-tom-mitchell">The Formal Definition (Tom Mitchell)</h3>
+<p>A computer program is said to learn from:
+- <strong>Experience</strong> <script type="math/tex">E</script>
+- with respect to <strong>Task</strong> <script type="math/tex">T</script>
+- measured by <strong>Performance Measure</strong> <script type="math/tex">P</script>
+</p>
+<p>...if its performance at <script type="math/tex">T</script>, measured by <script type="math/tex">P</script>, improves with experience <script type="math/tex">E</script>.</p>
+<div class="callout memory">
+<span class="callout-icon">🧠</span>
+<div class="callout-content">
+<div class="callout-title">Note</div>
+**Customer Churn Example:**
+- **Task $T$:** Predict whether a customer will cancel their subscription.
+- **Experience $E$:** Historical customer attributes and cancelation records.
+- **Performance $P$:** Recall, Precision, or overall business profit saved.
+
+</div>
+</div>
+<h3 id="the-mathematical-view">The Mathematical View</h3>
+<p>Let:
+- <script type="math/tex">\mathbf{x}_i \in \mathbb{R}^d</script> be the <strong>feature vector</strong> for example <script type="math/tex">i</script>.
+- <script type="math/tex">y_i</script> be its <strong>true target</strong>.
+- <script type="math/tex">f_{\theta}</script> be a model controlled by learned <strong>parameters</strong> <script type="math/tex">\theta</script>.
+- <script type="math/tex">\hat{y}_i = f_{\theta}(\mathbf{x}_i)</script> be the <strong>prediction</strong>.
+- <script type="math/tex">\ell(y_i,\hat{y}_i)</script> be the <strong>error</strong> or <strong>loss</strong> for one example.</p>
+<p>Training a model minimizes empirical risk (loss) across all examples.</p>
+</div>
+<div class="note-card">
+<h2 id="2-a-corrected-history-of-machine-learning">2. A Corrected History of Machine Learning</h2>
+<p>Understanding history helps you see that neural networks aren't a magical new invention; they are ideas from the 1940s and 50s that only recently gained enough data and compute power to thrive.</p>
+<div class="mermaid">timeline
+    title Milestones in Machine Learning
+    1950s : Turing Test proposed (1950) : Samuel's Checkers program learns to play (1952) : The Perceptron (1957)
+    1980s : Backpropagation revival makes multi-layer networks trainable (1986)
+    1990s : Support-Vector Machines (SVMs) dominate
+    2010s : AlexNet sparks the Deep Learning revolution (2012) : Transformers invented (2017)
+    2020s : Era of Foundation &amp; Generative Models
+</div>
+<div class="callout warning">
+<span class="callout-icon">⚠️</span>
+<div class="callout-content">
+<div class="callout-title">Important</div>
+The field advances when 5 ingredients align: **Algorithms**, **Massive Data**, **Compute (GPUs)**, **Fast Networking**, and **Economic Incentives**.
+
+</div>
+</div>
+</div>
+<div class="note-card">
+<h2 id="3-ai-vs-ml-vs-deep-learning">3. AI vs ML vs Deep Learning</h2>
+<p>Artificial Intelligence is the broadest field. Machine Learning is a subset of AI, and Deep Learning is a highly specialized subset of Machine Learning.</p>
+<div class="mermaid">flowchart TD
+    AI[&quot;Artificial Intelligence&lt;br&gt;Broad field of intelligent systems&quot;] --&gt; ML[&quot;Machine Learning&lt;br&gt;Systems learning from experience&quot;]
+    AI --&gt; O[&quot;Other AI&lt;br&gt;Search, logic, planning&quot;]
+    ML --&gt; DL[&quot;Deep Learning&lt;br&gt;Multi-layer neural networks&quot;]
+    ML --&gt; C[&quot;Classical ML&lt;br&gt;Trees, regression, clustering&quot;]
+
+    classDef glass fill:rgba(255,255,255,0.5),stroke:rgba(255,255,255,0.8),stroke-width:1px,color:#000;
+    class AI,ML,DL,O,C glass;
+</div>
+<h3 id="when-to-use-what">When to use what?</h3>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Typical Data</th>
+<th>Interpretability</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Classical ML</strong></td>
+<td>Structured, tabular data (SQL databases, spreadsheets)</td>
+<td>Very high (e.g., decision trees)</td>
+<td>Random Forests, XGBoost, Linear Regression</td>
+</tr>
+<tr>
+<td><strong>Deep Learning</strong></td>
+<td>Unstructured, complex data (Images, Audio, Text)</td>
+<td>Opaque ("Black Box")</td>
+<td>CNNs, Transformers (GPT), Deep Reinforcement Learning</td>
+</tr>
+</tbody>
+</table>
+<div class="callout example">
+<span class="callout-icon">💡</span>
+<div class="callout-content">
+<div class="callout-title">Tip</div>
+**The Golden Rule:** Always start with Classical ML as a baseline. Only upgrade to Deep Learning if the performance gain justifies the massive increase in compute costs and latency.
+
+</div>
+</div>
+</div>
+<hr />
+<h1 id="4-types-of-machine-learning">4. Types of machine learning</h1>
+<div class="note-card">
+<h2 id="4-types-of-machine-learning_1">4. Types of Machine Learning</h2>
+<p>Machine Learning algorithms are categorized based on the amount and type of supervision they get during training. Here is a high-level map:</p>
+<div class="mermaid">flowchart TD
+    A[&quot;What feedback is available?&quot;] --&gt; B{&quot;Correct answers provided?&quot;}
+    B --&gt;|&quot;Yes, many labels&quot;| C[&quot;Supervised Learning&quot;]
+    B --&gt;|&quot;A few labels&quot;| D[&quot;Semi-Supervised&quot;]
+    B --&gt;|&quot;No labels&quot;| E[&quot;Unsupervised Learning&quot;]
+    A --&gt; F{&quot;Sequential actions &amp; rewards?&quot;}
+    F --&gt;|&quot;Yes&quot;| G[&quot;Reinforcement Learning&quot;]
+
+    classDef question fill:#fef3c7,stroke:#d97706,color:#78350f,stroke-width:2px;
+    classDef supervised fill:rgba(37,99,235,0.2),stroke:#2563eb,color:#000,backdrop-filter:blur(4px);
+    classDef unsupervised fill:rgba(124,58,237,0.2),stroke:#7c3aed,color:#000,backdrop-filter:blur(4px);
+    classDef rl fill:rgba(219,39,119,0.2),stroke:#db2777,color:#000,backdrop-filter:blur(4px);
+
+    class A,B,F question;
+    class C,D supervised;
+    class E unsupervised;
+    class G rl;
+</div>
+<h3 id="41-supervised-learning-learning-with-a-teacher">4.1 Supervised Learning (Learning with a Teacher)</h3>
+<p>You feed the algorithm data (features) along with the known answers (labels). The model's job is to figure out the mathematical relationship between the two.</p>
+<p><strong>Sub-types of Supervised Learning:</strong>
+1. <strong>Regression:</strong> Predicting a continuous <em>number</em>. (e.g., predicting the price of a house, temperature, or a customer's lifetime value).
+   - <em>Example Algorithm:</em> Linear Regression (<script type="math/tex">\hat{y} = w_1x_1 + w_2x_2 + b</script>).
+2. <strong>Classification:</strong> Predicting a <em>category</em> or <em>class</em>. (e.g., is this email spam or not? Is this tumor malignant or benign?).
+   - <em>Example Algorithm:</em> Logistic Regression, Random Forest.</p>
+<h3 id="42-unsupervised-learning-learning-without-a-teacher">4.2 Unsupervised Learning (Learning without a Teacher)</h3>
+<p>The algorithm explores the data completely on its own to find hidden structures, patterns, or anomalies without any human-provided labels.</p>
+<p><strong>Sub-types of Unsupervised Learning:</strong>
+1. <strong>Clustering:</strong> Grouping similar data points together. (e.g., segmenting your customers into distinct marketing personas).
+   - <em>Example Algorithm:</em> K-Means.
+2. <strong>Dimensionality Reduction:</strong> Compressing complex, high-dimensional data into a simpler form without losing the main signals.
+   - <em>Example Algorithm:</em> Principal Component Analysis (PCA).
+3. <strong>Anomaly Detection:</strong> Identifying outliers or weird behavior. (e.g., credit card fraud detection).</p>
+<h3 id="43-reinforcement-learning-learning-via-trial-error">4.3 Reinforcement Learning (Learning via Trial &amp; Error)</h3>
+<p>An <strong>Agent</strong> observes the <strong>Environment</strong>, takes an <strong>Action</strong>, and receives a <strong>Reward</strong> or penalty in return. Over time, it learns the best <strong>Policy</strong> to maximize its cumulative reward.
+- <em>Examples:</em> Self-driving cars, teaching an AI to play chess, robot navigation.</p>
+</div>
+<div class="note-card">
+<h2 id="5-how-machine-learning-models-are-trained">5. How Machine Learning Models are Trained</h2>
+<p>Training a model is essentially finding the best mathematical parameters that minimize the difference between the model's predictions and the actual truth.</p>
+<h3 id="the-training-loop">The Training Loop</h3>
+<div class="mermaid">flowchart TD
+    A[&quot;1. Initialize Parameters randomly&quot;] --&gt; B[&quot;2. Forward Pass (Make Predictions)&quot;]
+    B --&gt; C[&quot;3. Calculate Loss (Measure Error)&quot;]
+    C --&gt; D[&quot;4. Calculate Gradients (Find Direction to improve)&quot;]
+    D --&gt; E[&quot;5. Update Parameters (Take a step)&quot;]
+    E --&gt; F{&quot;Is Error low enough?&quot;}
+    F --&gt;|&quot;No&quot;| B
+    F --&gt;|&quot;Yes&quot;| G[&quot;Done! Model is trained.&quot;]
+
+    classDef glass fill:rgba(255,255,255,0.3),stroke:rgba(255,255,255,0.6),color:#000,backdrop-filter:blur(4px);
+    class A,B,C,D,E,F,G glass;
+</div>
+<h3 id="key-training-concepts">Key Training Concepts</h3>
+<ul>
+<li><strong>Loss Function (Cost Function):</strong> A mathematical way to measure how wrong the model is. (e.g., Mean Squared Error for regression, Cross-Entropy for classification).</li>
+<li><strong>Gradient Descent:</strong> The optimization algorithm used to minimize the loss. It calculates the slope (gradient) of the loss function and updates the parameters in the opposite direction.</li>
+<li><strong>Learning Rate (<script type="math/tex">\eta</script>):</strong> The size of the step the model takes during gradient descent. If it's too high, the model overshoots the minimum; if it's too low, training takes forever.</li>
+<li><strong>Epoch:</strong> One complete pass through the entire training dataset.</li>
+<li><strong>Batch Size:</strong> The number of examples the model looks at before updating its parameters.</li>
+</ul>
+<h3 id="parameters-vs-hyperparameters">Parameters vs. Hyperparameters</h3>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Definition</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Parameters</strong></td>
+<td>Internal variables the model learns <em>by itself</em> during training.</td>
+<td>Neural network weights, Regression coefficients.</td>
+</tr>
+<tr>
+<td><strong>Hyperparameters</strong></td>
+<td>Settings <em>you (the human)</em> configure before training begins.</td>
+<td>Learning rate, Batch size, Tree depth.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="note-card">
+<h2 id="6-evaluation-metrics">6. Evaluation Metrics</h2>
+<p>A model with 99% accuracy sounds great, until you realize that 99% of your data belongs to one class, and the model simply predicts that class every time. Choosing the right metric is critical.</p>
+<h3 id="61-classification-metrics">6.1 Classification Metrics</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Formula</th>
+<th>What it means</th>
+<th>When to use it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Accuracy</strong></td>
+<td>
+<script type="math/tex">\frac{TP + TN}{\text{Total}}</script>
+</td>
+<td>Overall, how often is the model correct?</td>
+<td>When classes are balanced and all errors cost the same.</td>
+</tr>
+<tr>
+<td><strong>Precision</strong></td>
+<td>
+<script type="math/tex">\frac{TP}{TP + FP}</script>
+</td>
+<td>When it predicts "Yes", how often is it actually "Yes"?</td>
+<td>When <strong>False Positives</strong> are very costly (e.g., Spam detection).</td>
+</tr>
+<tr>
+<td><strong>Recall (Sensitivity)</strong></td>
+<td>
+<script type="math/tex">\frac{TP}{TP + FN}</script>
+</td>
+<td>Out of all actual "Yes" cases, how many did we catch?</td>
+<td>When <strong>False Negatives</strong> are very costly (e.g., Cancer screening).</td>
+</tr>
+<tr>
+<td><strong>F1 Score</strong></td>
+<td>
+<script type="math/tex">2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}</script>
+</td>
+<td>The harmonic mean of Precision and Recall.</td>
+<td>When you need a balance between Precision and Recall, especially on imbalanced datasets.</td>
+</tr>
+</tbody>
+</table>
+<div class="callout warning">
+<span class="callout-icon">⚠️</span>
+<div class="callout-content">
+<div class="callout-title">Important</div>
+**Data Leakage:** Be incredibly careful that your model doesn't "cheat" by having access to the target variable or future information during training. For example, predicting who will buy an umbrella using a feature called "is_carrying_umbrella".
+
+</div>
+</div>
+<h3 id="62-classification-confusion-matrix">6.2 Classification Confusion Matrix</h3>
+<p>A confusion matrix helps visualize the performance of a classification model by showing the exact breakdown of correct and incorrect predictions.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>Predicted Positive</strong></th>
+<th><strong>Predicted Negative</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Actual Positive</strong></td>
+<td>True Positive (TP)</td>
+<td>False Negative (FN)</td>
+</tr>
+<tr>
+<td><strong>Actual Negative</strong></td>
+<td>False Positive (FP)</td>
+<td>True Negative (TN)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>True Positive (TP):</strong> We predicted "Yes", and they actually <em>were</em> "Yes".</li>
+<li><strong>True Negative (TN):</strong> We predicted "No", and they actually <em>were</em> "No".</li>
+<li><strong>False Positive (FP):</strong> We predicted "Yes", but they were actually "No" (Type I Error).</li>
+<li><strong>False Negative (FN):</strong> We predicted "No", but they were actually "Yes" (Type II Error).</li>
+</ul>
+<h3 id="63-regression-metrics">6.3 Regression Metrics</h3>
+<ul>
+<li><strong>MAE (Mean Absolute Error):</strong> The average absolute difference between the predicted and actual values. It is highly interpretable (same units as the target).</li>
+<li><strong>Formula:</strong> <script type="math/tex">\text{MAE} = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i|</script>
+</li>
+<li><strong>RMSE (Root Mean Squared Error):</strong> Heavily penalizes large errors because the errors are squared before averaging. Use this when massive mistakes are unacceptable.</li>
+<li><strong>Formula:</strong> <script type="math/tex">\text{RMSE} = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}</script>
+</li>
+<li><strong>Coefficient of determination (<script type="math/tex">R^2</script>):</strong> Measures the proportion of variance in the dependent variable that is predictable from the independent variables.</li>
+<li><strong>Formula:</strong> <script type="math/tex">R^2 = 1 - \frac{\sum (y_i - \hat{y}_i)^2}{\sum (y_i - \bar{y})^2}</script>
+</li>
+<li>
+<script type="math/tex">R^2 = 1</script>: <strong>Perfect predictions</strong> on the evaluated data.</li>
+<li>
+<script type="math/tex">R^2 = 0</script>: <strong>No improvement</strong> over just predicting the average (mean) of the data.</li>
+<li>
+<script type="math/tex">R^2 < 0</script>: <strong>Worse</strong> than just guessing the average.</li>
+</ul>
+<div class="callout warning">
+<span class="callout-icon">⚠️</span>
+<div class="callout-content">
+<div class="callout-title">Important</div>
+A high **$R^2$** does not mean your model is necessarily "good", fair, or establishing causality. It simply means it fits the current data well.
+
+</div>
+</div>
+</div>
+<div class="note-card">
+<h2 id="7-online-vs-batch-learning">7. Online vs. Batch Learning</h2>
+<p>How does your model learn when new data is constantly flowing in?</p>
+<h3 id="batch-offline-learning">Batch (Offline) Learning</h3>
+<p>The model is trained on a massive, fixed snapshot of data. If you want it to learn from new data, you have to retrain the <em>entire</em> model from scratch on the old + new data.
+- <strong>Pros:</strong> Simple, stable, easy to evaluate.
+- <strong>Cons:</strong> Very slow to adapt, requires massive computing power to retrain often.</p>
+<h3 id="online-learning">Online Learning</h3>
+<p>The model is updated incrementally as new data arrives (either one by one, or in small "mini-batches").
+- <strong>Pros:</strong> Fast adaptation to new trends (e.g., stock market, fraud patterns), requires less memory.
+- <strong>Cons:</strong> Tricky to maintain. If bad data flows in, the model can quickly degrade.</p>
+<h4 id="data-drift-vs-concept-drift">Data Drift vs Concept Drift</h4>
+<ul>
+<li><strong>Data Drift:</strong> The input data changes (e.g., users switch from desktops to mobile phones).</li>
+<li><strong>Concept Drift:</strong> The fundamental relationship between inputs and outputs changes (e.g., what considered a "luxury" house 20 years ago vs today).</li>
+</ul>
+</div>
+<div class="note-card">
+<h2 id="8-instance-based-vs-model-based-learning">8. Instance-based vs. Model-based Learning</h2>
+<p>How does the algorithm actually "know" the answer to a new problem?</p>
+<h3 id="instance-based-learning-lazy-learning">Instance-based Learning (Lazy Learning)</h3>
+<p>The system simply memorizes the training data. When it sees a new data point, it looks at the stored examples and finds the closest match using a similarity measure.
+- <strong>Analogy:</strong> Solving a math problem by finding an identical one you solved before and copying the answer.
+- <strong>Example Algorithm:</strong> K-Nearest Neighbors (KNN). 
+- <strong>Pros:</strong> Fast to "train" (just store data).
+- <strong>Cons:</strong> Very slow to predict (must compare against all stored data), uses massive memory.</p>
+<h3 id="model-based-learning-eager-learning">Model-based Learning (Eager Learning)</h3>
+<p>The system doesn't memorize the data. Instead, it studies the data to find underlying rules, patterns, or mathematical equations. It builds a <em>model</em> and discards the raw data.
+- <strong>Analogy:</strong> Actually learning the mathematical formulas so you can solve <em>any</em> new problem without looking at past examples.
+- <strong>Example Algorithm:</strong> Linear Regression, Neural Networks.
+- <strong>Pros:</strong> Extremely fast to predict, uses very little memory.
+- <strong>Cons:</strong> Can be slow and complex to train.</p>
+</div>
+<hr />
+<h1 id="9-major-challenges-in-machine-learning">9. Major challenges in machine learning</h1>
+<div class="note-card">
+<h2 id="9-major-challenges-in-machine-learning_1">9. Major Challenges in Machine Learning</h2>
+<p>Machine Learning isn't magic. If you feed it garbage, it will output garbage. Here are the biggest hurdles:</p>
+<h3 id="1-data-quality-quantity">1. Data Quality &amp; Quantity</h3>
+<ul>
+<li><strong>Insufficient Data:</strong> Complex models (like Deep Learning) require massive amounts of data to learn properly.</li>
+<li><strong>Poor-Quality Data:</strong> Missing values, duplicates, outliers, and incorrect labels will derail any algorithm.</li>
+<li><strong>Non-Representative Data:</strong> If your training data doesn't represent the real world, your model won't either. This leads to <strong>Sampling Bias</strong> (e.g., training a self-driving car only in sunny California and deploying it in snowy Canada).</li>
+</ul>
+<h3 id="2-overfitting-memorizing-instead-of-learning">2. Overfitting (Memorizing instead of Learning)</h3>
+<p>The model learns the training data <em>too well</em>, including the random noise. It performs beautifully on training data but fails miserably on new, unseen data.
+- <em>Solution:</em> Simplify the model, get more training data, or use Regularization (penalizing complexity).</p>
+<h3 id="3-underfitting-too-simple">3. Underfitting (Too Simple)</h3>
+<p>The model is too simple to learn the underlying patterns in the data. It performs poorly on both training and new data.
+- <em>Solution:</em> Use a more powerful model or feed it better, more relevant features.</p>
+</div>
+<div class="note-card">
+<h2 id="10-revision-flashcards">10. Revision Flashcards 🧠</h2>
+<p>Test your knowledge! Hover or think of the answer before checking.</p>
+<ul>
+<li><strong>Q: What is Supervised Learning?</strong></li>
+<li><em>A: Learning from data that has the correct answers (labels) provided.</em></li>
+<li><strong>Q: What is the difference between Regression and Classification?</strong></li>
+<li><em>A: Regression predicts a continuous number; Classification predicts a category/class.</em></li>
+<li><strong>Q: What is Unsupervised Learning?</strong></li>
+<li><em>A: Finding hidden patterns in unlabeled data (e.g., Clustering).</em></li>
+<li><strong>Q: What does Reinforcement Learning optimize?</strong></li>
+<li><em>A: The cumulative reward of an Agent taking actions in an Environment.</em></li>
+<li><strong>Q: What is Overfitting?</strong></li>
+<li><em>A: When a model memorizes the training data noise and fails to generalize to new data.</em></li>
+<li><strong>Q: Difference between Parameters and Hyperparameters?</strong></li>
+<li><em>A: Parameters are learned by the model during training; Hyperparameters are set by the human beforehand.</em></li>
+<li><strong>Q: What is Data Leakage?</strong></li>
+<li><em>A: Accidentally giving the model access to information during training that it wouldn't have in the real world.</em></li>
+<li><strong>Q: When should you use Recall instead of Precision?</strong></li>
+<li><em>A: When False Negatives are highly dangerous or costly (e.g., missing a cancer diagnosis).</em></li>
+</ul>
+</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- LINK TO DEDICATED FLASHCARDS -->
+                    <div class="note-card" style="text-align:center; padding: 3rem 2rem; margin-top:2rem; background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%); border:none;">
+                        <h2 style="color:#3730a3; font-size:1.8rem; margin-bottom:1rem;">Master this Topic</h2>
+                        <p style="color:#4f46e5; margin-bottom:2rem;">Practice with our interactive, full-screen Quizlet-style flashcards!</p>
+                        <a href="flashcardforml1.html" style="display:inline-block; background:#4f46e5; color:white; padding:1rem 2rem; border-radius:12px; font-weight:bold; font-size:1.2rem; text-decoration:none; box-shadow:0 4px 14px rgba(79,70,229,0.4); transition:transform 0.2s;">
+                            <i class="fa-solid fa-layer-group" style="margin-right:0.5rem;"></i> Practice Flashcards ➔
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../app.js"></script>
+</body>
+</html>

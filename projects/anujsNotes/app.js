@@ -336,6 +336,25 @@ const DECKS = {
         { front: 'Enjoy your meal!', back: 'Guten Appetit!', hint: 'Eating' },
         { front: 'Bless you!', back: 'Gesundheit!', hint: 'After someone sneezes' },
         { front: 'Welcome!', back: 'Willkommen!', hint: 'Greeting' }
+    ],
+    ep_ml1: [
+        { front: 'What is Machine Learning?', back: 'Systems that improve at a task by learning patterns from experience/data.', hint: 'Core definition' },
+        { front: 'Supervised Learning', back: 'Learning from labeled data (Data + Known answers).', hint: 'Learning paradigm' },
+        { front: 'Unsupervised Learning', back: 'Finding structure in data without externally supplied target labels.', hint: 'Learning paradigm' },
+        { front: 'Regression', back: 'Predicting a numeric/continuous quantity (e.g. price).', hint: 'Supervised task' },
+        { front: 'Classification', back: 'Predicting discrete categories or labels (e.g. spam/not spam).', hint: 'Supervised task' },
+        { front: 'Feature', back: 'An input variable used by the model.', hint: 'Vocabulary' },
+        { front: 'Label / Target', back: 'The output variable the model is trying to predict.', hint: 'Vocabulary' },
+        { front: 'Parameter', back: 'A value optimized/learned automatically during training.', hint: 'Vocabulary' },
+        { front: 'Hyperparameter', back: 'A configuration value set manually before training.', hint: 'Vocabulary' },
+        { front: 'Overfitting', back: 'Model learns noise in training data; performs poorly on unseen data (High Variance).', hint: 'Model performance' },
+        { front: 'Underfitting', back: 'Model is too simple to capture underlying patterns (High Bias).', hint: 'Model performance' },
+        { front: 'Data Leakage', back: 'When training accidentally uses information unavailable at prediction time.', hint: 'Common ML error' },
+        { front: 'Batch Learning', back: 'Training offline on a fixed, static snapshot of data.', hint: 'Training mode' },
+        { front: 'Online Learning', back: 'Updating a model incrementally as new data arrives.', hint: 'Training mode' },
+        { front: 'Precision', back: 'Of all predicted positives, how many were truly positive? (TP / (TP + FP))', hint: 'Evaluation metric' },
+        { front: 'Recall (Sensitivity)', back: 'Of all actual positives, how many did the model catch? (TP / (TP + FN))', hint: 'Evaluation metric' },
+        { front: 'F1 Score', back: 'The harmonic mean of precision and recall.', hint: 'Evaluation metric' }
     ]
 };
 

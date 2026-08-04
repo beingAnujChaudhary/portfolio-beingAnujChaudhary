@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3. Simple Linear Regression - Anuj's Notes</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <!-- MathJax for rendering math equations -->
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="../flashcards.css">
+    <link rel="icon" type="image/png" href="/assets/images/favicon_circular.png">
+    <style>
+        .note-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .note-content th {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            font-weight: 600;
+            text-align: left;
+            padding: 1rem;
+        }
+        .note-content td {
+            padding: 1rem;
+            border-top: 1px solid var(--card-border);
+            color: var(--text-secondary);
+        }
+        body {
+            /* Create a colorful gradient background for glassmorphism to reflect */
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%) !important;
+            color: #111 !important;
+            background-attachment: fixed !important;
+        }
+        
+        /* Glassmorphism overrides */
+        .sidebar, .note-card, .content-area {
+            background: rgba(255, 255, 255, 0.4) !important;
+            backdrop-filter: blur(16px) !important;
+            -webkit-backdrop-filter: blur(16px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.6) !important;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1) !important;
+            border-radius: 1.25rem !important;
+        }
+
+        /* Make sure cards inside don't double up too heavily unless intended */
+        .note-card {
+            margin-bottom: 2rem;
+            padding: 2rem;
+        }
+
+        .content-area {
+            padding: 2rem !important;
+        }
+
+        p, li {
+            color: #111 !important;
+            font-weight: 400;
+        }
+        mjx-container {
+            font-weight: 800 !important;
+            color: #000;
+        }
+        
+        /* Modern Typography enhancements */
+        h1, h2, h3, h4 {
+            color: #000 !important;
+            font-weight: 600 !important;
+            letter-spacing: -0.02em;
+        }
+        
+        /* Glassmorphism tables */
+        .note-content table {
+            background: rgba(255, 255, 255, 0.3) !important;
+            backdrop-filter: blur(8px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.5) !important;
+        }
+        .note-content th {
+            background: rgba(255, 255, 255, 0.5) !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <h1><a href="../anujsNotes.html" style="text-decoration:none;color:inherit;">Anuj's Notes</a></h1>
+            </div>
+            <nav class="nav-menu">
+                <h2 style="margin-top:0.5rem; font-size:0.75rem; color:var(--text-secondary); text-transform:uppercase; letter-spacing:1px; margin-bottom:0.5rem;">Main Hub</h2>
+                <ul id="subject-list">
+                    <li><a href="../anujsNotes.html" style="text-decoration:none;color:inherit;display:block;"><i class="fa-solid fa-house" style="width:20px;"></i> Overview</a></li>
+                </ul>
+
+                <h2 style="margin-top:1.5rem; font-size:0.75rem; color:var(--text-secondary); text-transform:uppercase; letter-spacing:1px; margin-bottom:0.5rem;">MACHINE LEARNING NOTES</h2>
+                <ul id="subject-list">
+                    <li><a href="0.1_machine_learning.html" style="text-decoration:none; display:block; color:inherit;"><i class="fa-solid fa-robot" style="width:20px;"></i> 1. Machine Learning Foundation</a></li>
+                    <li><a href="0.2_regression.html" style="text-decoration:none; display:block; color:inherit;"><i class="fa-solid fa-chart-line" style="width:20px;"></i> 2. Regression</a></li>
+                    <li><a href="0.3_simple_linear_regression.html" style="text-decoration:none; display:block; font-weight:bold; color:var(--accent-primary);"><i class="fa-solid fa-chart-bar" style="width:20px;"></i> 3. Simple Linear Regression</a></li>
+                    
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <h2 id="current-title">3. Simple Linear Regression</h2>
+            </header>
+
+            <div class="content-area" id="main-view">
+                <div class="view-container">
+                    <div class="notes-section">
+                        <div class="note-card">
+                            <div class="note-content">
+<h1 id="3-simple-linear-regression-from-intuition-to-ols-and-gradient-descent">3. Simple Linear Regression — From Intuition to OLS and Gradient Descent</h1>
+<blockquote>
+<p>Detailed notes based on <code>2 simpleLinearRegression.ipynb</code>. They preserve the notebook's example, derive the formulas it uses, explain every major code section, and replace fragile or misleading practices with safer alternatives.</p>
+</blockquote>
+<div class="note-card">
+<h2 id="1-learning-goals">1. Learning goals</h2>
+<p>You should finish able to:</p>
+<ul>
+<li>interpret the slope, intercept, prediction, and residual;</li>
+<li>derive the closed-form OLS slope and intercept;</li>
+<li>explain why the fitted line passes through <script type="math/tex">(\bar x,\bar y)</script>;</li>
+<li>write the design-matrix form and explain why direct inversion is fragile;</li>
+<li>derive the gradient of MSE with respect to <script type="math/tex">m</script> and <script type="math/tex">b</script>;</li>
+<li>perform one gradient-descent update by hand;</li>
+<li>explain the learning rate and feature scaling;</li>
+<li>distinguish Batch GD, SGD, and mini-batch GD;</li>
+<li>reconcile the notebook's full-data OLS and training-data GD values;</li>
+<li>implement both approaches with fully commented Python.</li>
+</ul>
+</div>
+<div class="note-card">
+<h2 id="2-the-model-what-it-says">2. The model: what it says</h2>
+<p>Simple linear regression uses one feature <script type="math/tex">x</script> to model the conditional mean of a numerical target <script type="math/tex">Y</script>:</p>
+<p>
+<script type="math/tex; mode=display">
+E[Y\mid X=x]=\beta_0+\beta_1x.
+</script>
+</p>
+<p>For an individual observation:</p>
+<p>
+<script type="math/tex; mode=display">
+y_i=\beta_0+\beta_1x_i+\varepsilon_i,
+</script>
+</p>
+<p>and the fitted prediction is:</p>
+<p>
+<script type="math/tex; mode=display">
+\hat y_i=b+mx_i.
+</script>
+</p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Name</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<script type="math/tex">x_i</script>
+</td>
+<td>feature</td>
+<td>observed input for row <script type="math/tex">i</script>
+</td>
+</tr>
+<tr>
+<td>
+<script type="math/tex">y_i</script>
+</td>
+<td>target</td>
+<td>observed output</td>
+</tr>
+<tr>
+<td>
+<script type="math/tex">\hat y_i</script>
+</td>
+<td>prediction</td>
+<td>point on the fitted line</td>
+</tr>
+<tr>
+<td>
+<script type="math/tex">m</script> or <script type="math/tex">\hat\beta_1</script>
+</td>
+<td>slope</td>
+<td>estimated target change per one-unit <script type="math/tex">x</script> increase</td>
+</tr>
+<tr>
+<td>
+<script type="math/tex">b</script> or <script type="math/tex">\hat\beta_0</script>
+</td>
+<td>intercept</td>
+<td>predicted target at <script type="math/tex">x=0</script>
+</td>
+</tr>
+<tr>
+<td>
+<script type="math/tex">\varepsilon_i</script>
+</td>
+<td>population error</td>
+<td>unobserved deviation from the population line</td>
+</tr>
+<tr>
+<td>
+<script type="math/tex">e_i</script>
+</td>
+<td>residual</td>
+<td>observed deviation <script type="math/tex">y_i-\hat y_i</script>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="what-does-the-slope-mean">What does the slope mean?</h3>
+<p>
+<script type="math/tex; mode=display">
+m=\frac{\Delta\hat y}{\Delta x}.
+</script>
+</p>
+<p>If <script type="math/tex">m=2.92</script>, increasing <script type="math/tex">x</script> by one unit changes the prediction by <script type="math/tex">2.92</script> units:</p>
+<p>
+<script type="math/tex; mode=display">
+\hat y(x+1)-\hat y(x)=m.
+</script>
+</p>
+<p>The units of <script type="math/tex">m</script> are "target units per feature unit." If <script type="math/tex">x</script> is floor area and <script type="math/tex">y</script> is price, the slope is price per area unit.</p>
+<h3 id="what-does-the-intercept-mean">What does the intercept mean?</h3>
+<p>
+<script type="math/tex; mode=display">
+b=\hat y(0).
+</script>
+</p>
+<p>It is the line's vertical-axis crossing. It has a practical interpretation only if <script type="math/tex">x=0</script> is meaningful and not unreasonable extrapolation.</p>
+<h3 id="why-simple">Why "simple"?</h3>
+<p>"Simple" means one predictor, not easy data, a small dataset, or an unimportant model.</p>
+</div>
+<div class="note-card">
+<h2 id="3-geometric-intuition">3. Geometric intuition</h2>
+<p>Every candidate pair <script type="math/tex">(m,b)</script> defines a line. The best-fit rule compares those lines using the vertical gaps between each observed point and its fitted point.</p>
+<div class="mermaid">flowchart TD
+    A[&quot;Choose candidate m and b&quot;] --&gt; B[&quot;Compute ŷᵢ = mxᵢ + b&quot;]
+    B --&gt; C[&quot;Compute residuals eᵢ = yᵢ - ŷᵢ&quot;]
+    C --&gt; D[&quot;Square and aggregate residuals&quot;]
+    D --&gt; E{&quot;Is this the minimum?&quot;}
+    E --&gt;|&quot;No&quot;| F[&quot;Change m and b&quot;]
+    F --&gt; B
+    E --&gt;|&quot;Yes&quot;| G[&quot;Best-fitting line&quot;]
+
+    classDef parameter fill:#ede9fe,stroke:#7c3aed,color:#3b0764,stroke-width:2px
+    classDef calculate fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
+    classDef cost fill:#fef3c7,stroke:#d97706,color:#78350f,stroke-width:2px
+    classDef update fill:#fee2e2,stroke:#dc2626,color:#7f1d1d
+    classDef finish fill:#dcfce7,stroke:#16a34a,color:#14532d,stroke-width:2px
+    class A parameter
+    class B,C calculate
+    class D,E cost
+    class F update
+    class G finish
+</div>
+<p>For one observation:</p>
+<p>
+<script type="math/tex; mode=display">
+e_i=y_i-(mx_i+b).
+</script>
+</p>
+<p>A point above the line has <script type="math/tex">e_i>0</script>: the prediction was too small.
+A point below the line has <script type="math/tex">e_i<0</script>: the prediction was too large.</p>
+<h3 id="why-vertical-not-shortest-distances">Why vertical, not shortest, distances?</h3>
+<p>Ordinary regression treats <script type="math/tex">x</script> as given and models randomness in <script type="math/tex">y</script>. If both axes contain substantial measurement error, the usual slope can be biased and orthogonal-distance or errors-in-variables methods may be preferable.</p>
+<h3 id="parameter-space-intuition">Parameter-space intuition</h3>
+<p>The data plot lives in <script type="math/tex">(x,y)</script>-space. Optimization lives in <script type="math/tex">(m,b,J)</script>-space. Each point on the loss surface represents an entire candidate line.</p>
+<div class="mermaid">flowchart LR
+    A[&quot;Data space: points and lines&quot;] --&gt; B[&quot;One line ↔ one pair (m, b)&quot;]
+    B --&gt; C[&quot;Parameter space: loss J(m, b)&quot;]
+    C --&gt; D[&quot;Lowest point ↔ best line&quot;]
+
+    classDef data fill:#cffafe,stroke:#0891b2,color:#164e63,stroke-width:2px
+    classDef map fill:#fef3c7,stroke:#d97706,color:#78350f,stroke-width:2px
+    classDef loss fill:#fce7f3,stroke:#db2777,color:#831843,stroke-width:2px
+    classDef best fill:#dcfce7,stroke:#16a34a,color:#14532d,stroke-width:2px
+    class A data
+    class B map
+    class C loss
+    class D best
+</div>
+</div>
+<div class="note-card">
+<h2 id="4-residuals-and-the-cost-function">4. Residuals and the cost function</h2>
+<h3 id="sum-of-squared-errors">Sum of squared errors</h3>
+<p>
+<script type="math/tex; mode=display">
+\operatorname{SSE}(m,b)=\sum_{i=1}^{n}[y_i-(mx_i+b)]^2.
+</script>
+</p>
+<h3 id="mean-squared-error">Mean squared error</h3>
+<p>
+<script type="math/tex; mode=display">
+\operatorname{MSE}(m,b)=\frac1n\sum_{i=1}^{n}[y_i-(mx_i+b)]^2.
+</script>
+</p>
+<h3 id="half-mean-squared-error">Half mean squared error</h3>
+<p>
+<script type="math/tex; mode=display">
+J(m,b)=\frac{1}{2n}\sum_{i=1}^{n}[y_i-(mx_i+b)]^2.
+</script>
+</p>
+<p>All three have the same minimizer because they differ only by positive constants. The factor <script type="math/tex">1/2</script> is a calculus convenience: differentiating the square produces a <script type="math/tex">2</script>, which then cancels.</p>
+<p>This distinction matters in code. The notebook's custom class calculates MSE with <script type="math/tex">1/n</script>, so its gradient correctly includes a factor of <script type="math/tex">2</script>. The markdown uses <script type="math/tex">1/(2n)</script>, whose gradient omits that factor. Both conventions are valid when loss and gradient are consistent.</p>
+<h3 id="why-squared-loss">Why squared loss?</h3>
+<ul>
+<li>Positive and negative residuals cannot cancel.</li>
+<li>A residual of 10 contributes <script type="math/tex">100</script>, while a residual of 1 contributes <script type="math/tex">1</script>.</li>
+<li>The objective is differentiable.</li>
+<li>The linear-regression loss is convex.</li>
+</ul>
+<p>The sensitivity to large errors is both a feature and a weakness. If extreme observations are common or data errors occur, compare robust alternatives such as Huber or absolute-error regression.</p>
+</div>
+<div class="note-card">
+<h2 id="5-deriving-ordinary-least-squares">5. Deriving ordinary least squares</h2>
+<p>We minimize:</p>
+<p>
+<script type="math/tex; mode=display">
+J(m,b)=\sum_{i=1}^{n}[y_i-(mx_i+b)]^2.
+</script>
+</p>
+<p>The positive scaling constant is omitted because it cannot change the minimizer.</p>
+<h3 id="step-1-differentiate-with-respect-to-b">Step 1: differentiate with respect to <script type="math/tex">b</script>
+</h3>
+<p>
+<script type="math/tex; mode=display">
+\frac{\partial J}{\partial b}=-2\sum_i[y_i-(mx_i+b)].
+</script>
+</p>
+<p>Set it to zero:</p>
+<p>
+<script type="math/tex; mode=display">
+\sum_i y_i-m\sum_i x_i-nb=0.
+</script>
+</p>
+<p>Divide by <script type="math/tex">n</script>:</p>
+<p>
+<script type="math/tex; mode=display">
+\bar y-m\bar x-b=0,
+</script>
+</p>
+<p>so:</p>
+<p>
+<script type="math/tex; mode=display">
+\boxed{b=\bar y-m\bar x}.
+</script>
+</p>
+<p>This immediately proves that the fitted OLS line passes through <script type="math/tex">(\bar x,\bar y)</script>:</p>
+<p>
+<script type="math/tex; mode=display">
+m\bar x+b=m\bar x+\bar y-m\bar x=\bar y.
+</script>
+</p>
+<h3 id="step-2-differentiate-with-respect-to-m">Step 2: differentiate with respect to <script type="math/tex">m</script>
+</h3>
+<p>
+<script type="math/tex; mode=display">
+\frac{\partial J}{\partial m}=-2\sum_i x_i[y_i-(mx_i+b)].
+</script>
+</p>
+<p>After substituting <script type="math/tex">b=\bar y-m\bar x</script> and collecting centered terms:</p>
+<p>
+<script type="math/tex; mode=display">
+\boxed{m=\frac{\sum_i(x_i-\bar x)(y_i-\bar y)}{\sum_i(x_i-\bar x)^2}}.
+</script>
+</p>
+<p>Then:</p>
+<p>
+<script type="math/tex; mode=display">
+\boxed{b=\bar y-m\bar x}.
+</script>
+</p>
+<h3 id="statistical-interpretation-of-the-slope">Statistical interpretation of the slope</h3>
+<p>Using sample covariance and variance with matching denominators:</p>
+<p>
+<script type="math/tex; mode=display">
+m=\frac{\operatorname{Cov}(X,Y)}{\operatorname{Var}(X)}=r_{xy}\frac{s_y}{s_x}.
+</script>
+</p>
+<p>Consequences:</p>
+<ul>
+<li>If covariance is positive, slope is positive.</li>
+<li>If correlation is zero, the simple OLS slope is zero.</li>
+<li>Rescaling <script type="math/tex">x</script> changes the numeric slope.</li>
+<li>If all <script type="math/tex">x_i</script> are equal, the denominator is zero and slope cannot be identified.</li>
+</ul>
+<h3 id="worked-example">Worked example</h3>
+<p>Let:</p>
+<p>
+<script type="math/tex; mode=display">
+x=[1,2,3],\qquad y=[2,3,5].
+</script>
+</p>
+<p>Then:</p>
+<p>
+<script type="math/tex; mode=display">
+\bar x=2,\qquad \bar y=\frac{10}{3}.
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\sum(x_i-\bar x)(y_i-\bar y)=(-1)\left(-\frac43\right)+0+\left(\frac53\right)=3.
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\sum(x_i-\bar x)^2=1+0+1=2.
+</script>
+</p>
+<p>Therefore:</p>
+<p>
+<script type="math/tex; mode=display">
+m=\frac32=1.5,\qquad b=\frac{10}{3}-1.5(2)=\frac13.
+</script>
+</p>
+<p>The fitted line is:</p>
+<p>
+<script type="math/tex; mode=display">
+\hat y=\frac13+1.5x.
+</script>
+</p>
+<p>Predictions are approximately <script type="math/tex">[1.833,3.333,4.833]</script>; residuals are <script type="math/tex">[0.167,-0.333,0.167]</script>. Notice that residuals sum to zero.</p>
+</div>
+<div class="note-card">
+<h2 id="6-matrix-ols-and-numerical-stability">6. Matrix OLS and numerical stability</h2>
+<p>For multiple features, include a ones column in the design matrix:</p>
+<p>
+<script type="math/tex; mode=display">
+\tilde X=\begin{bmatrix}1 & x_{11} & \cdots & x_{1p}\\ 1 & x_{21} & \cdots & x_{2p}\\ \vdots & \vdots & \ddots & \vdots\\ 1 & x_{n1} & \cdots & x_{np}\end{bmatrix}.
+</script>
+</p>
+<p>The model is:</p>
+<p>
+<script type="math/tex; mode=display">
+\hat y=\tilde X\boldsymbol{\beta}.
+</script>
+</p>
+<p>The least-squares objective is:</p>
+<p>
+<script type="math/tex; mode=display">
+\lVert y-\tilde X\boldsymbol{\beta}\rVert_2^2.
+</script>
+</p>
+<p>Differentiating:</p>
+<p>
+<script type="math/tex; mode=display">
+\nabla_{\boldsymbol{\beta}}J=-2\tilde X^\top(y-\tilde X\boldsymbol{\beta}).
+</script>
+</p>
+<p>Setting it to zero gives the normal equations:</p>
+<p>
+<script type="math/tex; mode=display">
+\tilde X^\top\tilde X\hat{\boldsymbol{\beta}}=\tilde X^\top y.
+</script>
+</p>
+<p>If invertible:</p>
+<p>
+<script type="math/tex; mode=display">
+\hat{\boldsymbol{\beta}}=(\tilde X^\top\tilde X)^{-1}\tilde X^\top y.
+</script>
+</p>
+<h3 id="why-the-notebooks-direct-inverse-is-educational-but-fragile">Why the notebook's direct inverse is educational but fragile</h3>
+<p>The notebook uses:</p>
+<pre><code class="language-python">beta = np.linalg.inv(X_bias.T @ X_bias) @ X_bias.T @ y
+</code></pre>
+<p>It mirrors the textbook formula, but production code should avoid forming the inverse because:</p>
+<ul>
+<li>floating-point roundoff is amplified;</li>
+<li>
+<script type="math/tex">X^\top X</script> squares the condition number;</li>
+<li>exact multicollinearity makes it singular;</li>
+<li>near-collinearity makes coefficients unstable.</li>
+</ul>
+<p>Prefer:</p>
+<pre><code class="language-python">beta, residual_sums, rank, singular_values = np.linalg.lstsq(
+    X_bias,
+    y,
+    rcond=None,
+)
+</code></pre>
+<p>Scikit-learn's dense <code>LinearRegression</code> wraps a stable least-squares solver rather than naïvely evaluating the explicit inverse.</p>
+<h3 id="projection-intuition">Projection intuition</h3>
+<p>OLS selects <script type="math/tex">\hat y</script> as the projection of <script type="math/tex">y</script> onto the column space of <script type="math/tex">X</script>. At the optimum:</p>
+<p>
+<script type="math/tex; mode=display">
+X^\top e=0.
+</script>
+</p>
+<p>Thus residuals are orthogonal to every included feature column. If an intercept column is included:</p>
+<p>
+<script type="math/tex; mode=display">
+\mathbf{1}^\top e=\sum_i e_i=0.
+</script>
+</p>
+<div class="mermaid">flowchart TD
+    A[&quot;Target vector y&quot;] --&gt; B[&quot;Project onto column space of X&quot;]
+    B --&gt; C[&quot;Fitted vector ŷ = Xβ̂&quot;]
+    A --&gt; D[&quot;Residual vector e = y - ŷ&quot;]
+    C --&gt; E[&quot;Orthogonality: Xᵀe = 0&quot;]
+    D --&gt; E
+
+    classDef target fill:#fce7f3,stroke:#db2777,color:#831843,stroke-width:2px
+    classDef operation fill:#fef3c7,stroke:#d97706,color:#78350f
+    classDef fit fill:#dbeafe,stroke:#2563eb,color:#1e3a8a,stroke-width:2px
+    classDef residual fill:#fee2e2,stroke:#dc2626,color:#7f1d1d
+    classDef result fill:#dcfce7,stroke:#16a34a,color:#14532d,stroke-width:2px
+    class A target
+    class B operation
+    class C fit
+    class D residual
+    class E result
+</div>
+</div>
+<div class="note-card">
+<h2 id="7-gradient-descent-from-first-principles">7. Gradient descent from first principles</h2>
+<p>Gradient descent reaches the same OLS minimum iteratively.</p>
+<p>Using MSE:</p>
+<p>
+<script type="math/tex; mode=display">
+J(m,b)=\frac1n\sum_i[y_i-(mx_i+b)]^2.
+</script>
+</p>
+<p>Define:</p>
+<p>
+<script type="math/tex; mode=display">
+\hat y_i=mx_i+b,\qquad e_i=y_i-\hat y_i.
+</script>
+</p>
+<p>The derivatives are:</p>
+<p>
+<script type="math/tex; mode=display">
+\frac{\partial J}{\partial m}=-\frac{2}{n}\sum_i x_i(y_i-\hat y_i),
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\frac{\partial J}{\partial b}=-\frac{2}{n}\sum_i(y_i-\hat y_i).
+</script>
+</p>
+<p>Updates:</p>
+<p>
+<script type="math/tex; mode=display">
+m_{\text{new}}=m_{\text{old}}-\alpha\frac{\partial J}{\partial m},
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+b_{\text{new}}=b_{\text{old}}-\alpha\frac{\partial J}{\partial b}.
+</script>
+</p>
+<h3 id="directional-intuition">Directional intuition</h3>
+<p>The gradient points in the local direction of fastest increase. Subtracting it moves downhill.</p>
+<div class="mermaid">flowchart TD
+    A[&quot;Initialize m and b&quot;] --&gt; B[&quot;Predict all rows&quot;]
+    B --&gt; C[&quot;Measure MSE&quot;]
+    C --&gt; D[&quot;Calculate dm and db&quot;]
+    D --&gt; E[&quot;Update opposite the gradient&quot;]
+    E --&gt; F{&quot;Converged or iteration limit?&quot;}
+    F --&gt;|&quot;No&quot;| B
+    F --&gt;|&quot;Yes&quot;| G[&quot;Return fitted parameters&quot;]
+
+    classDef init fill:#ede9fe,stroke:#7c3aed,color:#3b0764,stroke-width:2px
+    classDef compute fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
+    classDef gradient fill:#fef3c7,stroke:#d97706,color:#78350f,stroke-width:2px
+    classDef update fill:#fce7f3,stroke:#db2777,color:#831843
+    classDef decision fill:#fee2e2,stroke:#dc2626,color:#7f1d1d
+    classDef done fill:#dcfce7,stroke:#16a34a,color:#14532d,stroke-width:2px
+    class A init
+    class B,C compute
+    class D gradient
+    class E update
+    class F decision
+    class G done
+</div>
+<h3 id="one-update-by-hand">One update by hand</h3>
+<p>Use the worked data <script type="math/tex">x=[1,2,3]</script>, <script type="math/tex">y=[2,3,5]</script>, start <script type="math/tex">m=b=0</script>, and use notebook-style MSE.</p>
+<p>
+<script type="math/tex; mode=display">
+\hat y=[0,0,0],\qquad e=[2,3,5].
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\frac{\partial J}{\partial m}=-\frac23(1\cdot2+2\cdot3+3\cdot5)=-\frac{46}{3}\approx-15.333.
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\frac{\partial J}{\partial b}=-\frac23(2+3+5)=-\frac{20}{3}\approx-6.667.
+</script>
+</p>
+<p>At <script type="math/tex">\alpha=0.01</script>:</p>
+<p>
+<script type="math/tex; mode=display">
+m_{\text{new}}=0-0.01(-15.333)=0.1533,
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+b_{\text{new}}=0-0.01(-6.667)=0.0667.
+</script>
+</p>
+<p>Both move toward the optimum <script type="math/tex">m=1.5,b=1/3</script>.</p>
+<h3 id="learning-rate-behavior">Learning-rate behavior</h3>
+<div class="mermaid">flowchart TD
+    A[&quot;Learning rate α&quot;] --&gt; B[&quot;Too large&quot;]
+    A --&gt; C[&quot;Suitable&quot;]
+    A --&gt; D[&quot;Very small&quot;]
+    B --&gt; B1[&quot;Overshoot, oscillate, or diverge&quot;]
+    C --&gt; C1[&quot;Stable useful convergence&quot;]
+    D --&gt; D1[&quot;Stable but many iterations&quot;]
+
+    classDef root fill:#ede9fe,stroke:#7c3aed,color:#3b0764,stroke-width:2px
+    classDef bad fill:#fee2e2,stroke:#dc2626,color:#7f1d1d,stroke-width:2px
+    classDef good fill:#dcfce7,stroke:#16a34a,color:#14532d,stroke-width:2px
+    classDef slow fill:#fef3c7,stroke:#d97706,color:#78350f,stroke-width:2px
+    class A root
+    class B,B1 bad
+    class C,C1 good
+    class D,D1 slow
+</div>
+<p>The notebook diagram says a low learning rate "may get stuck." For convex linear least squares, "very slow" is the accurate intuition; local minima are not the issue.</p>
+<h3 id="why-feature-scaling-helps-gd">Why feature scaling helps GD</h3>
+<p>If one feature ranges from <script type="math/tex">0</script> to <script type="math/tex">1</script> and another from <script type="math/tex">0</script> to <script type="math/tex">10^6</script>, the loss surface becomes elongated. A step size safe in the steep direction is inefficient in the flat direction. Standardization:</p>
+<p>
+<script type="math/tex; mode=display">
+z_j=\frac{x_j-\mu_j}{s_j}
+</script>
+</p>
+<p>improves conditioning and allows more balanced updates. Fit <script type="math/tex">\mu_j</script> and <script type="math/tex">s_j</script> using training data only.</p>
+<h3 id="stopping-criteria">Stopping criteria</h3>
+<p>Common rules:</p>
+<ul>
+<li>absolute loss change below a tolerance;</li>
+<li>gradient norm below a tolerance;</li>
+<li>parameter movement below a tolerance;</li>
+<li>validation loss stops improving;</li>
+<li>maximum iterations reached.</li>
+</ul>
+<p>A tiny loss change can occur because the learning rate is tiny, so combining criteria is safer.</p>
+</div>
+<div class="note-card">
+<h2 id="8-batch-stochastic-and-mini-batch-gd">8. Batch, stochastic, and mini-batch GD</h2>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Batch GD</th>
+<th>SGD</th>
+<th>Mini-batch GD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rows per update</td>
+<td>All <script type="math/tex">n</script>
+</td>
+<td>One</td>
+<td>Small batch</td>
+</tr>
+<tr>
+<td>Path</td>
+<td>Smooth</td>
+<td>Noisy</td>
+<td>Moderately noisy</td>
+</tr>
+<tr>
+<td>Update cost</td>
+<td>High</td>
+<td>Low</td>
+<td>Moderate</td>
+</tr>
+<tr>
+<td>Vectorization</td>
+<td>Excellent</td>
+<td>Weak</td>
+<td>Excellent</td>
+</tr>
+<tr>
+<td>Streaming</td>
+<td>Poor</td>
+<td>Excellent</td>
+<td>Possible</td>
+</tr>
+<tr>
+<td>Common use</td>
+<td>Smaller convex problems</td>
+<td>Online learning</td>
+<td>Large modern training</td>
+</tr>
+</tbody>
+</table>
+<p>The notebook table labels Batch GD "high accuracy" and SGD "low/noisy." Noise describes the optimization path, not necessarily final predictive accuracy. With suitable schedules and enough updates, SGD can approximate the same optimum and sometimes generalize well.</p>
+<p>An epoch means one full pass through the training data. Batch GD performs one update per epoch; SGD performs approximately <script type="math/tex">n</script>; mini-batch GD performs approximately <script type="math/tex">n/B</script> updates for batch size <script type="math/tex">B</script>.</p>
+</div>
+<div class="note-card">
+<h2 id="9-ols-versus-gradient-descent">9. OLS versus gradient descent</h2>
+<div class="mermaid">flowchart TD
+    A[&quot;Need linear least squares&quot;] --&gt; B{&quot;Small or medium dense problem?&quot;}
+    B --&gt;|&quot;Yes&quot;| C[&quot;Use a stable OLS solver&quot;]
+    B --&gt;|&quot;No&quot;| D{&quot;Streaming, sparse, or extremely large?&quot;}
+    D --&gt;|&quot;Yes&quot;| E[&quot;Use iterative or stochastic optimization&quot;]
+    D --&gt;|&quot;No&quot;| F[&quot;Benchmark solver choices&quot;]
+    C --&gt; G[&quot;No learning-rate tuning&quot;]
+    E --&gt; H[&quot;Scale features and monitor convergence&quot;]
+    F --&gt; I[&quot;Compare time, memory, and validation error&quot;]
+
+    classDef root fill:#ede9fe,stroke:#7c3aed,color:#3b0764,stroke-width:2px
+    classDef decision fill:#fef3c7,stroke:#d97706,color:#78350f,stroke-width:2px
+    classDef ols fill:#dbeafe,stroke:#2563eb,color:#1e3a8a,stroke-width:2px
+    classDef gd fill:#fce7f3,stroke:#db2777,color:#831843,stroke-width:2px
+    classDef result fill:#dcfce7,stroke:#16a34a,color:#14532d
+    class A root
+    class B,D decision
+    class C,G ols
+    class E,H gd
+    class F,I result
+</div>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Stable OLS solver</th>
+<th>Gradient descent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Exact finite-step linear algebra?</td>
+<td>Yes, subject to floating point</td>
+<td>No, iterative approximation</td>
+</tr>
+<tr>
+<td>Learning rate?</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Feature scaling essential?</td>
+<td>Not for predictions, though conditioning matters</td>
+<td>Strongly recommended</td>
+</tr>
+<tr>
+<td>Huge/streaming data?</td>
+<td>Often less convenient</td>
+<td>Well suited</td>
+</tr>
+<tr>
+<td>Rank deficiency?</td>
+<td>SVD/lstsq can return a solution</td>
+<td>Convergence and solution depend on setup</td>
+</tr>
+<tr>
+<td>Convex global optimum?</td>
+<td>Yes</td>
+<td>Yes, with suitable optimization</td>
+</tr>
+</tbody>
+</table>
+<p>For the notebook's 100 rows and one feature, a stable OLS solver is the natural practical choice. The custom GD class is valuable for learning how optimization works.</p>
+</div>
+<div class="note-card">
+<h2 id="10-notebook-code-walkthrough">10. Notebook code walkthrough</h2>
+<h3 id="101-synthetic-data">10.1 Synthetic data</h3>
+<pre><code class="language-python">np.random.seed(42)
+X = np.random.rand(100, 1) * 10
+y = 3 * X.squeeze() + 5 + np.random.randn(100) * 2
+</code></pre>
+<ul>
+<li>The seed makes the exact random sequence reproducible.</li>
+<li>
+<script type="math/tex">X</script> has 100 rows and one feature.</li>
+<li><code>squeeze()</code> changes <script type="math/tex">(100,1)</script> to <script type="math/tex">(100,)</script>.</li>
+<li>The hidden slope is 3 and intercept is 5.</li>
+<li>Noise prevents a perfect line and makes estimation realistic.</li>
+</ul>
+<h3 id="102-scalar-ols-function">10.2 Scalar OLS function</h3>
+<p>The notebook's <code>ols_simple</code> follows the centered formulas exactly. A valuable guard would be:</p>
+<pre><code class="language-python">if np.isclose(denominator, 0):
+    raise ValueError(&quot;Slope is undefined because x has no variation.&quot;)
+</code></pre>
+<h3 id="103-matrix-ols-function">10.3 Matrix OLS function</h3>
+<p><code>np.c_[np.ones(...), X]</code> adds an intercept column. The order of returned coefficients is <script type="math/tex">[\text{intercept},\text{slope}]</script>. Replace <code>np.linalg.inv</code> with <code>np.linalg.lstsq</code> for numerical stability.</p>
+<h3 id="104-traintest-split">10.4 Train/test split</h3>
+<p>The custom GD model fits only <code>X_train</code> and <code>y_train</code>. Therefore it should be compared with OLS fitted on the same training data, not the earlier OLS result fitted on all 100 rows.</p>
+<h3 id="105-gradient-class">10.5 Gradient class</h3>
+<p>Important operations:</p>
+<pre><code class="language-python">y_pred = np.dot(X, self.weights) + self.bias
+</code></pre>
+<p>This vectorizes <script type="math/tex">\hat y=Xw+b</script>.</p>
+<pre><code class="language-python">dw = -(2/n_samples) * np.dot(X.T, (y - y_pred))
+db = -(2/n_samples) * np.sum(y - y_pred)
+</code></pre>
+<p>These are the gradients of MSE. The updates subtract them.</p>
+<p>One subtlety: the original class stores history before each update. After the final update, <code>self.weights</code> is one step ahead of the final stored history item. That difference is tiny here, but history should ideally record a consistent state.</p>
+</div>
+<div class="note-card">
+<h2 id="11-improved-commented-implementation">11. Improved commented implementation</h2>
+<h3 id="111-stable-ols-functions">11.1 Stable OLS functions</h3>
+<pre><code class="language-python">import numpy as np
+
+def ols_simple(x, y):
+    &quot;&quot;&quot;Fit y = m*x + b using centered simple-OLS formulas.&quot;&quot;&quot;
+    x = np.asarray(x, dtype=float).reshape(-1)
+    y = np.asarray(y, dtype=float).reshape(-1)
+
+    if x.size != y.size:
+        raise ValueError(&quot;x and y must contain the same number of rows.&quot;)
+
+    x_centered = x - x.mean()
+    y_centered = y - y.mean()
+    denominator = x_centered @ x_centered
+
+    if np.isclose(denominator, 0.0):
+        raise ValueError(&quot;Cannot estimate slope: x has no variation.&quot;)
+
+    m = (x_centered @ y_centered) / denominator
+    b = y.mean() - m * x.mean()
+    return m, b
+
+def ols_matrix(X, y):
+    &quot;&quot;&quot;Fit multiple OLS with an intercept using stable least squares.&quot;&quot;&quot;
+    X = np.asarray(X, dtype=float)
+    y = np.asarray(y, dtype=float).reshape(-1)
+
+    if X.ndim == 1:
+        X = X.reshape(-1, 1)
+    if X.shape[0] != y.size:
+        raise ValueError(&quot;X and y must have the same number of rows.&quot;)
+
+    design = np.column_stack([np.ones(X.shape[0]), X])
+    beta, residual_sums, rank, singular_values = np.linalg.lstsq(
+        design,
+        y,
+        rcond=None,
+    )
+    return beta, rank, singular_values
+</code></pre>
+<h3 id="112-improved-educational-gradient-descent">11.2 Improved educational gradient descent</h3>
+<pre><code class="language-python">class GradientDescentLinearRegression:
+    &quot;&quot;&quot;Educational batch-gradient-descent linear regression.&quot;&quot;&quot;
+
+    def __init__(self, learning_rate=0.01, max_iter=10_000, tol=1e-8):
+        self.learning_rate = learning_rate
+        self.max_iter = max_iter
+        self.tol = tol
+
+    def fit(self, X, y):
+        X = np.asarray(X, dtype=float)
+        y = np.asarray(y, dtype=float).reshape(-1)
+
+        if X.ndim == 1:
+            X = X.reshape(-1, 1)
+        if X.shape[0] != y.size:
+            raise ValueError(&quot;X and y must have the same number of rows.&quot;)
+
+        n_rows, n_features = X.shape
+        self.coef_ = np.zeros(n_features)
+        self.intercept_ = 0.0
+        self.loss_history_ = []
+
+        previous_loss = np.inf
+
+        for iteration in range(self.max_iter):
+            # Forward pass: prediction using current parameters.
+            prediction = X @ self.coef_ + self.intercept_
+            residual = y - prediction
+
+            # MSE and its exact gradients under the same convention.
+            loss = np.mean(residual ** 2)
+            grad_w = -(2.0 / n_rows) * (X.T @ residual)
+            grad_b = -(2.0 / n_rows) * residual.sum()
+
+            # Move opposite the uphill gradient.
+            self.coef_ -= self.learning_rate * grad_w
+            self.intercept_ -= self.learning_rate * grad_b
+            self.loss_history_.append(loss)
+
+            # Reject divergence early instead of silently returning NaNs.
+            if not np.isfinite(loss):
+                raise FloatingPointError(
+                    &quot;Loss diverged; lower the learning rate or scale X.&quot;
+                )
+
+            # Stop after successive pre-update losses have stabilized.
+            if abs(previous_loss - loss) &lt; self.tol:
+                self.n_iter_ = iteration + 1
+                break
+
+            previous_loss = loss
+        else:
+            self.n_iter_ = self.max_iter
+
+        return self
+
+    def predict(self, X):
+        X = np.asarray(X, dtype=float)
+        if X.ndim == 1:
+            X = X.reshape(-1, 1)
+        return X @ self.coef_ + self.intercept_
+</code></pre>
+<h3 id="113-reproduce-the-notebook-comparison-fairly">11.3 Reproduce the notebook comparison fairly</h3>
+<pre><code class="language-python">from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+
+rng = np.random.RandomState(42)
+X = rng.rand(100, 1) * 10
+y = 3 * X[:, 0] + 5 + rng.randn(100) * 2
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.20, random_state=42
+)
+
+closed_form = LinearRegression().fit(X_train, y_train)
+iterative = GradientDescentLinearRegression(
+    learning_rate=0.01,
+    max_iter=10_000,
+).fit(X_train, y_train)
+
+print(&quot;OLS:&quot;, closed_form.coef_[0], closed_form.intercept_)
+print(&quot;GD: &quot;, iterative.coef_[0], iterative.intercept_)
+
+# They should be close because they optimize the same training objective.
+print(
+    &quot;Maximum test prediction difference:&quot;,
+    np.max(
+        np.abs(
+            closed_form.predict(X_test)
+            - iterative.predict(X_test)
+        )
+    ),
+)
+</code></pre>
+<p>For multiple differently scaled features, put <code>StandardScaler</code> and an iterative estimator in a <code>Pipeline</code>. Do not standardize the full dataset before splitting.</p>
+</div>
+<div class="note-card">
+<h2 id="12-reading-the-outputs-correctly">12. Reading the outputs correctly</h2>
+<h3 id="full-data-ols-output">Full-data OLS output</h3>
+<p>The notebook's scalar and matrix OLS code uses all 100 observations:</p>
+<p>
+<script type="math/tex; mode=display">
+\hat y=5.4302+2.9080x.
+</script>
+</p>
+<p>Both functions match because they solve the same objective on the same rows.</p>
+<h3 id="training-only-scikit-learn-result">Training-only scikit-learn result</h3>
+<p>The notebook's earlier Regression example fits 80 training observations:</p>
+<p>
+<script type="math/tex; mode=display">
+\hat y=5.2858+2.9197x.
+</script>
+</p>
+<h3 id="training-only-gd-result-after-1000-iterations">Training-only GD result after 1,000 iterations</h3>
+<p>
+<script type="math/tex; mode=display">
+\hat y\approx5.2659+2.9228x.
+</script>
+</p>
+<p>GD is close but not exactly equal after 1,000 iterations because it is an iterative approximation and the stopping tolerance was not reached. More iterations or feature scaling brings it closer.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Rows fitted</th>
+<th>Slope</th>
+<th>Intercept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scalar OLS</td>
+<td>100</td>
+<td>2.9080</td>
+<td>5.4302</td>
+</tr>
+<tr>
+<td>Matrix OLS</td>
+<td>100</td>
+<td>2.9080</td>
+<td>5.4302</td>
+</tr>
+<tr>
+<td>scikit-learn OLS</td>
+<td>80</td>
+<td>2.9197</td>
+<td>5.2858</td>
+</tr>
+<tr>
+<td>Custom GD, 1,000 steps</td>
+<td>80</td>
+<td>2.9228</td>
+<td>5.2659</td>
+</tr>
+</tbody>
+</table>
+<p>The main reason the first two differ from the latter two is different training data, not disagreement between algorithms.</p>
+<p>The GD loss decreases from its initial value to about <script type="math/tex">3.3908</script>, essentially the training MSE. A log-scaled loss plot is useful because it reveals multiplicative improvement across a wide range.</p>
+</div>
+<div class="note-card">
+<h2 id="13-assumptions-diagnostics-and-boundaries">13. Assumptions, diagnostics, and boundaries</h2>
+<h3 id="linearity">Linearity</h3>
+<p>The conditional mean is assumed linear in <script type="math/tex">x</script>. A residual curve suggests missing structure.</p>
+<h3 id="independent-or-modeled-dependence">Independent or modeled dependence</h3>
+<p>Time series and repeated observations violate simple independence. Plot residuals in collection order and split appropriately.</p>
+<h3 id="constant-variance">Constant variance</h3>
+<p>A funnel pattern implies heteroscedasticity. Coefficients may still be useful, but standard uncertainty formulas and constant-width intervals can fail.</p>
+<h3 id="exogeneity-for-unbiased-coefficient-interpretation">Exogeneity for unbiased coefficient interpretation</h3>
+<p>
+<script type="math/tex; mode=display">
+E[\varepsilon\mid X]=0.
+</script>
+</p>
+<p>Omitted variables related to both <script type="math/tex">x</script> and <script type="math/tex">y</script>, reverse causation, selection, and measurement error can violate this.</p>
+<h3 id="normal-residuals">Normal residuals</h3>
+<p>Normality is not needed to compute OLS. It supports exact small-sample inferential procedures under the classical model.</p>
+<h3 id="interpolation-versus-extrapolation">Interpolation versus extrapolation</h3>
+<p>A line predicts anywhere mathematically, but evidence is strongest within the observed <script type="math/tex">x</script>-range. A plausible relationship from <script type="math/tex">x=0</script> to <script type="math/tex">10</script> may be absurd at <script type="math/tex">x=1,000</script>.</p>
+<h3 id="point-prediction-versus-uncertainty">Point prediction versus uncertainty</h3>
+<p><code>model.predict</code> gives a point estimate, not a prediction interval. A confidence interval for the mean response and a prediction interval for a new observation answer different questions; the latter is wider because it includes individual noise.</p>
+</div>
+<div class="note-card">
+<h2 id="14-corrections-and-common-traps">14. Corrections and common traps</h2>
+<table>
+<thead>
+<tr>
+<th>Notebook idea or tempting practice</th>
+<th>Refined version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GD starts with random values</td>
+<td>It may, but the notebook initializes zeros</td>
+</tr>
+<tr>
+<td>Low learning rate may get stuck</td>
+<td>Convex OLS mostly becomes slow; it has no bad local minimum</td>
+</tr>
+<tr>
+<td>Direct inverse gives OLS</td>
+<td>Algebraically yes, but lstsq/SVD is safer</td>
+</tr>
+<tr>
+<td>Inversion complexity is <script type="math/tex">O(n^3)</script>
+</td>
+<td>Distinguish <script type="math/tex">n</script> samples from <script type="math/tex">p</script> features</td>
+</tr>
+<tr>
+<td>OLS fails under perfect correlation</td>
+<td>Coefficients are non-unique; SVD can return a least-norm solution</td>
+</tr>
+<tr>
+<td>Batch GD has high "accuracy," SGD low</td>
+<td>Update noise and final predictive accuracy are different ideas</td>
+</tr>
+<tr>
+<td>Full-data OLS and train-only GD should match</td>
+<td>They must use the same rows before comparison</td>
+</tr>
+<tr>
+<td>Final history point equals final parameter</td>
+<td>Original history is stored before updates, so it is one step behind</td>
+</tr>
+<tr>
+<td>Test data may guide iterations</td>
+<td>Use training/validation for choices; preserve the test set</td>
+</tr>
+<tr>
+<td>High <script type="math/tex">R^2</script> proves the line is right</td>
+<td>Check residuals, baselines, sampling, and domain validity</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="note-card">
+<h2 id="15-practice-questions-with-answers">15. Practice questions with answers</h2>
+<ul>
+<li><strong>What makes regression "simple"?</strong> It has one predictor.</li>
+<li><strong>What is predicted by <script type="math/tex">\hat y=mx+b</script>?</strong> The modeled conditional mean or point estimate of the target.</li>
+<li><strong>What are the units of <script type="math/tex">m</script>?</strong> Target units per feature unit.</li>
+<li><strong>Why does the OLS line pass through <script type="math/tex">(\bar x,\bar y)</script>?</strong> Because <script type="math/tex">b=\bar y-m\bar x</script>.</li>
+<li><strong>What happens if all <script type="math/tex">x_i</script> are equal?</strong> The slope denominator is zero, so slope cannot be identified.</li>
+<li><strong>Why square residuals?</strong> Prevent cancellation, emphasize large misses, and obtain a smooth convex loss.</li>
+<li><strong>Does using <script type="math/tex">1/n</script> versus <script type="math/tex">1/(2n)</script> change the optimum?</strong> No; it rescales the loss and gradient.</li>
+<li><strong>Why does MSE's gradient contain 2?</strong> It comes from differentiating the squared residual.</li>
+<li><strong>Why subtract the gradient?</strong> The gradient points uphill, so its negative points downhill.</li>
+<li><strong>Can OLS gradient descent be trapped in a bad local minimum?</strong> Not for the ordinary convex linear least-squares objective.</li>
+<li><strong>Why scale features before GD?</strong> It improves conditioning and balances gradient directions.</li>
+<li><strong>Why prefer lstsq over an inverse?</strong> It is more stable and handles rank deficiency better.</li>
+<li><strong>Why do the notebook's OLS and GD coefficients differ?</strong> OLS first uses all rows; GD uses the training subset, and GD is approximate.</li>
+<li><strong>What does a negative residual mean?</strong> The prediction was too high.</li>
+<li><strong>Can a good line prove that <script type="math/tex">x</script> causes <script type="math/tex">y</script>?</strong> No.</li>
+<li><strong>For <script type="math/tex">m=3,b=5,x=4</script>, find <script type="math/tex">\hat y</script>.</strong> <script type="math/tex">17</script>.</li>
+<li><strong>If <script type="math/tex">y=14</script>, find the residual.</strong> <script type="math/tex">14-17=-3</script>.</li>
+<li><strong>For <script type="math/tex">x=[1,2,3]</script>, <script type="math/tex">y=[2,3,5]</script>, what are <script type="math/tex">m,b</script>?</strong> <script type="math/tex">m=1.5</script>, <script type="math/tex">b=1/3</script>.</li>
+<li><strong>If <script type="math/tex">\partial J/\partial m=-8</script>, <script type="math/tex">m=1</script>, and <script type="math/tex">\alpha=0.1</script>, find the update.</strong> <script type="math/tex">m_{\text{new}}=1-0.1(-8)=1.8</script>.</li>
+<li><strong>What happens when <script type="math/tex">\alpha</script> is too high?</strong> Updates can overshoot, oscillate, or diverge.</li>
+</ul>
+<h3 id="coding-challenges">Coding challenges</h3>
+<ol>
+<li>Add the zero-variance guard to the notebook's scalar OLS function.</li>
+<li>Replace the direct inverse with <code>np.linalg.lstsq</code>.</li>
+<li>Fit OLS and GD on the same rows and plot their lines together.</li>
+<li>Standardize <script type="math/tex">X</script>, retrain GD, and compare iteration counts.</li>
+<li>Try three learning rates and plot all loss curves.</li>
+<li>Implement mini-batch updates with shuffled row indices.</li>
+<li>Track gradient norm as an additional stopping criterion.</li>
+<li>Add one high-leverage point and compare the fitted slope.</li>
+</ol>
+</div>
+<div class="note-card">
+<h2 id="16-formula-sheet-and-fun-facts">16. Formula sheet and fun facts</h2>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Formula</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Model</td>
+<td>
+<script type="math/tex">\hat y=mx+b</script>
+</td>
+</tr>
+<tr>
+<td>Residual</td>
+<td>
+<script type="math/tex">e_i=y_i-\hat y_i</script>
+</td>
+</tr>
+<tr>
+<td>MSE</td>
+<td>
+<script type="math/tex">J=\frac1n\sum e_i^2</script>
+</td>
+</tr>
+<tr>
+<td>Half MSE</td>
+<td>
+<script type="math/tex">J=\frac1{2n}\sum e_i^2</script>
+</td>
+</tr>
+<tr>
+<td>OLS slope</td>
+<td>
+<script type="math/tex">m=\frac{\sum(x_i-\bar x)(y_i-\bar y)}{\sum(x_i-\bar x)^2}</script>
+</td>
+</tr>
+<tr>
+<td>OLS intercept</td>
+<td>
+<script type="math/tex">b=\bar y-m\bar x</script>
+</td>
+</tr>
+<tr>
+<td>Slope relation</td>
+<td>
+<script type="math/tex">m=r_{xy}s_y/s_x</script>
+</td>
+</tr>
+<tr>
+<td>Matrix objective</td>
+<td>
+<script type="math/tex">\min_\beta\lVert y-X\beta\rVert_2^2</script>
+</td>
+</tr>
+<tr>
+<td>Normal equations</td>
+<td>
+<script type="math/tex">X^\top X\hat\beta=X^\top y</script>
+</td>
+</tr>
+<tr>
+<td>MSE slope gradient</td>
+<td>
+<script type="math/tex">-\frac2n\sum x_i(y_i-\hat y_i)</script>
+</td>
+</tr>
+<tr>
+<td>MSE intercept gradient</td>
+<td>
+<script type="math/tex">-\frac2n\sum(y_i-\hat y_i)</script>
+</td>
+</tr>
+<tr>
+<td>Update</td>
+<td>
+<script type="math/tex">\theta_{t+1}=\theta_t-\alpha\nabla J(\theta_t)</script>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fun-facts">Fun facts</h3>
+<ul>
+<li>The OLS training residuals sum to zero when an intercept is included.</li>
+<li>Residuals are orthogonal to every fitted design-matrix column.</li>
+<li>In simple regression with an intercept, <script type="math/tex">R^2</script> equals squared Pearson correlation.</li>
+<li>Centering <script type="math/tex">x</script> makes the intercept equal to <script type="math/tex">\bar y</script> and often improves numerical behavior.</li>
+<li>Multiplying the loss by a positive constant leaves the best line unchanged.</li>
+<li>An infinite number of lines exist, but convex least squares gives one global fitted-prediction solution; coefficient uniqueness depends on rank.</li>
+<li>Gradient descent can begin at zero because the squared linear loss has useful gradients there; random initialization is not required.</li>
+</ul>
+</div>
+<h2 id="verified-api-references">Verified API references</h2>
+<ul>
+<li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html">scikit-learn: LinearRegression</a></li>
+<li><a href="https://scikit-learn.org/stable/modules/linear_model.html">scikit-learn: OLS and computational complexity</a></li>
+<li><a href="https://scikit-learn.org/stable/modules/model_evaluation.html#regression-metrics">scikit-learn: Regression metrics</a></li>
+</ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- LINK TO DEDICATED FLASHCARDS -->
+                    <div class="note-card" style="text-align:center; padding: 3rem 2rem; margin-top:2rem; background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%); border:none;">
+                        <h2 style="color:#3730a3; font-size:1.8rem; margin-bottom:1rem;">Master this Topic</h2>
+                        <p style="color:#4f46e5; margin-bottom:2rem;">Practice with our interactive, full-screen Quizlet-style flashcards!</p>
+                        <a href="flashcardforml1.html" style="display:inline-block; background:#4f46e5; color:white; padding:1rem 2rem; border-radius:12px; font-weight:bold; font-size:1.2rem; text-decoration:none; box-shadow:0 4px 14px rgba(79,70,229,0.4); transition:transform 0.2s;">
+                            <i class="fa-solid fa-layer-group" style="margin-right:0.5rem;"></i> Practice Flashcards ➔
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../app.js"></script>
+</body>
+</html>

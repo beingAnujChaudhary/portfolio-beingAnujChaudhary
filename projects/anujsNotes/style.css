@@ -626,6 +626,44 @@ body {
     user-select: none;
 }
 
+
+/* ===== QUIZLET-STYLE FLASHCARD REDESIGN ===== */
+.quizlet-top-bar {
+    margin-bottom: 0.5rem;
+}
+
+.icon-btn:hover {
+    color: var(--accent-color) !important;
+}
+
+.tts-btn:hover {
+    color: var(--accent-color) !important;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+}
+
+.flashcard-3d-container {
+    margin-bottom: 0.5rem;
+}
+
+.flashcard-element:hover {
+    box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+}
+
+.inline-nav-btn:hover {
+    transform: scale(1.05);
+}
+
+.hint-btn:hover {
+    background: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Fix text selection */
+.card-front-text, .card-back-text {
+    user-select: none;
+}
+
 /* Ensure progress bar is smooth */
 .progress-fill {
     transition: width 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
@@ -642,4 +680,27 @@ body {
     display: flex;
     justify-content: center;
     overflow-x: auto;
+}
+
+/* Glassmorphism Global Overrides */
+body {
+    /* Create a colorful gradient background for glassmorphism to reflect */
+    background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%) !important;
+    color: #111 !important;
+    background-attachment: fixed !important;
+}
+
+.sidebar, .note-card, .content-area, .view-container {
+    background: rgba(255, 255, 255, 0.4) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1) !important;
+    border-radius: 1.25rem !important;
+}
+
+h1, h2, h3, h4 {
+    color: #000 !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.02em;
 }

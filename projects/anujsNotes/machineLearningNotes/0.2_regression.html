@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. Regression - Anuj's Notes</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <!-- MathJax for rendering math equations -->
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="../flashcards.css">
+    <link rel="icon" type="image/png" href="/assets/images/favicon_circular.png">
+    <style>
+        .note-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .note-content th {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            font-weight: 600;
+            text-align: left;
+            padding: 1rem;
+        }
+        .note-content td {
+            padding: 1rem;
+            border-top: 1px solid var(--card-border);
+            color: var(--text-secondary);
+        }
+        body {
+            /* Create a colorful gradient background for glassmorphism to reflect */
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%) !important;
+            color: #111 !important;
+            background-attachment: fixed !important;
+        }
+        
+        /* Glassmorphism overrides */
+        .sidebar, .note-card, .content-area {
+            background: rgba(255, 255, 255, 0.4) !important;
+            backdrop-filter: blur(16px) !important;
+            -webkit-backdrop-filter: blur(16px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.6) !important;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1) !important;
+            border-radius: 1.25rem !important;
+        }
+
+        /* Make sure cards inside don't double up too heavily unless intended */
+        .note-card {
+            margin-bottom: 2rem;
+            padding: 2rem;
+        }
+
+        .content-area {
+            padding: 2rem !important;
+        }
+
+        p, li {
+            color: #111 !important;
+            font-weight: 400;
+        }
+        mjx-container {
+            font-weight: 800 !important;
+            color: #000;
+        }
+        
+        /* Modern Typography enhancements */
+        h1, h2, h3, h4 {
+            color: #000 !important;
+            font-weight: 600 !important;
+            letter-spacing: -0.02em;
+        }
+        
+        /* Glassmorphism tables */
+        .note-content table {
+            background: rgba(255, 255, 255, 0.3) !important;
+            backdrop-filter: blur(8px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.5) !important;
+        }
+        .note-content th {
+            background: rgba(255, 255, 255, 0.5) !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <h1><a href="../anujsNotes.html" style="text-decoration:none;color:inherit;">Anuj's Notes</a></h1>
+            </div>
+            <nav class="nav-menu">
+                <h2 style="margin-top:0.5rem; font-size:0.75rem; color:var(--text-secondary); text-transform:uppercase; letter-spacing:1px; margin-bottom:0.5rem;">Main Hub</h2>
+                <ul id="subject-list">
+                    <li><a href="../anujsNotes.html" style="text-decoration:none;color:inherit;display:block;"><i class="fa-solid fa-house" style="width:20px;"></i> Overview</a></li>
+                </ul>
+
+                <h2 style="margin-top:1.5rem; font-size:0.75rem; color:var(--text-secondary); text-transform:uppercase; letter-spacing:1px; margin-bottom:0.5rem;">MACHINE LEARNING NOTES</h2>
+                <ul id="subject-list">
+                    <li><a href="0.1_machine_learning.html" style="text-decoration:none; display:block; color:inherit;"><i class="fa-solid fa-robot" style="width:20px;"></i> 1. Machine Learning Foundation</a></li>
+                    <li><a href="0.2_regression.html" style="text-decoration:none; display:block; font-weight:bold; color:var(--accent-primary);"><i class="fa-solid fa-chart-line" style="width:20px;"></i> 2. Regression</a></li>
+                    <li><a href="0.3_simple_linear_regression.html" style="text-decoration:none; display:block; color:inherit;"><i class="fa-solid fa-chart-bar" style="width:20px;"></i> 3. Simple Linear Regression</a></li>
+                    
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <h2 id="current-title">2. Regression</h2>
+            </header>
+
+            <div class="content-area" id="main-view">
+                <div class="view-container">
+                    <div class="notes-section">
+                        <div class="note-card">
+                            <div class="note-content">
+<h1 id="2-regression">2. Regression</h1>
+<blockquote>
+<p>Expanded from <code>1 regression.ipynb</code>. The notebook's numerical example is retained, its outputs are verified, and important mathematical and implementation subtleties are corrected.</p>
+</blockquote>
+<div class="note-card">
+<h2 id="1-learning-goals">1. Learning goals</h2>
+<p>After these notes, you should be able to:</p>
+<ul>
+<li>recognize a regression task and distinguish it from classification;</li>
+<li>explain features, targets, predictions, residuals, slopes, and intercepts;</li>
+<li>distinguish simple, multiple, polynomial, and regularized regression;</li>
+<li>describe ordinary least squares algebraically and geometrically;</li>
+<li>calculate and interpret MAE, MSE, RMSE, and <script type="math/tex">R^2</script>;</li>
+<li>select a metric based on the real cost of mistakes;</li>
+<li>fit and test a model without leaking information;</li>
+<li>use residuals to investigate model assumptions;</li>
+<li>explain each important line in the notebook's Python workflow.</li>
+</ul>
+</div>
+<div class="note-card">
+<h2 id="2-what-why-and-when">2. What, why, and when</h2>
+<h3 id="what-is-regression">What is regression?</h3>
+<p>Regression is a <strong>supervised-learning task family</strong> in which one or more inputs are used to predict a numerical output:</p>
+<p>
+<script type="math/tex; mode=display">
+f:\mathbb{R}^{p}\rightarrow\mathbb{R},
+\qquad
+\hat y=f(\mathbf{x}).
+</script>
+</p>
+<ul>
+<li>
+<script type="math/tex">\mathbf{x}=(x_1,\ldots,x_p)</script> is a feature vector.</li>
+<li>
+<script type="math/tex">y</script> is the observed target.</li>
+<li>
+<script type="math/tex">\hat y</script>, pronounced "y-hat," is the prediction.</li>
+</ul>
+<p>Regression is not one algorithm. Linear regression, regression trees, random forests, gradient boosting, support-vector regression, and neural networks can all solve regression problems.</p>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Regression</th>
+<th>Classification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Output</td>
+<td>Numerical quantity</td>
+<td>Category or class probability</td>
+</tr>
+<tr>
+<td>Example</td>
+<td>House price = ₹52.4 lakh</td>
+<td>Loan = approved/not approved</td>
+</tr>
+<tr>
+<td>Metrics</td>
+<td>MAE, RMSE, <script type="math/tex">R^2</script>
+</td>
+<td>Accuracy, recall, F1, log loss</td>
+</tr>
+</tbody>
+</table>
+<p>A number is not automatically a regression target. Labels encoded as <script type="math/tex">0,1,2</script> still represent classification if those numbers are merely category names.</p>
+<h3 id="why-use-regression">Why use regression?</h3>
+<p>Regression supports two related goals:</p>
+<ol>
+<li><strong>Prediction:</strong> estimate an unknown numeric outcome.</li>
+<li><strong>Explanation:</strong> estimate how the expected target changes with features.</li>
+</ol>
+<p>These are not identical. A simple model may be preferred for interpretation, while a nonlinear ensemble may predict better. Strong prediction or association does not by itself demonstrate causation.</p>
+<h3 id="when-is-linear-regression-useful">When is linear regression useful?</h3>
+<p>Use it as a serious model or baseline when:</p>
+<ul>
+<li>the target is numeric;</li>
+<li>an approximately additive relationship is plausible;</li>
+<li>coefficient interpretation matters;</li>
+<li>a transparent and fast baseline is useful;</li>
+<li>extrapolation will be limited and defensible.</li>
+</ul>
+<p>Revise the features, loss, or model when:</p>
+<ul>
+<li>the mean relationship bends strongly;</li>
+<li>interactions dominate;</li>
+<li>a few outliers control the fit;</li>
+<li>error variance changes greatly with prediction size;</li>
+<li>important time, group, or spatial dependence is ignored;</li>
+<li>the target needs a specialized distribution, such as counts or proportions.</li>
+</ul>
+<div class="mermaid">flowchart TD
+    A[&quot;Define the target&quot;] --&gt; B{&quot;Is it numeric?&quot;}
+    B --&gt;|&quot;No&quot;| C[&quot;Consider classification&quot;]
+    B --&gt;|&quot;Yes&quot;| D{&quot;Is a linear additive pattern plausible?&quot;}
+    D --&gt;|&quot;Yes&quot;| E[&quot;Fit a linear baseline&quot;]
+    D --&gt;|&quot;No&quot;| F[&quot;Transform features or use a nonlinear model&quot;]
+    E --&gt; G[&quot;Evaluate on unseen data&quot;]
+    F --&gt; G
+    G --&gt; H{&quot;Acceptable errors and diagnostics?&quot;}
+    H --&gt;|&quot;Yes&quot;| I[&quot;Validate and document&quot;]
+    H --&gt;|&quot;No&quot;| J[&quot;Revise data, metric, or model&quot;]
+
+    classDef start fill:#ede9fe,stroke:#7c3aed,color:#2e1065,stroke-width:2px
+    classDef decision fill:#fef3c7,stroke:#d97706,color:#78350f,stroke-width:2px
+    classDef action fill:#dbeafe,stroke:#2563eb,color:#172554,stroke-width:2px
+    classDef success fill:#dcfce7,stroke:#16a34a,color:#14532d,stroke-width:2px
+    classDef revise fill:#fee2e2,stroke:#dc2626,color:#7f1d1d,stroke-width:2px
+    class A start
+    class B,D,H decision
+    class C,E,F,G action
+    class I success
+    class J revise
+</div>
+<h3 id="examples">Examples</h3>
+<table>
+<thead>
+<tr>
+<th>Domain</th>
+<th>Features (<script type="math/tex">X</script>)</th>
+<th>Target (<script type="math/tex">y</script>)</th>
+<th>Decision supported</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Housing</td>
+<td>area, rooms, age</td>
+<td>sale price</td>
+<td>Set a price range</td>
+</tr>
+<tr>
+<td>Energy</td>
+<td>weather, occupancy, hour</td>
+<td>demand</td>
+<td>Plan capacity</td>
+</tr>
+<tr>
+<td>Healthcare</td>
+<td>age, procedures, history</td>
+<td>cost</td>
+<td>Plan resources</td>
+</tr>
+<tr>
+<td>Manufacturing</td>
+<td>speed, heat, material</td>
+<td>defect size</td>
+<td>Adjust settings</td>
+</tr>
+</tbody>
+</table>
+<p>For stock prices, a random row split is normally unsuitable because time order matters. Use time-based validation and domain-aware baselines.</p>
+</div>
+<div class="note-card">
+<h2 id="3-regression-vocabulary">3. Regression vocabulary</h2>
+<p>For <script type="math/tex">n</script> rows and <script type="math/tex">p</script> features:</p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th style="text-align: right;">Symbol</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Observation</td>
+<td style="text-align: right;">
+<script type="math/tex">i</script>
+</td>
+<td>One row</td>
+</tr>
+<tr>
+<td>Feature</td>
+<td style="text-align: right;">
+<script type="math/tex">x_j</script>
+</td>
+<td>An input column</td>
+</tr>
+<tr>
+<td>Feature vector</td>
+<td style="text-align: right;">
+<script type="math/tex">\mathbf{x}_i</script>
+</td>
+<td>All inputs for row <script type="math/tex">i</script>
+</td>
+</tr>
+<tr>
+<td>Target</td>
+<td style="text-align: right;">
+<script type="math/tex">y_i</script>
+</td>
+<td>Observed output</td>
+</tr>
+<tr>
+<td>Prediction</td>
+<td style="text-align: right;">
+<script type="math/tex">\hat y_i</script>
+</td>
+<td>Model-estimated output</td>
+</tr>
+<tr>
+<td>Residual</td>
+<td style="text-align: right;">
+<script type="math/tex">e_i=y_i-\hat y_i</script>
+</td>
+<td>Observed minus predicted</td>
+</tr>
+<tr>
+<td>Coefficient</td>
+<td style="text-align: right;">
+<script type="math/tex">\beta_j</script>
+</td>
+<td>Feature weight</td>
+</tr>
+<tr>
+<td>Intercept</td>
+<td style="text-align: right;">
+<script type="math/tex">\beta_0</script>
+</td>
+<td>Prediction when modeled features equal zero</td>
+</tr>
+</tbody>
+</table>
+<p>An <strong>error</strong> is theoretically the difference from the unknown population relationship. A <strong>residual</strong> is the observed, fitted sample equivalent. Machine-learning explanations often use the words loosely, but statistics distinguishes them.</p>
+<h3 id="array-shapes">Array shapes</h3>
+<p>
+<script type="math/tex; mode=display">
+X\in\mathbb{R}^{n\times p},\quad
+y\in\mathbb{R}^{n},\quad
+\boldsymbol{\beta}\in\mathbb{R}^{p}.
+</script>
+</p>
+<p>Even one feature is normally passed to scikit-learn as a 2-D matrix with shape <script type="math/tex">(n,1)</script>. This explains the notebook's <code>X = np.random.rand(100, 1)</code>.</p>
+</div>
+<div class="note-card">
+<h2 id="4-regression-model-families">4. Regression model families</h2>
+<div class="mermaid">flowchart TD
+    A[&quot;Regression models&quot;] --&gt; B[&quot;Linear in raw features&quot;]
+    A --&gt; C[&quot;Linear after feature expansion&quot;]
+    A --&gt; D[&quot;Nonlinear learners&quot;]
+    B --&gt; B1[&quot;Simple: one feature&quot;]
+    B --&gt; B2[&quot;Multiple: many features&quot;]
+    C --&gt; C1[&quot;Polynomial features&quot;]
+    C --&gt; C2[&quot;Ridge, Lasso, Elastic Net&quot;]
+    D --&gt; D1[&quot;Trees and ensembles&quot;]
+    D --&gt; D2[&quot;Kernels and neural networks&quot;]
+
+    classDef root fill:#f3e8ff,stroke:#9333ea,color:#3b0764,stroke-width:3px
+    classDef family fill:#cffafe,stroke:#0891b2,color:#164e63,stroke-width:2px
+    classDef leaf1 fill:#dcfce7,stroke:#16a34a,color:#14532d
+    classDef leaf2 fill:#ffedd5,stroke:#ea580c,color:#7c2d12
+    class A root
+    class B,C,D family
+    class B1,B2 leaf1
+    class C1,C2,D1,D2 leaf2
+</div>
+<h3 id="41-simple-linear-regression">4.1 Simple linear regression</h3>
+<p>
+<script type="math/tex; mode=display">
+\hat y=\beta_0+\beta_1x.
+</script>
+</p>
+<p>Exactly one feature predicts the target. Example: price from area alone.</p>
+<h3 id="42-multiple-linear-regression">4.2 Multiple linear regression</h3>
+<p>
+<script type="math/tex; mode=display">
+\hat y=\beta_0+\beta_1x_1+\cdots+\beta_px_p.
+</script>
+</p>
+<p>With price, area, rooms, and age, <script type="math/tex">\beta_{\text{area}}</script> is the modeled price change for one additional area unit <strong>while holding the other included variables fixed</strong>. This is conditional association, not automatically a causal effect.</p>
+<h3 id="43-polynomial-regression">4.3 Polynomial regression</h3>
+<p>
+<script type="math/tex; mode=display">
+\hat y=\beta_0+\beta_1x+\beta_2x^2+\beta_3x^3.
+</script>
+</p>
+<p>The graph can curve, but the model remains <strong>linear in its coefficients</strong>. It is ordinary linear regression applied to transformed features <script type="math/tex">x,x^2,x^3</script>. High degrees can overfit and extrapolate wildly, so choose the degree with validation.</p>
+<h3 id="44-regularized-regression">4.4 Regularized regression</h3>
+<p>Regularization controls coefficient size and model variance.</p>
+<h4 id="ridge">Ridge</h4>
+<p>
+<script type="math/tex; mode=display">
+\min_{\boldsymbol{\beta}}
+\left[
+\frac1n\sum_i(y_i-\hat y_i)^2
++\lambda\sum_j\beta_j^2
+\right].
+</script>
+</p>
+<p>Ridge shrinks coefficients toward zero and is often helpful with correlated predictors.</p>
+<h4 id="lasso">Lasso</h4>
+<p>
+<script type="math/tex; mode=display">
+\min_{\boldsymbol{\beta}}
+\left[
+\frac1n\sum_i(y_i-\hat y_i)^2
++\lambda\sum_j|\beta_j|
+\right].
+</script>
+</p>
+<p>Lasso can set some coefficients exactly to zero.</p>
+<h4 id="elastic-net">Elastic Net</h4>
+<p>
+<script type="math/tex; mode=display">
+\min_{\boldsymbol{\beta}}
+\left[
+\frac{1}{2n}\lVert y-X\boldsymbol{\beta}\rVert_2^2+
+\lambda\left(\rho\lVert\boldsymbol{\beta}\rVert_1+
+\frac{1-\rho}{2}\lVert\boldsymbol{\beta}\rVert_2^2\right)
+\right].
+</script>
+</p>
+<p>It blends Lasso and Ridge. Scale numeric features before regularization so feature units do not arbitrarily control penalty strength.</p>
+</div>
+<div class="note-card">
+<h2 id="5-linear-regression-intuition">5. Linear regression intuition</h2>
+<p>The notebook creates:</p>
+<p>
+<script type="math/tex; mode=display">
+y=3x+5+\varepsilon,
+</script>
+</p>
+<p>where <script type="math/tex">\varepsilon</script> is random noise. The learner sees only the noisy points and tries to recover a slope near <script type="math/tex">3</script> and intercept near <script type="math/tex">5</script>.</p>
+<h3 id="slope">Slope</h3>
+<p>
+<script type="math/tex; mode=display">
+\beta_1=\frac{\Delta\hat y}{\Delta x}.
+</script>
+</p>
+<p>If <script type="math/tex">\beta_1=2.92</script>, the predicted target increases by about <script type="math/tex">2.92</script> units when <script type="math/tex">x</script> increases by one unit.</p>
+<h3 id="intercept">Intercept</h3>
+<p>
+<script type="math/tex; mode=display">
+\hat y\big|_{x=0}=\beta_0.
+</script>
+</p>
+<p>The intercept is not always meaningful. If <script type="math/tex">x=0</script> is impossible or far outside the observed range, interpreting it is extrapolation.</p>
+<h3 id="residual">Residual</h3>
+<p>
+<script type="math/tex; mode=display">
+e_i=y_i-\hat y_i.
+</script>
+</p>
+<ul>
+<li>
+<script type="math/tex">e_i>0</script>: underprediction;</li>
+<li>
+<script type="math/tex">e_i<0</script>: overprediction;</li>
+<li>
+<script type="math/tex">e_i=0</script>: exact prediction.</li>
+</ul>
+<div class="mermaid">flowchart TD
+    A[&quot;Observed value: y&quot;] --&gt; C[&quot;Residual: e = y - ŷ&quot;]
+    B[&quot;Fitted value: ŷ&quot;] --&gt; C
+    C --&gt; D{&quot;Sign of e&quot;}
+    D --&gt;|&quot;Positive&quot;| E[&quot;Model underpredicted&quot;]
+    D --&gt;|&quot;Negative&quot;| F[&quot;Model overpredicted&quot;]
+
+    classDef observed fill:#fce7f3,stroke:#db2777,color:#831843,stroke-width:2px
+    classDef predicted fill:#dbeafe,stroke:#2563eb,color:#1e3a8a,stroke-width:2px
+    classDef error fill:#fef3c7,stroke:#d97706,color:#78350f,stroke-width:2px
+    classDef result fill:#dcfce7,stroke:#16a34a,color:#14532d
+    class A observed
+    class B predicted
+    class C,D error
+    class E,F result
+</div>
+<p>Standard regression minimizes vertical differences because the setup treats <script type="math/tex">x</script> as observed and uncertainty as acting mainly in <script type="math/tex">y</script>. If both axes contain material measurement error, an errors-in-variables or orthogonal method may be better.</p>
+</div>
+<div class="note-card">
+<h2 id="6-how-the-best-line-is-found">6. How the best line is found</h2>
+<h3 id="61-least-squares">6.1 Least squares</h3>
+<p>
+<script type="math/tex; mode=display">
+\operatorname{SSE}=\sum_{i=1}^{n}(y_i-\hat y_i)^2,
+\qquad
+\operatorname{MSE}=\frac1n\sum_{i=1}^{n}(y_i-\hat y_i)^2.
+</script>
+</p>
+<p>OLS chooses coefficients with the smallest SSE. Dividing by <script type="math/tex">n</script>, <script type="math/tex">2n</script>, or not dividing does not change the minimizer; it only rescales the objective and gradient.</p>
+<p>Why square residuals?</p>
+<ul>
+<li>signs cannot cancel;</li>
+<li>large mistakes receive more weight;</li>
+<li>the objective is smooth;</li>
+<li>linear least squares produces a convex quadratic.</li>
+</ul>
+<p>Squared loss is also the maximum-likelihood loss when independent errors are normally distributed with constant variance.</p>
+<h3 id="62-closed-form-simple-regression-solution">6.2 Closed-form simple-regression solution</h3>
+<p>
+<script type="math/tex; mode=display">
+\hat\beta_1=
+\frac{\sum_i(x_i-\bar x)(y_i-\bar y)}
+{\sum_i(x_i-\bar x)^2},
+\qquad
+\hat\beta_0=\bar y-\hat\beta_1\bar x.
+</script>
+</p>
+<p>The numerator measures co-movement; the denominator measures variation in <script type="math/tex">x</script>. Equivalently:</p>
+<p>
+<script type="math/tex; mode=display">
+\hat\beta_1=r_{xy}\frac{s_y}{s_x}.
+</script>
+</p>
+<p>The fitted line with an intercept passes through <script type="math/tex">(\bar x,\bar y)</script>.</p>
+<h3 id="63-matrix-form">6.3 Matrix form</h3>
+<p>With a column of ones for the intercept:</p>
+<p>
+<script type="math/tex; mode=display">
+\hat{\boldsymbol{\beta}}=(X^\top X)^{-1}X^\top y.
+</script>
+</p>
+<p>This textbook expression assumes invertibility. Software should not explicitly calculate that inverse. QR, singular-value decomposition, <code>numpy.linalg.lstsq</code>, and pseudoinverses are more stable and can handle rank deficiency.</p>
+<p>For <script type="math/tex">X</script> shaped <script type="math/tex">(n,p)</script>, SVD-based least squares commonly costs <script type="math/tex">O(np^2)</script> when <script type="math/tex">n\ge p</script>. The notebook statement "matrix inversion is <script type="math/tex">O(n^3)</script>" mixes sample and feature dimensions.</p>
+<h3 id="64-gradient-descent">6.4 Gradient descent</h3>
+<p>For</p>
+<p>
+<script type="math/tex; mode=display">
+J(\boldsymbol{\beta})=\frac1n\lVert y-X\boldsymbol{\beta}\rVert_2^2,
+</script>
+</p>
+<p>
+<script type="math/tex; mode=display">
+\nabla J=-\frac{2}{n}X^\top(y-X\boldsymbol{\beta}),
+\qquad
+\boldsymbol{\beta}^{(t+1)}
+=\boldsymbol{\beta}^{(t)}-\alpha\nabla J.
+</script>
+</p>
+<p>Ordinary linear least-squares loss is convex. A tiny learning rate mainly converges slowly; it is not trapped by local minima. A very large rate can overshoot and diverge.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Strength</th>
+<th>Limitation</th>
+<th>Typical use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>QR/SVD least squares</td>
+<td>Accurate; no learning rate</td>
+<td>Costly for huge dense data</td>
+<td>Small/medium dense data</td>
+</tr>
+<tr>
+<td>Batch GD</td>
+<td>Smooth trajectory</td>
+<td>Full pass per update</td>
+<td>Large differentiable problems</td>
+</tr>
+<tr>
+<td>SGD</td>
+<td>Cheap online updates</td>
+<td>Noisy path</td>
+<td>Streaming or huge data</td>
+</tr>
+<tr>
+<td>Mini-batch GD</td>
+<td>Vectorized and scalable</td>
+<td>Requires tuning</td>
+<td>Large-scale learning</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="note-card">
+<h2 id="7-train-validation-and-test-data">7. Train, validation, and test data</h2>
+<p>The notebook creates a reproducible 80/20 split:</p>
+<pre><code class="language-python">X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.20,   # Keep 20% unseen for evaluation.
+    random_state=42,  # Reproduce this exact split.
+)
+</code></pre>
+<p>A model can fit noise. Testing on training rows produces an optimistic estimate of future performance.</p>
+<div class="mermaid">flowchart TD
+    A[&quot;All labeled data&quot;] --&gt; B[&quot;Training data&quot;]
+    A --&gt; C[&quot;Validation or cross-validation&quot;]
+    A --&gt; D[&quot;Test data&quot;]
+    B --&gt; E[&quot;Learn parameters&quot;]
+    C --&gt; F[&quot;Choose features and settings&quot;]
+    D --&gt; G[&quot;One final performance estimate&quot;]
+    E --&gt; F
+    F --&gt; G
+
+    classDef data fill:#ede9fe,stroke:#7c3aed,color:#3b0764,stroke-width:2px
+    classDef train fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
+    classDef validate fill:#fef3c7,stroke:#d97706,color:#78350f
+    classDef test fill:#dcfce7,stroke:#16a34a,color:#14532d
+    class A data
+    class B,E train
+    class C,F validate
+    class D,G test
+</div>
+<p>In production:</p>
+<ul>
+<li>tune with validation data or cross-validation;</li>
+<li>leave test data untouched until the end;</li>
+<li>fit scaling, imputation, and feature selection inside training folds;</li>
+<li>preserve time order for forecasting;</li>
+<li>split by patient, customer, machine, or location when rows within a group are related.</li>
+</ul>
+</div>
+<div class="note-card">
+<h2 id="8-evaluation-metrics">8. Evaluation metrics</h2>
+<p>Let <script type="math/tex">e_i=y_i-\hat y_i</script>.</p>
+<h3 id="81-mae">8.1 MAE</h3>
+<p>
+<script type="math/tex; mode=display">
+\operatorname{MAE}=\frac1n\sum_i|e_i|.
+</script>
+</p>
+<p>It is the mean absolute miss in target units. It is easy to explain and less dominated by extremes than squared metrics.</p>
+<h3 id="82-mse">8.2 MSE</h3>
+<p>
+<script type="math/tex; mode=display">
+\operatorname{MSE}=\frac1n\sum_i e_i^2.
+</script>
+</p>
+<p>Large errors receive disproportionate weight. Its units are squared, which makes direct interpretation harder.</p>
+<h3 id="83-rmse">8.3 RMSE</h3>
+<p>
+<script type="math/tex; mode=display">
+\operatorname{RMSE}=\sqrt{\frac1n\sum_i e_i^2}.
+</script>
+</p>
+<p>RMSE is in target units while remaining sensitive to large errors. Always:</p>
+<p>
+<script type="math/tex; mode=display">
+\operatorname{RMSE}\ge\operatorname{MAE}.
+</script>
+</p>
+<h3 id="84-coefficient-of-determination">8.4 Coefficient of determination</h3>
+<p>
+<script type="math/tex; mode=display">
+R^2=1-\frac{\sum_i(y_i-\hat y_i)^2}
+{\sum_i(y_i-\bar y)^2}
+=1-\frac{\operatorname{SSE}}{\operatorname{SST}}.
+</script>
+</p>
+<ul>
+<li>
+<script type="math/tex">R^2=1</script>: perfect predictions.</li>
+<li>
+<script type="math/tex">R^2=0</script>: equal squared-error performance to the evaluation-set mean.</li>
+<li>
+<script type="math/tex">R^2<0</script>: worse than that baseline.</li>
+</ul>
+<p>
+<script type="math/tex">R^2=0.97</script> does not mean "97% accurate." It does not prove causality, uncertainty calibration, or business usefulness.</p>
+<h3 id="85-adjusted-r2">8.5 Adjusted <script type="math/tex">R^2</script>
+</h3>
+<p>
+<script type="math/tex; mode=display">
+\bar R^2=1-(1-R^2)\frac{n-1}{n-p-1}.
+</script>
+</p>
+<p>Adjusted <script type="math/tex">R^2</script> penalizes adding predictors that produce insufficient improvement. Out-of-sample validation remains more important for prediction.</p>
+<h3 id="86-mape-caution">8.6 MAPE caution</h3>
+<p>
+<script type="math/tex; mode=display">
+\operatorname{MAPE}=\frac{100}{n}\sum_i
+\left|\frac{y_i-\hat y_i}{y_i}\right|.
+</script>
+</p>
+<p>MAPE is undefined at zero, unstable near zero, asymmetric, and inappropriate for negative targets. Scikit-learn returns a relative value rather than an already multiplied percentage.</p>
+<div class="mermaid">flowchart TD
+    A[&quot;Choose a metric&quot;] --&gt; B{&quot;Should large misses get extra penalty?&quot;}
+    B --&gt;|&quot;No&quot;| C[&quot;MAE or median absolute error&quot;]
+    B --&gt;|&quot;Yes&quot;| D[&quot;RMSE plus tail-error checks&quot;]
+    A --&gt; E{&quot;Are relative errors meaningful and targets away from zero?&quot;}
+    E --&gt;|&quot;Yes&quot;| F[&quot;Consider MAPE or log-scale metrics&quot;]
+    E --&gt;|&quot;No&quot;| G[&quot;Use target-unit or domain cost&quot;]
+    C --&gt; H[&quot;Compare against a naïve baseline&quot;]
+    D --&gt; H
+    F --&gt; H
+    G --&gt; H
+
+    classDef root fill:#f3e8ff,stroke:#9333ea,color:#3b0764,stroke-width:2px
+    classDef decision fill:#fef3c7,stroke:#d97706,color:#78350f,stroke-width:2px
+    classDef metric fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
+    classDef finish fill:#dcfce7,stroke:#16a34a,color:#14532d,stroke-width:2px
+    class A root
+    class B,E decision
+    class C,D,F,G metric
+    class H finish
+</div>
+<p>No single metric is universally best. Translate the real cost of underprediction, overprediction, and large tail errors into the evaluation plan.</p>
+</div>
+<div class="note-card">
+<h2 id="9-assumptions-and-diagnostics">9. Assumptions and diagnostics</h2>
+<p>The assumptions matter especially for coefficient inference and uncertainty intervals, but violations can also hurt prediction.</p>
+<h3 id="91-linear-conditional-mean">9.1 Linear conditional mean</h3>
+<p>
+<script type="math/tex; mode=display">
+E[Y\mid X]=\beta_0+\sum_j\beta_jx_j.
+</script>
+</p>
+<p>A curved residual pattern suggests missing nonlinear structure. Consider justified polynomial, spline, interaction, or transformed features.</p>
+<h3 id="92-independent-or-appropriately-modeled-errors">9.2 Independent or appropriately modeled errors</h3>
+<p>Residuals should not have unmodeled time, group, or spatial dependence. Check them in sequence and by group; use structured splitting and a suitable model.</p>
+<h3 id="93-constant-conditional-variance">9.3 Constant conditional variance</h3>
+<p>
+<script type="math/tex; mode=display">
+\operatorname{Var}(\varepsilon_i\mid X_i)=\sigma^2.
+</script>
+</p>
+<p>A funnel-shaped residual plot indicates heteroscedasticity. Consider transformations, weighted regression, variance-aware models, or robust standard errors.</p>
+<h3 id="94-no-perfect-multicollinearity">9.4 No perfect multicollinearity</h3>
+<p>Exact linear dependence makes coefficients non-unique. Near-dependence makes individual coefficients unstable. Inspect domain redundancy, correlations, singular values, or variance inflation factors; consider Ridge.</p>
+<h3 id="95-normal-residuals-for-classical-small-sample-inference">9.5 Normal residuals for classical small-sample inference</h3>
+<p>Normality is not required for OLS coefficients to exist. It supports exact small-sample tests and intervals under the classical model. Use Q–Q plots and investigate heavy tails rather than deleting inconvenient cases.</p>
+<h3 id="96-outliers-leverage-and-influence">9.6 Outliers, leverage, and influence</h3>
+<ul>
+<li><strong>Outlier:</strong> unusual target after considering features.</li>
+<li><strong>High leverage:</strong> unusual feature values.</li>
+<li><strong>Influential point:</strong> materially changes the fit.</li>
+</ul>
+<p>Cook's distance and leverage diagnostics can help separate them.</p>
+<div class="mermaid">flowchart TD
+    A[&quot;Residual diagnostics&quot;] --&gt; B[&quot;Curve&quot;]
+    A --&gt; C[&quot;Funnel&quot;]
+    A --&gt; D[&quot;Runs or clusters&quot;]
+    A --&gt; E[&quot;Influential extremes&quot;]
+    B --&gt; B1[&quot;Add justified nonlinear structure&quot;]
+    C --&gt; C1[&quot;Transform or model variance&quot;]
+    D --&gt; D1[&quot;Respect time or groups&quot;]
+    E --&gt; E1[&quot;Verify and run sensitivity analysis&quot;]
+
+    classDef root fill:#ede9fe,stroke:#7c3aed,color:#3b0764,stroke-width:2px
+    classDef symptom fill:#fee2e2,stroke:#dc2626,color:#7f1d1d
+    classDef response fill:#dcfce7,stroke:#16a34a,color:#14532d
+    class A root
+    class B,C,D,E symptom
+    class B1,C1,D1,E1 response
+</div>
+</div>
+<div class="note-card">
+<h2 id="10-fully-commented-implementation">10. Fully commented implementation</h2>
+<p>This version keeps the notebook's synthetic process, adds a baseline, and diagnoses held-out residuals separately.</p>
+<pre><code class="language-python">import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.dummy import DummyRegressor
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import (
+    mean_absolute_error,
+    mean_squared_error,
+    root_mean_squared_error,
+    r2_score,
+)
+from sklearn.model_selection import train_test_split
+
+# 1. Reproduce the notebook's synthetic data without changing global RNG state.
+rng = np.random.RandomState(42)
+X = rng.rand(100, 1) * 10       # 100 rows, one feature, values in [0, 10).
+noise = rng.randn(100) * 2       # Gaussian noise with standard deviation 2.
+y = 3 * X[:, 0] + 5 + noise     # Hidden process: y = 3x + 5 + noise.
+
+df = pd.DataFrame({&quot;Feature&quot;: X[:, 0], &quot;Target&quot;: y})
+print(df.head())
+print(df.describe())
+
+# 2. Split before fitting so test rows cannot influence the parameters.
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.20,
+    random_state=42,
+)
+
+# 3. Fit a naïve mean baseline and the OLS model.
+baseline = DummyRegressor(strategy=&quot;mean&quot;)
+baseline.fit(X_train, y_train)   # Learns only the mean training target.
+
+model = LinearRegression()
+model.fit(X_train, y_train)      # Learns one slope and one intercept.
+
+print(f&quot;Slope: {model.coef_[0]:.4f}&quot;)
+print(f&quot;Intercept: {model.intercept_:.4f}&quot;)
+
+# 4. Predict only after fitting is complete.
+baseline_pred = baseline.predict(X_test)
+y_test_pred = model.predict(X_test)
+
+def regression_report(y_true, y_pred):
+    return {
+        &quot;MAE&quot;: mean_absolute_error(y_true, y_pred),
+        &quot;MSE&quot;: mean_squared_error(y_true, y_pred),
+        &quot;RMSE&quot;: root_mean_squared_error(y_true, y_pred),
+        &quot;R2&quot;: r2_score(y_true, y_pred),
+    }
+
+print(&quot;Baseline:&quot;, regression_report(y_test, baseline_pred))
+print(&quot;Linear model:&quot;, regression_report(y_test, y_test_pred))
+
+# 5. Held-out residuals reveal the direction and structure of errors.
+test_residuals = y_test - y_test_pred
+fig, axes = plt.subplots(1, 2, figsize=(12, 4))
+
+axes[0].scatter(y_test_pred, test_residuals, alpha=0.75)
+axes[0].axhline(0, color=&quot;red&quot;, linestyle=&quot;--&quot;)
+axes[0].set(
+    xlabel=&quot;Held-out prediction&quot;,
+    ylabel=&quot;Residual (actual - prediction)&quot;,
+    title=&quot;Residuals on unseen data&quot;,
+)
+
+lower = min(y_test.min(), y_test_pred.min())
+upper = max(y_test.max(), y_test_pred.max())
+axes[1].scatter(y_test, y_test_pred, alpha=0.75)
+axes[1].plot([lower, upper], [lower, upper], &quot;r--&quot;, label=&quot;Perfect&quot;)
+axes[1].set(
+    xlabel=&quot;Actual target&quot;,
+    ylabel=&quot;Predicted target&quot;,
+    title=&quot;Actual versus predicted&quot;,
+)
+axes[1].legend()
+plt.tight_layout()
+plt.show()
+
+# 6. predict() expects one row per case and one column per feature.
+new_x = np.array([[2.5], [5.5], [8.0]])
+for x_value, prediction in zip(new_x[:, 0], model.predict(new_x)):
+    print(f&quot;x={x_value:.1f} -&gt; predicted y={prediction:.2f}&quot;)
+</code></pre>
+<h3 id="why-important-lines-exist">Why important lines exist</h3>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>What</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>RandomState(42)</code></td>
+<td>Reproduces the data</td>
+<td>Comparisons use identical samples</td>
+</tr>
+<tr>
+<td><code>X[:, 0]</code></td>
+<td>Selects the one feature as 1-D</td>
+<td>Keeps target arithmetic simple</td>
+</tr>
+<tr>
+<td><code>train_test_split</code></td>
+<td>Reserves unseen rows</td>
+<td>Estimates generalization</td>
+</tr>
+<tr>
+<td><code>DummyRegressor</code></td>
+<td>Predicts training mean</td>
+<td>Gives a minimum baseline</td>
+</tr>
+<tr>
+<td><code>fit(X_train, y_train)</code></td>
+<td>Learns parameters</td>
+<td>Test information stays isolated</td>
+</tr>
+<tr>
+<td><code>y_test - y_test_pred</code></td>
+<td>Calculates residuals</td>
+<td>Retains direction of each miss</td>
+</tr>
+</tbody>
+</table>
+<h3 id="stable-ols-instead-of-an-explicit-inverse">Stable OLS instead of an explicit inverse</h3>
+<pre><code class="language-python">def stable_ols_with_intercept(X, y):
+    X = np.asarray(X, dtype=float)
+    y = np.asarray(y, dtype=float)
+
+    # A ones column makes beta[0] the intercept.
+    design = np.column_stack([np.ones(X.shape[0]), X])
+
+    # lstsq uses stable linear algebra and handles rank deficiency.
+    beta, residual_sums, rank, singular_values = np.linalg.lstsq(
+        design,
+        y,
+        rcond=None,
+    )
+    return beta, rank, singular_values
+
+beta, rank, singular_values = stable_ols_with_intercept(X, y)
+print(beta)  # [intercept, slope] ≈ [5.4302, 2.9080]
+</code></pre>
+</div>
+<div class="note-card">
+<h2 id="11-interpreting-the-notebook-results">11. Interpreting the notebook results</h2>
+<p>The model trained on 80 rows finds:</p>
+<p>
+<script type="math/tex; mode=display">
+\hat y=5.2858+2.9197x.
+</script>
+</p>
+<p>The hidden process was <script type="math/tex">5+3x+\varepsilon</script>, so the estimates are close but not exact because the sample contains random noise.</p>
+<p>At <script type="math/tex">x=5.5</script>:</p>
+<p>
+<script type="math/tex; mode=display">
+\hat y=5.2858+2.9197(5.5)\approx21.34.
+</script>
+</p>
+<h3 id="verified-test-results">Verified test results</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th style="text-align: right;">Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MAE</td>
+<td style="text-align: right;">1.1827</td>
+<td>Average absolute miss is about 1.18 units</td>
+</tr>
+<tr>
+<td>MSE</td>
+<td style="text-align: right;">2.6148</td>
+<td>Average squared miss</td>
+</tr>
+<tr>
+<td>RMSE</td>
+<td style="text-align: right;">1.6170</td>
+<td>Large-error-sensitive miss in target units</td>
+</tr>
+<tr>
+<td>
+<script type="math/tex">R^2</script>
+</td>
+<td style="text-align: right;">0.9686</td>
+<td>Strong improvement over the mean baseline</td>
+</tr>
+</tbody>
+</table>
+<p>Test performance is slightly better than training performance in this split. A randomly selected test subset can simply be easier; this alone does not imply leakage.</p>
+<p>OLS fitted to all 100 rows gives:</p>
+<p>
+<script type="math/tex; mode=display">
+\hat y=5.4302+2.9080x.
+</script>
+</p>
+<p>It differs because it uses 20 additional rows. Compare coefficients only when fitted on the same observations.</p>
+<p>The test mean-baseline RMSE is about <script type="math/tex">9.16</script>, compared with <script type="math/tex">1.62</script> for the line. That baseline makes the improvement concrete.</p>
+</div>
+<div class="note-card">
+<h2 id="12-corrections-and-pitfalls">12. Corrections and pitfalls</h2>
+<table>
+<thead>
+<tr>
+<th>Misconception</th>
+<th>Correct understanding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Regression is one algorithm</td>
+<td>It is a task family</td>
+</tr>
+<tr>
+<td>Polynomial regression is nonlinear in everything</td>
+<td>It is nonlinear in <script type="math/tex">x</script>, linear in coefficients</td>
+</tr>
+<tr>
+<td>The intercept is always meaningful</td>
+<td>Only when zero is meaningful and defensible</td>
+</tr>
+<tr>
+<td>
+<script type="math/tex">R^2=0.97</script> means 97% accurate</td>
+<td>
+<script type="math/tex">R^2</script> is relative squared-error improvement</td>
+</tr>
+<tr>
+<td>OLS requires <code>inv(X.T @ X)</code></td>
+<td>Use QR/SVD/<code>lstsq</code> for numerical stability</td>
+</tr>
+<tr>
+<td>Least-squares complexity is simply <script type="math/tex">O(n^3)</script>
+</td>
+<td>It depends on rows and features; commonly <script type="math/tex">O(np^2)</script> for <script type="math/tex">n\ge p</script>
+</td>
+</tr>
+<tr>
+<td>Tiny learning rates get stuck in local minima</td>
+<td>OLS loss is convex; tiny steps are mainly slow</td>
+</tr>
+<tr>
+<td>More features always help</td>
+<td>Training fit improves, but test performance can worsen</td>
+</tr>
+<tr>
+<td>Correlation or a coefficient proves causation</td>
+<td>Confounding and selection can create associations</td>
+</tr>
+<tr>
+<td>Random splitting always works</td>
+<td>Time and grouped data require structured splits</td>
+</tr>
+</tbody>
+</table>
+<h3 id="leakage-examples">Leakage examples</h3>
+<ul>
+<li>scaling before splitting;</li>
+<li>selecting features using test correlations;</li>
+<li>imputing missing values with all rows;</li>
+<li>repeatedly using test performance to tune;</li>
+<li>putting observations from the same entity on both sides.</li>
+</ul>
+<p>Use a scikit-learn <code>Pipeline</code> so preprocessing is fitted inside training folds.</p>
+</div>
+<div class="note-card">
+<h2 id="13-practice-questions-with-answers">13. Practice questions with answers</h2>
+<ol>
+<li>
+<p><strong>What defines a regression task?</strong><br />
+   The model predicts a numerical quantity.</p>
+</li>
+<li>
+<p><strong>What is a residual?</strong><br />
+<script type="math/tex">e_i=y_i-\hat y_i</script>.</p>
+</li>
+<li>
+<p><strong>If <script type="math/tex">e_i=-4</script>, what happened?</strong><br />
+   The model overpredicted by 4.</p>
+</li>
+<li>
+<p><strong>Why square residuals?</strong><br />
+   To prevent sign cancellation, emphasize large errors, and obtain a smooth convex objective.</p>
+</li>
+<li>
+<p><strong>Does slope <script type="math/tex">3</script> prove causation?</strong><br />
+   No; it is a modeled association unless a causal design justifies the claim.</p>
+</li>
+<li>
+<p><strong>Why can an intercept be meaningless?</strong><br />
+   Zero may be impossible or outside the data range.</p>
+</li>
+<li>
+<p><strong>Why can test <script type="math/tex">R^2</script> be negative?</strong><br />
+   The predictions can be worse than a mean baseline.</p>
+</li>
+<li>
+<p><strong>Why is RMSE at least MAE?</strong><br />
+   Squaring gives larger absolute errors more weight.</p>
+</li>
+<li>
+<p><strong>Why learn preprocessing only from training rows?</strong><br />
+   Test-derived information would leak into model development.</p>
+</li>
+<li>
+<p><strong>What does a U-shaped residual pattern suggest?</strong><br />
+    Missing curvature.</p>
+</li>
+<li>
+<p><strong>What does a funnel suggest?</strong><br />
+    Non-constant conditional variance.</p>
+</li>
+<li>
+<p><strong>Why can multicollinearity hurt interpretation?</strong><br />
+    Similar predictions can arise from unstable combinations of coefficients.</p>
+</li>
+<li>
+<p><strong>Why scale before Ridge or Lasso?</strong><br />
+    The penalty acts on coefficient size, which depends on units.</p>
+</li>
+<li>
+<p><strong>Actual values are <script type="math/tex">[2,4]</script>, predictions are <script type="math/tex">[3,6]</script>. Find MAE.</strong><br />
+<script type="math/tex">(1+2)/2=1.5</script>.</p>
+</li>
+<li>
+<p><strong>For the same data, find MSE and RMSE.</strong><br />
+    MSE <script type="math/tex">=(1^2+2^2)/2=2.5</script>; RMSE <script type="math/tex">=\sqrt{2.5}\approx1.581</script>.</p>
+</li>
+<li>
+<p><strong>If SSE <script type="math/tex">=20</script> and SST <script type="math/tex">=100</script>, find <script type="math/tex">R^2</script>.</strong><br />
+<script type="math/tex">1-20/100=0.8</script>.</p>
+</li>
+<li>
+<p><strong>For <script type="math/tex">\hat y=5+3x</script>, predict at <script type="math/tex">x=4</script>.</strong><br />
+<script type="math/tex">17</script>.</p>
+</li>
+<li>
+<p><strong>If the observed value is 14, find the residual.</strong><br />
+<script type="math/tex">14-17=-3</script>, an overprediction of 3.</p>
+</li>
+</ol>
+<h3 id="coding-challenges">Coding challenges</h3>
+<ol>
+<li>Add five-fold cross-validation and summarize the score distribution.</li>
+<li>Add <script type="math/tex">x^2</script> and test whether held-out RMSE improves.</li>
+<li>Inject one target outlier and compare MAE with RMSE.</li>
+<li>Build two correlated features and compare OLS with Ridge.</li>
+<li>Wrap scaling and Ridge in a <code>Pipeline</code>.</li>
+<li>Repeat the split with 50 seeds and plot test <script type="math/tex">R^2</script>.</li>
+</ol>
+</div>
+<div class="note-card">
+<h2 id="14-cheat-sheet-and-fun-facts">14. Cheat sheet and fun facts</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Formula or rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Simple model</td>
+<td>
+<script type="math/tex">\hat y=\beta_0+\beta_1x</script>
+</td>
+</tr>
+<tr>
+<td>Multiple model</td>
+<td>
+<script type="math/tex">\hat y=\beta_0+\sum_j\beta_jx_j</script>
+</td>
+</tr>
+<tr>
+<td>Residual</td>
+<td>
+<script type="math/tex">e_i=y_i-\hat y_i</script>
+</td>
+</tr>
+<tr>
+<td>OLS</td>
+<td>
+<script type="math/tex">\min_\beta\sum_i e_i^2</script>
+</td>
+</tr>
+<tr>
+<td>Slope</td>
+<td>
+<script type="math/tex">\hat\beta_1=\frac{\sum(x_i-\bar x)(y_i-\bar y)}{\sum(x_i-\bar x)^2}</script>
+</td>
+</tr>
+<tr>
+<td>Intercept</td>
+<td>
+<script type="math/tex">\hat\beta_0=\bar y-\hat\beta_1\bar x</script>
+</td>
+</tr>
+<tr>
+<td>MAE</td>
+<td>$\frac1n\sum</td>
+</tr>
+<tr>
+<td>RMSE</td>
+<td>
+<script type="math/tex">\sqrt{\frac1n\sum e_i^2}</script>
+</td>
+</tr>
+<tr>
+<td>
+<script type="math/tex">R^2</script>
+</td>
+<td>
+<script type="math/tex">1-\text{SSE}/\text{SST}</script>
+</td>
+</tr>
+<tr>
+<td>Ridge</td>
+<td>Adds <script type="math/tex">\lambda\sum\beta_j^2</script>
+</td>
+</tr>
+<tr>
+<td>Lasso</td>
+<td>Adds $\lambda\sum</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fun-facts">Fun facts</h3>
+<ul>
+<li>An OLS line with an intercept passes through <script type="math/tex">(\bar x,\bar y)</script>.</li>
+<li>Training residuals sum to zero when an intercept is fitted.</li>
+<li>In simple OLS with an intercept, training <script type="math/tex">R^2=r_{xy}^2</script>.</li>
+<li>Adding a feature cannot reduce ordinary training <script type="math/tex">R^2</script>, even when that feature is noise.</li>
+<li>Scaling <script type="math/tex">x</script> changes its coefficient but does not change predictions when the transformation is applied consistently.</li>
+<li>"Regression" came from Francis Galton's "regression toward the mean."</li>
+<li>Excellent global <script type="math/tex">R^2</script> can hide serious bias for a small subgroup.</li>
+</ul>
+</div>
+<h2 id="verified-api-references">Verified API references</h2>
+<ul>
+<li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html">scikit-learn: LinearRegression</a></li>
+<li><a href="https://scikit-learn.org/stable/modules/linear_model.html">scikit-learn: Linear models and OLS complexity</a></li>
+<li><a href="https://scikit-learn.org/stable/modules/model_evaluation.html#regression-metrics">scikit-learn: Regression metrics</a></li>
+</ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- LINK TO DEDICATED FLASHCARDS -->
+                    <div class="note-card" style="text-align:center; padding: 3rem 2rem; margin-top:2rem; background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%); border:none;">
+                        <h2 style="color:#3730a3; font-size:1.8rem; margin-bottom:1rem;">Master this Topic</h2>
+                        <p style="color:#4f46e5; margin-bottom:2rem;">Practice with our interactive, full-screen Quizlet-style flashcards!</p>
+                        <a href="flashcardforml1.html" style="display:inline-block; background:#4f46e5; color:white; padding:1rem 2rem; border-radius:12px; font-weight:bold; font-size:1.2rem; text-decoration:none; box-shadow:0 4px 14px rgba(79,70,229,0.4); transition:transform 0.2s;">
+                            <i class="fa-solid fa-layer-group" style="margin-right:0.5rem;"></i> Practice Flashcards ➔
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../app.js"></script>
+</body>
+</html>
