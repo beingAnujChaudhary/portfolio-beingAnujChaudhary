@@ -1,47 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detailed Flashcards - Anuj's Notes</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="flashcards.css">
-</head>
-<body>
-    <div class="app-container">
-        <!-- Sidebar Navigation -->
-        <aside class="sidebar">
-            <div class="logo">
-                <h1>Anuj's Notes</h1>
-            </div>
-            <nav class="nav-menu">
-                <h2>German A1</h2>
-                <ul id="subject-list">
-                    <li><a href="anujs_notes.html" style="text-decoration:none; color:inherit; display:block;">Overview</a></li>
-                    <li><a href="episode1.html" style="text-decoration:none; color:inherit; display:block;">Ep 1: Pronouns</a></li>
-                    <li><a href="episode2.html" style="text-decoration:none; color:inherit; display:block;">Ep 2: Alphabet</a></li>
-                    <li><a href="episode3.html" style="text-decoration:none; color:inherit; display:block;">Ep 3: Numbers</a></li>
-                    <li><a href="episode4.html" style="text-decoration:none; color:inherit; display:block;">Ep 4: Haben & Sein</a></li>
-                    <li><a href="episode5.html" style="text-decoration:none; color:inherit; display:block;">Ep 5: 30 Verbs</a></li>
-                    <li><a href="episode6.html" style="text-decoration:none; color:inherit; display:block;">Ep 6: Greetings</a></li>
-                    <li class="active" style="margin-top: 1rem;"><a href="flashcards.html" style="text-decoration:none; color:inherit; display:block;">Detailed Flashcards</a></li>
-                </ul>
-            </nav>
-        </aside>
+import os
+import re
 
-        <!-- Main Content Area -->
-        <main class="main-content" style="background-color: #f8fafc;">
-            <div class="content-area" id="main-view" style="display: flex; justify-content: center; padding-top: 2rem;">
-                <div class="view-container" style="display: flex; flex-direction: column; align-items: center; width: 100%;">
-                    
-                    <div class="flashcard-section" style="width: 100%; display: flex; flex-direction: column; align-items: center; padding-bottom: 2rem;">
+BASE = r"d:\Projects\portfolio-beingAnujChaudhary\projects\anujsNotes\GermanNotes\GermanA1"
+episodes = [f"episode{i}.html" for i in range(1, 7)]
+# Add flashcards.html
+episodes.append("../../flashcards.html")
+
+new_flashcard_html = """<div class="flashcard-section" style="width: 100%; display: flex; flex-direction: column; align-items: center; padding-bottom: 2rem;">
                                 <header class="flashcard-header" style="text-align:center; margin-bottom:1.5rem; width:100%;">
                                     <h2 class="flashcard-title" style="font-size: 1.8rem; color:var(--text-primary); margin-bottom:0.5rem;">Interactive Flashcards</h2>
                                     <p class="flashcard-subtitle" style="color:var(--text-secondary);">Test your knowledge with spaced repetition.</p>
                                     <div style="display:flex; justify-content:center; align-items:center; gap: 0.6rem; margin-top:1rem;">
                                         <span style="color:#64748b; font-size:0.88rem; font-weight:500;">Track learning</span>
                                         <label class="toggle-switch">
-                                            <input type="checkbox" class="track-learning-toggle" id="track-learning-toggle-ep1">
+                                            <input type="checkbox" class="track-learning-toggle">
                                             <span class="slider round"></span>
                                         </label>
                                     </div>
@@ -123,9 +95,45 @@
                                     </div>
 
                                 </div>
-                            </div>
-        </main>
-    </div>
-    <script src="app.js"></script>
-</body>
-</html>
+                            </div>"""
+
+for file_name in episodes:
+    path = os.path.join(BASE, file_name)
+    if not os.path.exists(path):
+        # Handle flashcards.html which is one directory up
+        path = os.path.normpath(os.path.join(BASE, file_name))
+        if not os.path.exists(path):
+            print(f"Skipping {file_name} (not found)")
+            continue
+
+    with open(path, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    # Find where to replace
+    # We replace from <div class="flashcard-section" down to the closing </div> of that section.
+    # The safest way is regex DOTALL from <div class="flashcard-section" to the first </main> minus the closing divs.
+    
+    # Actually, a more robust way is to find <div class="flashcard-section" and replace it and everything up to <!-- end flashcard -->
+    # Since we don't have an end comment, let's look for <div class="flashcard-section" and end at </main>.
+    
+    pattern = re.compile(r'<div class="flashcard-section".*?</div>\s*</div>\s*</div>\s*</div>\s*</main>', re.DOTALL)
+    
+    # Extract episode number for data-episode
+    ep_match = re.search(r'episode(\d+)', file_name)
+    ep_key = f"ep{ep_match.group(1)}" if ep_match else "ep1"
+    
+    custom_html = new_flashcard_html.replace('data-episode="ep1"', f'data-episode="{ep_key}"')
+    
+    # We need to append the closing tags back
+    replacement = custom_html + "\n        </main>"
+    
+    new_content = pattern.sub(replacement, content)
+    
+    # Update track-learning toggle ID if it was specific
+    new_content = new_content.replace('class="track-learning-toggle"', f'class="track-learning-toggle" id="track-learning-toggle-{ep_key}"')
+    
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(new_content)
+    print(f"Updated flashcard UI in {file_name}")
+
+print("Done.")

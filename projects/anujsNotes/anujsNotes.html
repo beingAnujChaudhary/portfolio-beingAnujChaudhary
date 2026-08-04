@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anuj's Notes — German A1 Overview</title>
+    <title>Anuj's Notes — Learning Hub</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for modern icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="app-container">
@@ -13,16 +15,22 @@
                 <h1>Anuj's Notes</h1>
             </div>
             <nav class="nav-menu">
-                <h2>German A1</h2>
+                <h2 style="margin-top:0.5rem; font-size:0.75rem; color:var(--text-secondary); text-transform:uppercase; letter-spacing:1px; margin-bottom:0.5rem;">Main Hub</h2>
                 <ul id="subject-list">
-                    <li class="active"><a href="anujsNotes.html" style="text-decoration:none;color:inherit;display:block;">Overview</a></li>
-                    <li><a href="GermanNotes/GermanA1/episode1.html" style="text-decoration:none;color:inherit;display:block;">Ep 1: Pronouns</a></li>
-                    <li><a href="GermanNotes/GermanA1/episode2.html" style="text-decoration:none;color:inherit;display:block;">Ep 2: Alphabet</a></li>
-                    <li><a href="GermanNotes/GermanA1/episode3.html" style="text-decoration:none;color:inherit;display:block;">Ep 3: Numbers</a></li>
-                    <li><a href="GermanNotes/GermanA1/episode4.html" style="text-decoration:none;color:inherit;display:block;">Ep 4: Haben &amp; Sein</a></li>
-                    <li><a href="GermanNotes/GermanA1/episode5.html" style="text-decoration:none;color:inherit;display:block;">Ep 5: 30 Verbs</a></li>
-                    <li><a href="GermanNotes/GermanA1/episode6.html" style="text-decoration:none;color:inherit;display:block;">Ep 6: Greetings</a></li>
-                    <li style="margin-top:1rem;"><a href="flashcards.html" style="text-decoration:none;color:inherit;display:block;">🃏 Flashcards</a></li>
+                    <li class="active"><a href="anujsNotes.html" style="text-decoration:none;color:inherit;display:block;"><i class="fa-solid fa-house" style="width:20px;"></i> Overview</a></li>
+                </ul>
+
+                <h2 style="margin-top:1.5rem; font-size:0.75rem; color:var(--text-secondary); text-transform:uppercase; letter-spacing:1px; margin-bottom:0.5rem;">German</h2>
+                <ul id="subject-list">
+                    <li><a href="GermanNotes/GermanA1/episode1.html" style="text-decoration:none;color:inherit;display:block;"><i class="fa-solid fa-language" style="width:20px;"></i> German A1</a></li>
+                    <li><a href="#" style="text-decoration:none;color:var(--text-secondary);display:block;cursor:not-allowed;"><i class="fa-solid fa-lock" style="width:20px;"></i> German A2 <span style="font-size:0.65rem; background:var(--bg-secondary); padding:2px 6px; border-radius:4px; margin-left:4px;">Soon</span></a></li>
+                    <li><a href="#" style="text-decoration:none;color:var(--text-secondary);display:block;cursor:not-allowed;"><i class="fa-solid fa-lock" style="width:20px;"></i> German A3 <span style="font-size:0.65rem; background:var(--bg-secondary); padding:2px 6px; border-radius:4px; margin-left:4px;">Soon</span></a></li>
+                </ul>
+
+                <h2 style="margin-top:1.5rem; font-size:0.75rem; color:var(--text-secondary); text-transform:uppercase; letter-spacing:1px; margin-bottom:0.5rem;">Tech Notes</h2>
+                <ul id="subject-list">
+                    <li><a href="#" style="text-decoration:none;color:var(--text-secondary);display:block;cursor:not-allowed;"><i class="fa-solid fa-robot" style="width:20px;"></i> Machine Learning <span style="font-size:0.65rem; background:var(--bg-secondary); padding:2px 6px; border-radius:4px; margin-left:4px;">Soon</span></a></li>
+                    <li><a href="#" style="text-decoration:none;color:var(--text-secondary);display:block;cursor:not-allowed;"><i class="fa-solid fa-brain" style="width:20px;"></i> Artificial Intelligence <span style="font-size:0.65rem; background:var(--bg-secondary); padding:2px 6px; border-radius:4px; margin-left:4px;">Soon</span></a></li>
                 </ul>
             </nav>
         </aside>
@@ -34,41 +42,86 @@
 
             <div class="content-area" id="main-view">
                 <div class="view-container">
-                    <div class="notes-section">
-                        <div class="note-card">
+                    
+                    <div style="margin-bottom: 2rem;">
+                        <h3 style="font-size: 1.5rem; color: var(--text-primary); margin-bottom: 0.5rem;">Your Learning Hub</h3>
+                        <p style="color: var(--text-secondary);">Select a subject below to access detailed notes, video links, and interactive flashcards.</p>
+                    </div>
+
+                    <div class="hub-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                        
+                        <!-- German Section -->
+                        <div class="note-card" style="margin-bottom:0;">
                             <div class="note-content">
-                                <h3>German A1 Foundations</h3>
-                                <p>Welcome! Use the sidebar to navigate through the six German A1 episodes. Each page has detailed notes, a YouTube video link, and interactive 3D flashcards with spaced repetition tracking.</p>
-
-                                <div class="callout tip" style="margin-top:1.5rem;">
-                                    <span class="callout-icon">💡</span>
-                                    <div class="callout-content">
-                                        <div class="callout-title">How to use this site</div>
-                                        1. Read the episode notes carefully.<br>
-                                        2. Watch the linked YouTube video for listening practice.<br>
-                                        3. Flip through the flashcards at the bottom of each episode.<br>
-                                        4. Toggle <strong>"Track Learning"</strong> to enable spaced repetition — mark cards as <em>Got It</em> or <em>Needs Review</em>.
+                                <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem;">
+                                    <div style="width:40px; height:40px; border-radius:8px; background:var(--accent-color); color:white; display:flex; align-items:center; justify-content:center; font-size:1.25rem;">
+                                        <i class="fa-solid fa-language"></i>
                                     </div>
+                                    <h3 style="margin:0;">German Language</h3>
                                 </div>
-
-                                <h4 style="margin-top:2rem;">Episode Overview</h4>
-                                <table>
-                                    <tr><th>Episode</th><th>Topic</th><th>Key Skills</th></tr>
-                                    <tr><td><a href="GermanNotes/GermanA1/episode1.html" style="color:var(--accent-color);text-decoration:none;font-weight:500;">Ep 1</a></td><td>Personal Pronouns &amp; Verb Conjugation</td><td>ich/du/er/sie, -en verbs, V2 word order</td></tr>
-                                    <tr><td><a href="GermanNotes/GermanA1/episode2.html" style="color:var(--accent-color);text-decoration:none;font-weight:500;">Ep 2</a></td><td>Alphabet &amp; Pronunciation</td><td>Umlauts, ß, ch sounds, diphthongs</td></tr>
-                                    <tr><td><a href="GermanNotes/GermanA1/episode3.html" style="color:var(--accent-color);text-decoration:none;font-weight:500;">Ep 3</a></td><td>Numbers (Zahlen)</td><td>0–1,000,000, compound patterns</td></tr>
-                                    <tr><td><a href="GermanNotes/GermanA1/episode4.html" style="color:var(--accent-color);text-decoration:none;font-weight:500;">Ep 4</a></td><td>Haben, Sein &amp; Introductions</td><td>Irregular verbs, self-intro, feminine -in</td></tr>
-                                    <tr><td><a href="GermanNotes/GermanA1/episode5.html" style="color:var(--accent-color);text-decoration:none;font-weight:500;">Ep 5</a></td><td>30 Essential Verbs</td><td>Regular &amp; irregular, stem-vowel changes</td></tr>
-                                    <tr><td><a href="GermanNotes/GermanA1/episode6.html" style="color:var(--accent-color);text-decoration:none;font-weight:500;">Ep 6</a></td><td>Greetings &amp; Modal Verbs</td><td>Formal/informal, können/müssen/wollen</td></tr>
-                                </table>
-
-                                <div style="margin-top:2rem;">
-                                    <a href="GermanNotes/GermanA1/episode1.html" class="nav-btn primary" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.5rem;background:var(--accent-color);color:white;border-radius:50px;text-decoration:none;font-weight:500;font-size:0.95rem;">Start with Episode 1 →</a>
-                                    &nbsp;
-                                    <a href="flashcards.html" class="nav-btn" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.5rem;background:white;color:var(--text-primary);border-radius:50px;text-decoration:none;font-weight:500;font-size:0.95rem;border:1px solid var(--card-border);">🃏 All Flashcards</a>
+                                <p style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:1.5rem;">Master German grammar, vocabulary, and pronunciation. Features built-in spaced repetition flashcards with Text-to-Speech.</p>
+                                
+                                <div style="display:flex; flex-direction:column; gap:0.5rem;">
+                                    <a href="GermanNotes/GermanA1/episode1.html" class="nav-btn primary" style="display:flex; justify-content:space-between; align-items:center; padding:0.75rem 1rem; background:var(--bg-secondary); color:var(--text-primary); border-radius:8px; text-decoration:none; font-weight:500; border:1px solid var(--card-border); transition:all 0.2s;">
+                                        <span>German A1 <span style="font-size:0.75rem; font-weight:normal; color:var(--text-secondary); margin-left:0.5rem;">(6 Episodes)</span></span>
+                                        <i class="fa-solid fa-arrow-right" style="color:var(--accent-color);"></i>
+                                    </a>
+                                    <div style="display:flex; justify-content:space-between; align-items:center; padding:0.75rem 1rem; background:var(--bg-primary); color:var(--text-secondary); border-radius:8px; border:1px dashed var(--card-border); opacity:0.7;">
+                                        <span>German A2</span>
+                                        <span style="font-size:0.75rem; background:var(--card-border); padding:2px 8px; border-radius:12px;">Coming Soon</span>
+                                    </div>
+                                    <div style="display:flex; justify-content:space-between; align-items:center; padding:0.75rem 1rem; background:var(--bg-primary); color:var(--text-secondary); border-radius:8px; border:1px dashed var(--card-border); opacity:0.7;">
+                                        <span>German A3</span>
+                                        <span style="font-size:0.75rem; background:var(--card-border); padding:2px 8px; border-radius:12px;">Coming Soon</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- ML Section -->
+                        <div class="note-card" style="margin-bottom:0;">
+                            <div class="note-content">
+                                <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem;">
+                                    <div style="width:40px; height:40px; border-radius:8px; background:#10b981; color:white; display:flex; align-items:center; justify-content:center; font-size:1.25rem;">
+                                        <i class="fa-solid fa-robot"></i>
+                                    </div>
+                                    <h3 style="margin:0;">Machine Learning</h3>
+                                </div>
+                                <p style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:1.5rem;">Notes and implementations covering supervised/unsupervised learning, model evaluation, and deployment strategies.</p>
+                                
+                                <div style="display:flex; flex-direction:column; gap:0.5rem;">
+                                    <div style="display:flex; justify-content:space-between; align-items:center; padding:0.75rem 1rem; background:var(--bg-primary); color:var(--text-secondary); border-radius:8px; border:1px dashed var(--card-border); opacity:0.7;">
+                                        <span>ML Algorithms</span>
+                                        <span style="font-size:0.75rem; background:var(--card-border); padding:2px 8px; border-radius:12px;">Coming Soon</span>
+                                    </div>
+                                    <div style="display:flex; justify-content:space-between; align-items:center; padding:0.75rem 1rem; background:var(--bg-primary); color:var(--text-secondary); border-radius:8px; border:1px dashed var(--card-border); opacity:0.7;">
+                                        <span>Deep Learning Basics</span>
+                                        <span style="font-size:0.75rem; background:var(--card-border); padding:2px 8px; border-radius:12px;">Coming Soon</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AI Section -->
+                        <div class="note-card" style="margin-bottom:0;">
+                            <div class="note-content">
+                                <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem;">
+                                    <div style="width:40px; height:40px; border-radius:8px; background:#8b5cf6; color:white; display:flex; align-items:center; justify-content:center; font-size:1.25rem;">
+                                        <i class="fa-solid fa-brain"></i>
+                                    </div>
+                                    <h3 style="margin:0;">Artificial Intelligence</h3>
+                                </div>
+                                <p style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:1.5rem;">Advanced topics including Large Language Models (LLMs), RAG systems, and neural network architectures.</p>
+                                
+                                <div style="display:flex; flex-direction:column; gap:0.5rem;">
+                                    <div style="display:flex; justify-content:space-between; align-items:center; padding:0.75rem 1rem; background:var(--bg-primary); color:var(--text-secondary); border-radius:8px; border:1px dashed var(--card-border); opacity:0.7;">
+                                        <span>LLMs &amp; RAG</span>
+                                        <span style="font-size:0.75rem; background:var(--card-border); padding:2px 8px; border-radius:12px;">Coming Soon</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>

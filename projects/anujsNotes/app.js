@@ -190,6 +190,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const shuffleBtn = document.querySelector('.shuffle-card-btn');
     const resetBtn = document.querySelector('.reset-btn');
     const progressText = document.querySelector('.inline-progress-text');
+    const progressBar = document.querySelector('.progress-fill');
+    
+    const ttsEnBtn = document.querySelector('.tts-en');
+    const ttsDeBtn = document.querySelector('.tts-de');
     
     const toggleSwitch = document.querySelector(`#track-learning-toggle-${episodeKey}`);
     const feedbackControls = document.querySelector('.learning-feedback-controls');
@@ -218,10 +222,16 @@ document.addEventListener('DOMContentLoaded', () => {
         backText.textContent = card.back;
         hintText.textContent = card.hint || 'No hint available';
         
-        progressText.textContent = `${currentIndex + 1} of ${flashcards.length}`;
+        progressText.textContent = `${currentIndex + 1} / ${flashcards.length}`;
+        if(progressBar) {
+            progressBar.style.width = `${((currentIndex + 1) / flashcards.length) * 100}%`;
+        }
 
         prevBtn.disabled = currentIndex === 0;
         nextBtn.disabled = currentIndex === flashcards.length - 1;
+        
+        // Stop any currently playing audio when card changes
+        window.speechSynthesis.cancel();
 
         isFlipped = false;
         flashcard.style.transform = 'rotateY(0deg)';
@@ -244,8 +254,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // TTS Functionality
+    function speak(text, lang) {
+        if (!('speechSynthesis' in window)) return;
+        window.speechSynthesis.cancel(); // Stop current
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = lang;
+        // Adjust for more natural voice if possible
+        utterance.rate = 0.9; 
+        window.speechSynthesis.speak(utterance);
+    }
+
+    if (ttsEnBtn) {
+        ttsEnBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // prevent flip
+            speak(flashcards[currentIndex].front, 'en-US');
+        });
+    }
+
+    if (ttsDeBtn) {
+        ttsDeBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // prevent flip
+            speak(flashcards[currentIndex].back, 'de-DE');
+        });
+    }
+
     flashcard.addEventListener('click', (e) => {
-        if(e.target.closest('.feedback-btn') || e.target.closest('.card-icon-btn')) return;
+        if(e.target.closest('.feedback-btn') || e.target.closest('.card-icon-btn') || e.target.closest('.tts-btn')) return;
         toggleFlip();
     });
 
