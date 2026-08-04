@@ -1,7 +1,7 @@
 import os
 
 episodes = [1, 2, 3, 4, 5, 6]
-base_dir = r"d:\Projects\portfolio-beingAnujChaudhary\projects\notes-flashcards"
+base_dir = r"d:\Projects\portfolio-beingAnujChaudhary\projects\anujsNotes\GermanNotes\GermanA1"
 
 html_template = """
                                 <hr style="margin: 4rem 0 2rem 0; border: 0; border-top: 1px solid #e2e8f0;">
@@ -27,7 +27,7 @@ html_template = """
                                             <div class="flashcard-3d flashcard-element">
                                                 <div class="flashcard-face-3d flashcard-front-3d">
                                                     <span class="card-lang-label">English / Concept</span>
-                                                    <h2 class="card-front-text" style="font-size: 2.2rem; margin-top: 2rem;">Loading...</h2>
+                                                    <h2 class="card-front-text" style="font-size: 2.2rem; margin-top: 2rem; text-align: center;">Loading...</h2>
                                                     <p class="card-instruction" style="position: absolute; bottom: 20px;">Tap to flip • Use arrows to navigate</p>
                                                     <button class="card-icon-btn shuffle-card-btn" style="position: absolute; bottom: 15px; right: 50px;">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M205.66,197.66l-24,24a8,8,0,0,1-11.32-11.32L184.69,196H160a8,8,0,0,1,0-16h32a8,8,0,0,1,8,8v32a8,8,0,0,1-16,0V205.31l-14.34-14.34A8,8,0,0,1,181.66,179.66Zm-24-155.32-24-24a8,8,0,0,0-11.32,11.32L160.69,44H128C88.29,44,56,76.29,56,116v24a8,8,0,0,0,16,0V116c0-30.88,25.12-56,56-56h32.69l-14.35,14.34a8,8,0,0,0,11.32,11.32l24-24A8,8,0,0,0,181.66,42.34Zm-53.66,97.32a8,8,0,0,0-11.31,11.31L134.69,169H128c-30.88,0-56-25.12-56-56V88a8,8,0,0,0-16,0v25c0,39.71,32.29,72,72,72h32.69l-14.35,14.34a8,8,0,0,0,11.32,11.32l24-24a8,8,0,0,0,0-11.32Z"></path></svg>
@@ -38,7 +38,7 @@ html_template = """
                                                 </div>
                                                 <div class="flashcard-face-3d flashcard-back-3d">
                                                     <span class="card-lang-label">Deutsch / Answer</span>
-                                                    <h2 class="card-back-text" style="font-size: 2.2rem; margin-top: 2rem;">Laden...</h2>
+                                                    <h2 class="card-back-text" style="font-size: 2.2rem; margin-top: 2rem; text-align: center;">Laden...</h2>
                                                     
                                                     <div class="learning-feedback-controls hidden" style="position: absolute; bottom: 30px; left: 0; right: 0; display: flex; justify-content: center; gap: 1rem;">
                                                         <button class="feedback-btn needs-review-btn">Needs Review</button>
@@ -58,7 +58,7 @@ html_template = """
                                             <div class="hint-text hint-display hidden"></div>
                                         </div>
 
-                                        <div class="compact-controls-container" style="display: flex; justify-content: flex-end; align-items: center; width: 100%; gap: 2rem;">
+                                        <div class="compact-controls-container" style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
                                             <!-- Navigation -->
                                             <div class="inline-nav" style="display: flex; align-items: center; gap: 1rem;">
                                                 <button class="inline-nav-btn prev-btn">
