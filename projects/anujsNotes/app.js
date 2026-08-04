@@ -40,6 +40,39 @@ const SUBJECTS = [
   { en: ["They", "You (formal)"], de: ["sie", "Sie"], hi: ["वे", "आप"] }
 ];
 
+
+function getPhonetic(germanStr) {
+    let s = germanStr.toLowerCase();
+    
+    // Pronouns
+    s = s.replace(/ich/g, 'ikh');
+    s = s.replace(/du /g, 'doo ');
+    s = s.replace(/er /g, 'air ');
+    s = s.replace(/sie /g, 'zee ');
+    s = s.replace(/es /g, 'es ');
+    s = s.replace(/wir /g, 'veer ');
+    s = s.replace(/ihr /g, 'eer ');
+    
+    // Vowels & Consonants
+    s = s.replace(/ei/g, 'eye');
+    s = s.replace(/ie/g, 'ee');
+    s = s.replace(/sch/g, 'sh');
+    s = s.replace(/ch/g, 'kh');
+    s = s.replace(/w/g, 'v');
+    s = s.replace(/v/g, 'f');
+    s = s.replace(/j/g, 'y');
+    s = s.replace(/z/g, 'ts');
+    s = s.replace(/ß/g, 'ss');
+    s = s.replace(/ä/g, 'ay');
+    s = s.replace(/ö/g, 'ur');
+    s = s.replace(/ü/g, 'oo');
+    
+    // Basic verb endings
+    s = s.replace(/e$/g, 'uh');
+    
+    return s;
+}
+
 const generateVerbsDeck = () => {
   const cards = [];
   let subjectIndex = 0;
@@ -81,9 +114,9 @@ const generateVerbsDeck = () => {
 
       const verbForm = verb.forms[verbFormIndex];
 
-      cards.push({
+      cards.push({ backText: `${deSubj} ${verbForm}`,
         front: `<div style="display:flex; flex-direction:column; align-items:center; gap:0.5rem;"><span>${enSubj} ${enVerb}</span><span style="font-size:1.5rem; color:#64748b;">${hiSubj} ${verb.hi}</span></div>`,
-        back: `${deSubj} ${verbForm}`,
+        back: `<div style="display:flex; flex-direction:column; align-items:center; gap:0.5rem;"><span>${deSubj} ${verbForm}</span><span style="font-size:1.5rem; color:#a5b4fc;">[${getPhonetic(deSubj + ' ' + verbForm)}]</span></div>`,
         hint: `Infinitive: ${verb.inf} (${verb.hi}) ${verb.irr ? '[Irregular]' : ''}`.trim()
       });
 
@@ -470,7 +503,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (ttsDeBtn) {
         ttsDeBtn.addEventListener('click', (e) => {
             e.stopPropagation(); // prevent flip
-            speak(flashcards[currentIndex].back.replace(/<[^>]*>?/gm, ''), 'de-DE');
+            speak(flashcards[currentIndex].backText || flashcards[currentIndex].back.replace(/<[^>]*>?/gm, ''), 'de-DE');
         });
     }
 

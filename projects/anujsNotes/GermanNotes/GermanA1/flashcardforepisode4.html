@@ -7,11 +7,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/png" href="/assets/images/favicon_circular.png">
     <style>
-        body { background-color: #f6f7fb; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        body { background-color: #ecfdf5; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
         .flashcard-3d-container { perspective: 1000px; width: 100%; max-width: 800px; height: clamp(250px, 55vh, 450px); margin: 0 auto; }
         .flashcard-3d { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1); cursor: pointer; }
         .flashcard-face-3d { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 24px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); display: flex; flex-direction: column; padding: 1.5rem; }
-        .flashcard-front-3d { background: white; border: 2px solid #f1f5f9; }
+        .flashcard-front-3d { background: white; border: 2px solid #f1f5f9; justify-content: center; }
         .flashcard-back-3d { background: #4f46e5; border: 2px solid #6366f1; transform: rotateY(180deg); color: white; }
         /* Toggle Switch Styles */
         .switch { position: relative; display: inline-block; width: 40px; height: 24px; }
@@ -34,7 +34,7 @@
             <a href="episode4.html" class="text-gray-500 hover:text-gray-800 transition-colors" title="Back to Episode">
                 <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
             </a>
-            <a href="../../anujsNotes.html" class="flex items-center gap-2 text-indigo-600 font-bold text-lg sm:text-xl hover:text-indigo-800 transition-colors">
+            <a href="../../anujsNotes.html" class="flex items-center gap-2 text-emerald-600 font-bold text-lg sm:text-xl hover:text-emerald-800 transition-colors">
                 <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
                 <span class="hidden sm:inline">Anuj's Notes</span>
             </a>
@@ -43,7 +43,7 @@
         <div class="text-center font-semibold text-gray-700 flex flex-col items-center">
             <span class="inline-progress-text text-xs sm:text-sm mb-1">1 / 18</span>
             <div class="w-24 sm:w-32 h-1.5 bg-gray-200 rounded-full overflow-hidden">
-                <div class="progress-fill h-full bg-indigo-600 w-0 transition-all duration-300"></div>
+                <div class="progress-fill h-full bg-emerald-500 w-0 transition-all duration-300"></div>
             </div>
         </div>
 
@@ -66,9 +66,9 @@
                 <span class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-orange-100 flex items-center justify-center">0</span>
                 <span class="hidden sm:inline">Still learning</span>
             </div>
-            <div class="flex items-center gap-2 text-green-500">
+            <div class="flex items-center gap-2 text-emerald-600">
                 <span class="hidden sm:inline">Know</span>
-                <span class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-green-100 flex items-center justify-center">0</span>
+                <span class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-emerald-100 flex items-center justify-center">0</span>
             </div>
         </div>
 
@@ -77,15 +77,11 @@
             <div class="flashcard-3d flashcard-element">
                 <!-- FRONT -->
                 <div class="flashcard-face-3d flashcard-front-3d">
-                    <div class="flex justify-between w-full">
-                        <button class="tts-btn tts-en p-2 text-gray-400 hover:text-gray-700 transition-colors bg-gray-50 rounded-full hover:bg-gray-100">
-                            <svg class="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
-                        </button>
-                    </div>
+                    <!-- Removed TTS button from the English side as requested -->
                     <div class="flex-1 flex items-center justify-center overflow-hidden">
                         <h2 class="card-front-text text-center text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 m-0">Loading...</h2>
                     </div>
-                    <p class="text-center text-gray-400 text-xs sm:text-sm opacity-70 m-0">Tap card to flip</p>
+                    <p class="text-center text-gray-400 text-xs sm:text-sm opacity-70 m-0 mt-auto">Tap card to flip</p>
                 </div>
                 <!-- BACK -->
                 <div class="flashcard-face-3d flashcard-back-3d">
@@ -102,7 +98,7 @@
                         <button class="feedback-btn needs-review-btn flex-1 py-3 sm:py-4 rounded-xl border-2 border-red-400 bg-white text-red-500 font-bold text-sm sm:text-base hover:bg-red-50 transition-colors">
                             <svg class="inline w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> Still learning
                         </button>
-                        <button class="feedback-btn got-it-btn flex-1 py-3 sm:py-4 rounded-xl border-2 border-transparent bg-green-500 text-white font-bold text-sm sm:text-base hover:bg-green-600 transition-colors">
+                        <button class="feedback-btn got-it-btn flex-1 py-3 sm:py-4 rounded-xl border-2 border-transparent bg-emerald-500 text-white font-bold text-sm sm:text-base hover:bg-emerald-600 transition-colors">
                             <svg class="inline w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Know
                         </button>
                     </div>
@@ -124,11 +120,11 @@
             </div>
             
             <div class="flex items-center gap-4 sm:gap-6 text-gray-500 text-xs sm:text-sm font-medium">
-                <button class="prev-btn flex items-center gap-2 hover:text-indigo-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                <button class="prev-btn flex items-center gap-2 hover:text-emerald-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
                     <span class="px-2 py-1 bg-gray-100 border border-gray-300 rounded font-mono">←</span>
                     <span class="hidden sm:inline">Previous</span>
                 </button>
-                <button class="next-btn flex items-center gap-2 hover:text-indigo-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                <button class="next-btn flex items-center gap-2 hover:text-emerald-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
                     <span class="hidden sm:inline">Next</span>
                     <span class="px-2 py-1 bg-gray-100 border border-gray-300 rounded font-mono">→</span>
                 </button>
