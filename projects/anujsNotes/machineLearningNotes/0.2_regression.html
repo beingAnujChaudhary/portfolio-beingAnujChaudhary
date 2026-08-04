@@ -13,6 +13,21 @@
     MathJax = {
       tex: {
         inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      options: {
+        renderActions: {
+          findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+              var display = !!node.type.match(/; *mode=display/);
+              var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              var text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '']
+        }
       }
     };
     </script>
@@ -219,17 +234,18 @@ f:\mathbb{R}^{p}\rightarrow\mathbb{R},
 <li>important time, group, or spatial dependence is ignored;</li>
 <li>the target needs a specialized distribution, such as counts or proportions.</li>
 </ul>
-<div class="mermaid">flowchart TD
-    A[&quot;Define the target&quot;] --&gt; B{&quot;Is it numeric?&quot;}
-    B --&gt;|&quot;No&quot;| C[&quot;Consider classification&quot;]
-    B --&gt;|&quot;Yes&quot;| D{&quot;Is a linear additive pattern plausible?&quot;}
-    D --&gt;|&quot;Yes&quot;| E[&quot;Fit a linear baseline&quot;]
-    D --&gt;|&quot;No&quot;| F[&quot;Transform features or use a nonlinear model&quot;]
-    E --&gt; G[&quot;Evaluate on unseen data&quot;]
-    F --&gt; G
-    G --&gt; H{&quot;Acceptable errors and diagnostics?&quot;}
-    H --&gt;|&quot;Yes&quot;| I[&quot;Validate and document&quot;]
-    H --&gt;|&quot;No&quot;| J[&quot;Revise data, metric, or model&quot;]
+<div class="mermaid">
+flowchart TD
+    A["Define the target"] --> B{"Is it numeric?"}
+    B -->|"No"| C["Consider classification"]
+    B -->|"Yes"| D{"Is a linear additive pattern plausible?"}
+    D -->|"Yes"| E["Fit a linear baseline"]
+    D -->|"No"| F["Transform features or use a nonlinear model"]
+    E --> G["Evaluate on unseen data"]
+    F --> G
+    G --> H{"Acceptable errors and diagnostics?"}
+    H -->|"Yes"| I["Validate and document"]
+    H -->|"No"| J["Revise data, metric, or model"]
 
     classDef start fill:#ede9fe,stroke:#7c3aed,color:#2e1065,stroke-width:2px
     classDef decision fill:#fef3c7,stroke:#d97706,color:#78350f,stroke-width:2px
@@ -241,6 +257,7 @@ f:\mathbb{R}^{p}\rightarrow\mathbb{R},
     class C,E,F,G action
     class I success
     class J revise
+
 </div>
 <h3 id="examples">Examples</h3>
 <table>
@@ -365,16 +382,17 @@ y\in\mathbb{R}^{n},\quad
 </div>
 <div class="note-card">
 <h2 id="4-regression-model-families">4. Regression model families</h2>
-<div class="mermaid">flowchart TD
-    A[&quot;Regression models&quot;] --&gt; B[&quot;Linear in raw features&quot;]
-    A --&gt; C[&quot;Linear after feature expansion&quot;]
-    A --&gt; D[&quot;Nonlinear learners&quot;]
-    B --&gt; B1[&quot;Simple: one feature&quot;]
-    B --&gt; B2[&quot;Multiple: many features&quot;]
-    C --&gt; C1[&quot;Polynomial features&quot;]
-    C --&gt; C2[&quot;Ridge, Lasso, Elastic Net&quot;]
-    D --&gt; D1[&quot;Trees and ensembles&quot;]
-    D --&gt; D2[&quot;Kernels and neural networks&quot;]
+<div class="mermaid">
+flowchart TD
+    A["Regression models"] --> B["Linear in raw features"]
+    A --> C["Linear after feature expansion"]
+    A --> D["Nonlinear learners"]
+    B --> B1["Simple: one feature"]
+    B --> B2["Multiple: many features"]
+    C --> C1["Polynomial features"]
+    C --> C2["Ridge, Lasso, Elastic Net"]
+    D --> D1["Trees and ensembles"]
+    D --> D2["Kernels and neural networks"]
 
     classDef root fill:#f3e8ff,stroke:#9333ea,color:#3b0764,stroke-width:3px
     classDef family fill:#cffafe,stroke:#0891b2,color:#164e63,stroke-width:2px
@@ -384,6 +402,7 @@ y\in\mathbb{R}^{n},\quad
     class B,C,D family
     class B1,B2 leaf1
     class C1,C2,D1,D2 leaf2
+
 </div>
 <h3 id="41-simple-linear-regression">4.1 Simple linear regression</h3>
 <p>
@@ -480,12 +499,13 @@ e_i=y_i-\hat y_i.
 <li>
 <script type="math/tex">e_i=0</script>: exact prediction.</li>
 </ul>
-<div class="mermaid">flowchart TD
-    A[&quot;Observed value: y&quot;] --&gt; C[&quot;Residual: e = y - ŷ&quot;]
-    B[&quot;Fitted value: ŷ&quot;] --&gt; C
-    C --&gt; D{&quot;Sign of e&quot;}
-    D --&gt;|&quot;Positive&quot;| E[&quot;Model underpredicted&quot;]
-    D --&gt;|&quot;Negative&quot;| F[&quot;Model overpredicted&quot;]
+<div class="mermaid">
+flowchart TD
+    A["Observed value: y"] --> C["Residual: e = y - ŷ"]
+    B["Fitted value: ŷ"] --> C
+    C --> D{"Sign of e"}
+    D -->|"Positive"| E["Model underpredicted"]
+    D -->|"Negative"| F["Model overpredicted"]
 
     classDef observed fill:#fce7f3,stroke:#db2777,color:#831843,stroke-width:2px
     classDef predicted fill:#dbeafe,stroke:#2563eb,color:#1e3a8a,stroke-width:2px
@@ -495,6 +515,7 @@ e_i=y_i-\hat y_i.
     class B predicted
     class C,D error
     class E,F result
+
 </div>
 <p>Standard regression minimizes vertical differences because the setup treats <script type="math/tex">x</script> as observed and uncertainty as acting mainly in <script type="math/tex">y</script>. If both axes contain material measurement error, an errors-in-variables or orthogonal method may be better.</p>
 </div>
@@ -607,15 +628,16 @@ J(\boldsymbol{\beta})=\frac1n\lVert y-X\boldsymbol{\beta}\rVert_2^2,
 )
 </code></pre>
 <p>A model can fit noise. Testing on training rows produces an optimistic estimate of future performance.</p>
-<div class="mermaid">flowchart TD
-    A[&quot;All labeled data&quot;] --&gt; B[&quot;Training data&quot;]
-    A --&gt; C[&quot;Validation or cross-validation&quot;]
-    A --&gt; D[&quot;Test data&quot;]
-    B --&gt; E[&quot;Learn parameters&quot;]
-    C --&gt; F[&quot;Choose features and settings&quot;]
-    D --&gt; G[&quot;One final performance estimate&quot;]
-    E --&gt; F
-    F --&gt; G
+<div class="mermaid">
+flowchart TD
+    A["All labeled data"] --> B["Training data"]
+    A --> C["Validation or cross-validation"]
+    A --> D["Test data"]
+    B --> E["Learn parameters"]
+    C --> F["Choose features and settings"]
+    D --> G["One final performance estimate"]
+    E --> F
+    F --> G
 
     classDef data fill:#ede9fe,stroke:#7c3aed,color:#3b0764,stroke-width:2px
     classDef train fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
@@ -625,6 +647,7 @@ J(\boldsymbol{\beta})=\frac1n\lVert y-X\boldsymbol{\beta}\rVert_2^2,
     class B,E train
     class C,F validate
     class D,G test
+
 </div>
 <p>In production:</p>
 <ul>
@@ -698,17 +721,18 @@ R^2=1-\frac{\sum_i(y_i-\hat y_i)^2}
 </script>
 </p>
 <p>MAPE is undefined at zero, unstable near zero, asymmetric, and inappropriate for negative targets. Scikit-learn returns a relative value rather than an already multiplied percentage.</p>
-<div class="mermaid">flowchart TD
-    A[&quot;Choose a metric&quot;] --&gt; B{&quot;Should large misses get extra penalty?&quot;}
-    B --&gt;|&quot;No&quot;| C[&quot;MAE or median absolute error&quot;]
-    B --&gt;|&quot;Yes&quot;| D[&quot;RMSE plus tail-error checks&quot;]
-    A --&gt; E{&quot;Are relative errors meaningful and targets away from zero?&quot;}
-    E --&gt;|&quot;Yes&quot;| F[&quot;Consider MAPE or log-scale metrics&quot;]
-    E --&gt;|&quot;No&quot;| G[&quot;Use target-unit or domain cost&quot;]
-    C --&gt; H[&quot;Compare against a naïve baseline&quot;]
-    D --&gt; H
-    F --&gt; H
-    G --&gt; H
+<div class="mermaid">
+flowchart TD
+    A["Choose a metric"] --> B{"Should large misses get extra penalty?"}
+    B -->|"No"| C["MAE or median absolute error"]
+    B -->|"Yes"| D["RMSE plus tail-error checks"]
+    A --> E{"Are relative errors meaningful and targets away from zero?"}
+    E -->|"Yes"| F["Consider MAPE or log-scale metrics"]
+    E -->|"No"| G["Use target-unit or domain cost"]
+    C --> H["Compare against a naïve baseline"]
+    D --> H
+    F --> H
+    G --> H
 
     classDef root fill:#f3e8ff,stroke:#9333ea,color:#3b0764,stroke-width:2px
     classDef decision fill:#fef3c7,stroke:#d97706,color:#78350f,stroke-width:2px
@@ -718,6 +742,7 @@ R^2=1-\frac{\sum_i(y_i-\hat y_i)^2}
     class B,E decision
     class C,D,F,G metric
     class H finish
+
 </div>
 <p>No single metric is universally best. Translate the real cost of underprediction, overprediction, and large tail errors into the evaluation plan.</p>
 </div>
@@ -751,15 +776,16 @@ E[Y\mid X]=\beta_0+\sum_j\beta_jx_j.
 <li><strong>Influential point:</strong> materially changes the fit.</li>
 </ul>
 <p>Cook's distance and leverage diagnostics can help separate them.</p>
-<div class="mermaid">flowchart TD
-    A[&quot;Residual diagnostics&quot;] --&gt; B[&quot;Curve&quot;]
-    A --&gt; C[&quot;Funnel&quot;]
-    A --&gt; D[&quot;Runs or clusters&quot;]
-    A --&gt; E[&quot;Influential extremes&quot;]
-    B --&gt; B1[&quot;Add justified nonlinear structure&quot;]
-    C --&gt; C1[&quot;Transform or model variance&quot;]
-    D --&gt; D1[&quot;Respect time or groups&quot;]
-    E --&gt; E1[&quot;Verify and run sensitivity analysis&quot;]
+<div class="mermaid">
+flowchart TD
+    A["Residual diagnostics"] --> B["Curve"]
+    A --> C["Funnel"]
+    A --> D["Runs or clusters"]
+    A --> E["Influential extremes"]
+    B --> B1["Add justified nonlinear structure"]
+    C --> C1["Transform or model variance"]
+    D --> D1["Respect time or groups"]
+    E --> E1["Verify and run sensitivity analysis"]
 
     classDef root fill:#ede9fe,stroke:#7c3aed,color:#3b0764,stroke-width:2px
     classDef symptom fill:#fee2e2,stroke:#dc2626,color:#7f1d1d
@@ -767,6 +793,7 @@ E[Y\mid X]=\beta_0+\sum_j\beta_jx_j.
     class A root
     class B,C,D,E symptom
     class B1,C1,D1,E1 response
+
 </div>
 </div>
 <div class="note-card">

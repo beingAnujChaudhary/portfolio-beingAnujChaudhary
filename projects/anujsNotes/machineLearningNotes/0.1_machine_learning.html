@@ -13,6 +13,21 @@
     MathJax = {
       tex: {
         inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      options: {
+        renderActions: {
+          findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+              var display = !!node.type.match(/; *mode=display/);
+              var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              var text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '']
+        }
       }
     };
     </script>
@@ -191,13 +206,15 @@ A traditional rule (`IF subject contains "free money" THEN spam`) is brittle. An
 <div class="note-card">
 <h2 id="2-a-corrected-history-of-machine-learning">2. A Corrected History of Machine Learning</h2>
 <p>Understanding history helps you see that neural networks aren't a magical new invention; they are ideas from the 1940s and 50s that only recently gained enough data and compute power to thrive.</p>
-<div class="mermaid">timeline
+<div class="mermaid">
+timeline
     title Milestones in Machine Learning
     1950s : Turing Test proposed (1950) : Samuel's Checkers program learns to play (1952) : The Perceptron (1957)
     1980s : Backpropagation revival makes multi-layer networks trainable (1986)
     1990s : Support-Vector Machines (SVMs) dominate
     2010s : AlexNet sparks the Deep Learning revolution (2012) : Transformers invented (2017)
-    2020s : Era of Foundation &amp; Generative Models
+    2020s : Era of Foundation & Generative Models
+
 </div>
 <div class="callout warning">
 <span class="callout-icon">⚠️</span>
@@ -211,14 +228,16 @@ The field advances when 5 ingredients align: **Algorithms**, **Massive Data**, *
 <div class="note-card">
 <h2 id="3-ai-vs-ml-vs-deep-learning">3. AI vs ML vs Deep Learning</h2>
 <p>Artificial Intelligence is the broadest field. Machine Learning is a subset of AI, and Deep Learning is a highly specialized subset of Machine Learning.</p>
-<div class="mermaid">flowchart TD
-    AI[&quot;Artificial Intelligence&lt;br&gt;Broad field of intelligent systems&quot;] --&gt; ML[&quot;Machine Learning&lt;br&gt;Systems learning from experience&quot;]
-    AI --&gt; O[&quot;Other AI&lt;br&gt;Search, logic, planning&quot;]
-    ML --&gt; DL[&quot;Deep Learning&lt;br&gt;Multi-layer neural networks&quot;]
-    ML --&gt; C[&quot;Classical ML&lt;br&gt;Trees, regression, clustering&quot;]
+<div class="mermaid">
+flowchart TD
+    AI["Artificial Intelligence<br>Broad field of intelligent systems"] --> ML["Machine Learning<br>Systems learning from experience"]
+    AI --> O["Other AI<br>Search, logic, planning"]
+    ML --> DL["Deep Learning<br>Multi-layer neural networks"]
+    ML --> C["Classical ML<br>Trees, regression, clustering"]
 
     classDef glass fill:rgba(255,255,255,0.5),stroke:rgba(255,255,255,0.8),stroke-width:1px,color:#000;
     class AI,ML,DL,O,C glass;
+
 </div>
 <h3 id="when-to-use-what">When to use what?</h3>
 <table>
@@ -259,13 +278,14 @@ The field advances when 5 ingredients align: **Algorithms**, **Massive Data**, *
 <div class="note-card">
 <h2 id="4-types-of-machine-learning_1">4. Types of Machine Learning</h2>
 <p>Machine Learning algorithms are categorized based on the amount and type of supervision they get during training. Here is a high-level map:</p>
-<div class="mermaid">flowchart TD
-    A[&quot;What feedback is available?&quot;] --&gt; B{&quot;Correct answers provided?&quot;}
-    B --&gt;|&quot;Yes, many labels&quot;| C[&quot;Supervised Learning&quot;]
-    B --&gt;|&quot;A few labels&quot;| D[&quot;Semi-Supervised&quot;]
-    B --&gt;|&quot;No labels&quot;| E[&quot;Unsupervised Learning&quot;]
-    A --&gt; F{&quot;Sequential actions &amp; rewards?&quot;}
-    F --&gt;|&quot;Yes&quot;| G[&quot;Reinforcement Learning&quot;]
+<div class="mermaid">
+flowchart TD
+    A["What feedback is available?"] --> B{"Correct answers provided?"}
+    B -->|"Yes, many labels"| C["Supervised Learning"]
+    B -->|"A few labels"| D["Semi-Supervised"]
+    B -->|"No labels"| E["Unsupervised Learning"]
+    A --> F{"Sequential actions & rewards?"}
+    F -->|"Yes"| G["Reinforcement Learning"]
 
     classDef question fill:#fef3c7,stroke:#d97706,color:#78350f,stroke-width:2px;
     classDef supervised fill:rgba(37,99,235,0.2),stroke:#2563eb,color:#000,backdrop-filter:blur(4px);
@@ -276,6 +296,7 @@ The field advances when 5 ingredients align: **Algorithms**, **Massive Data**, *
     class C,D supervised;
     class E unsupervised;
     class G rl;
+
 </div>
 <h3 id="41-supervised-learning-learning-with-a-teacher">4.1 Supervised Learning (Learning with a Teacher)</h3>
 <p>You feed the algorithm data (features) along with the known answers (labels). The model's job is to figure out the mathematical relationship between the two.</p>
@@ -300,17 +321,19 @@ The field advances when 5 ingredients align: **Algorithms**, **Massive Data**, *
 <h2 id="5-how-machine-learning-models-are-trained">5. How Machine Learning Models are Trained</h2>
 <p>Training a model is essentially finding the best mathematical parameters that minimize the difference between the model's predictions and the actual truth.</p>
 <h3 id="the-training-loop">The Training Loop</h3>
-<div class="mermaid">flowchart TD
-    A[&quot;1. Initialize Parameters randomly&quot;] --&gt; B[&quot;2. Forward Pass (Make Predictions)&quot;]
-    B --&gt; C[&quot;3. Calculate Loss (Measure Error)&quot;]
-    C --&gt; D[&quot;4. Calculate Gradients (Find Direction to improve)&quot;]
-    D --&gt; E[&quot;5. Update Parameters (Take a step)&quot;]
-    E --&gt; F{&quot;Is Error low enough?&quot;}
-    F --&gt;|&quot;No&quot;| B
-    F --&gt;|&quot;Yes&quot;| G[&quot;Done! Model is trained.&quot;]
+<div class="mermaid">
+flowchart TD
+    A["1. Initialize Parameters randomly"] --> B["2. Forward Pass (Make Predictions)"]
+    B --> C["3. Calculate Loss (Measure Error)"]
+    C --> D["4. Calculate Gradients (Find Direction to improve)"]
+    D --> E["5. Update Parameters (Take a step)"]
+    E --> F{"Is Error low enough?"}
+    F -->|"No"| B
+    F -->|"Yes"| G["Done! Model is trained."]
 
     classDef glass fill:rgba(255,255,255,0.3),stroke:rgba(255,255,255,0.6),color:#000,backdrop-filter:blur(4px);
     class A,B,C,D,E,F,G glass;
+
 </div>
 <h3 id="key-training-concepts">Key Training Concepts</h3>
 <ul>

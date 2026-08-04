@@ -1,5 +1,6 @@
 import os
 import re
+import html
 import markdown
 
 base_dir = r"d:\Projects\portfolio-beingAnujChaudhary\projects\anujsNotes"
@@ -44,6 +45,9 @@ md = markdown.Markdown(
     }
 )
 
+def unescape_mermaid(match):
+    return f'<div class="mermaid">\n{html.unescape(match.group(1))}\n</div>'
+
 for page in pages:
     md_path = os.path.join(ml_dir, page["md"])
     if not os.path.exists(md_path):
@@ -56,7 +60,7 @@ for page in pages:
     text = re.sub(r'>\s*\[!(NOTE|IMPORTANT|WARNING|TIP|CAUTION)\]\n((?:>.*\n?)+)', replace_callout, text)
 
     html_notes = md.convert(text)
-    html_notes = re.sub(r'<pre><code class="language-mermaid">([\s\S]*?)</code></pre>', r'<div class="mermaid">\1</div>', html_notes)
+    html_notes = re.sub(r'<pre><code class="language-mermaid">([\s\S]*?)</code></pre>', unescape_mermaid, html_notes)
 
     # Generate the nav links
     nav_links = ""
@@ -79,6 +83,21 @@ for page in pages:
     MathJax = {{
       tex: {{
         inlineMath: [['$', '$'], ['\\\\(', '\\\\)']]
+      }},
+      options: {{
+        renderActions: {{
+          findScript: [10, function (doc) {{
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {{
+              var display = !!node.type.match(/; *mode=display/);
+              var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              var text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {{node: text, delim: '', n: 0}};
+              math.end = {{node: text, delim: '', n: 0}};
+              doc.math.push(math);
+            }});
+          }}, '']
+        }}
       }}
     }};
     </script>

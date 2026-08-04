@@ -13,6 +13,21 @@
     MathJax = {
       tex: {
         inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      options: {
+        renderActions: {
+          findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+              var display = !!node.type.match(/; *mode=display/);
+              var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              var text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '']
+        }
       }
     };
     </script>
@@ -256,14 +271,15 @@ b=\hat y(0).
 <div class="note-card">
 <h2 id="3-geometric-intuition">3. Geometric intuition</h2>
 <p>Every candidate pair <script type="math/tex">(m,b)</script> defines a line. The best-fit rule compares those lines using the vertical gaps between each observed point and its fitted point.</p>
-<div class="mermaid">flowchart TD
-    A[&quot;Choose candidate m and b&quot;] --&gt; B[&quot;Compute ŷᵢ = mxᵢ + b&quot;]
-    B --&gt; C[&quot;Compute residuals eᵢ = yᵢ - ŷᵢ&quot;]
-    C --&gt; D[&quot;Square and aggregate residuals&quot;]
-    D --&gt; E{&quot;Is this the minimum?&quot;}
-    E --&gt;|&quot;No&quot;| F[&quot;Change m and b&quot;]
-    F --&gt; B
-    E --&gt;|&quot;Yes&quot;| G[&quot;Best-fitting line&quot;]
+<div class="mermaid">
+flowchart TD
+    A["Choose candidate m and b"] --> B["Compute ŷᵢ = mxᵢ + b"]
+    B --> C["Compute residuals eᵢ = yᵢ - ŷᵢ"]
+    C --> D["Square and aggregate residuals"]
+    D --> E{"Is this the minimum?"}
+    E -->|"No"| F["Change m and b"]
+    F --> B
+    E -->|"Yes"| G["Best-fitting line"]
 
     classDef parameter fill:#ede9fe,stroke:#7c3aed,color:#3b0764,stroke-width:2px
     classDef calculate fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
@@ -275,6 +291,7 @@ b=\hat y(0).
     class D,E cost
     class F update
     class G finish
+
 </div>
 <p>For one observation:</p>
 <p>
@@ -288,10 +305,11 @@ A point below the line has <script type="math/tex">e_i<0</script>: the predictio
 <p>Ordinary regression treats <script type="math/tex">x</script> as given and models randomness in <script type="math/tex">y</script>. If both axes contain substantial measurement error, the usual slope can be biased and orthogonal-distance or errors-in-variables methods may be preferable.</p>
 <h3 id="parameter-space-intuition">Parameter-space intuition</h3>
 <p>The data plot lives in <script type="math/tex">(x,y)</script>-space. Optimization lives in <script type="math/tex">(m,b,J)</script>-space. Each point on the loss surface represents an entire candidate line.</p>
-<div class="mermaid">flowchart LR
-    A[&quot;Data space: points and lines&quot;] --&gt; B[&quot;One line ↔ one pair (m, b)&quot;]
-    B --&gt; C[&quot;Parameter space: loss J(m, b)&quot;]
-    C --&gt; D[&quot;Lowest point ↔ best line&quot;]
+<div class="mermaid">
+flowchart LR
+    A["Data space: points and lines"] --> B["One line ↔ one pair (m, b)"]
+    B --> C["Parameter space: loss J(m, b)"]
+    C --> D["Lowest point ↔ best line"]
 
     classDef data fill:#cffafe,stroke:#0891b2,color:#164e63,stroke-width:2px
     classDef map fill:#fef3c7,stroke:#d97706,color:#78350f,stroke-width:2px
@@ -301,6 +319,7 @@ A point below the line has <script type="math/tex">e_i<0</script>: the predictio
     class B map
     class C loss
     class D best
+
 </div>
 </div>
 <div class="note-card">
@@ -515,12 +534,13 @@ X^\top e=0.
 \mathbf{1}^\top e=\sum_i e_i=0.
 </script>
 </p>
-<div class="mermaid">flowchart TD
-    A[&quot;Target vector y&quot;] --&gt; B[&quot;Project onto column space of X&quot;]
-    B --&gt; C[&quot;Fitted vector ŷ = Xβ̂&quot;]
-    A --&gt; D[&quot;Residual vector e = y - ŷ&quot;]
-    C --&gt; E[&quot;Orthogonality: Xᵀe = 0&quot;]
-    D --&gt; E
+<div class="mermaid">
+flowchart TD
+    A["Target vector y"] --> B["Project onto column space of X"]
+    B --> C["Fitted vector ŷ = Xβ̂"]
+    A --> D["Residual vector e = y - ŷ"]
+    C --> E["Orthogonality: Xᵀe = 0"]
+    D --> E
 
     classDef target fill:#fce7f3,stroke:#db2777,color:#831843,stroke-width:2px
     classDef operation fill:#fef3c7,stroke:#d97706,color:#78350f
@@ -532,6 +552,7 @@ X^\top e=0.
     class C fit
     class D residual
     class E result
+
 </div>
 </div>
 <div class="note-card">
@@ -573,14 +594,15 @@ b_{\text{new}}=b_{\text{old}}-\alpha\frac{\partial J}{\partial b}.
 </p>
 <h3 id="directional-intuition">Directional intuition</h3>
 <p>The gradient points in the local direction of fastest increase. Subtracting it moves downhill.</p>
-<div class="mermaid">flowchart TD
-    A[&quot;Initialize m and b&quot;] --&gt; B[&quot;Predict all rows&quot;]
-    B --&gt; C[&quot;Measure MSE&quot;]
-    C --&gt; D[&quot;Calculate dm and db&quot;]
-    D --&gt; E[&quot;Update opposite the gradient&quot;]
-    E --&gt; F{&quot;Converged or iteration limit?&quot;}
-    F --&gt;|&quot;No&quot;| B
-    F --&gt;|&quot;Yes&quot;| G[&quot;Return fitted parameters&quot;]
+<div class="mermaid">
+flowchart TD
+    A["Initialize m and b"] --> B["Predict all rows"]
+    B --> C["Measure MSE"]
+    C --> D["Calculate dm and db"]
+    D --> E["Update opposite the gradient"]
+    E --> F{"Converged or iteration limit?"}
+    F -->|"No"| B
+    F -->|"Yes"| G["Return fitted parameters"]
 
     classDef init fill:#ede9fe,stroke:#7c3aed,color:#3b0764,stroke-width:2px
     classDef compute fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
@@ -594,6 +616,7 @@ b_{\text{new}}=b_{\text{old}}-\alpha\frac{\partial J}{\partial b}.
     class E update
     class F decision
     class G done
+
 </div>
 <h3 id="one-update-by-hand">One update by hand</h3>
 <p>Use the worked data <script type="math/tex">x=[1,2,3]</script>, <script type="math/tex">y=[2,3,5]</script>, start <script type="math/tex">m=b=0</script>, and use notebook-style MSE.</p>
@@ -625,13 +648,14 @@ b_{\text{new}}=0-0.01(-6.667)=0.0667.
 </p>
 <p>Both move toward the optimum <script type="math/tex">m=1.5,b=1/3</script>.</p>
 <h3 id="learning-rate-behavior">Learning-rate behavior</h3>
-<div class="mermaid">flowchart TD
-    A[&quot;Learning rate α&quot;] --&gt; B[&quot;Too large&quot;]
-    A --&gt; C[&quot;Suitable&quot;]
-    A --&gt; D[&quot;Very small&quot;]
-    B --&gt; B1[&quot;Overshoot, oscillate, or diverge&quot;]
-    C --&gt; C1[&quot;Stable useful convergence&quot;]
-    D --&gt; D1[&quot;Stable but many iterations&quot;]
+<div class="mermaid">
+flowchart TD
+    A["Learning rate α"] --> B["Too large"]
+    A --> C["Suitable"]
+    A --> D["Very small"]
+    B --> B1["Overshoot, oscillate, or diverge"]
+    C --> C1["Stable useful convergence"]
+    D --> D1["Stable but many iterations"]
 
     classDef root fill:#ede9fe,stroke:#7c3aed,color:#3b0764,stroke-width:2px
     classDef bad fill:#fee2e2,stroke:#dc2626,color:#7f1d1d,stroke-width:2px
@@ -641,6 +665,7 @@ b_{\text{new}}=0-0.01(-6.667)=0.0667.
     class B,B1 bad
     class C,C1 good
     class D,D1 slow
+
 </div>
 <p>The notebook diagram says a low learning rate "may get stuck." For convex linear least squares, "very slow" is the accurate intuition; local minima are not the issue.</p>
 <h3 id="why-feature-scaling-helps-gd">Why feature scaling helps GD</h3>
@@ -718,15 +743,16 @@ z_j=\frac{x_j-\mu_j}{s_j}
 </div>
 <div class="note-card">
 <h2 id="9-ols-versus-gradient-descent">9. OLS versus gradient descent</h2>
-<div class="mermaid">flowchart TD
-    A[&quot;Need linear least squares&quot;] --&gt; B{&quot;Small or medium dense problem?&quot;}
-    B --&gt;|&quot;Yes&quot;| C[&quot;Use a stable OLS solver&quot;]
-    B --&gt;|&quot;No&quot;| D{&quot;Streaming, sparse, or extremely large?&quot;}
-    D --&gt;|&quot;Yes&quot;| E[&quot;Use iterative or stochastic optimization&quot;]
-    D --&gt;|&quot;No&quot;| F[&quot;Benchmark solver choices&quot;]
-    C --&gt; G[&quot;No learning-rate tuning&quot;]
-    E --&gt; H[&quot;Scale features and monitor convergence&quot;]
-    F --&gt; I[&quot;Compare time, memory, and validation error&quot;]
+<div class="mermaid">
+flowchart TD
+    A["Need linear least squares"] --> B{"Small or medium dense problem?"}
+    B -->|"Yes"| C["Use a stable OLS solver"]
+    B -->|"No"| D{"Streaming, sparse, or extremely large?"}
+    D -->|"Yes"| E["Use iterative or stochastic optimization"]
+    D -->|"No"| F["Benchmark solver choices"]
+    C --> G["No learning-rate tuning"]
+    E --> H["Scale features and monitor convergence"]
+    F --> I["Compare time, memory, and validation error"]
 
     classDef root fill:#ede9fe,stroke:#7c3aed,color:#3b0764,stroke-width:2px
     classDef decision fill:#fef3c7,stroke:#d97706,color:#78350f,stroke-width:2px
@@ -738,6 +764,7 @@ z_j=\frac{x_j-\mu_j}{s_j}
     class C,G ols
     class E,H gd
     class F,I result
+
 </div>
 <table>
 <thead>
