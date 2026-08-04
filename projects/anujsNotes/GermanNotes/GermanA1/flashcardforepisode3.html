@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flashcards - Episode 3</title>
+    <title>Anuj's Notes - Flashcards Episode 3</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="/assets/images/favicon_circular.png">
     <style>
         body { background-color: #f6f7fb; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-        .flashcard-3d-container { perspective: 1000px; width: 100%; max-width: 800px; height: 500px; margin: 0 auto; }
+        .flashcard-3d-container { perspective: 1000px; width: 100%; max-width: 800px; height: clamp(250px, 55vh, 450px); margin: 0 auto; }
         .flashcard-3d { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1); cursor: pointer; }
-        .flashcard-face-3d { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 24px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); display: flex; flex-direction: column; padding: 2rem; }
+        .flashcard-face-3d { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 24px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); display: flex; flex-direction: column; padding: 1.5rem; }
         .flashcard-front-3d { background: white; border: 2px solid #f1f5f9; }
         .flashcard-back-3d { background: #4f46e5; border: 2px solid #6366f1; transform: rotateY(180deg); color: white; }
         /* Toggle Switch Styles */
@@ -20,51 +20,55 @@
         .slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; }
         input:checked + .slider { background-color: #4f46e5; }
         input:checked + .slider:before { transform: translateX(16px); }
+        
+        @media (min-width: 640px) {
+            .flashcard-face-3d { padding: 2rem; }
+        }
     </style>
 </head>
-<body class="min-h-screen flex flex-col">
+<body class="min-h-screen flex flex-col overflow-hidden">
 
     <!-- Top Header Bar -->
-    <header class="bg-white shadow-sm px-6 py-4 flex items-center justify-between z-10 sticky top-0">
-        <div class="flex items-center gap-4">
-            <a href="episode3.html" class="text-gray-500 hover:text-gray-800 transition-colors" title="Back to Notes">
-                <i class="fa-solid fa-arrow-left text-xl"></i>
+    <header class="bg-white shadow-sm px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between z-10 sticky top-0">
+        <div class="flex items-center gap-3 sm:gap-4">
+            <a href="episode3.html" class="text-gray-500 hover:text-gray-800 transition-colors" title="Back to Episode">
+                <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
             </a>
-            <div class="flex items-center gap-2 text-indigo-600 font-bold text-xl">
-                <i class="fa-solid fa-layer-group"></i>
-                <span>Flashcards</span>
-            </div>
+            <a href="../../anujsNotes.html" class="flex items-center gap-2 text-indigo-600 font-bold text-lg sm:text-xl hover:text-indigo-800 transition-colors">
+                <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                <span class="hidden sm:inline">Anuj's Notes</span>
+            </a>
         </div>
         
         <div class="text-center font-semibold text-gray-700 flex flex-col items-center">
-            <span class="inline-progress-text text-sm mb-1">1 / 18</span>
-            <div class="w-32 h-1.5 bg-gray-200 rounded-full overflow-hidden">
+            <span class="inline-progress-text text-xs sm:text-sm mb-1">1 / 18</span>
+            <div class="w-24 sm:w-32 h-1.5 bg-gray-200 rounded-full overflow-hidden">
                 <div class="progress-fill h-full bg-indigo-600 w-0 transition-all duration-300"></div>
             </div>
         </div>
 
-        <div class="flex items-center gap-4">
+        <div class="flex items-center gap-3 sm:gap-4">
             <button class="shuffle-card-btn text-gray-500 hover:text-gray-800" title="Shuffle">
-                <i class="fa-solid fa-shuffle text-lg"></i>
+                <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
             </button>
             <button class="reset-btn text-gray-500 hover:text-gray-800" title="Reset">
-                <i class="fa-solid fa-rotate-left text-lg"></i>
+                <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
             </button>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main class="flex-1 flex flex-col items-center p-6 pb-24">
+    <main class="flex-1 flex flex-col items-center p-4 sm:p-6 pb-6 h-full w-full">
         
         <!-- Score Bar -->
-        <div class="w-full max-w-4xl flex justify-between items-center mb-6 text-sm font-semibold">
+        <div class="w-full max-w-4xl flex justify-between items-center mb-4 sm:mb-6 text-xs sm:text-sm font-semibold">
             <div class="flex items-center gap-2 text-orange-500">
-                <span class="w-6 h-6 rounded-full bg-orange-100 flex items-center justify-center">0</span>
-                <span>Still learning</span>
+                <span class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-orange-100 flex items-center justify-center">0</span>
+                <span class="hidden sm:inline">Still learning</span>
             </div>
             <div class="flex items-center gap-2 text-green-500">
-                <span>Know</span>
-                <span class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">0</span>
+                <span class="hidden sm:inline">Know</span>
+                <span class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-green-100 flex items-center justify-center">0</span>
             </div>
         </div>
 
@@ -74,32 +78,32 @@
                 <!-- FRONT -->
                 <div class="flashcard-face-3d flashcard-front-3d">
                     <div class="flex justify-between w-full">
-                        <button class="tts-btn tts-en p-2 text-gray-400 hover:text-gray-700 transition-colors">
-                            <i class="fa-solid fa-volume-high text-xl"></i>
+                        <button class="tts-btn tts-en p-2 text-gray-400 hover:text-gray-700 transition-colors bg-gray-50 rounded-full hover:bg-gray-100">
+                            <svg class="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
                         </button>
                     </div>
                     <div class="flex-1 flex items-center justify-center overflow-hidden">
-                        <h2 class="card-front-text text-center text-4xl sm:text-5xl font-bold text-gray-800 m-0">Loading...</h2>
+                        <h2 class="card-front-text text-center text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 m-0">Loading...</h2>
                     </div>
-                    <p class="text-center text-gray-400 text-sm opacity-70 m-0">Tap card to flip</p>
+                    <p class="text-center text-gray-400 text-xs sm:text-sm opacity-70 m-0">Tap card to flip</p>
                 </div>
                 <!-- BACK -->
                 <div class="flashcard-face-3d flashcard-back-3d">
                     <div class="flex justify-between w-full">
-                        <button class="tts-btn tts-de p-2 text-indigo-200 hover:text-white transition-colors">
-                            <i class="fa-solid fa-volume-high text-xl"></i>
+                        <button class="tts-btn tts-de p-2 text-indigo-200 hover:text-white transition-colors bg-indigo-700 rounded-full hover:bg-indigo-800">
+                            <svg class="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
                         </button>
                     </div>
                     <div class="flex-1 flex items-center justify-center overflow-hidden">
-                        <h2 class="card-back-text text-center text-4xl sm:text-5xl font-bold text-white drop-shadow-md m-0">Laden...</h2>
+                        <h2 class="card-back-text text-center text-3xl sm:text-4xl md:text-5xl font-bold text-white drop-shadow-md m-0">Laden...</h2>
                     </div>
                     
-                    <div class="learning-feedback-controls hidden flex justify-center gap-4 mt-auto">
-                        <button class="feedback-btn needs-review-btn flex-1 py-4 rounded-xl border-2 border-red-400 bg-white text-red-500 font-bold hover:bg-red-50 transition-colors">
-                            <i class="fa-solid fa-xmark mr-2"></i> Still learning
+                    <div class="learning-feedback-controls hidden flex justify-center gap-3 sm:gap-4 mt-auto">
+                        <button class="feedback-btn needs-review-btn flex-1 py-3 sm:py-4 rounded-xl border-2 border-red-400 bg-white text-red-500 font-bold text-sm sm:text-base hover:bg-red-50 transition-colors">
+                            <svg class="inline w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> Still learning
                         </button>
-                        <button class="feedback-btn got-it-btn flex-1 py-4 rounded-xl border-2 border-transparent bg-green-500 text-white font-bold hover:bg-green-600 transition-colors">
-                            <i class="fa-solid fa-check mr-2"></i> Know
+                        <button class="feedback-btn got-it-btn flex-1 py-3 sm:py-4 rounded-xl border-2 border-transparent bg-green-500 text-white font-bold text-sm sm:text-base hover:bg-green-600 transition-colors">
+                            <svg class="inline w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Know
                         </button>
                     </div>
                 </div>
@@ -110,26 +114,26 @@
         </div>
         
         <!-- Bottom Controls Bar -->
-        <div class="w-full max-w-4xl bg-white shadow-sm border border-gray-200 rounded-xl mt-8 p-4 flex flex-wrap gap-4 items-center justify-between">
-            <div class="flex items-center gap-3">
-                <span class="text-gray-500 font-semibold text-sm">Track progress</span>
+        <div class="w-full max-w-4xl bg-white shadow-sm border border-gray-200 rounded-xl mt-6 p-3 sm:p-4 flex flex-col sm:flex-row gap-4 items-center justify-between">
+            <div class="flex items-center gap-3 w-full sm:w-auto justify-center sm:justify-start">
+                <span class="text-gray-500 font-semibold text-xs sm:text-sm">Track progress</span>
                 <label class="switch">
                     <input type="checkbox" class="track-learning-toggle" id="track-learning-toggle-ep3">
                     <span class="slider"></span>
                 </label>
             </div>
             
-            <div class="flex items-center gap-6 text-gray-500 text-sm font-medium">
+            <div class="flex items-center gap-4 sm:gap-6 text-gray-500 text-xs sm:text-sm font-medium">
                 <button class="prev-btn flex items-center gap-2 hover:text-indigo-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
-                    <span class="px-2 py-1 bg-gray-100 border border-gray-300 rounded text-xs font-mono">←</span>
+                    <span class="px-2 py-1 bg-gray-100 border border-gray-300 rounded font-mono">←</span>
                     <span class="hidden sm:inline">Previous</span>
                 </button>
                 <button class="next-btn flex items-center gap-2 hover:text-indigo-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
                     <span class="hidden sm:inline">Next</span>
-                    <span class="px-2 py-1 bg-gray-100 border border-gray-300 rounded text-xs font-mono">→</span>
+                    <span class="px-2 py-1 bg-gray-100 border border-gray-300 rounded font-mono">→</span>
                 </button>
-                <div class="hidden sm:flex items-center gap-2 border-l border-gray-200 pl-6">
-                    <span class="px-2 py-1 bg-gray-100 border border-gray-300 rounded text-xs font-mono">Space</span>
+                <div class="hidden md:flex items-center gap-2 border-l border-gray-200 pl-4 sm:pl-6">
+                    <span class="px-2 py-1 bg-gray-100 border border-gray-300 rounded font-mono">Space</span>
                     <span>to flip</span>
                 </div>
             </div>
@@ -141,7 +145,6 @@
     <script>
         // Keyboard Shortcuts
         document.addEventListener('keydown', (e) => {
-            // Avoid triggering if user is typing in an input (though there are none here, good practice)
             if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
 
             if (e.code === 'Space') {
