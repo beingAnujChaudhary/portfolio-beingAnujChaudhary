@@ -1,86 +1,9 @@
-const VERB_DATA = [
-  { inf: "kommen", en: "come", en3: "comes", irr: false, forms: ["komme", "kommst", "kommt", "kommt", "kommen"] },
-  { inf: "gehen", en: "go", en3: "goes", irr: false, forms: ["gehe", "gehst", "geht", "geht", "gehen"] },
-  { inf: "machen", en: "do", en3: "does", irr: false, forms: ["mache", "machst", "macht", "macht", "machen"] },
-  { inf: "wohnen", en: "live", en3: "lives", irr: false, forms: ["wohne", "wohnst", "wohnt", "wohnt", "wohnen"] },
-  { inf: "lieben", en: "love", en3: "loves", irr: false, forms: ["liebe", "liebst", "liebt", "liebt", "lieben"] },
-  { inf: "bringen", en: "bring", en3: "brings", irr: false, forms: ["bringe", "bringst", "bringt", "bringt", "bringen"] },
-  { inf: "sprechen", en: "speak", en3: "speaks", irr: true, forms: ["spreche", "sprichst", "spricht", "sprecht", "sprechen"] },
-  { inf: "kochen", en: "cook", en3: "cooks", irr: false, forms: ["koche", "kochst", "kocht", "kocht", "kochen"] },
-  { inf: "fragen", en: "ask", en3: "asks", irr: false, forms: ["frage", "fragst", "fragt", "fragt", "fragen"] },
-  { inf: "antworten", en: "reply", en3: "replies", irr: false, forms: ["antworte", "antwortest", "antwortet", "antwortet", "antworten"] },
-  { inf: "baden", en: "bathe", en3: "bathes", irr: false, forms: ["bade", "badest", "badet", "badet", "baden"] },
-  { inf: "essen", en: "eat", en3: "eats", irr: true, forms: ["esse", "isst", "isst", "esst", "essen"] },
-  { inf: "singen", en: "sing", en3: "sings", irr: false, forms: ["singe", "singst", "singt", "singt", "singen"] },
-  { inf: "tanzen", en: "dance", en3: "dances", irr: false, forms: ["tanze", "tanzt", "tanzt", "tanzt", "tanzen"] },
-  { inf: "arbeiten", en: "work", en3: "works", irr: false, forms: ["arbeite", "arbeitest", "arbeitet", "arbeitet", "arbeiten"] },
-  { inf: "sehen", en: "see", en3: "sees", irr: true, forms: ["sehe", "siehst", "sieht", "seht", "sehen"] },
-  { inf: "hören", en: "listen", en3: "listens", irr: false, forms: ["höre", "hörst", "hört", "hört", "hören"] },
-  { inf: "laufen", en: "run", en3: "runs", irr: true, forms: ["laufe", "läufst", "läuft", "lauft", "laufen"] },
-  { inf: "lesen", en: "read", en3: "reads", irr: true, forms: ["lese", "liest", "liest", "lest", "lesen"] },
-  { inf: "schreiben", en: "write", en3: "writes", irr: false, forms: ["schreibe", "schreibst", "schreibt", "schreibt", "schreiben"] },
-  { inf: "suchen", en: "search", en3: "searches", irr: false, forms: ["suche", "suchst", "sucht", "sucht", "suchen"] },
-  { inf: "finden", en: "find", en3: "finds", irr: false, forms: ["finde", "findest", "findet", "findet", "finden"] },
-  { inf: "stehen", en: "stand", en3: "stands", irr: false, forms: ["stehe", "stehst", "steht", "steht", "stehen"] },
-  { inf: "sitzen", en: "sit", en3: "sits", irr: false, forms: ["sitze", "sitzt", "sitzt", "sitzt", "sitzen"] },
-  { inf: "fahren", en: "drive", en3: "drives", irr: true, forms: ["fahre", "fährst", "fährt", "fahrt", "fahren"] },
-  { inf: "reisen", en: "travel", en3: "travels", irr: false, forms: ["reise", "reist", "reist", "reist", "reisen"] },
-  { inf: "treffen", en: "meet", en3: "meets", irr: true, forms: ["treffe", "triffst", "trifft", "trefft", "treffen"] },
-  { inf: "schlafen", en: "sleep", en3: "sleeps", irr: true, forms: ["schlafe", "schläfst", "schläft", "schlaft", "schlafen"] },
-  { inf: "lernen", en: "learn", en3: "learns", irr: false, forms: ["lerne", "lernst", "lernt", "lernt", "lernen"] },
-  { inf: "lachen", en: "laugh", en3: "laughs", irr: false, forms: ["lache", "lachst", "lacht", "lacht", "lachen"] }
-];
+import os
+import re
 
-const SUBJECTS = [
-  { en: "I", de: "ich" },
-  { en: "You (informal)", de: "du" },
-  { en: ["He", "She", "It"], de: ["er", "sie", "es"] },
-  { en: "You (plural)", de: "ihr" },
-  { en: ["They", "You (formal)"], de: ["sie", "Sie"] }
-];
+app_js_path = r"d:\Projects\portfolio-beingAnujChaudhary\projects\anujsNotes\app.js"
 
-const generateVerbsDeck = () => {
-  const cards = [];
-  let subjectIndex = 0;
-  let heSheItCycle = 0;
-  let theyYouCycle = 0;
-
-  for (let i = 0; i < VERB_DATA.length; i++) {
-    const verb = VERB_DATA[i];
-    for (let j = 0; j < 4; j++) {
-      const sIndex = subjectIndex % 5;
-      const subDef = SUBJECTS[sIndex];
-
-      let enSubj, deSubj;
-      if (sIndex === 2) {
-         enSubj = subDef.en[heSheItCycle % 3];
-         deSubj = subDef.de[heSheItCycle % 3];
-         heSheItCycle++;
-      } else if (sIndex === 4) {
-         enSubj = subDef.en[theyYouCycle % 2];
-         deSubj = subDef.de[theyYouCycle % 2];
-         theyYouCycle++;
-      } else {
-         enSubj = subDef.en;
-         deSubj = subDef.de;
-      }
-
-      const enVerb = (sIndex === 2) ? verb.en3 : verb.en;
-      const verbForm = verb.forms[sIndex];
-
-      cards.push({
-        front: `${enSubj} ${enVerb}`,
-        back: `${deSubj} ${verbForm}`,
-        hint: `Infinitive: ${verb.inf} ${verb.irr ? '(Irregular)' : ''}`.trim()
-      });
-
-      subjectIndex++;
-    }
-  }
-  return cards;
-};
-
-const DECKS = {
+new_decks = """const DECKS = {
     ep1: [
         { front: 'I', back: 'ich', hint: '1st person singular' },
         { front: 'You (informal)', back: 'du', hint: '2nd person singular' },
@@ -310,7 +233,7 @@ const DECKS = {
         { front: 'Have a nice weekend!', back: 'Schönes Wochenende!', hint: 'Polite farewell' },
         { front: 'How are you? (formal)', back: 'Wie geht es Ihnen?', hint: 'Asking well-being' },
         { front: 'How are you? (informal)', back: 'Wie geht es dir?', hint: 'Asking well-being' },
-        { front: 'How's it going? (casual)', back: 'Wie geht's?', hint: 'Short form' },
+        { front: 'How\'s it going? (casual)', back: 'Wie geht\'s?', hint: 'Short form' },
         { front: 'I am doing well', back: 'Mir geht es gut', hint: 'Response' },
         { front: 'Good, thanks', back: 'Gut, danke', hint: 'Short response' },
         { front: 'Very good', back: 'Sehr gut', hint: 'Response' },
@@ -329,9 +252,9 @@ const DECKS = {
         { front: 'Yes', back: 'Ja', hint: 'Agreement' },
         { front: 'No', back: 'Nein', hint: 'Disagreement' },
         { front: 'Maybe', back: 'Vielleicht', hint: 'Uncertainty' },
-        { front: 'I don't know', back: 'Ich weiß (es) nicht', hint: 'Lack of knowledge' },
+        { front: 'I don\'t know', back: 'Ich weiß (es) nicht', hint: 'Lack of knowledge' },
         { front: 'I understand', back: 'Ich verstehe', hint: 'Comprehension' },
-        { front: 'I don't understand', back: 'Ich verstehe nicht', hint: 'Lack of comprehension' },
+        { front: 'I don\'t understand', back: 'Ich verstehe nicht', hint: 'Lack of comprehension' },
         { front: 'Do you speak English? (formal)', back: 'Sprechen Sie Englisch?', hint: 'Question' },
         { front: 'Do you speak English? (informal)', back: 'Sprichst du Englisch?', hint: 'Question' },
         { front: 'Please speak slowly', back: 'Bitte sprechen Sie langsam', hint: 'Request' },
@@ -343,285 +266,16 @@ const DECKS = {
         { front: 'Bless you!', back: 'Gesundheit!', hint: 'After someone sneezes' },
         { front: 'Welcome!', back: 'Willkommen!', hint: 'Greeting' }
     ]
-};
+};"""
 
-document.addEventListener('DOMContentLoaded', () => {
-    const container = document.querySelector('.flashcard-3d-container');
-    if (!container) return;
+with open(app_js_path, "r", encoding="utf-8") as f:
+    content = f.read()
 
-    let episodeKey = container.getAttribute('data-episode');
-    
-    // Check hash for episode routing (e.g. #ep2)
-    const hash = window.location.hash.substring(1);
-    if (hash && DECKS[hash]) {
-        episodeKey = hash;
-        container.setAttribute('data-episode', hash);
-    }
-    
-    // If we are on the main flashcards.html page, inject a dropdown to select episode
-    if (window.location.pathname.includes('flashcards.html')) {
-        const header = document.querySelector('.flashcard-header');
-        if (header && !document.getElementById('deck-selector')) {
-            const selectHtml = `
-                <div style="margin-top:1rem; margin-bottom: 0.5rem;">
-                    <select id="deck-selector" style="padding:0.5rem 1rem; border-radius:8px; border:1px solid var(--card-border); background:white; font-family:inherit; font-size:1rem; color:var(--text-primary); cursor:pointer; outline:none; box-shadow:0 2px 4px rgba(0,0,0,0.05);">
-                        <option value="ep1" ${episodeKey === 'ep1' ? 'selected' : ''}>Episode 1: Pronouns & Conjugation (50 cards)</option>
-                        <option value="ep2" ${episodeKey === 'ep2' ? 'selected' : ''}>Episode 2: Alphabet & Pronunciation (50 cards)</option>
-                        <option value="ep3" ${episodeKey === 'ep3' ? 'selected' : ''}>Episode 3: Numbers & Math (50 cards)</option>
-                        <option value="ep4" ${episodeKey === 'ep4' ? 'selected' : ''}>Episode 4: Haben & Sein (50 cards)</option>
-                        <option value="ep5" ${episodeKey === 'ep5' ? 'selected' : ''}>Episode 5: 30 Verbs Conjugation (120 cards)</option>
-                        <option value="ep6" ${episodeKey === 'ep6' ? 'selected' : ''}>Episode 6: Greetings & Phrases (50 cards)</option>
-                    </select>
-                </div>
-            `;
-            header.insertAdjacentHTML('beforeend', selectHtml);
-            
-            document.getElementById('deck-selector').addEventListener('change', (e) => {
-                window.location.hash = e.target.value;
-            });
-        }
-    }
+# Replace the DECKS variable. It starts at `const DECKS = {` and ends right before `document.addEventListener`
+pattern = re.compile(r'const DECKS = \{.*?\n};\n', re.DOTALL)
+content = pattern.sub(new_decks + "\n", content)
 
-    // Listen for hash changes to re-initialize deck
-    window.addEventListener('hashchange', () => {
-        const newHash = window.location.hash.substring(1);
-        if (newHash && DECKS[newHash]) {
-            // Update UI selector if it exists
-            const selector = document.getElementById('deck-selector');
-            if (selector) selector.value = newHash;
-            
-            episodeKey = newHash;
-            container.setAttribute('data-episode', newHash);
-            loadDeck(newHash);
-        }
-    });
+with open(app_js_path, "w", encoding="utf-8") as f:
+    f.write(content)
 
-    let flashcards = DECKS[episodeKey] || DECKS.ep1;
-    let initialFlashcards = [...flashcards];
-
-    let currentIndex = 0;
-    let isFlipped = false;
-    let showHint = false;
-    
-    let storageKey = 'flashcard_state_' + episodeKey;
-    let savedState = JSON.parse(localStorage.getItem(storageKey)) || {
-        tracking: false,
-        currentIndex: 0
-    };
-
-    let isTracking = savedState.tracking;
-    currentIndex = savedState.currentIndex || 0;
-    if (currentIndex >= flashcards.length) currentIndex = 0;
-
-    const flashcard = document.querySelector('.flashcard-element');
-    const frontText = document.querySelector('.card-front-text');
-    const backText = document.querySelector('.card-back-text');
-    const hintBtn = document.querySelector('.show-hint-btn');
-    const hintText = document.querySelector('.hint-text');
-    
-    const prevBtn = document.querySelector('.prev-btn');
-    const nextBtn = document.querySelector('.next-btn');
-    const shuffleBtn = document.querySelector('.shuffle-card-btn');
-    const resetBtn = document.querySelector('.reset-btn');
-    const progressText = document.querySelector('.inline-progress-text');
-    const progressBar = document.querySelector('.progress-fill');
-    
-    const ttsEnBtn = document.querySelector('.tts-en');
-    const ttsDeBtn = document.querySelector('.tts-de');
-    
-    // Fallback to class selector if specific ID is not found (useful for flashcards.html)
-    let toggleSwitch = document.querySelector(`#track-learning-toggle-${episodeKey}`) || document.querySelector('.track-learning-toggle');
-    const feedbackControls = document.querySelector('.learning-feedback-controls');
-    const gotItBtn = document.querySelector('.got-it-btn');
-    const needsReviewBtn = document.querySelector('.needs-review-btn');
-
-    if (toggleSwitch) {
-        toggleSwitch.checked = isTracking;
-        toggleSwitch.addEventListener('change', (e) => {
-            isTracking = e.target.checked;
-            saveState();
-            renderCard();
-        });
-    }
-
-    function loadDeck(key) {
-        flashcards = DECKS[key];
-        initialFlashcards = [...flashcards];
-        storageKey = 'flashcard_state_' + key;
-        
-        savedState = JSON.parse(localStorage.getItem(storageKey)) || {
-            tracking: false,
-            currentIndex: 0
-        };
-        isTracking = savedState.tracking;
-        currentIndex = savedState.currentIndex || 0;
-        if (currentIndex >= flashcards.length) currentIndex = 0;
-        
-        // Re-evaluate toggleSwitch in case it depends on the key
-        toggleSwitch = document.querySelector(`#track-learning-toggle-${key}`) || document.querySelector('.track-learning-toggle');
-        
-        if (toggleSwitch) {
-            toggleSwitch.checked = isTracking;
-        }
-        
-        renderCard();
-    }
-
-    function saveState() {
-        localStorage.setItem(storageKey, JSON.stringify({
-            tracking: isTracking,
-            currentIndex: currentIndex
-        }));
-    }
-
-    function renderCard() {
-        const card = flashcards[currentIndex];
-        frontText.textContent = card.front;
-        backText.textContent = card.back;
-        hintText.textContent = card.hint || 'No hint available';
-        
-        progressText.textContent = `${currentIndex + 1} / ${flashcards.length}`;
-        if(progressBar) {
-            progressBar.style.width = `${((currentIndex + 1) / flashcards.length) * 100}%`;
-        }
-
-        prevBtn.disabled = currentIndex === 0;
-        nextBtn.disabled = currentIndex === flashcards.length - 1;
-        
-        // Stop any currently playing audio when card changes
-        window.speechSynthesis.cancel();
-
-        isFlipped = false;
-        flashcard.style.transform = 'rotateY(0deg)';
-        showHint = false;
-        hintBtn.style.display = 'flex';
-        hintText.classList.add('hidden');
-        feedbackControls.classList.add('hidden');
-        
-        saveState();
-    }
-
-    function toggleFlip() {
-        isFlipped = !isFlipped;
-        flashcard.style.transform = isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)';
-        
-        if (isTracking && isFlipped) {
-            feedbackControls.classList.remove('hidden');
-        } else {
-            feedbackControls.classList.add('hidden');
-        }
-    }
-
-    // TTS Functionality
-    function speak(text, lang) {
-        if (!('speechSynthesis' in window)) return;
-        window.speechSynthesis.cancel(); // Stop current
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = lang;
-        // Adjust for more natural voice if possible
-        utterance.rate = 0.9; 
-        window.speechSynthesis.speak(utterance);
-    }
-
-    if (ttsEnBtn) {
-        ttsEnBtn.addEventListener('click', (e) => {
-            e.stopPropagation(); // prevent flip
-            speak(flashcards[currentIndex].front, 'en-US');
-        });
-    }
-
-    if (ttsDeBtn) {
-        ttsDeBtn.addEventListener('click', (e) => {
-            e.stopPropagation(); // prevent flip
-            speak(flashcards[currentIndex].back, 'de-DE');
-        });
-    }
-
-    flashcard.addEventListener('click', (e) => {
-        if(e.target.closest('.feedback-btn') || e.target.closest('.card-icon-btn') || e.target.closest('.tts-btn')) return;
-        toggleFlip();
-    });
-
-    hintBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        showHint = true;
-        hintBtn.style.display = 'none';
-        hintText.classList.remove('hidden');
-    });
-
-    const goToNext = () => {
-        if (currentIndex < flashcards.length - 1) {
-            isFlipped = false;
-            flashcard.style.transform = 'rotateY(0deg)';
-            feedbackControls.classList.add('hidden');
-            setTimeout(() => {
-                currentIndex++;
-                renderCard();
-            }, 150);
-        }
-    };
-
-    nextBtn.addEventListener('click', goToNext);
-
-    prevBtn.addEventListener('click', () => {
-        if (currentIndex > 0) {
-            isFlipped = false;
-            flashcard.style.transform = 'rotateY(0deg)';
-            feedbackControls.classList.add('hidden');
-            setTimeout(() => {
-                currentIndex--;
-                renderCard();
-            }, 150);
-        }
-    });
-    
-    gotItBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        goToNext();
-    });
-    
-    needsReviewBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const currentCard = flashcards.splice(currentIndex, 1)[0];
-        flashcards.push(currentCard);
-        
-        isFlipped = false;
-        flashcard.style.transform = 'rotateY(0deg)';
-        feedbackControls.classList.add('hidden');
-        setTimeout(() => {
-            if (currentIndex >= flashcards.length) {
-                currentIndex = flashcards.length - 1;
-            }
-            renderCard();
-        }, 150);
-    });
-
-    if (shuffleBtn) {
-        shuffleBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            flashcards = [...flashcards].sort(() => Math.random() - 0.5);
-            currentIndex = 0;
-            renderCard();
-        });
-    }
-
-    if (resetBtn) {
-        resetBtn.addEventListener('click', () => {
-            flashcards = [...initialFlashcards];
-            currentIndex = 0;
-            renderCard();
-        });
-    }
-
-    window.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight') goToNext();
-        else if (e.key === 'ArrowLeft') prevBtn.click();
-        else if (e.key === ' ' || e.key === 'ArrowUp' || e.key === 'ArrowDown') {
-            e.preventDefault();
-            toggleFlip();
-        }
-    });
-
-    // Initial render
-    renderCard();
-});
+print("Flashcard content expanded in app.js")
