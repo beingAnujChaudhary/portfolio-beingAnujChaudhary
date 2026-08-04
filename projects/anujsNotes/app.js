@@ -310,7 +310,7 @@ const DECKS = {
         { front: 'Have a nice weekend!', back: 'Schönes Wochenende!', hint: 'Polite farewell' },
         { front: 'How are you? (formal)', back: 'Wie geht es Ihnen?', hint: 'Asking well-being' },
         { front: 'How are you? (informal)', back: 'Wie geht es dir?', hint: 'Asking well-being' },
-        { front: 'How's it going? (casual)', back: 'Wie geht's?', hint: 'Short form' },
+        { front: 'How\'s it going? (casual)', back: 'Wie geht\'s?', hint: 'Short form' },
         { front: 'I am doing well', back: 'Mir geht es gut', hint: 'Response' },
         { front: 'Good, thanks', back: 'Gut, danke', hint: 'Short response' },
         { front: 'Very good', back: 'Sehr gut', hint: 'Response' },
@@ -329,9 +329,9 @@ const DECKS = {
         { front: 'Yes', back: 'Ja', hint: 'Agreement' },
         { front: 'No', back: 'Nein', hint: 'Disagreement' },
         { front: 'Maybe', back: 'Vielleicht', hint: 'Uncertainty' },
-        { front: 'I don't know', back: 'Ich weiß (es) nicht', hint: 'Lack of knowledge' },
+        { front: 'I don\'t know', back: 'Ich weiß (es) nicht', hint: 'Lack of knowledge' },
         { front: 'I understand', back: 'Ich verstehe', hint: 'Comprehension' },
-        { front: 'I don't understand', back: 'Ich verstehe nicht', hint: 'Lack of comprehension' },
+        { front: 'I don\'t understand', back: 'Ich verstehe nicht', hint: 'Lack of comprehension' },
         { front: 'Do you speak English? (formal)', back: 'Sprechen Sie Englisch?', hint: 'Question' },
         { front: 'Do you speak English? (informal)', back: 'Sprichst du Englisch?', hint: 'Question' },
         { front: 'Please speak slowly', back: 'Bitte sprechen Sie langsam', hint: 'Request' },
@@ -356,30 +356,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (hash && DECKS[hash]) {
         episodeKey = hash;
         container.setAttribute('data-episode', hash);
-    }
-    
-    // If we are on the main flashcards.html page, inject a dropdown to select episode
-    if (window.location.pathname.includes('flashcards.html')) {
-        const header = document.querySelector('.flashcard-header');
-        if (header && !document.getElementById('deck-selector')) {
-            const selectHtml = `
-                <div style="margin-top:1rem; margin-bottom: 0.5rem;">
-                    <select id="deck-selector" style="padding:0.5rem 1rem; border-radius:8px; border:1px solid var(--card-border); background:white; font-family:inherit; font-size:1rem; color:var(--text-primary); cursor:pointer; outline:none; box-shadow:0 2px 4px rgba(0,0,0,0.05);">
-                        <option value="ep1" ${episodeKey === 'ep1' ? 'selected' : ''}>Episode 1: Pronouns & Conjugation (50 cards)</option>
-                        <option value="ep2" ${episodeKey === 'ep2' ? 'selected' : ''}>Episode 2: Alphabet & Pronunciation (50 cards)</option>
-                        <option value="ep3" ${episodeKey === 'ep3' ? 'selected' : ''}>Episode 3: Numbers & Math (50 cards)</option>
-                        <option value="ep4" ${episodeKey === 'ep4' ? 'selected' : ''}>Episode 4: Haben & Sein (50 cards)</option>
-                        <option value="ep5" ${episodeKey === 'ep5' ? 'selected' : ''}>Episode 5: 30 Verbs Conjugation (120 cards)</option>
-                        <option value="ep6" ${episodeKey === 'ep6' ? 'selected' : ''}>Episode 6: Greetings & Phrases (50 cards)</option>
-                    </select>
-                </div>
-            `;
-            header.insertAdjacentHTML('beforeend', selectHtml);
-            
-            document.getElementById('deck-selector').addEventListener('change', (e) => {
-                window.location.hash = e.target.value;
-            });
-        }
     }
 
     // Listen for hash changes to re-initialize deck
