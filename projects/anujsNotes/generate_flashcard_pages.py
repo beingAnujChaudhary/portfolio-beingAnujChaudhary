@@ -1,0 +1,174 @@
+import os
+
+base_dir = r"d:\Projects\portfolio-beingAnujChaudhary\projects\anujsNotes\GermanNotes\GermanA1"
+
+template = """<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards - Episode {ep_num}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {{ background-color: #f6f7fb; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }}
+        .flashcard-3d-container {{ perspective: 1000px; width: 100%; max-width: 800px; height: 500px; margin: 0 auto; }}
+        .flashcard-3d {{ width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1); cursor: pointer; }}
+        .flashcard-face-3d {{ position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 24px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); display: flex; flex-direction: column; padding: 2rem; }}
+        .flashcard-front-3d {{ background: white; border: 2px solid #f1f5f9; }}
+        .flashcard-back-3d {{ background: #4f46e5; border: 2px solid #6366f1; transform: rotateY(180deg); color: white; }}
+        /* Toggle Switch Styles */
+        .switch {{ position: relative; display: inline-block; width: 40px; height: 24px; }}
+        .switch input {{ opacity: 0; width: 0; height: 0; }}
+        .slider {{ position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 24px; }}
+        .slider:before {{ position: absolute; content: ""; height: 16px; width: 16px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; }}
+        input:checked + .slider {{ background-color: #4f46e5; }}
+        input:checked + .slider:before {{ transform: translateX(16px); }}
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Top Header Bar -->
+    <header class="bg-white shadow-sm px-6 py-4 flex items-center justify-between z-10 sticky top-0">
+        <div class="flex items-center gap-4">
+            <a href="episode{ep_num}.html" class="text-gray-500 hover:text-gray-800 transition-colors" title="Back to Notes">
+                <i class="fa-solid fa-arrow-left text-xl"></i>
+            </a>
+            <div class="flex items-center gap-2 text-indigo-600 font-bold text-xl">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>Flashcards</span>
+            </div>
+        </div>
+        
+        <div class="text-center font-semibold text-gray-700 flex flex-col items-center">
+            <span class="inline-progress-text text-sm mb-1">1 / 18</span>
+            <div class="w-32 h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                <div class="progress-fill h-full bg-indigo-600 w-0 transition-all duration-300"></div>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <button class="shuffle-card-btn text-gray-500 hover:text-gray-800" title="Shuffle">
+                <i class="fa-solid fa-shuffle text-lg"></i>
+            </button>
+            <button class="reset-btn text-gray-500 hover:text-gray-800" title="Reset">
+                <i class="fa-solid fa-rotate-left text-lg"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col items-center p-6 pb-24">
+        
+        <!-- Score Bar -->
+        <div class="w-full max-w-4xl flex justify-between items-center mb-6 text-sm font-semibold">
+            <div class="flex items-center gap-2 text-orange-500">
+                <span class="w-6 h-6 rounded-full bg-orange-100 flex items-center justify-center">0</span>
+                <span>Still learning</span>
+            </div>
+            <div class="flex items-center gap-2 text-green-500">
+                <span>Know</span>
+                <span class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">0</span>
+            </div>
+        </div>
+
+        <!-- The Flashcard -->
+        <div class="flashcard-3d-container" data-episode="ep{ep_num}">
+            <div class="flashcard-3d flashcard-element">
+                <!-- FRONT -->
+                <div class="flashcard-face-3d flashcard-front-3d">
+                    <div class="flex justify-between w-full">
+                        <button class="tts-btn tts-en p-2 text-gray-400 hover:text-gray-700 transition-colors">
+                            <i class="fa-solid fa-volume-high text-xl"></i>
+                        </button>
+                    </div>
+                    <div class="flex-1 flex items-center justify-center overflow-hidden">
+                        <h2 class="card-front-text text-center text-4xl sm:text-5xl font-bold text-gray-800 m-0">Loading...</h2>
+                    </div>
+                    <p class="text-center text-gray-400 text-sm opacity-70 m-0">Tap card to flip</p>
+                </div>
+                <!-- BACK -->
+                <div class="flashcard-face-3d flashcard-back-3d">
+                    <div class="flex justify-between w-full">
+                        <button class="tts-btn tts-de p-2 text-indigo-200 hover:text-white transition-colors">
+                            <i class="fa-solid fa-volume-high text-xl"></i>
+                        </button>
+                    </div>
+                    <div class="flex-1 flex items-center justify-center overflow-hidden">
+                        <h2 class="card-back-text text-center text-4xl sm:text-5xl font-bold text-white drop-shadow-md m-0">Laden...</h2>
+                    </div>
+                    
+                    <div class="learning-feedback-controls hidden flex justify-center gap-4 mt-auto">
+                        <button class="feedback-btn needs-review-btn flex-1 py-4 rounded-xl border-2 border-red-400 bg-white text-red-500 font-bold hover:bg-red-50 transition-colors">
+                            <i class="fa-solid fa-xmark mr-2"></i> Still learning
+                        </button>
+                        <button class="feedback-btn got-it-btn flex-1 py-4 rounded-xl border-2 border-transparent bg-green-500 text-white font-bold hover:bg-green-600 transition-colors">
+                            <i class="fa-solid fa-check mr-2"></i> Know
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Dummy elements to satisfy app.js error checks -->
+            <button class="show-hint-btn hidden"></button>
+            <div class="hint-text hidden"></div>
+        </div>
+        
+        <!-- Bottom Controls Bar -->
+        <div class="w-full max-w-4xl bg-white shadow-sm border border-gray-200 rounded-xl mt-8 p-4 flex flex-wrap gap-4 items-center justify-between">
+            <div class="flex items-center gap-3">
+                <span class="text-gray-500 font-semibold text-sm">Track progress</span>
+                <label class="switch">
+                    <input type="checkbox" class="track-learning-toggle" id="track-learning-toggle-ep{ep_num}">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            
+            <div class="flex items-center gap-6 text-gray-500 text-sm font-medium">
+                <button class="prev-btn flex items-center gap-2 hover:text-indigo-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                    <span class="px-2 py-1 bg-gray-100 border border-gray-300 rounded text-xs font-mono">←</span>
+                    <span class="hidden sm:inline">Previous</span>
+                </button>
+                <button class="next-btn flex items-center gap-2 hover:text-indigo-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                    <span class="hidden sm:inline">Next</span>
+                    <span class="px-2 py-1 bg-gray-100 border border-gray-300 rounded text-xs font-mono">→</span>
+                </button>
+                <div class="hidden sm:flex items-center gap-2 border-l border-gray-200 pl-6">
+                    <span class="px-2 py-1 bg-gray-100 border border-gray-300 rounded text-xs font-mono">Space</span>
+                    <span>to flip</span>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="../../app.js"></script>
+    <script>
+        // Keyboard Shortcuts
+        document.addEventListener('keydown', (e) => {{
+            // Avoid triggering if user is typing in an input (though there are none here, good practice)
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+            if (e.code === 'Space') {{
+                e.preventDefault();
+                const card = document.querySelector('.flashcard-element');
+                if(card) card.click();
+            }} else if (e.code === 'ArrowRight') {{
+                e.preventDefault();
+                const nextBtn = document.querySelector('.next-btn');
+                if(nextBtn && !nextBtn.disabled) nextBtn.click();
+            }} else if (e.code === 'ArrowLeft') {{
+                e.preventDefault();
+                const prevBtn = document.querySelector('.prev-btn');
+                if(prevBtn && !prevBtn.disabled) prevBtn.click();
+            }}
+        }});
+    </script>
+</body>
+</html>
+"""
+
+for i in range(1, 7):
+    with open(os.path.join(base_dir, f"flashcardforepisode{i}.html"), "w", encoding="utf-8") as f:
+        f.write(template.format(ep_num=i))
+
+print("Created 6 flashcard pages.")
