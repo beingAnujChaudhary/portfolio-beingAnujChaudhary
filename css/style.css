@@ -373,6 +373,22 @@ body {
     max-width: 260px;
 }
 
+@media (max-width: 767px) {
+    .footer-left {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-areas: 
+            "logo tagline"
+            "socials socials";
+        gap: 0.5rem 1.25rem;
+        align-items: center;
+        max-width: 100%;
+    }
+    .footer-logo-link { grid-area: logo; }
+    .footer-tagline { grid-area: tagline; }
+    .footer-socials { grid-area: socials; margin-top: 0.5rem; }
+}
+
 .footer-logo-link {
     display: inline-block;
     transition: transform 0.3s ease, opacity 0.3s ease;
