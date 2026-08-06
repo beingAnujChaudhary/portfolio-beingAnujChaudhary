@@ -58,6 +58,7 @@ for page in pages:
     html_notes = ""
     for cell in nb.get("cells", []):
         if cell["cell_type"] == "markdown":
+            md.reset()
             source = "".join(cell.get("source", []))
             source = re.sub(r'>\s*\[!(NOTE|IMPORTANT|WARNING|TIP|CAUTION)\]\n((?:>.*\n?)+)', replace_callout, source)
             
