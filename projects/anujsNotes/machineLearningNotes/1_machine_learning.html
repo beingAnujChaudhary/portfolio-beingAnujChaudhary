@@ -121,10 +121,10 @@ A traditional rule (`IF subject contains "free money" THEN spam`) is brittle. An
 </div>
 <h3 id="the-mathematical-view">The Mathematical View</h3>
 <p>Let:
-- $\mathbf{x}<em _theta="\theta">i \in \mathbb{R}^d$ be the <strong>feature vector</strong> for example $i$.
+- $\mathbf{x}_i \in \mathbb{R}^d$ be the <strong>feature vector</strong> for example $i$.
 - $y_i$ be its <strong>true target</strong>.
-- $f</em>$ be a model controlled by learned <strong>parameters</strong> $\theta$.
-- $\hat{y}<em _theta="\theta">i = f</em>_i)$ be the }(\mathbf{x<strong>prediction</strong>.
+- $f_{\theta}$ be a model controlled by learned <strong>parameters</strong> $\theta$.
+- $\hat{y}_i = f_{\theta}(\mathbf{x}_i)$ be the <strong>prediction</strong>.
 - $\ell(y_i,\hat{y}_i)$ be the <strong>error</strong> or <strong>loss</strong> for one example.</p>
 <p>Training a model minimizes empirical risk (loss) across all examples.</p>
 </div>
@@ -378,7 +378,7 @@ flowchart TD
 <li><strong>Formula:</strong> $R^2 = 1 - \frac{\sum (y_i - \hat{y}_i)^2}{\sum (y_i - \bar{y})^2}$</li>
 <li>$R^2 = 1$: <strong>Perfect predictions</strong> on the evaluated data.</li>
 <li>$R^2 = 0$: <strong>No improvement</strong> over just predicting the average (mean) of the data.</li>
-<li>$R^2 &lt; 0$: <strong>Worse</strong> than just guessing the average.</li>
+<li>$R^2 < 0$: <strong>Worse</strong> than just guessing the average.</li>
 </ul>
 <div class="callout warning">
 <span class="callout-icon">⚠️</span>

@@ -194,8 +194,8 @@ flowchart TD
 <p>$$
 e_i=y_i-(mx_i+b).
 $$</p>
-<p>A point above the line has $e_i&gt;0$: the prediction was too small.
-A point below the line has $e_i&lt;0$: the prediction was too large.</p>
+<p>A point above the line has $e_i>0$: the prediction was too small.
+A point below the line has $e_i<0$: the prediction was too large.</p>
 <h3 id="why-vertical-not-shortest-distances">Why vertical, not shortest, distances?</h3>
 <p>Ordinary regression treats $x$ as given and models randomness in $y$. If both axes contain substantial measurement error, the usual slope can be biased and orthogonal-distance or errors-in-variables methods may be preferable.</p>
 <h3 id="parameter-space-intuition">Parameter-space intuition</h3>
@@ -249,7 +249,7 @@ $$</p>
 J(m,b)=\sum_{i=1}^{n}[y_i-(mx_i+b)]^2.
 $$</p>
 <p>The positive scaling constant is omitted because it cannot change the minimizer.</p>
-<h3 id="step-1-differentiate-with-respect-to-b">Step 1: differentiate with respect to $b$</h3>
+<h3 id="step-1-differentiate-with-respect-to-math_71">Step 1: differentiate with respect to $b$</h3>
 <p>$$
 \frac{\partial J}{\partial b}=-2\sum_i[y_i-(mx_i+b)].
 $$</p>
@@ -269,7 +269,7 @@ $$</p>
 <p>$$
 m\bar x+b=m\bar x+\bar y-m\bar x=\bar y.
 $$</p>
-<h3 id="step-2-differentiate-with-respect-to-m">Step 2: differentiate with respect to $m$</h3>
+<h3 id="step-2-differentiate-with-respect-to-math_74">Step 2: differentiate with respect to $m$</h3>
 <p>$$
 \frac{\partial J}{\partial m}=-2\sum_i x_i[y_i-(mx_i+b)].
 $$</p>
@@ -322,7 +322,7 @@ $$</p>
 <h2 id="6-matrix-ols-and-numerical-stability">6. Matrix OLS and numerical stability</h2>
 <p>For multiple features, include a ones column in the design matrix:</p>
 <p>$$
-\tilde X=\begin{bmatrix}1 &amp; x_{11} &amp; \cdots &amp; x_{1p}\ 1 &amp; x_{21} &amp; \cdots &amp; x_{2p}\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots\ 1 &amp; x_{n1} &amp; \cdots &amp; x_{np}\end{bmatrix}.
+\tilde X=\begin{bmatrix}1 & x_{11} & \cdots & x_{1p}\\ 1 & x_{21} & \cdots & x_{2p}\\ \vdots & \vdots & \ddots & \vdots\\ 1 & x_{n1} & \cdots & x_{np}\end{bmatrix}.
 $$</p>
 <p>The model is:</p>
 <p>$$

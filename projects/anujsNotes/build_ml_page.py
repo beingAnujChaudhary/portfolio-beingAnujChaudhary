@@ -60,7 +60,22 @@ for page in pages:
         if cell["cell_type"] == "markdown":
             source = "".join(cell.get("source", []))
             source = re.sub(r'>\s*\[!(NOTE|IMPORTANT|WARNING|TIP|CAUTION)\]\n((?:>.*\n?)+)', replace_callout, source)
+            
+            # Protect math blocks from markdown parser
+            math_blocks = []
+            def math_replacer(match):
+                math_blocks.append(match.group(0))
+                return f"@@MATH_{len(math_blocks)-1}@@"
+            
+            source = re.sub(r'\$\$(.*?)\$\$', math_replacer, source, flags=re.DOTALL)
+            source = re.sub(r'\$([^\$]*?)\$', math_replacer, source)
+            
             cell_html = md.convert(source)
+            
+            # Restore math blocks
+            for i, block in enumerate(math_blocks):
+                cell_html = cell_html.replace(f"@@MATH_{i}@@", block)
+                
             cell_html = re.sub(r'<pre><code class="language-mermaid">([\s\S]*?)</code></pre>', unescape_mermaid, cell_html)
             html_notes += f'<div class="markdown-cell">\n{cell_html}\n</div>\n'
         elif cell["cell_type"] == "code":

@@ -373,8 +373,8 @@ $$</p>
 e_i=y_i-\hat y_i.
 $$</p>
 <ul>
-<li>$e_i&gt;0$: underprediction;</li>
-<li>$e_i&lt;0$: overprediction;</li>
+<li>$e_i>0$: underprediction;</li>
+<li>$e_i<0$: overprediction;</li>
 <li>$e_i=0$: exact prediction.</li>
 </ul>
 <div class="mermaid">
@@ -556,10 +556,10 @@ $$</p>
 <ul>
 <li>$R^2=1$: perfect predictions.</li>
 <li>$R^2=0$: equal squared-error performance to the evaluation-set mean.</li>
-<li>$R^2&lt;0$: worse than that baseline.</li>
+<li>$R^2<0$: worse than that baseline.</li>
 </ul>
 <p>$R^2=0.97$ does not mean "97% accurate." It does not prove causality, uncertainty calibration, or business usefulness.</p>
-<h3 id="85-adjusted-r2">8.5 Adjusted $R^2$</h3>
+<h3 id="85-adjusted-math_14">8.5 Adjusted $R^2$</h3>
 <p>$$
 \bar R^2=1-(1-R^2)\frac{n-1}{n-p-1}.
 $$</p>
@@ -1057,7 +1057,7 @@ $$</p>
 </tr>
 <tr>
 <td>MAE</td>
-<td>$\frac1n\sum</td>
+<td>$\frac1n\sum|e_i|$</td>
 </tr>
 <tr>
 <td>RMSE</td>
@@ -1073,7 +1073,7 @@ $$</p>
 </tr>
 <tr>
 <td>Lasso</td>
-<td>Adds $\lambda\sum</td>
+<td>Adds $\lambda\sum|\beta_j|$</td>
 </tr>
 </tbody>
 </table>
