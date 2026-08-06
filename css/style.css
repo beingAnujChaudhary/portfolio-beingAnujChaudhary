@@ -379,14 +379,22 @@ body {
         grid-template-columns: auto 1fr;
         grid-template-areas: 
             "logo tagline"
-            "socials socials";
-        gap: 0.5rem 1.25rem;
+            "logo socials";
+        gap: 0.4rem 1.25rem;
         align-items: center;
         max-width: 100%;
     }
-    .footer-logo-link { grid-area: logo; }
+    .footer-logo-link { grid-area: logo; align-self: center; }
     .footer-tagline { grid-area: tagline; }
-    .footer-socials { grid-area: socials; margin-top: 0.5rem; }
+    .footer-socials { grid-area: socials; margin-top: 0; gap: 0.4rem; }
+    .footer-social-btn {
+        width: 32px;
+        height: 32px;
+    }
+    .footer-social-btn svg {
+        width: 16px;
+        height: 16px;
+    }
 }
 
 .footer-logo-link {
