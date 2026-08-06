@@ -1,15 +1,16 @@
 import os
 import re
 import html
+import json
 import markdown
 
 base_dir = r"d:\Projects\portfolio-beingAnujChaudhary\projects\anujsNotes"
 ml_dir = os.path.join(base_dir, "machineLearningNotes")
 
 pages = [
-    {"md": "ml_raw.md", "html": "0.1_machine_learning.html", "title": "1. Machine Learning Foundation", "icon": "fa-robot"},
-    {"md": "0.2_regression.md", "html": "0.2_regression.html", "title": "2. Regression", "icon": "fa-chart-line"},
-    {"md": "0.3_simple_linear_regression.md", "html": "0.3_simple_linear_regression.html", "title": "3. Simple Linear Regression", "icon": "fa-chart-bar"},
+    {"ipynb": "1_machine_learning.ipynb", "html": "1_machine_learning.html", "title": "1. Machine Learning Foundation", "icon": "fa-robot"},
+    {"ipynb": "2_regression.ipynb", "html": "2_regression.html", "title": "2. Regression", "icon": "fa-chart-line"},
+    {"ipynb": "3_simple_linear_regression.ipynb", "html": "3_simple_linear_regression.html", "title": "3. Simple Linear Regression", "icon": "fa-chart-bar"},
 ]
 
 def replace_callout(match):
@@ -49,18 +50,26 @@ def unescape_mermaid(match):
     return f'<div class="mermaid">\n{html.unescape(match.group(1))}\n</div>'
 
 for page in pages:
-    md_path = os.path.join(ml_dir, page["md"])
-    if not os.path.exists(md_path):
-        print(f"Skipping {md_path}, not found.")
+    ipynb_path = os.path.join(ml_dir, page["ipynb"])
+    if not os.path.exists(ipynb_path):
+        print(f"Skipping {ipynb_path}, not found.")
         continue
 
-    with open(md_path, "r", encoding="utf-8") as f:
-        text = f.read()
+    with open(ipynb_path, "r", encoding="utf-8") as f:
+        nb = json.load(f)
 
-    text = re.sub(r'>\s*\[!(NOTE|IMPORTANT|WARNING|TIP|CAUTION)\]\n((?:>.*\n?)+)', replace_callout, text)
-
-    html_notes = md.convert(text)
-    html_notes = re.sub(r'<pre><code class="language-mermaid">([\s\S]*?)</code></pre>', unescape_mermaid, html_notes)
+    html_notes = ""
+    for cell in nb.get("cells", []):
+        if cell["cell_type"] == "markdown":
+            source = "".join(cell.get("source", []))
+            source = re.sub(r'>\s*\[!(NOTE|IMPORTANT|WARNING|TIP|CAUTION)\]\n((?:>.*\n?)+)', replace_callout, source)
+            cell_html = md.convert(source)
+            cell_html = re.sub(r'<pre><code class="language-mermaid">([\s\S]*?)</code></pre>', unescape_mermaid, cell_html)
+            html_notes += f'<div class="markdown-cell">\n{cell_html}\n</div>\n'
+        elif cell["cell_type"] == "code":
+            source = "".join(cell.get("source", []))
+            escaped_source = html.escape(source)
+            html_notes += f'<div class="code-cell" style="background-color: rgba(0,0,0,0.5); padding: 1rem; border-radius: 8px; margin: 1rem 0;"><pre><code class="language-python" style="color: #a5d6ff;">{escaped_source}</code></pre></div>\n'
 
     # Generate the nav links
     nav_links = ""
@@ -105,132 +114,52 @@ for page in pages:
     <link rel="stylesheet" href="../flashcards.css">
     <link rel="icon" type="image/png" href="/assets/images/favicon_circular.png">
     <style>
-        .note-content table {{
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-            background: white;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-radius: 12px;
-            overflow: hidden;
+        .code-cell pre {{
+            margin: 0;
+            overflow-x: auto;
         }}
-        .note-content th {{
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            font-weight: 600;
-            text-align: left;
-            padding: 1rem;
-        }}
-        .note-content td {{
-            padding: 1rem;
-            border-top: 1px solid var(--card-border);
-            color: var(--text-secondary);
-        }}
-        body {{
-            /* Create a colorful gradient background for glassmorphism to reflect */
-            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%) !important;
-            color: #111 !important;
-            background-attachment: fixed !important;
-        }}
-        
-        /* Glassmorphism overrides */
-        .sidebar, .note-card, .content-area {{
-            background: rgba(255, 255, 255, 0.4) !important;
-            backdrop-filter: blur(16px) !important;
-            -webkit-backdrop-filter: blur(16px) !important;
-            border: 1px solid rgba(255, 255, 255, 0.6) !important;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1) !important;
-            border-radius: 1.25rem !important;
-        }}
-
-        /* Make sure cards inside don't double up too heavily unless intended */
-        .note-card {{
-            margin-bottom: 2rem;
-            padding: 2rem;
-        }}
-
-        .content-area {{
-            padding: 2rem !important;
-        }}
-
-        p, li {{
-            color: #111 !important;
-            font-weight: 400;
-        }}
-        mjx-container {{
-            font-weight: 800 !important;
-            color: #000;
-        }}
-        
-        /* Modern Typography enhancements */
-        h1, h2, h3, h4 {{
-            color: #000 !important;
-            font-weight: 600 !important;
-            letter-spacing: -0.02em;
-        }}
-        
-        /* Glassmorphism tables */
-        .note-content table {{
-            background: rgba(255, 255, 255, 0.3) !important;
-            backdrop-filter: blur(8px) !important;
-            border: 1px solid rgba(255, 255, 255, 0.5) !important;
-        }}
-        .note-content th {{
-            background: rgba(255, 255, 255, 0.5) !important;
+        .code-cell code {{
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 0.9em;
         }}
     </style>
 </head>
 <body>
     <div class="app-container">
+        <!-- Sidebar -->
         <aside class="sidebar">
-            <div class="logo">
-                <h1><a href="../anujsNotes.html" style="text-decoration:none;color:inherit;">Anuj's Notes</a></h1>
+            <div class="sidebar-header">
+                <a href="../anujsNotes.html" style="text-decoration:none; color:inherit;">
+                    <h1 class="logo">Anuj's <span>Notes</span></h1>
+                </a>
             </div>
-            <nav class="nav-menu">
-                <h2 style="margin-top:0.5rem; font-size:0.75rem; color:var(--text-secondary); text-transform:uppercase; letter-spacing:1px; margin-bottom:0.5rem;">Main Hub</h2>
-                <ul id="subject-list">
-                    <li><a href="../anujsNotes.html" style="text-decoration:none;color:inherit;display:block;"><i class="fa-solid fa-house" style="width:20px;"></i> Overview</a></li>
-                </ul>
-
-                <h2 style="margin-top:1.5rem; font-size:0.75rem; color:var(--text-secondary); text-transform:uppercase; letter-spacing:1px; margin-bottom:0.5rem;">MACHINE LEARNING NOTES</h2>
-                <ul id="subject-list">
-                    {nav_links}
-                </ul>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3>Machine Learning</h3>
+                    <ul id="subject-list">
+                        {nav_links}
+                    </ul>
+                </div>
             </nav>
         </aside>
 
+        <!-- Main Content -->
         <main class="main-content">
-            <header class="top-header">
+            <header class="top-bar">
                 <h2 id="current-title">{page["title"]}</h2>
             </header>
-
-            <div class="content-area" id="main-view">
-                <div class="view-container">
-                    <div class="notes-section">
-                        <div class="note-card">
-                            <div class="note-content">
-{html_notes}
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- LINK TO DEDICATED FLASHCARDS -->
-                    <div class="note-card" style="text-align:center; padding: 3rem 2rem; margin-top:2rem; background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%); border:none;">
-                        <h2 style="color:#3730a3; font-size:1.8rem; margin-bottom:1rem;">Master this Topic</h2>
-                        <p style="color:#4f46e5; margin-bottom:2rem;">Practice with our interactive, full-screen Quizlet-style flashcards!</p>
-                        <a href="flashcardforml1.html" style="display:inline-block; background:#4f46e5; color:white; padding:1rem 2rem; border-radius:12px; font-weight:bold; font-size:1.2rem; text-decoration:none; box-shadow:0 4px 14px rgba(79,70,229,0.4); transition:transform 0.2s;">
-                            <i class="fa-solid fa-layer-group" style="margin-right:0.5rem;"></i> Practice Flashcards ➔
-                        </a>
-                    </div>
-                </div>
+            
+            <div class="content-area" id="content-display">
+                {html_notes}
             </div>
         </main>
     </div>
-    <script src="../app.js"></script>
 </body>
-</html>
-"""
-    output_path = os.path.join(ml_dir, page["html"])
-    with open(output_path, "w", encoding="utf-8") as f:
+</html>"""
+
+    html_path = os.path.join(ml_dir, page["html"])
+    with open(html_path, "w", encoding="utf-8") as f:
         f.write(template)
-    print(f"Successfully generated {output_path}")
+        
+    print(f"Successfully generated {html_path}")

@@ -35,113 +35,47 @@
     <link rel="stylesheet" href="../flashcards.css">
     <link rel="icon" type="image/png" href="/assets/images/favicon_circular.png">
     <style>
-        .note-content table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-            background: white;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-radius: 12px;
-            overflow: hidden;
+        .code-cell pre {
+            margin: 0;
+            overflow-x: auto;
         }
-        .note-content th {
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            font-weight: 600;
-            text-align: left;
-            padding: 1rem;
-        }
-        .note-content td {
-            padding: 1rem;
-            border-top: 1px solid var(--card-border);
-            color: var(--text-secondary);
-        }
-        body {
-            /* Create a colorful gradient background for glassmorphism to reflect */
-            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%) !important;
-            color: #111 !important;
-            background-attachment: fixed !important;
-        }
-        
-        /* Glassmorphism overrides */
-        .sidebar, .note-card, .content-area {
-            background: rgba(255, 255, 255, 0.4) !important;
-            backdrop-filter: blur(16px) !important;
-            -webkit-backdrop-filter: blur(16px) !important;
-            border: 1px solid rgba(255, 255, 255, 0.6) !important;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1) !important;
-            border-radius: 1.25rem !important;
-        }
-
-        /* Make sure cards inside don't double up too heavily unless intended */
-        .note-card {
-            margin-bottom: 2rem;
-            padding: 2rem;
-        }
-
-        .content-area {
-            padding: 2rem !important;
-        }
-
-        p, li {
-            color: #111 !important;
-            font-weight: 400;
-        }
-        mjx-container {
-            font-weight: 800 !important;
-            color: #000;
-        }
-        
-        /* Modern Typography enhancements */
-        h1, h2, h3, h4 {
-            color: #000 !important;
-            font-weight: 600 !important;
-            letter-spacing: -0.02em;
-        }
-        
-        /* Glassmorphism tables */
-        .note-content table {
-            background: rgba(255, 255, 255, 0.3) !important;
-            backdrop-filter: blur(8px) !important;
-            border: 1px solid rgba(255, 255, 255, 0.5) !important;
-        }
-        .note-content th {
-            background: rgba(255, 255, 255, 0.5) !important;
+        .code-cell code {
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 0.9em;
         }
     </style>
 </head>
 <body>
     <div class="app-container">
+        <!-- Sidebar -->
         <aside class="sidebar">
-            <div class="logo">
-                <h1><a href="../anujsNotes.html" style="text-decoration:none;color:inherit;">Anuj's Notes</a></h1>
+            <div class="sidebar-header">
+                <a href="../anujsNotes.html" style="text-decoration:none; color:inherit;">
+                    <h1 class="logo">Anuj's <span>Notes</span></h1>
+                </a>
             </div>
-            <nav class="nav-menu">
-                <h2 style="margin-top:0.5rem; font-size:0.75rem; color:var(--text-secondary); text-transform:uppercase; letter-spacing:1px; margin-bottom:0.5rem;">Main Hub</h2>
-                <ul id="subject-list">
-                    <li><a href="../anujsNotes.html" style="text-decoration:none;color:inherit;display:block;"><i class="fa-solid fa-house" style="width:20px;"></i> Overview</a></li>
-                </ul>
-
-                <h2 style="margin-top:1.5rem; font-size:0.75rem; color:var(--text-secondary); text-transform:uppercase; letter-spacing:1px; margin-bottom:0.5rem;">MACHINE LEARNING NOTES</h2>
-                <ul id="subject-list">
-                    <li><a href="0.1_machine_learning.html" style="text-decoration:none; display:block; color:inherit;"><i class="fa-solid fa-robot" style="width:20px;"></i> 1. Machine Learning Foundation</a></li>
-                    <li><a href="0.2_regression.html" style="text-decoration:none; display:block; color:inherit;"><i class="fa-solid fa-chart-line" style="width:20px;"></i> 2. Regression</a></li>
-                    <li><a href="0.3_simple_linear_regression.html" style="text-decoration:none; display:block; font-weight:bold; color:var(--accent-primary);"><i class="fa-solid fa-chart-bar" style="width:20px;"></i> 3. Simple Linear Regression</a></li>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3>Machine Learning</h3>
+                    <ul id="subject-list">
+                        <li><a href="1_machine_learning.html" style="text-decoration:none; display:block; color:inherit;"><i class="fa-solid fa-robot" style="width:20px;"></i> 1. Machine Learning Foundation</a></li>
+                    <li><a href="2_regression.html" style="text-decoration:none; display:block; color:inherit;"><i class="fa-solid fa-chart-line" style="width:20px;"></i> 2. Regression</a></li>
+                    <li><a href="3_simple_linear_regression.html" style="text-decoration:none; display:block; font-weight:bold; color:var(--accent-primary);"><i class="fa-solid fa-chart-bar" style="width:20px;"></i> 3. Simple Linear Regression</a></li>
                     
-                </ul>
+                    </ul>
+                </div>
             </nav>
         </aside>
 
+        <!-- Main Content -->
         <main class="main-content">
-            <header class="top-header">
+            <header class="top-bar">
                 <h2 id="current-title">3. Simple Linear Regression</h2>
             </header>
-
-            <div class="content-area" id="main-view">
-                <div class="view-container">
-                    <div class="notes-section">
-                        <div class="note-card">
-                            <div class="note-content">
+            
+            <div class="content-area" id="content-display">
+                <div class="markdown-cell">
 <h1 id="3-simple-linear-regression-from-intuition-to-ols-and-gradient-descent">3. Simple Linear Regression — From Intuition to OLS and Gradient Descent</h1>
 <blockquote>
 <p>Detailed notes based on <code>2 simpleLinearRegression.ipynb</code>. They preserve the notebook's example, derive the formulas it uses, explain every major code section, and replace fragile or misleading practices with safer alternatives.</p>
@@ -503,8 +437,10 @@ m=\frac32=1.5,\qquad b=\frac{10}{3}-1.5(2)=\frac13.
 </p>
 <h3 id="why-the-notebooks-direct-inverse-is-educational-but-fragile">Why the notebook's direct inverse is educational but fragile</h3>
 <p>The notebook uses:</p>
-<pre><code class="language-python">beta = np.linalg.inv(X_bias.T @ X_bias) @ X_bias.T @ y
-</code></pre>
+</div>
+</div>
+<div class="code-cell" style="background-color: rgba(0,0,0,0.5); padding: 1rem; border-radius: 8px; margin: 1rem 0;"><pre><code class="language-python" style="color: #a5d6ff;">beta = np.linalg.inv(X_bias.T @ X_bias) @ X_bias.T @ y</code></pre></div>
+<div class="markdown-cell">
 <p>It mirrors the textbook formula, but production code should avoid forming the inverse because:</p>
 <ul>
 <li>floating-point roundoff is amplified;</li>
@@ -514,12 +450,13 @@ m=\frac32=1.5,\qquad b=\frac{10}{3}-1.5(2)=\frac13.
 <li>near-collinearity makes coefficients unstable.</li>
 </ul>
 <p>Prefer:</p>
-<pre><code class="language-python">beta, residual_sums, rank, singular_values = np.linalg.lstsq(
+</div>
+<div class="code-cell" style="background-color: rgba(0,0,0,0.5); padding: 1rem; border-radius: 8px; margin: 1rem 0;"><pre><code class="language-python" style="color: #a5d6ff;">beta, residual_sums, rank, singular_values = np.linalg.lstsq(
     X_bias,
     y,
     rcond=None,
-)
-</code></pre>
+)</code></pre></div>
+<div class="markdown-cell">
 <p>Scikit-learn's dense <code>LinearRegression</code> wraps a stable least-squares solver rather than naïvely evaluating the explicit inverse.</p>
 <h3 id="projection-intuition">Projection intuition</h3>
 <p>OLS selects <script type="math/tex">\hat y</script> as the projection of <script type="math/tex">y</script> onto the column space of <script type="math/tex">X</script>. At the optimum:</p>
@@ -812,10 +749,12 @@ flowchart TD
 <div class="note-card">
 <h2 id="10-notebook-code-walkthrough">10. Notebook code walkthrough</h2>
 <h3 id="101-synthetic-data">10.1 Synthetic data</h3>
-<pre><code class="language-python">np.random.seed(42)
+</div>
+</div>
+<div class="code-cell" style="background-color: rgba(0,0,0,0.5); padding: 1rem; border-radius: 8px; margin: 1rem 0;"><pre><code class="language-python" style="color: #a5d6ff;">np.random.seed(42)
 X = np.random.rand(100, 1) * 10
-y = 3 * X.squeeze() + 5 + np.random.randn(100) * 2
-</code></pre>
+y = 3 * X.squeeze() + 5 + np.random.randn(100) * 2</code></pre></div>
+<div class="markdown-cell">
 <ul>
 <li>The seed makes the exact random sequence reproducible.</li>
 <li>
@@ -826,28 +765,33 @@ y = 3 * X.squeeze() + 5 + np.random.randn(100) * 2
 </ul>
 <h3 id="102-scalar-ols-function">10.2 Scalar OLS function</h3>
 <p>The notebook's <code>ols_simple</code> follows the centered formulas exactly. A valuable guard would be:</p>
-<pre><code class="language-python">if np.isclose(denominator, 0):
-    raise ValueError(&quot;Slope is undefined because x has no variation.&quot;)
-</code></pre>
+</div>
+<div class="code-cell" style="background-color: rgba(0,0,0,0.5); padding: 1rem; border-radius: 8px; margin: 1rem 0;"><pre><code class="language-python" style="color: #a5d6ff;">if np.isclose(denominator, 0):
+    raise ValueError(&quot;Slope is undefined because x has no variation.&quot;)</code></pre></div>
+<div class="markdown-cell">
 <h3 id="103-matrix-ols-function">10.3 Matrix OLS function</h3>
 <p><code>np.c_[np.ones(...), X]</code> adds an intercept column. The order of returned coefficients is <script type="math/tex">[\text{intercept},\text{slope}]</script>. Replace <code>np.linalg.inv</code> with <code>np.linalg.lstsq</code> for numerical stability.</p>
 <h3 id="104-traintest-split">10.4 Train/test split</h3>
 <p>The custom GD model fits only <code>X_train</code> and <code>y_train</code>. Therefore it should be compared with OLS fitted on the same training data, not the earlier OLS result fitted on all 100 rows.</p>
 <h3 id="105-gradient-class">10.5 Gradient class</h3>
 <p>Important operations:</p>
-<pre><code class="language-python">y_pred = np.dot(X, self.weights) + self.bias
-</code></pre>
-<p>This vectorizes <script type="math/tex">\hat y=Xw+b</script>.</p>
-<pre><code class="language-python">dw = -(2/n_samples) * np.dot(X.T, (y - y_pred))
-db = -(2/n_samples) * np.sum(y - y_pred)
-</code></pre>
-<p>These are the gradients of MSE. The updates subtract them.</p>
-<p>One subtlety: the original class stores history before each update. After the final update, <code>self.weights</code> is one step ahead of the final stored history item. That difference is tiny here, but history should ideally record a consistent state.</p>
 </div>
+<div class="code-cell" style="background-color: rgba(0,0,0,0.5); padding: 1rem; border-radius: 8px; margin: 1rem 0;"><pre><code class="language-python" style="color: #a5d6ff;">y_pred = np.dot(X, self.weights) + self.bias</code></pre></div>
+<div class="markdown-cell">
+<p>This vectorizes <script type="math/tex">\hat y=Xw+b</script>.</p>
+</div>
+<div class="code-cell" style="background-color: rgba(0,0,0,0.5); padding: 1rem; border-radius: 8px; margin: 1rem 0;"><pre><code class="language-python" style="color: #a5d6ff;">dw = -(2/n_samples) * np.dot(X.T, (y - y_pred))
+db = -(2/n_samples) * np.sum(y - y_pred)</code></pre></div>
+<div class="markdown-cell">
+<p>These are the gradients of MSE. The updates subtract them.</p>
+<p>One subtlety: the original class stores history before each update. After the final update, <code>self.weights</code> is one step ahead of the final stored history item. That difference is tiny here, but history should ideally record a consistent state.
+</div></p>
 <div class="note-card">
 <h2 id="11-improved-commented-implementation">11. Improved commented implementation</h2>
 <h3 id="111-stable-ols-functions">11.1 Stable OLS functions</h3>
-<pre><code class="language-python">import numpy as np
+</div>
+</div>
+<div class="code-cell" style="background-color: rgba(0,0,0,0.5); padding: 1rem; border-radius: 8px; margin: 1rem 0;"><pre><code class="language-python" style="color: #a5d6ff;">import numpy as np
 
 def ols_simple(x, y):
     &quot;&quot;&quot;Fit y = m*x + b using centered simple-OLS formulas.&quot;&quot;&quot;
@@ -884,10 +828,11 @@ def ols_matrix(X, y):
         y,
         rcond=None,
     )
-    return beta, rank, singular_values
-</code></pre>
+    return beta, rank, singular_values</code></pre></div>
+<div class="markdown-cell">
 <h3 id="112-improved-educational-gradient-descent">11.2 Improved educational gradient descent</h3>
-<pre><code class="language-python">class GradientDescentLinearRegression:
+</div>
+<div class="code-cell" style="background-color: rgba(0,0,0,0.5); padding: 1rem; border-radius: 8px; margin: 1rem 0;"><pre><code class="language-python" style="color: #a5d6ff;">class GradientDescentLinearRegression:
     &quot;&quot;&quot;Educational batch-gradient-descent linear regression.&quot;&quot;&quot;
 
     def __init__(self, learning_rate=0.01, max_iter=10_000, tol=1e-8):
@@ -947,10 +892,11 @@ def ols_matrix(X, y):
         X = np.asarray(X, dtype=float)
         if X.ndim == 1:
             X = X.reshape(-1, 1)
-        return X @ self.coef_ + self.intercept_
-</code></pre>
+        return X @ self.coef_ + self.intercept_</code></pre></div>
+<div class="markdown-cell">
 <h3 id="113-reproduce-the-notebook-comparison-fairly">11.3 Reproduce the notebook comparison fairly</h3>
-<pre><code class="language-python">from sklearn.linear_model import LinearRegression
+</div>
+<div class="code-cell" style="background-color: rgba(0,0,0,0.5); padding: 1rem; border-radius: 8px; margin: 1rem 0;"><pre><code class="language-python" style="color: #a5d6ff;">from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 
 rng = np.random.RandomState(42)
@@ -979,10 +925,10 @@ print(
             - iterative.predict(X_test)
         )
     ),
-)
-</code></pre>
-<p>For multiple differently scaled features, put <code>StandardScaler</code> and an iterative estimator in a <code>Pipeline</code>. Do not standardize the full dataset before splitting.</p>
-</div>
+)</code></pre></div>
+<div class="markdown-cell">
+<p>For multiple differently scaled features, put <code>StandardScaler</code> and an iterative estimator in a <code>Pipeline</code>. Do not standardize the full dataset before splitting.
+</div></p>
 <div class="note-card">
 <h2 id="12-reading-the-outputs-correctly">12. Reading the outputs correctly</h2>
 <h3 id="full-data-ols-output">Full-data OLS output</h3>
@@ -1259,22 +1205,10 @@ E[\varepsilon\mid X]=0.
 <li><a href="https://scikit-learn.org/stable/modules/linear_model.html">scikit-learn: OLS and computational complexity</a></li>
 <li><a href="https://scikit-learn.org/stable/modules/model_evaluation.html#regression-metrics">scikit-learn: Regression metrics</a></li>
 </ul>
-                            </div>
-                        </div>
-                    </div>
+</div>
 
-                    <!-- LINK TO DEDICATED FLASHCARDS -->
-                    <div class="note-card" style="text-align:center; padding: 3rem 2rem; margin-top:2rem; background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%); border:none;">
-                        <h2 style="color:#3730a3; font-size:1.8rem; margin-bottom:1rem;">Master this Topic</h2>
-                        <p style="color:#4f46e5; margin-bottom:2rem;">Practice with our interactive, full-screen Quizlet-style flashcards!</p>
-                        <a href="flashcardforml1.html" style="display:inline-block; background:#4f46e5; color:white; padding:1rem 2rem; border-radius:12px; font-weight:bold; font-size:1.2rem; text-decoration:none; box-shadow:0 4px 14px rgba(79,70,229,0.4); transition:transform 0.2s;">
-                            <i class="fa-solid fa-layer-group" style="margin-right:0.5rem;"></i> Practice Flashcards ➔
-                        </a>
-                    </div>
-                </div>
             </div>
         </main>
     </div>
-    <script src="../app.js"></script>
 </body>
 </html>

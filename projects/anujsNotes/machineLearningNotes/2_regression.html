@@ -35,113 +35,47 @@
     <link rel="stylesheet" href="../flashcards.css">
     <link rel="icon" type="image/png" href="/assets/images/favicon_circular.png">
     <style>
-        .note-content table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-            background: white;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-radius: 12px;
-            overflow: hidden;
+        .code-cell pre {
+            margin: 0;
+            overflow-x: auto;
         }
-        .note-content th {
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            font-weight: 600;
-            text-align: left;
-            padding: 1rem;
-        }
-        .note-content td {
-            padding: 1rem;
-            border-top: 1px solid var(--card-border);
-            color: var(--text-secondary);
-        }
-        body {
-            /* Create a colorful gradient background for glassmorphism to reflect */
-            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%) !important;
-            color: #111 !important;
-            background-attachment: fixed !important;
-        }
-        
-        /* Glassmorphism overrides */
-        .sidebar, .note-card, .content-area {
-            background: rgba(255, 255, 255, 0.4) !important;
-            backdrop-filter: blur(16px) !important;
-            -webkit-backdrop-filter: blur(16px) !important;
-            border: 1px solid rgba(255, 255, 255, 0.6) !important;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1) !important;
-            border-radius: 1.25rem !important;
-        }
-
-        /* Make sure cards inside don't double up too heavily unless intended */
-        .note-card {
-            margin-bottom: 2rem;
-            padding: 2rem;
-        }
-
-        .content-area {
-            padding: 2rem !important;
-        }
-
-        p, li {
-            color: #111 !important;
-            font-weight: 400;
-        }
-        mjx-container {
-            font-weight: 800 !important;
-            color: #000;
-        }
-        
-        /* Modern Typography enhancements */
-        h1, h2, h3, h4 {
-            color: #000 !important;
-            font-weight: 600 !important;
-            letter-spacing: -0.02em;
-        }
-        
-        /* Glassmorphism tables */
-        .note-content table {
-            background: rgba(255, 255, 255, 0.3) !important;
-            backdrop-filter: blur(8px) !important;
-            border: 1px solid rgba(255, 255, 255, 0.5) !important;
-        }
-        .note-content th {
-            background: rgba(255, 255, 255, 0.5) !important;
+        .code-cell code {
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 0.9em;
         }
     </style>
 </head>
 <body>
     <div class="app-container">
+        <!-- Sidebar -->
         <aside class="sidebar">
-            <div class="logo">
-                <h1><a href="../anujsNotes.html" style="text-decoration:none;color:inherit;">Anuj's Notes</a></h1>
+            <div class="sidebar-header">
+                <a href="../anujsNotes.html" style="text-decoration:none; color:inherit;">
+                    <h1 class="logo">Anuj's <span>Notes</span></h1>
+                </a>
             </div>
-            <nav class="nav-menu">
-                <h2 style="margin-top:0.5rem; font-size:0.75rem; color:var(--text-secondary); text-transform:uppercase; letter-spacing:1px; margin-bottom:0.5rem;">Main Hub</h2>
-                <ul id="subject-list">
-                    <li><a href="../anujsNotes.html" style="text-decoration:none;color:inherit;display:block;"><i class="fa-solid fa-house" style="width:20px;"></i> Overview</a></li>
-                </ul>
-
-                <h2 style="margin-top:1.5rem; font-size:0.75rem; color:var(--text-secondary); text-transform:uppercase; letter-spacing:1px; margin-bottom:0.5rem;">MACHINE LEARNING NOTES</h2>
-                <ul id="subject-list">
-                    <li><a href="0.1_machine_learning.html" style="text-decoration:none; display:block; color:inherit;"><i class="fa-solid fa-robot" style="width:20px;"></i> 1. Machine Learning Foundation</a></li>
-                    <li><a href="0.2_regression.html" style="text-decoration:none; display:block; font-weight:bold; color:var(--accent-primary);"><i class="fa-solid fa-chart-line" style="width:20px;"></i> 2. Regression</a></li>
-                    <li><a href="0.3_simple_linear_regression.html" style="text-decoration:none; display:block; color:inherit;"><i class="fa-solid fa-chart-bar" style="width:20px;"></i> 3. Simple Linear Regression</a></li>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3>Machine Learning</h3>
+                    <ul id="subject-list">
+                        <li><a href="1_machine_learning.html" style="text-decoration:none; display:block; color:inherit;"><i class="fa-solid fa-robot" style="width:20px;"></i> 1. Machine Learning Foundation</a></li>
+                    <li><a href="2_regression.html" style="text-decoration:none; display:block; font-weight:bold; color:var(--accent-primary);"><i class="fa-solid fa-chart-line" style="width:20px;"></i> 2. Regression</a></li>
+                    <li><a href="3_simple_linear_regression.html" style="text-decoration:none; display:block; color:inherit;"><i class="fa-solid fa-chart-bar" style="width:20px;"></i> 3. Simple Linear Regression</a></li>
                     
-                </ul>
+                    </ul>
+                </div>
             </nav>
         </aside>
 
+        <!-- Main Content -->
         <main class="main-content">
-            <header class="top-header">
+            <header class="top-bar">
                 <h2 id="current-title">2. Regression</h2>
             </header>
-
-            <div class="content-area" id="main-view">
-                <div class="view-container">
-                    <div class="notes-section">
-                        <div class="note-card">
-                            <div class="note-content">
+            
+            <div class="content-area" id="content-display">
+                <div class="markdown-cell">
 <h1 id="2-regression">2. Regression</h1>
 <blockquote>
 <p>Expanded from <code>1 regression.ipynb</code>. The notebook's numerical example is retained, its outputs are verified, and important mathematical and implementation subtleties are corrected.</p>
@@ -620,13 +554,15 @@ J(\boldsymbol{\beta})=\frac1n\lVert y-X\boldsymbol{\beta}\rVert_2^2,
 <div class="note-card">
 <h2 id="7-train-validation-and-test-data">7. Train, validation, and test data</h2>
 <p>The notebook creates a reproducible 80/20 split:</p>
-<pre><code class="language-python">X_train, X_test, y_train, y_test = train_test_split(
+</div>
+</div>
+<div class="code-cell" style="background-color: rgba(0,0,0,0.5); padding: 1rem; border-radius: 8px; margin: 1rem 0;"><pre><code class="language-python" style="color: #a5d6ff;">X_train, X_test, y_train, y_test = train_test_split(
     X,
     y,
     test_size=0.20,   # Keep 20% unseen for evaluation.
     random_state=42,  # Reproduce this exact split.
-)
-</code></pre>
+)</code></pre></div>
+<div class="markdown-cell">
 <p>A model can fit noise. Testing on training rows produces an optimistic estimate of future performance.</p>
 <div class="mermaid">
 flowchart TD
@@ -655,9 +591,9 @@ flowchart TD
 <li>leave test data untouched until the end;</li>
 <li>fit scaling, imputation, and feature selection inside training folds;</li>
 <li>preserve time order for forecasting;</li>
-<li>split by patient, customer, machine, or location when rows within a group are related.</li>
+<li>split by patient, customer, machine, or location when rows within a group are related.
+</div></li>
 </ul>
-</div>
 <div class="note-card">
 <h2 id="8-evaluation-metrics">8. Evaluation metrics</h2>
 <p>Let <script type="math/tex">e_i=y_i-\hat y_i</script>.</p>
@@ -799,7 +735,9 @@ flowchart TD
 <div class="note-card">
 <h2 id="10-fully-commented-implementation">10. Fully commented implementation</h2>
 <p>This version keeps the notebook's synthetic process, adds a baseline, and diagnoses held-out residuals separately.</p>
-<pre><code class="language-python">import numpy as np
+</div>
+</div>
+<div class="code-cell" style="background-color: rgba(0,0,0,0.5); padding: 1rem; border-radius: 8px; margin: 1rem 0;"><pre><code class="language-python" style="color: #a5d6ff;">import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.dummy import DummyRegressor
@@ -812,7 +750,7 @@ from sklearn.metrics import (
 )
 from sklearn.model_selection import train_test_split
 
-# 1. Reproduce the notebook's synthetic data without changing global RNG state.
+# 1. Reproduce the notebook&#x27;s synthetic data without changing global RNG state.
 rng = np.random.RandomState(42)
 X = rng.rand(100, 1) * 10       # 100 rows, one feature, values in [0, 10).
 noise = rng.randn(100) * 2       # Gaussian noise with standard deviation 2.
@@ -883,8 +821,8 @@ plt.show()
 # 6. predict() expects one row per case and one column per feature.
 new_x = np.array([[2.5], [5.5], [8.0]])
 for x_value, prediction in zip(new_x[:, 0], model.predict(new_x)):
-    print(f&quot;x={x_value:.1f} -&gt; predicted y={prediction:.2f}&quot;)
-</code></pre>
+    print(f&quot;x={x_value:.1f} -&gt; predicted y={prediction:.2f}&quot;)</code></pre></div>
+<div class="markdown-cell">
 <h3 id="why-important-lines-exist">Why important lines exist</h3>
 <table>
 <thead>
@@ -928,7 +866,8 @@ for x_value, prediction in zip(new_x[:, 0], model.predict(new_x)):
 </tbody>
 </table>
 <h3 id="stable-ols-instead-of-an-explicit-inverse">Stable OLS instead of an explicit inverse</h3>
-<pre><code class="language-python">def stable_ols_with_intercept(X, y):
+</div>
+<div class="code-cell" style="background-color: rgba(0,0,0,0.5); padding: 1rem; border-radius: 8px; margin: 1rem 0;"><pre><code class="language-python" style="color: #a5d6ff;">def stable_ols_with_intercept(X, y):
     X = np.asarray(X, dtype=float)
     y = np.asarray(y, dtype=float)
 
@@ -944,8 +883,8 @@ for x_value, prediction in zip(new_x[:, 0], model.predict(new_x)):
     return beta, rank, singular_values
 
 beta, rank, singular_values = stable_ols_with_intercept(X, y)
-print(beta)  # [intercept, slope] ≈ [5.4302, 2.9080]
-</code></pre>
+print(beta)  # [intercept, slope] ≈ [5.4302, 2.9080]</code></pre></div>
+<div class="markdown-cell">
 </div>
 <div class="note-card">
 <h2 id="11-interpreting-the-notebook-results">11. Interpreting the notebook results</h2>
@@ -1250,22 +1189,10 @@ print(beta)  # [intercept, slope] ≈ [5.4302, 2.9080]
 <li><a href="https://scikit-learn.org/stable/modules/linear_model.html">scikit-learn: Linear models and OLS complexity</a></li>
 <li><a href="https://scikit-learn.org/stable/modules/model_evaluation.html#regression-metrics">scikit-learn: Regression metrics</a></li>
 </ul>
-                            </div>
-                        </div>
-                    </div>
+</div>
 
-                    <!-- LINK TO DEDICATED FLASHCARDS -->
-                    <div class="note-card" style="text-align:center; padding: 3rem 2rem; margin-top:2rem; background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%); border:none;">
-                        <h2 style="color:#3730a3; font-size:1.8rem; margin-bottom:1rem;">Master this Topic</h2>
-                        <p style="color:#4f46e5; margin-bottom:2rem;">Practice with our interactive, full-screen Quizlet-style flashcards!</p>
-                        <a href="flashcardforml1.html" style="display:inline-block; background:#4f46e5; color:white; padding:1rem 2rem; border-radius:12px; font-weight:bold; font-size:1.2rem; text-decoration:none; box-shadow:0 4px 14px rgba(79,70,229,0.4); transition:transform 0.2s;">
-                            <i class="fa-solid fa-layer-group" style="margin-right:0.5rem;"></i> Practice Flashcards ➔
-                        </a>
-                    </div>
-                </div>
             </div>
         </main>
     </div>
-    <script src="../app.js"></script>
 </body>
 </html>
