@@ -135,7 +135,7 @@ for page in pages:
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="stylesheet" href="../flashcards.css">
-    <link rel="icon" type="image/png" href="/assets/images/favicon_circular.png">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-192x192.png">
     <style>
         .code-cell pre {{
             margin: 0;
