@@ -305,7 +305,7 @@ body {
     top: clamp(3.5rem, 8vw, 6rem);
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: clamp(1rem, 5.3vw, 4rem);
+    font-size: clamp(2rem, 9vw, 5rem);
     font-weight: 700;
     white-space: nowrap;
     color: transparent;
@@ -328,6 +328,17 @@ body {
 
 #site-footer:hover .footer-bg-text {
     background-position: 0 0;
+}
+
+/* Continuous animation for mobile/touch devices where hover doesn't exist */
+@keyframes fill-text {
+    0%, 100% { background-position: 100% 0; }
+    50% { background-position: 0 0; }
+}
+@media (hover: none) {
+    .footer-bg-text {
+        animation: fill-text 6s ease-in-out infinite;
+    }
 }
 
 /* Main footer content row */
