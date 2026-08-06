@@ -7,27 +7,19 @@
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-    <script>mermaid.initialize({startOnLoad:true});</script>
+    <script>mermaid.initialize({startOnLoad:true, securityLevel: 'loose'});</script>
+    
+    <!-- Highlight.js for Python syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    
     <!-- MathJax for rendering math equations -->
     <script>
     MathJax = {
       tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']]
-      },
-      options: {
-        renderActions: {
-          findScript: [10, function (doc) {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
-              var display = !!node.type.match(/; *mode=display/);
-              var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              var text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '']
-        }
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
       }
     };
     </script>
@@ -88,7 +80,7 @@
 <li>explain features, targets, predictions, residuals, slopes, and intercepts;</li>
 <li>distinguish simple, multiple, polynomial, and regularized regression;</li>
 <li>describe ordinary least squares algebraically and geometrically;</li>
-<li>calculate and interpret MAE, MSE, RMSE, and <script type="math/tex">R^2</script>;</li>
+<li>calculate and interpret MAE, MSE, RMSE, and $R^2$;</li>
 <li>select a metric based on the real cost of mistakes;</li>
 <li>fit and test a model without leaking information;</li>
 <li>use residuals to investigate model assumptions;</li>
@@ -99,20 +91,15 @@
 <h2 id="2-what-why-and-when">2. What, why, and when</h2>
 <h3 id="what-is-regression">What is regression?</h3>
 <p>Regression is a <strong>supervised-learning task family</strong> in which one or more inputs are used to predict a numerical output:</p>
-<p>
-<script type="math/tex; mode=display">
+<p>$$
 f:\mathbb{R}^{p}\rightarrow\mathbb{R},
 \qquad
 \hat y=f(\mathbf{x}).
-</script>
-</p>
+$$</p>
 <ul>
-<li>
-<script type="math/tex">\mathbf{x}=(x_1,\ldots,x_p)</script> is a feature vector.</li>
-<li>
-<script type="math/tex">y</script> is the observed target.</li>
-<li>
-<script type="math/tex">\hat y</script>, pronounced "y-hat," is the prediction.</li>
+<li>$\mathbf{x}=(x_1,\ldots,x_p)$ is a feature vector.</li>
+<li>$y$ is the observed target.</li>
+<li>$\hat y$, pronounced "y-hat," is the prediction.</li>
 </ul>
 <p>Regression is not one algorithm. Linear regression, regression trees, random forests, gradient boosting, support-vector regression, and neural networks can all solve regression problems.</p>
 <table>
@@ -136,13 +123,12 @@ f:\mathbb{R}^{p}\rightarrow\mathbb{R},
 </tr>
 <tr>
 <td>Metrics</td>
-<td>MAE, RMSE, <script type="math/tex">R^2</script>
-</td>
+<td>MAE, RMSE, $R^2$</td>
 <td>Accuracy, recall, F1, log loss</td>
 </tr>
 </tbody>
 </table>
-<p>A number is not automatically a regression target. Labels encoded as <script type="math/tex">0,1,2</script> still represent classification if those numbers are merely category names.</p>
+<p>A number is not automatically a regression target. Labels encoded as $0,1,2$ still represent classification if those numbers are merely category names.</p>
 <h3 id="why-use-regression">Why use regression?</h3>
 <p>Regression supports two related goals:</p>
 <ol>
@@ -198,8 +184,8 @@ flowchart TD
 <thead>
 <tr>
 <th>Domain</th>
-<th>Features (<script type="math/tex">X</script>)</th>
-<th>Target (<script type="math/tex">y</script>)</th>
+<th>Features ($X$)</th>
+<th>Target ($y$)</th>
 <th>Decision supported</th>
 </tr>
 </thead>
@@ -234,7 +220,7 @@ flowchart TD
 </div>
 <div class="note-card">
 <h2 id="3-regression-vocabulary">3. Regression vocabulary</h2>
-<p>For <script type="math/tex">n</script> rows and <script type="math/tex">p</script> features:</p>
+<p>For $n$ rows and $p$ features:</p>
 <table>
 <thead>
 <tr>
@@ -246,73 +232,54 @@ flowchart TD
 <tbody>
 <tr>
 <td>Observation</td>
-<td style="text-align: right;">
-<script type="math/tex">i</script>
-</td>
+<td style="text-align: right;">$i$</td>
 <td>One row</td>
 </tr>
 <tr>
 <td>Feature</td>
-<td style="text-align: right;">
-<script type="math/tex">x_j</script>
-</td>
+<td style="text-align: right;">$x_j$</td>
 <td>An input column</td>
 </tr>
 <tr>
 <td>Feature vector</td>
-<td style="text-align: right;">
-<script type="math/tex">\mathbf{x}_i</script>
-</td>
-<td>All inputs for row <script type="math/tex">i</script>
-</td>
+<td style="text-align: right;">$\mathbf{x}_i$</td>
+<td>All inputs for row $i$</td>
 </tr>
 <tr>
 <td>Target</td>
-<td style="text-align: right;">
-<script type="math/tex">y_i</script>
-</td>
+<td style="text-align: right;">$y_i$</td>
 <td>Observed output</td>
 </tr>
 <tr>
 <td>Prediction</td>
-<td style="text-align: right;">
-<script type="math/tex">\hat y_i</script>
-</td>
+<td style="text-align: right;">$\hat y_i$</td>
 <td>Model-estimated output</td>
 </tr>
 <tr>
 <td>Residual</td>
-<td style="text-align: right;">
-<script type="math/tex">e_i=y_i-\hat y_i</script>
-</td>
+<td style="text-align: right;">$e_i=y_i-\hat y_i$</td>
 <td>Observed minus predicted</td>
 </tr>
 <tr>
 <td>Coefficient</td>
-<td style="text-align: right;">
-<script type="math/tex">\beta_j</script>
-</td>
+<td style="text-align: right;">$\beta_j$</td>
 <td>Feature weight</td>
 </tr>
 <tr>
 <td>Intercept</td>
-<td style="text-align: right;">
-<script type="math/tex">\beta_0</script>
-</td>
+<td style="text-align: right;">$\beta_0$</td>
 <td>Prediction when modeled features equal zero</td>
 </tr>
 </tbody>
 </table>
 <p>An <strong>error</strong> is theoretically the difference from the unknown population relationship. A <strong>residual</strong> is the observed, fitted sample equivalent. Machine-learning explanations often use the words loosely, but statistics distinguishes them.</p>
 <h3 id="array-shapes">Array shapes</h3>
-<p>
-<script type="math/tex; mode=display">
+<p>$$
 X\in\mathbb{R}^{n\times p},\quad
 y\in\mathbb{R}^{n},\quad
 \boldsymbol{\beta}\in\mathbb{R}^{p}.
-</script>
-</p>
-<p>Even one feature is normally passed to scikit-learn as a 2-D matrix with shape <script type="math/tex">(n,1)</script>. This explains the notebook's <code>X = np.random.rand(100, 1)</code>.</p>
+$$</p>
+<p>Even one feature is normally passed to scikit-learn as a 2-D matrix with shape $(n,1)$. This explains the notebook's <code>X = np.random.rand(100, 1)</code>.</p>
 </div>
 <div class="note-card">
 <h2 id="4-regression-model-families">4. Regression model families</h2>
@@ -339,99 +306,76 @@ flowchart TD
 
 </div>
 <h3 id="41-simple-linear-regression">4.1 Simple linear regression</h3>
-<p>
-<script type="math/tex; mode=display">
+<p>$$
 \hat y=\beta_0+\beta_1x.
-</script>
-</p>
+$$</p>
 <p>Exactly one feature predicts the target. Example: price from area alone.</p>
 <h3 id="42-multiple-linear-regression">4.2 Multiple linear regression</h3>
-<p>
-<script type="math/tex; mode=display">
+<p>$$
 \hat y=\beta_0+\beta_1x_1+\cdots+\beta_px_p.
-</script>
-</p>
-<p>With price, area, rooms, and age, <script type="math/tex">\beta_{\text{area}}</script> is the modeled price change for one additional area unit <strong>while holding the other included variables fixed</strong>. This is conditional association, not automatically a causal effect.</p>
+$$</p>
+<p>With price, area, rooms, and age, $\beta_{\text{area}}$ is the modeled price change for one additional area unit <strong>while holding the other included variables fixed</strong>. This is conditional association, not automatically a causal effect.</p>
 <h3 id="43-polynomial-regression">4.3 Polynomial regression</h3>
-<p>
-<script type="math/tex; mode=display">
+<p>$$
 \hat y=\beta_0+\beta_1x+\beta_2x^2+\beta_3x^3.
-</script>
-</p>
-<p>The graph can curve, but the model remains <strong>linear in its coefficients</strong>. It is ordinary linear regression applied to transformed features <script type="math/tex">x,x^2,x^3</script>. High degrees can overfit and extrapolate wildly, so choose the degree with validation.</p>
+$$</p>
+<p>The graph can curve, but the model remains <strong>linear in its coefficients</strong>. It is ordinary linear regression applied to transformed features $x,x^2,x^3$. High degrees can overfit and extrapolate wildly, so choose the degree with validation.</p>
 <h3 id="44-regularized-regression">4.4 Regularized regression</h3>
 <p>Regularization controls coefficient size and model variance.</p>
 <h4 id="ridge">Ridge</h4>
-<p>
-<script type="math/tex; mode=display">
+<p>$$
 \min_{\boldsymbol{\beta}}
 \left[
 \frac1n\sum_i(y_i-\hat y_i)^2
 +\lambda\sum_j\beta_j^2
 \right].
-</script>
-</p>
+$$</p>
 <p>Ridge shrinks coefficients toward zero and is often helpful with correlated predictors.</p>
 <h4 id="lasso">Lasso</h4>
-<p>
-<script type="math/tex; mode=display">
+<p>$$
 \min_{\boldsymbol{\beta}}
 \left[
 \frac1n\sum_i(y_i-\hat y_i)^2
 +\lambda\sum_j|\beta_j|
 \right].
-</script>
-</p>
+$$</p>
 <p>Lasso can set some coefficients exactly to zero.</p>
 <h4 id="elastic-net">Elastic Net</h4>
-<p>
-<script type="math/tex; mode=display">
+<p>$$
 \min_{\boldsymbol{\beta}}
 \left[
 \frac{1}{2n}\lVert y-X\boldsymbol{\beta}\rVert_2^2+
 \lambda\left(\rho\lVert\boldsymbol{\beta}\rVert_1+
 \frac{1-\rho}{2}\lVert\boldsymbol{\beta}\rVert_2^2\right)
 \right].
-</script>
-</p>
+$$</p>
 <p>It blends Lasso and Ridge. Scale numeric features before regularization so feature units do not arbitrarily control penalty strength.</p>
 </div>
 <div class="note-card">
 <h2 id="5-linear-regression-intuition">5. Linear regression intuition</h2>
 <p>The notebook creates:</p>
-<p>
-<script type="math/tex; mode=display">
+<p>$$
 y=3x+5+\varepsilon,
-</script>
-</p>
-<p>where <script type="math/tex">\varepsilon</script> is random noise. The learner sees only the noisy points and tries to recover a slope near <script type="math/tex">3</script> and intercept near <script type="math/tex">5</script>.</p>
+$$</p>
+<p>where $\varepsilon$ is random noise. The learner sees only the noisy points and tries to recover a slope near $3$ and intercept near $5$.</p>
 <h3 id="slope">Slope</h3>
-<p>
-<script type="math/tex; mode=display">
+<p>$$
 \beta_1=\frac{\Delta\hat y}{\Delta x}.
-</script>
-</p>
-<p>If <script type="math/tex">\beta_1=2.92</script>, the predicted target increases by about <script type="math/tex">2.92</script> units when <script type="math/tex">x</script> increases by one unit.</p>
+$$</p>
+<p>If $\beta_1=2.92$, the predicted target increases by about $2.92$ units when $x$ increases by one unit.</p>
 <h3 id="intercept">Intercept</h3>
-<p>
-<script type="math/tex; mode=display">
+<p>$$
 \hat y\big|_{x=0}=\beta_0.
-</script>
-</p>
-<p>The intercept is not always meaningful. If <script type="math/tex">x=0</script> is impossible or far outside the observed range, interpreting it is extrapolation.</p>
+$$</p>
+<p>The intercept is not always meaningful. If $x=0$ is impossible or far outside the observed range, interpreting it is extrapolation.</p>
 <h3 id="residual">Residual</h3>
-<p>
-<script type="math/tex; mode=display">
+<p>$$
 e_i=y_i-\hat y_i.
-</script>
-</p>
+$$</p>
 <ul>
-<li>
-<script type="math/tex">e_i>0</script>: underprediction;</li>
-<li>
-<script type="math/tex">e_i<0</script>: overprediction;</li>
-<li>
-<script type="math/tex">e_i=0</script>: exact prediction.</li>
+<li>$e_i&gt;0$: underprediction;</li>
+<li>$e_i&lt;0$: overprediction;</li>
+<li>$e_i=0$: exact prediction.</li>
 </ul>
 <div class="mermaid">
 flowchart TD
@@ -451,19 +395,17 @@ flowchart TD
     class E,F result
 
 </div>
-<p>Standard regression minimizes vertical differences because the setup treats <script type="math/tex">x</script> as observed and uncertainty as acting mainly in <script type="math/tex">y</script>. If both axes contain material measurement error, an errors-in-variables or orthogonal method may be better.</p>
+<p>Standard regression minimizes vertical differences because the setup treats $x$ as observed and uncertainty as acting mainly in $y$. If both axes contain material measurement error, an errors-in-variables or orthogonal method may be better.</p>
 </div>
 <div class="note-card">
 <h2 id="6-how-the-best-line-is-found">6. How the best line is found</h2>
 <h3 id="61-least-squares">6.1 Least squares</h3>
-<p>
-<script type="math/tex; mode=display">
+<p>$$
 \operatorname{SSE}=\sum_{i=1}^{n}(y_i-\hat y_i)^2,
 \qquad
 \operatorname{MSE}=\frac1n\sum_{i=1}^{n}(y_i-\hat y_i)^2.
-</script>
-</p>
-<p>OLS chooses coefficients with the smallest SSE. Dividing by <script type="math/tex">n</script>, <script type="math/tex">2n</script>, or not dividing does not change the minimizer; it only rescales the objective and gradient.</p>
+$$</p>
+<p>OLS chooses coefficients with the smallest SSE. Dividing by $n$, $2n$, or not dividing does not change the minimizer; it only rescales the objective and gradient.</p>
 <p>Why square residuals?</p>
 <ul>
 <li>signs cannot cancel;</li>
@@ -473,46 +415,36 @@ flowchart TD
 </ul>
 <p>Squared loss is also the maximum-likelihood loss when independent errors are normally distributed with constant variance.</p>
 <h3 id="62-closed-form-simple-regression-solution">6.2 Closed-form simple-regression solution</h3>
-<p>
-<script type="math/tex; mode=display">
+<p>$$
 \hat\beta_1=
 \frac{\sum_i(x_i-\bar x)(y_i-\bar y)}
 {\sum_i(x_i-\bar x)^2},
 \qquad
 \hat\beta_0=\bar y-\hat\beta_1\bar x.
-</script>
-</p>
-<p>The numerator measures co-movement; the denominator measures variation in <script type="math/tex">x</script>. Equivalently:</p>
-<p>
-<script type="math/tex; mode=display">
+$$</p>
+<p>The numerator measures co-movement; the denominator measures variation in $x$. Equivalently:</p>
+<p>$$
 \hat\beta_1=r_{xy}\frac{s_y}{s_x}.
-</script>
-</p>
-<p>The fitted line with an intercept passes through <script type="math/tex">(\bar x,\bar y)</script>.</p>
+$$</p>
+<p>The fitted line with an intercept passes through $(\bar x,\bar y)$.</p>
 <h3 id="63-matrix-form">6.3 Matrix form</h3>
 <p>With a column of ones for the intercept:</p>
-<p>
-<script type="math/tex; mode=display">
+<p>$$
 \hat{\boldsymbol{\beta}}=(X^\top X)^{-1}X^\top y.
-</script>
-</p>
+$$</p>
 <p>This textbook expression assumes invertibility. Software should not explicitly calculate that inverse. QR, singular-value decomposition, <code>numpy.linalg.lstsq</code>, and pseudoinverses are more stable and can handle rank deficiency.</p>
-<p>For <script type="math/tex">X</script> shaped <script type="math/tex">(n,p)</script>, SVD-based least squares commonly costs <script type="math/tex">O(np^2)</script> when <script type="math/tex">n\ge p</script>. The notebook statement "matrix inversion is <script type="math/tex">O(n^3)</script>" mixes sample and feature dimensions.</p>
+<p>For $X$ shaped $(n,p)$, SVD-based least squares commonly costs $O(np^2)$ when $n\ge p$. The notebook statement "matrix inversion is $O(n^3)$" mixes sample and feature dimensions.</p>
 <h3 id="64-gradient-descent">6.4 Gradient descent</h3>
 <p>For</p>
-<p>
-<script type="math/tex; mode=display">
+<p>$$
 J(\boldsymbol{\beta})=\frac1n\lVert y-X\boldsymbol{\beta}\rVert_2^2,
-</script>
-</p>
-<p>
-<script type="math/tex; mode=display">
+$$</p>
+<p>$$
 \nabla J=-\frac{2}{n}X^\top(y-X\boldsymbol{\beta}),
 \qquad
 \boldsymbol{\beta}^{(t+1)}
 =\boldsymbol{\beta}^{(t)}-\alpha\nabla J.
-</script>
-</p>
+$$</p>
 <p>Ordinary linear least-squares loss is convex. A tiny learning rate mainly converges slowly; it is not trapped by local minima. A very large rate can overshoot and diverge.</p>
 <table>
 <thead>
@@ -596,66 +528,47 @@ flowchart TD
 </ul>
 <div class="note-card">
 <h2 id="8-evaluation-metrics">8. Evaluation metrics</h2>
-<p>Let <script type="math/tex">e_i=y_i-\hat y_i</script>.</p>
+<p>Let $e_i=y_i-\hat y_i$.</p>
 <h3 id="81-mae">8.1 MAE</h3>
-<p>
-<script type="math/tex; mode=display">
+<p>$$
 \operatorname{MAE}=\frac1n\sum_i|e_i|.
-</script>
-</p>
+$$</p>
 <p>It is the mean absolute miss in target units. It is easy to explain and less dominated by extremes than squared metrics.</p>
 <h3 id="82-mse">8.2 MSE</h3>
-<p>
-<script type="math/tex; mode=display">
+<p>$$
 \operatorname{MSE}=\frac1n\sum_i e_i^2.
-</script>
-</p>
+$$</p>
 <p>Large errors receive disproportionate weight. Its units are squared, which makes direct interpretation harder.</p>
 <h3 id="83-rmse">8.3 RMSE</h3>
-<p>
-<script type="math/tex; mode=display">
+<p>$$
 \operatorname{RMSE}=\sqrt{\frac1n\sum_i e_i^2}.
-</script>
-</p>
+$$</p>
 <p>RMSE is in target units while remaining sensitive to large errors. Always:</p>
-<p>
-<script type="math/tex; mode=display">
+<p>$$
 \operatorname{RMSE}\ge\operatorname{MAE}.
-</script>
-</p>
+$$</p>
 <h3 id="84-coefficient-of-determination">8.4 Coefficient of determination</h3>
-<p>
-<script type="math/tex; mode=display">
+<p>$$
 R^2=1-\frac{\sum_i(y_i-\hat y_i)^2}
 {\sum_i(y_i-\bar y)^2}
 =1-\frac{\operatorname{SSE}}{\operatorname{SST}}.
-</script>
-</p>
+$$</p>
 <ul>
-<li>
-<script type="math/tex">R^2=1</script>: perfect predictions.</li>
-<li>
-<script type="math/tex">R^2=0</script>: equal squared-error performance to the evaluation-set mean.</li>
-<li>
-<script type="math/tex">R^2<0</script>: worse than that baseline.</li>
+<li>$R^2=1$: perfect predictions.</li>
+<li>$R^2=0$: equal squared-error performance to the evaluation-set mean.</li>
+<li>$R^2&lt;0$: worse than that baseline.</li>
 </ul>
-<p>
-<script type="math/tex">R^2=0.97</script> does not mean "97% accurate." It does not prove causality, uncertainty calibration, or business usefulness.</p>
-<h3 id="85-adjusted-r2">8.5 Adjusted <script type="math/tex">R^2</script>
-</h3>
-<p>
-<script type="math/tex; mode=display">
+<p>$R^2=0.97$ does not mean "97% accurate." It does not prove causality, uncertainty calibration, or business usefulness.</p>
+<h3 id="85-adjusted-r2">8.5 Adjusted $R^2$</h3>
+<p>$$
 \bar R^2=1-(1-R^2)\frac{n-1}{n-p-1}.
-</script>
-</p>
-<p>Adjusted <script type="math/tex">R^2</script> penalizes adding predictors that produce insufficient improvement. Out-of-sample validation remains more important for prediction.</p>
+$$</p>
+<p>Adjusted $R^2$ penalizes adding predictors that produce insufficient improvement. Out-of-sample validation remains more important for prediction.</p>
 <h3 id="86-mape-caution">8.6 MAPE caution</h3>
-<p>
-<script type="math/tex; mode=display">
+<p>$$
 \operatorname{MAPE}=\frac{100}{n}\sum_i
 \left|\frac{y_i-\hat y_i}{y_i}\right|.
-</script>
-</p>
+$$</p>
 <p>MAPE is undefined at zero, unstable near zero, asymmetric, and inappropriate for negative targets. Scikit-learn returns a relative value rather than an already multiplied percentage.</p>
 <div class="mermaid">
 flowchart TD
@@ -686,20 +599,16 @@ flowchart TD
 <h2 id="9-assumptions-and-diagnostics">9. Assumptions and diagnostics</h2>
 <p>The assumptions matter especially for coefficient inference and uncertainty intervals, but violations can also hurt prediction.</p>
 <h3 id="91-linear-conditional-mean">9.1 Linear conditional mean</h3>
-<p>
-<script type="math/tex; mode=display">
+<p>$$
 E[Y\mid X]=\beta_0+\sum_j\beta_jx_j.
-</script>
-</p>
+$$</p>
 <p>A curved residual pattern suggests missing nonlinear structure. Consider justified polynomial, spline, interaction, or transformed features.</p>
 <h3 id="92-independent-or-appropriately-modeled-errors">9.2 Independent or appropriately modeled errors</h3>
 <p>Residuals should not have unmodeled time, group, or spatial dependence. Check them in sequence and by group; use structured splitting and a suitable model.</p>
 <h3 id="93-constant-conditional-variance">9.3 Constant conditional variance</h3>
-<p>
-<script type="math/tex; mode=display">
+<p>$$
 \operatorname{Var}(\varepsilon_i\mid X_i)=\sigma^2.
-</script>
-</p>
+$$</p>
 <p>A funnel-shaped residual plot indicates heteroscedasticity. Consider transformations, weighted regression, variance-aware models, or robust standard errors.</p>
 <h3 id="94-no-perfect-multicollinearity">9.4 No perfect multicollinearity</h3>
 <p>Exact linear dependence makes coefficients non-unique. Near-dependence makes individual coefficients unstable. Inspect domain redundancy, correlations, singular values, or variance inflation factors; consider Ridge.</p>
@@ -916,18 +825,14 @@ print(beta)  # [intercept, slope] ≈ [5.4302, 2.9080]</code></pre></div>
 <div class="note-card">
 <h2 id="11-interpreting-the-notebook-results">11. Interpreting the notebook results</h2>
 <p>The model trained on 80 rows finds:</p>
-<p>
-<script type="math/tex; mode=display">
+<p>$$
 \hat y=5.2858+2.9197x.
-</script>
-</p>
-<p>The hidden process was <script type="math/tex">5+3x+\varepsilon</script>, so the estimates are close but not exact because the sample contains random noise.</p>
-<p>At <script type="math/tex">x=5.5</script>:</p>
-<p>
-<script type="math/tex; mode=display">
+$$</p>
+<p>The hidden process was $5+3x+\varepsilon$, so the estimates are close but not exact because the sample contains random noise.</p>
+<p>At $x=5.5$:</p>
+<p>$$
 \hat y=5.2858+2.9197(5.5)\approx21.34.
-</script>
-</p>
+$$</p>
 <h3 id="verified-test-results">Verified test results</h3>
 <table>
 <thead>
@@ -954,9 +859,7 @@ print(beta)  # [intercept, slope] ≈ [5.4302, 2.9080]</code></pre></div>
 <td>Large-error-sensitive miss in target units</td>
 </tr>
 <tr>
-<td>
-<script type="math/tex">R^2</script>
-</td>
+<td>$R^2$</td>
 <td style="text-align: right;">0.9686</td>
 <td>Strong improvement over the mean baseline</td>
 </tr>
@@ -964,13 +867,11 @@ print(beta)  # [intercept, slope] ≈ [5.4302, 2.9080]</code></pre></div>
 </table>
 <p>Test performance is slightly better than training performance in this split. A randomly selected test subset can simply be easier; this alone does not imply leakage.</p>
 <p>OLS fitted to all 100 rows gives:</p>
-<p>
-<script type="math/tex; mode=display">
+<p>$$
 \hat y=5.4302+2.9080x.
-</script>
-</p>
+$$</p>
 <p>It differs because it uses 20 additional rows. Compare coefficients only when fitted on the same observations.</p>
-<p>The test mean-baseline RMSE is about <script type="math/tex">9.16</script>, compared with <script type="math/tex">1.62</script> for the line. That baseline makes the improvement concrete.</p>
+<p>The test mean-baseline RMSE is about $9.16$, compared with $1.62$ for the line. That baseline makes the improvement concrete.</p>
 </div>
 <div class="note-card">
 <h2 id="12-corrections-and-pitfalls">12. Corrections and pitfalls</h2>
@@ -988,27 +889,23 @@ print(beta)  # [intercept, slope] ≈ [5.4302, 2.9080]</code></pre></div>
 </tr>
 <tr>
 <td>Polynomial regression is nonlinear in everything</td>
-<td>It is nonlinear in <script type="math/tex">x</script>, linear in coefficients</td>
+<td>It is nonlinear in $x$, linear in coefficients</td>
 </tr>
 <tr>
 <td>The intercept is always meaningful</td>
 <td>Only when zero is meaningful and defensible</td>
 </tr>
 <tr>
-<td>
-<script type="math/tex">R^2=0.97</script> means 97% accurate</td>
-<td>
-<script type="math/tex">R^2</script> is relative squared-error improvement</td>
+<td>$R^2=0.97$ means 97% accurate</td>
+<td>$R^2$ is relative squared-error improvement</td>
 </tr>
 <tr>
 <td>OLS requires <code>inv(X.T @ X)</code></td>
 <td>Use QR/SVD/<code>lstsq</code> for numerical stability</td>
 </tr>
 <tr>
-<td>Least-squares complexity is simply <script type="math/tex">O(n^3)</script>
-</td>
-<td>It depends on rows and features; commonly <script type="math/tex">O(np^2)</script> for <script type="math/tex">n\ge p</script>
-</td>
+<td>Least-squares complexity is simply $O(n^3)$</td>
+<td>It depends on rows and features; commonly $O(np^2)$ for $n\ge p$</td>
 </tr>
 <tr>
 <td>Tiny learning rates get stuck in local minima</td>
@@ -1047,10 +944,10 @@ print(beta)  # [intercept, slope] ≈ [5.4302, 2.9080]</code></pre></div>
 </li>
 <li>
 <p><strong>What is a residual?</strong><br />
-<script type="math/tex">e_i=y_i-\hat y_i</script>.</p>
+   $e_i=y_i-\hat y_i$.</p>
 </li>
 <li>
-<p><strong>If <script type="math/tex">e_i=-4</script>, what happened?</strong><br />
+<p><strong>If $e_i=-4$, what happened?</strong><br />
    The model overpredicted by 4.</p>
 </li>
 <li>
@@ -1058,7 +955,7 @@ print(beta)  # [intercept, slope] ≈ [5.4302, 2.9080]</code></pre></div>
    To prevent sign cancellation, emphasize large errors, and obtain a smooth convex objective.</p>
 </li>
 <li>
-<p><strong>Does slope <script type="math/tex">3</script> prove causation?</strong><br />
+<p><strong>Does slope $3$ prove causation?</strong><br />
    No; it is a modeled association unless a causal design justifies the claim.</p>
 </li>
 <li>
@@ -1066,7 +963,7 @@ print(beta)  # [intercept, slope] ≈ [5.4302, 2.9080]</code></pre></div>
    Zero may be impossible or outside the data range.</p>
 </li>
 <li>
-<p><strong>Why can test <script type="math/tex">R^2</script> be negative?</strong><br />
+<p><strong>Why can test $R^2$ be negative?</strong><br />
    The predictions can be worse than a mean baseline.</p>
 </li>
 <li>
@@ -1094,34 +991,34 @@ print(beta)  # [intercept, slope] ≈ [5.4302, 2.9080]</code></pre></div>
     The penalty acts on coefficient size, which depends on units.</p>
 </li>
 <li>
-<p><strong>Actual values are <script type="math/tex">[2,4]</script>, predictions are <script type="math/tex">[3,6]</script>. Find MAE.</strong><br />
-<script type="math/tex">(1+2)/2=1.5</script>.</p>
+<p><strong>Actual values are $[2,4]$, predictions are $[3,6]$. Find MAE.</strong><br />
+    $(1+2)/2=1.5$.</p>
 </li>
 <li>
 <p><strong>For the same data, find MSE and RMSE.</strong><br />
-    MSE <script type="math/tex">=(1^2+2^2)/2=2.5</script>; RMSE <script type="math/tex">=\sqrt{2.5}\approx1.581</script>.</p>
+    MSE $=(1^2+2^2)/2=2.5$; RMSE $=\sqrt{2.5}\approx1.581$.</p>
 </li>
 <li>
-<p><strong>If SSE <script type="math/tex">=20</script> and SST <script type="math/tex">=100</script>, find <script type="math/tex">R^2</script>.</strong><br />
-<script type="math/tex">1-20/100=0.8</script>.</p>
+<p><strong>If SSE $=20$ and SST $=100$, find $R^2$.</strong><br />
+    $1-20/100=0.8$.</p>
 </li>
 <li>
-<p><strong>For <script type="math/tex">\hat y=5+3x</script>, predict at <script type="math/tex">x=4</script>.</strong><br />
-<script type="math/tex">17</script>.</p>
+<p><strong>For $\hat y=5+3x$, predict at $x=4$.</strong><br />
+    $17$.</p>
 </li>
 <li>
 <p><strong>If the observed value is 14, find the residual.</strong><br />
-<script type="math/tex">14-17=-3</script>, an overprediction of 3.</p>
+    $14-17=-3$, an overprediction of 3.</p>
 </li>
 </ol>
 <h3 id="coding-challenges">Coding challenges</h3>
 <ol>
 <li>Add five-fold cross-validation and summarize the score distribution.</li>
-<li>Add <script type="math/tex">x^2</script> and test whether held-out RMSE improves.</li>
+<li>Add $x^2$ and test whether held-out RMSE improves.</li>
 <li>Inject one target outlier and compare MAE with RMSE.</li>
 <li>Build two correlated features and compare OLS with Ridge.</li>
 <li>Wrap scaling and Ridge in a <code>Pipeline</code>.</li>
-<li>Repeat the split with 50 seeds and plot test <script type="math/tex">R^2</script>.</li>
+<li>Repeat the split with 50 seeds and plot test $R^2$.</li>
 </ol>
 </div>
 <div class="note-card">
@@ -1136,39 +1033,27 @@ print(beta)  # [intercept, slope] ≈ [5.4302, 2.9080]</code></pre></div>
 <tbody>
 <tr>
 <td>Simple model</td>
-<td>
-<script type="math/tex">\hat y=\beta_0+\beta_1x</script>
-</td>
+<td>$\hat y=\beta_0+\beta_1x$</td>
 </tr>
 <tr>
 <td>Multiple model</td>
-<td>
-<script type="math/tex">\hat y=\beta_0+\sum_j\beta_jx_j</script>
-</td>
+<td>$\hat y=\beta_0+\sum_j\beta_jx_j$</td>
 </tr>
 <tr>
 <td>Residual</td>
-<td>
-<script type="math/tex">e_i=y_i-\hat y_i</script>
-</td>
+<td>$e_i=y_i-\hat y_i$</td>
 </tr>
 <tr>
 <td>OLS</td>
-<td>
-<script type="math/tex">\min_\beta\sum_i e_i^2</script>
-</td>
+<td>$\min_\beta\sum_i e_i^2$</td>
 </tr>
 <tr>
 <td>Slope</td>
-<td>
-<script type="math/tex">\hat\beta_1=\frac{\sum(x_i-\bar x)(y_i-\bar y)}{\sum(x_i-\bar x)^2}</script>
-</td>
+<td>$\hat\beta_1=\frac{\sum(x_i-\bar x)(y_i-\bar y)}{\sum(x_i-\bar x)^2}$</td>
 </tr>
 <tr>
 <td>Intercept</td>
-<td>
-<script type="math/tex">\hat\beta_0=\bar y-\hat\beta_1\bar x</script>
-</td>
+<td>$\hat\beta_0=\bar y-\hat\beta_1\bar x$</td>
 </tr>
 <tr>
 <td>MAE</td>
@@ -1176,22 +1061,15 @@ print(beta)  # [intercept, slope] ≈ [5.4302, 2.9080]</code></pre></div>
 </tr>
 <tr>
 <td>RMSE</td>
-<td>
-<script type="math/tex">\sqrt{\frac1n\sum e_i^2}</script>
-</td>
+<td>$\sqrt{\frac1n\sum e_i^2}$</td>
 </tr>
 <tr>
-<td>
-<script type="math/tex">R^2</script>
-</td>
-<td>
-<script type="math/tex">1-\text{SSE}/\text{SST}</script>
-</td>
+<td>$R^2$</td>
+<td>$1-\text{SSE}/\text{SST}$</td>
 </tr>
 <tr>
 <td>Ridge</td>
-<td>Adds <script type="math/tex">\lambda\sum\beta_j^2</script>
-</td>
+<td>Adds $\lambda\sum\beta_j^2$</td>
 </tr>
 <tr>
 <td>Lasso</td>
@@ -1201,13 +1079,13 @@ print(beta)  # [intercept, slope] ≈ [5.4302, 2.9080]</code></pre></div>
 </table>
 <h3 id="fun-facts">Fun facts</h3>
 <ul>
-<li>An OLS line with an intercept passes through <script type="math/tex">(\bar x,\bar y)</script>.</li>
+<li>An OLS line with an intercept passes through $(\bar x,\bar y)$.</li>
 <li>Training residuals sum to zero when an intercept is fitted.</li>
-<li>In simple OLS with an intercept, training <script type="math/tex">R^2=r_{xy}^2</script>.</li>
-<li>Adding a feature cannot reduce ordinary training <script type="math/tex">R^2</script>, even when that feature is noise.</li>
-<li>Scaling <script type="math/tex">x</script> changes its coefficient but does not change predictions when the transformation is applied consistently.</li>
+<li>In simple OLS with an intercept, training $R^2=r_{xy}^2$.</li>
+<li>Adding a feature cannot reduce ordinary training $R^2$, even when that feature is noise.</li>
+<li>Scaling $x$ changes its coefficient but does not change predictions when the transformation is applied consistently.</li>
 <li>"Regression" came from Francis Galton's "regression toward the mean."</li>
-<li>Excellent global <script type="math/tex">R^2</script> can hide serious bias for a small subgroup.</li>
+<li>Excellent global $R^2$ can hide serious bias for a small subgroup.</li>
 </ul>
 </div>
 <h2 id="verified-api-references">Verified API references</h2>

@@ -40,10 +40,7 @@ def replace_callout(match):
 </div>"""
 
 md = markdown.Markdown(
-    extensions=['tables', 'fenced_code', 'mdx_math', 'md_in_html', 'toc', 'attr_list'],
-    extension_configs={
-        'mdx_math': {'enable_dollar_delimiter': True}
-    }
+    extensions=['tables', 'fenced_code', 'md_in_html', 'toc', 'attr_list']
 )
 
 def unescape_mermaid(match):
@@ -105,27 +102,19 @@ for page in pages:
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-    <script>mermaid.initialize({{startOnLoad:true}});</script>
+    <script>mermaid.initialize({{startOnLoad:true, securityLevel: 'loose'}});</script>
+    
+    <!-- Highlight.js for Python syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    
     <!-- MathJax for rendering math equations -->
     <script>
     MathJax = {{
       tex: {{
-        inlineMath: [['$', '$'], ['\\\\(', '\\\\)']]
-      }},
-      options: {{
-        renderActions: {{
-          findScript: [10, function (doc) {{
-            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {{
-              var display = !!node.type.match(/; *mode=display/);
-              var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              var text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {{node: text, delim: '', n: 0}};
-              math.end = {{node: text, delim: '', n: 0}};
-              doc.math.push(math);
-            }});
-          }}, '']
-        }}
+        inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
+        displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']]
       }}
     }};
     </script>

@@ -7,27 +7,19 @@
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-    <script>mermaid.initialize({startOnLoad:true});</script>
+    <script>mermaid.initialize({startOnLoad:true, securityLevel: 'loose'});</script>
+    
+    <!-- Highlight.js for Python syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    
     <!-- MathJax for rendering math equations -->
     <script>
     MathJax = {
       tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']]
-      },
-      options: {
-        renderActions: {
-          findScript: [10, function (doc) {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
-              var display = !!node.type.match(/; *mode=display/);
-              var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              var text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '']
-        }
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
       }
     };
     </script>
@@ -112,11 +104,10 @@ A traditional rule (`IF subject contains "free money" THEN spam`) is brittle. An
 </div>
 <h3 id="the-formal-definition-tom-mitchell">The Formal Definition (Tom Mitchell)</h3>
 <p>A computer program is said to learn from:
-- <strong>Experience</strong> <script type="math/tex">E</script>
-- with respect to <strong>Task</strong> <script type="math/tex">T</script>
-- measured by <strong>Performance Measure</strong> <script type="math/tex">P</script>
-</p>
-<p>...if its performance at <script type="math/tex">T</script>, measured by <script type="math/tex">P</script>, improves with experience <script type="math/tex">E</script>.</p>
+- <strong>Experience</strong> $E$
+- with respect to <strong>Task</strong> $T$
+- measured by <strong>Performance Measure</strong> $P$</p>
+<p>...if its performance at $T$, measured by $P$, improves with experience $E$.</p>
 <div class="callout memory">
 <span class="callout-icon">🧠</span>
 <div class="callout-content">
@@ -130,11 +121,11 @@ A traditional rule (`IF subject contains "free money" THEN spam`) is brittle. An
 </div>
 <h3 id="the-mathematical-view">The Mathematical View</h3>
 <p>Let:
-- <script type="math/tex">\mathbf{x}_i \in \mathbb{R}^d</script> be the <strong>feature vector</strong> for example <script type="math/tex">i</script>.
-- <script type="math/tex">y_i</script> be its <strong>true target</strong>.
-- <script type="math/tex">f_{\theta}</script> be a model controlled by learned <strong>parameters</strong> <script type="math/tex">\theta</script>.
-- <script type="math/tex">\hat{y}_i = f_{\theta}(\mathbf{x}_i)</script> be the <strong>prediction</strong>.
-- <script type="math/tex">\ell(y_i,\hat{y}_i)</script> be the <strong>error</strong> or <strong>loss</strong> for one example.</p>
+- $\mathbf{x}<em _theta="\theta">i \in \mathbb{R}^d$ be the <strong>feature vector</strong> for example $i$.
+- $y_i$ be its <strong>true target</strong>.
+- $f</em>$ be a model controlled by learned <strong>parameters</strong> $\theta$.
+- $\hat{y}<em _theta="\theta">i = f</em>_i)$ be the }(\mathbf{x<strong>prediction</strong>.
+- $\ell(y_i,\hat{y}_i)$ be the <strong>error</strong> or <strong>loss</strong> for one example.</p>
 <p>Training a model minimizes empirical risk (loss) across all examples.</p>
 </div>
 <div class="note-card">
@@ -236,7 +227,7 @@ flowchart TD
 <p>You feed the algorithm data (features) along with the known answers (labels). The model's job is to figure out the mathematical relationship between the two.</p>
 <p><strong>Sub-types of Supervised Learning:</strong>
 1. <strong>Regression:</strong> Predicting a continuous <em>number</em>. (e.g., predicting the price of a house, temperature, or a customer's lifetime value).
-   - <em>Example Algorithm:</em> Linear Regression (<script type="math/tex">\hat{y} = w_1x_1 + w_2x_2 + b</script>).
+   - <em>Example Algorithm:</em> Linear Regression ($\hat{y} = w_1x_1 + w_2x_2 + b$).
 2. <strong>Classification:</strong> Predicting a <em>category</em> or <em>class</em>. (e.g., is this email spam or not? Is this tumor malignant or benign?).
    - <em>Example Algorithm:</em> Logistic Regression, Random Forest.</p>
 <h3 id="42-unsupervised-learning-learning-without-a-teacher">4.2 Unsupervised Learning (Learning without a Teacher)</h3>
@@ -273,7 +264,7 @@ flowchart TD
 <ul>
 <li><strong>Loss Function (Cost Function):</strong> A mathematical way to measure how wrong the model is. (e.g., Mean Squared Error for regression, Cross-Entropy for classification).</li>
 <li><strong>Gradient Descent:</strong> The optimization algorithm used to minimize the loss. It calculates the slope (gradient) of the loss function and updates the parameters in the opposite direction.</li>
-<li><strong>Learning Rate (<script type="math/tex">\eta</script>):</strong> The size of the step the model takes during gradient descent. If it's too high, the model overshoots the minimum; if it's too low, training takes forever.</li>
+<li><strong>Learning Rate ($\eta$):</strong> The size of the step the model takes during gradient descent. If it's too high, the model overshoots the minimum; if it's too low, training takes forever.</li>
 <li><strong>Epoch:</strong> One complete pass through the entire training dataset.</li>
 <li><strong>Batch Size:</strong> The number of examples the model looks at before updating its parameters.</li>
 </ul>
@@ -316,33 +307,25 @@ flowchart TD
 <tbody>
 <tr>
 <td><strong>Accuracy</strong></td>
-<td>
-<script type="math/tex">\frac{TP + TN}{\text{Total}}</script>
-</td>
+<td>$\frac{TP + TN}{\text{Total}}$</td>
 <td>Overall, how often is the model correct?</td>
 <td>When classes are balanced and all errors cost the same.</td>
 </tr>
 <tr>
 <td><strong>Precision</strong></td>
-<td>
-<script type="math/tex">\frac{TP}{TP + FP}</script>
-</td>
+<td>$\frac{TP}{TP + FP}$</td>
 <td>When it predicts "Yes", how often is it actually "Yes"?</td>
 <td>When <strong>False Positives</strong> are very costly (e.g., Spam detection).</td>
 </tr>
 <tr>
 <td><strong>Recall (Sensitivity)</strong></td>
-<td>
-<script type="math/tex">\frac{TP}{TP + FN}</script>
-</td>
+<td>$\frac{TP}{TP + FN}$</td>
 <td>Out of all actual "Yes" cases, how many did we catch?</td>
 <td>When <strong>False Negatives</strong> are very costly (e.g., Cancer screening).</td>
 </tr>
 <tr>
 <td><strong>F1 Score</strong></td>
-<td>
-<script type="math/tex">2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}</script>
-</td>
+<td>$2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}$</td>
 <td>The harmonic mean of Precision and Recall.</td>
 <td>When you need a balance between Precision and Recall, especially on imbalanced datasets.</td>
 </tr>
@@ -388,20 +371,14 @@ flowchart TD
 <h3 id="63-regression-metrics">6.3 Regression Metrics</h3>
 <ul>
 <li><strong>MAE (Mean Absolute Error):</strong> The average absolute difference between the predicted and actual values. It is highly interpretable (same units as the target).</li>
-<li><strong>Formula:</strong> <script type="math/tex">\text{MAE} = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i|</script>
-</li>
+<li><strong>Formula:</strong> $\text{MAE} = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i|$</li>
 <li><strong>RMSE (Root Mean Squared Error):</strong> Heavily penalizes large errors because the errors are squared before averaging. Use this when massive mistakes are unacceptable.</li>
-<li><strong>Formula:</strong> <script type="math/tex">\text{RMSE} = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}</script>
-</li>
-<li><strong>Coefficient of determination (<script type="math/tex">R^2</script>):</strong> Measures the proportion of variance in the dependent variable that is predictable from the independent variables.</li>
-<li><strong>Formula:</strong> <script type="math/tex">R^2 = 1 - \frac{\sum (y_i - \hat{y}_i)^2}{\sum (y_i - \bar{y})^2}</script>
-</li>
-<li>
-<script type="math/tex">R^2 = 1</script>: <strong>Perfect predictions</strong> on the evaluated data.</li>
-<li>
-<script type="math/tex">R^2 = 0</script>: <strong>No improvement</strong> over just predicting the average (mean) of the data.</li>
-<li>
-<script type="math/tex">R^2 < 0</script>: <strong>Worse</strong> than just guessing the average.</li>
+<li><strong>Formula:</strong> $\text{RMSE} = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}$</li>
+<li><strong>Coefficient of determination ($R^2$):</strong> Measures the proportion of variance in the dependent variable that is predictable from the independent variables.</li>
+<li><strong>Formula:</strong> $R^2 = 1 - \frac{\sum (y_i - \hat{y}_i)^2}{\sum (y_i - \bar{y})^2}$</li>
+<li>$R^2 = 1$: <strong>Perfect predictions</strong> on the evaluated data.</li>
+<li>$R^2 = 0$: <strong>No improvement</strong> over just predicting the average (mean) of the data.</li>
+<li>$R^2 &lt; 0$: <strong>Worse</strong> than just guessing the average.</li>
 </ul>
 <div class="callout warning">
 <span class="callout-icon">⚠️</span>
