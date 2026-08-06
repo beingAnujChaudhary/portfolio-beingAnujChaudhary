@@ -385,8 +385,16 @@ body {
         max-width: 100%;
     }
     .footer-logo-link { grid-area: logo; align-self: center; }
-    .footer-tagline { grid-area: tagline; }
-    .footer-socials { grid-area: socials; margin-top: 0; gap: 0.4rem; }
+    .footer-tagline { 
+        grid-area: tagline; 
+        text-align: right;
+    }
+    .footer-socials { 
+        grid-area: socials; 
+        margin-top: 0; 
+        gap: 0.4rem;
+        justify-content: flex-end;
+    }
     .footer-social-btn {
         width: 32px;
         height: 32px;
