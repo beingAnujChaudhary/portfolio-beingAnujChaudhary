@@ -438,6 +438,15 @@ body {
     gap: 2.5rem 4rem;
 }
 
+@media (max-width: 600px) {
+    .footer-nav-columns {
+        flex-wrap: nowrap;
+        gap: 1rem;
+        justify-content: space-between;
+        width: 100%;
+    }
+}
+
 .footer-nav-col h3.footer-nav-heading {
     font-size: 0.7rem;
     font-weight: 500;
