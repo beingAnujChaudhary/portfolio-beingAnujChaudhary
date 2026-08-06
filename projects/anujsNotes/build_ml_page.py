@@ -70,6 +70,25 @@ for page in pages:
             source = "".join(cell.get("source", []))
             escaped_source = html.escape(source)
             html_notes += f'<div class="code-cell" style="background-color: rgba(0,0,0,0.5); padding: 1rem; border-radius: 8px; margin: 1rem 0;"><pre><code class="language-python" style="color: #a5d6ff;">{escaped_source}</code></pre></div>\n'
+            
+            # Render outputs
+            for output in cell.get("outputs", []):
+                if output.get("output_type") == "error":
+                    continue # Ignore errors from pseudo-code blocks
+                elif output.get("output_type") == "stream":
+                    text = "".join(output.get("text", []))
+                    html_notes += f'<div class="output-stream" style="background: rgba(0,0,0,0.3); color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: -0.5rem; margin-bottom: 1rem; font-family: monospace; white-space: pre-wrap; font-size: 0.9em;">{html.escape(text)}</div>\n'
+                elif output.get("output_type") in ["display_data", "execute_result"]:
+                    data = output.get("data", {})
+                    if "image/png" in data:
+                        img_b64 = data["image/png"].strip()
+                        html_notes += f'<div class="output-image" style="margin: 1rem 0; text-align: center;"><img src="data:image/png;base64,{img_b64}" alt="Output Chart" style="max-width: 100%; border-radius: 8px; border: 1px solid var(--card-border);"></div>\n'
+                    elif "text/html" in data:
+                        html_content = "".join(data["text/html"])
+                        html_notes += f'<div class="output-html" style="margin: 1rem 0; background: white; padding: 1rem; border-radius: 8px;">{html_content}</div>\n'
+                    elif "text/plain" in data:
+                        text = "".join(data["text/plain"])
+                        html_notes += f'<div class="output-text" style="background: rgba(0,0,0,0.3); color: #d4d4d4; padding: 1rem; border-radius: 8px; margin-top: -0.5rem; margin-bottom: 1rem; font-family: monospace; white-space: pre-wrap; font-size: 0.9em;">{html.escape(text)}</div>\n'
 
     # Generate the nav links
     nav_links = ""
