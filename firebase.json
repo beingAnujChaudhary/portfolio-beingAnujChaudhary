@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "beinganujchaudhary",
+    "site": "anujchaudhary",
     "public": ".",
     "ignore": [
       "firebase.json",

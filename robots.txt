@@ -1,5 +1,5 @@
-# robots.txt for beinganujchaudhary.web.app
+# robots.txt for anujchaudhary.web.app
 User-agent: *
 Allow: /
 
-Sitemap: https://beinganujchaudhary.web.app/sitemap.xml
+Sitemap: https://anujchaudhary.web.app/sitemap.xml
