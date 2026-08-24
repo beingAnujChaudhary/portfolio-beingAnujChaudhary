@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Spice Route Kitchens — Analytical Rationale</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+    :root {
+      --ink: #000000;
+      --muted: #64748B;
+      --body-text: #1f2937;
+      --line: #E2E8F0;
+      --accent: #EF6B54;
+      --accent-soft: #FEF2F0;
+      --bg: #FFFFFF;
+    }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      color: var(--body-text);
+      background: #F1F5F9;
+      -webkit-font-smoothing: antialiased;
+      font-size: 11pt;
+      line-height: 1.5;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 10mm auto;
+      padding: 16mm 14mm;
+      background-color: var(--bg);
+      background-image:
+        linear-gradient(to right, #F4F7F9 1px, transparent 1px),
+        linear-gradient(to bottom, #F4F7F9 1px, transparent 1px);
+      background-size: 15mm 15mm;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, .08), 0 8px 24px rgba(15, 23, 42, .06);
+      page-break-after: always;
+    }
+
+    .page:last-child {
+      page-break-after: auto;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        margin: 0;
+        padding: 0;
+      }
+
+      .page {
+        margin: 0 !important;
+        box-shadow: none !important;
+      }
+
+      .cover-page,
+      .closing-page {
+        page-break-after: always;
+        height: 297mm;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    /* Header */
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 8pt;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8mm;
+      font-weight: 500;
+    }
+
+    .eyebrow .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: inline-block;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+
+    h1 {
+      font-size: 23pt;
+      font-weight: 700;
+      letter-spacing: -.02em;
+      margin: 0 auto 3mm;
+      color: var(--ink);
+      line-height: 1.2;
+      text-align: center;
+    }
+
+    .subtitle {
+      font-size: 12pt;
+      color: var(--muted);
+      margin: 0 auto 10mm;
+      font-weight: 400;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    .rule {
+      height: 1px;
+      background: var(--line);
+      margin: 8mm 0;
+    }
+
+    /* Audience list */
+    .audience-list {
+      list-style: none;
+      padding: 1.5mm 0;
+      margin: 6mm 0 8mm;
+      border-left: 3px solid var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .audience-list li {
+      display: flex;
+      align-items: center;
+      padding: 1.5mm 4mm;
+      font-size: 10.5pt;
+      line-height: 1.3;
+    }
+
+    .audience-list a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .audience-list a:hover {
+      text-decoration: underline;
+    }
+
+    .audience-list li::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-right: 10px;
+      flex-shrink: 0;
+    }
+
+    .audience-list li strong {
+      color: var(--ink);
+      margin-right: 6px;
+    }
+
+    .audience-list li .role {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .audience-list li .deliverable {
+      color: var(--muted);
+      margin-left: 4px;
+    }
+
+    /* Sections */
+    h2 {
+      font-size: 14pt;
+      font-weight: 700;
+      margin: 7mm 0 3mm;
+      display: flex;
+      align-items: center;
+      color: var(--ink);
+      letter-spacing: -.01em;
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 4px;
+    }
+
+    h3 {
+      font-size: 11pt;
+      font-weight: 700;
+      color: var(--ink);
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 2px;
+      margin: 6mm 0 2mm;
+    }
+
+    p {
+      margin: 0 0 2mm;
+      color: var(--body-text);
+    }
+
+    .lead {
+      font-size: 10.5pt;
+      color: #334155;
+      line-height: 1.6;
+    }
+
+    /* Questions bullet list */
+    .questions {
+      list-style: none;
+      padding: 0;
+      margin: 3mm 0 3mm 4mm;
+    }
+
+    .questions li {
+      position: relative;
+      padding: 1.5mm 0 1.5mm 10mm;
+      font-size: 11pt;
+      color: var(--ink);
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .questions li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .answer {
+      margin: 3mm 0 4mm 4mm;
+      padding-left: 10mm;
+      font-size: 10.5pt;
+      color: #334155;
+      line-height: 1.6;
+      border-left: 2px solid var(--line);
+    }
+
+    .note {
+      font-size: 9.5pt;
+      color: var(--muted);
+      border-left: 3px solid var(--accent);
+      padding: 1.5mm 0 1.5mm 4mm;
+      margin: 4mm 0;
+      background: var(--accent-soft);
+      line-height: 1.5;
+    }
+
+    /* Dashboard Link Block */
+    .link-block {
+      margin-top: 8mm;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 4mm 5mm;
+      background: linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 100%);
+      box-shadow: inset 0 1px 0 #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .link-block .k {
+      font-size: 8pt;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .link-block .v {
+      font-size: 10pt;
+      font-weight: 600;
+    }
+
+    .link-block a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .link-block a:hover {
+      text-decoration: underline;
+    }
+
+    .footer {
+      margin-top: 10mm;
+      font-size: 8pt;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid var(--line);
+      padding-top: 3mm;
+      font-weight: 400;
+    }
+
+    /* Cover Page */
+    .cover-page {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .cover-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-bottom: 20mm;
+    }
+
+    .cover-logo {
+      max-width: 220px;
+      margin-bottom: 12mm;
+    }
+
+    .cover-eyebrow {
+      font-size: 11pt;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8mm;
+      font-weight: 600;
+    }
+
+    .cover-title {
+      font-size: 32pt;
+      font-weight: 800;
+      color: var(--ink);
+      line-height: 1.1;
+      margin-bottom: 6mm;
+      letter-spacing: -0.02em;
+    }
+
+    .cover-subtitle {
+      font-size: 14pt;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .cover-footer {
+      position: absolute;
+      bottom: 20mm;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      font-size: 10pt;
+      color: var(--muted);
+    }
+
+    .cover-author {
+      font-weight: 600;
+      color: var(--ink);
+      font-size: 11pt;
+      margin-bottom: 1mm;
+    }
+
+    .cover-email {
+      font-size: 11pt;
+      color: var(--muted);
+    }
+
+    .closing-page {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .closing-logo {
+      max-width: 300px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============ COVER PAGE ============ -->
+  <div class="page cover-page">
+    <div class="cover-content">
+      <img class="cover-logo"
+        src="data:image/png;base64,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"
+        alt="Linemate Logo">
+      <div class="cover-title">Analytical Rationale</div>
+      <div class="cover-subtitle">Area Manager Dashboard &amp; VP Operations Weekly Brief</div>
+    </div>
+    <div class="cover-footer">
+      <div class="cover-author">Anuj Chaudhary</div>
+      <div class="cover-email">beinganujchaudhary@gmail.com</div>
+    </div>
+  </div>
+
+  <!-- ============ PAGE 1 ============ -->
+  <div class="page">
+    <div class="eyebrow">
+      <div><span class="dot"></span>LINEMATE · ANALYTICAL RATIONALE</div>
+      <div>August 2026</div>
+    </div>
+
+    <h1>Analytical Rationale</h1>
+    <p class="subtitle">Spice Route Kitchens — Area Manager Dashboard &amp; VP Operations Weekly Brief</p>
+
+    <div class="rule"></div>
+
+    <!-- Audience as bullet list -->
+    <ul class="audience-list">
+      <li>
+        <span class="role">Area Managers</span>
+        <span class="deliverable">— <a
+            href="https://datastudio.google.com/reporting/28637db5-db08-487f-9dd1-27230863bb20" target="_blank">Live
+            Dashboard</a></span>
+      </li>
+      <li>
+        <span class="role">VP Operations</span>
+        <span class="deliverable">— <a href="VP_Report.html">Weekly Brief</a></span>
+      </li>
+    </ul>
+
+    <div class="rule"></div>
+
+    <h2>1. Priorities and exclusions</h2>
+    <p class="lead">
+      For <strong>Area Managers</strong>, I prioritised three operational questions: <strong>Did scheduled work occur?
+        Where are unresolved operational issues concentrated? Which outlets require intervention?</strong>
+    </p>
+    <div class="answer">
+      The dashboard therefore combines scheduled-work completion, compliance, ticket backlog and outlet-level
+      prioritisation, with drill-down capability for investigation.
+    </div>
+
+    <p>
+      I deliberately <strong>excluded ad-hoc forms</strong> (Kitchen Equipment Audit, Store Issue Report)
+      from completion-rate KPIs. The brief states these have no fixed schedule, so treating
+      non-submission as failure would misrepresent execution quality.
+    </p>
+    <p>
+      For <strong>leadership</strong>, I focused on recurring outlet underperformance, ageing ticket backlog
+      and issue patterns — not individual staff metrics or unsupported causal claims. The report is
+      designed to prioritise management action rather than provide a descriptive status summary.
+    </p>
+
+    <h2>2. Dashboard tool selection</h2>
+    <p class="lead">
+      <strong>Why Looker Studio rather than a static report?</strong><br>
+      Area Managers require daily monitoring and outlet-level drill-down, which a static PDF cannot provide efficiently.
+      Looker Studio provides a shareable interactive presentation layer, date and outlet controls, and drill-down
+      visibility — without requiring a paid dashboard platform or additional infrastructure.
+    </p>
+    <div class="note">
+      Design principle: the dashboard is for <strong>daily monitoring and investigation</strong>;
+      the recurring report is for <strong>weekly synthesis, escalation and leadership decisions</strong>.
+    </div>
+
+    <div class="footer">
+      <div>Spice Route Kitchens · Linemate Analytics</div>
+      <div>Analytical Rationale · Page 1 of 2</div>
+    </div>
+  </div>
+
+  <!-- ============ PAGE 2 ============ -->
+  <div class="page">
+    <div class="eyebrow">
+      <div><span class="dot"></span>LINEMATE · ANALYTICAL RATIONALE</div>
+      <div>August 2026</div>
+    </div>
+
+    <h2>3. Recurring report cadence, format and channel</h2>
+    <h3>3.1 Why a weekly VP report?</h3>
+    <p class="lead">
+      A weekly cadence balances operational signal with leadership attention: daily reporting would create unnecessary
+      noise, while monthly reporting would delay intervention.
+    </p>
+
+    <h3>3.2 Why Monday morning?</h3>
+    <p>
+      Monday provides a clean prior-week signal before the new week's operating decisions are locked in.
+    </p>
+
+    <h3>3.3 Why PDF/email?</h3>
+    <p>
+      PDF provides a stable, forwardable record while email fits the existing leadership communication workflow. The
+      email delivers the executive scan; the PDF preserves supporting evidence for investigation. The live dashboard
+      remains the operational source for interactive drill-down.
+    </p>
+
+    <h2>4. Design &amp; Theming</h2>
+    <p>
+      The visual theme and typography of these reports take direct inspiration from the Linemate website and the
+      original Task 1 brief document. This includes the use of the signature coral-orange accent color, the clean
+      sans-serif typography, and a subtle grid background to seamlessly align the analytical deliverables with
+      Linemate's core brand identity.
+    </p>
+
+    <div class="link-block">
+      <div>
+        <div class="k">Live Interactive Dashboard</div>
+        <div class="v"><a href="https://datastudio.google.com/reporting/28637db5-db08-487f-9dd1-27230863bb20"
+            target="_blank" style="font-weight: 700;">Open Area Manager Dashboard &rarr;</a></div>
+      </div>
+      <div style="text-align:right; font-size:8.5pt; color:var(--muted); line-height:1.4">
+        Click to view live report<br />for interactive drill-down
+      </div>
+    </div>
+
+    <div class="footer">
+      <div>Spice Route Kitchens · Linemate Analytics</div>
+      <div>Analytical Rationale · Page 2 of 2</div>
+    </div>
+  </div>
+
+  <div class="page closing-page">
+    <img class="closing-logo"
+      src="data:image/png;base64,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"
+      alt="Linemate Logo">
+  </div>
+
+</body>
+
+</html>
