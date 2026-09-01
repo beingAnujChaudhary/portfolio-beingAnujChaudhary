@@ -18,6 +18,7 @@ The primary goal of this project is to address key operational questions for Spi
 
 You can access the live Area Manager Dashboard here:
 **[Open Area Manager Dashboard &rarr;](https://datastudio.google.com/reporting/28637db5-db08-487f-9dd1-27230863bb20)**
+![Area Manager Dashboard](screenshots/dashboard.png)
 
 ## Reports
 
@@ -27,20 +28,6 @@ You can access the live Area Manager Dashboard here:
     *   [Analytical Rationale Document (PDF)](Analytical%20Rationale.pdf)
 *   **Task Brief:**
     *   [Task 1 Brief (DOCX)](Task%201%20Brief.docx)
-
-## Screenshots
-
-### 1. Area Manager Dashboard (Looker Studio)
-*(Place your dashboard screenshot here)*
-![Area Manager Dashboard](screenshots/dashboard.png)
-
-### 2. VP Operations Weekly Brief
-*(Place your weekly brief screenshot here)*
-![VP Operations Weekly Brief](screenshots/vp_report.png)
-
-### 3. Analytical Rationale Document
-*(Place your rationale document screenshot here)*
-![Analytical Rationale](screenshots/rationale.png)
 
 ## Data Sources
 
