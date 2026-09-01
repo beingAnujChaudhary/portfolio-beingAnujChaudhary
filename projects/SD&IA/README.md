@@ -21,13 +21,12 @@ You can access the live Area Manager Dashboard here:
 
 ## Reports
 
-*   **VP Operations Weekly Briefs:**
-    *   [3-9 August Spice Route Kitchens (PDF)](3-9%20%20August%20Spice_Route_Kitchens.pdf)
-    *   [10-16 August Spice Route Kitchens (PDF)](10-16%20August%20Spice_Route_Kitchens.pdf)
+*   **VP Operations Weekly Brief:**
+    *   [VP Operations Weekly Brief (PDF)](VP%20Operations%20Weekly%20Brief.pdf)
 *   **Analytical Rationale:**
-    *   [Rationale Document (HTML)](Rationale.html) | [(PDF)](Rationale.pdf)
-*   **VP Report Document:**
-    *   [VP Report (HTML)](VP_Report.html) | [(PDF)](VP_Report.pdf)
+    *   [Analytical Rationale Document (PDF)](Analytical%20Rationale.pdf)
+*   **Task Brief:**
+    *   [Task 1 Brief (DOCX)](Task%201%20Brief.docx)
 
 ## Screenshots
 
@@ -45,13 +44,7 @@ You can access the live Area Manager Dashboard here:
 
 ## Data Sources
 
-The analysis is powered by the following datasets included in the `Data/` directory:
-*   `form.csv` & `form_details.csv`
-*   `form_submissions.csv` & `submission_master.csv`
-*   `outlets.csv`
-*   `tickets.csv` & `ticket_master.csv`
-*   `users.csv`
-*   `calendar_completion.csv`
+The analysis is powered by the datasets included in the `data/` and `modified data/` directories.
 
 ## Design & Theming
 

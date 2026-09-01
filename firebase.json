@@ -1,11 +1,13 @@
 {
   "hosting": {
-    "site": "anujchaudhary",
+    "site": "beinganujchaudhary",
     "public": ".",
     "ignore": [
       "firebase.json",
       "**/.*",
-      "**/node_modules/**"
+      "**/node_modules/**",
+      "**/*.log",
+      ".git/**"
     ],
     "rewrites": [
       {
