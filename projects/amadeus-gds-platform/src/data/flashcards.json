@@ -1,0 +1,656 @@
+[
+  {
+    "id": 1,
+    "category": "Basics",
+    "front": "Country encode/decode",
+    "back": "DC INDIA / DC DE"
+  },
+  {
+    "id": 2,
+    "category": "Basics",
+    "front": "Airline encode/decode",
+    "back": "DNA INDIGO / DNA 001"
+  },
+  {
+    "id": 3,
+    "category": "Basics",
+    "front": "City/airport encode",
+    "back": "DAN DELHI"
+  },
+  {
+    "id": 4,
+    "category": "Basics",
+    "front": "City/airport decode",
+    "back": "DAC BOM / DAC DXB"
+  },
+  {
+    "id": 5,
+    "category": "Time & Currency",
+    "front": "City time / time conversion",
+    "back": "DDNYC / DDDXB1200/BOM"
+  },
+  {
+    "id": 6,
+    "category": "Time & Currency",
+    "front": "Calculator",
+    "back": "DF500;230 / DF800/5"
+  },
+  {
+    "id": 7,
+    "category": "Time & Currency",
+    "front": "Currency conversion",
+    "back": "FCC100000AED/INR"
+  },
+  {
+    "id": 8,
+    "category": "Sign In",
+    "front": "Sign in one work area",
+    "back": "JI0001AA/SU"
+  },
+  {
+    "id": 9,
+    "category": "Sign In",
+    "front": "Sign in all work areas",
+    "back": "JI*0001AA/SU"
+  },
+  {
+    "id": 10,
+    "category": "Sign In",
+    "front": "Jump to C",
+    "back": "JXC"
+  },
+  {
+    "id": 11,
+    "category": "Sign In",
+    "front": "Jump to B",
+    "back": "JMB"
+  },
+  {
+    "id": 12,
+    "category": "Sign In",
+    "front": "Jump display",
+    "back": "JD"
+  },
+  {
+    "id": 13,
+    "category": "Sign In",
+    "front": "Redisplay sign message",
+    "back": "JB"
+  },
+  {
+    "id": 14,
+    "category": "Sign In",
+    "front": "Sign out",
+    "back": "JO / JO* / JOB"
+  },
+  {
+    "id": 15,
+    "category": "Information",
+    "front": "AIS main menu",
+    "back": "GG AIS"
+  },
+  {
+    "id": 16,
+    "category": "Information",
+    "front": "Airline info",
+    "back": "GG AIR UL"
+  },
+  {
+    "id": 17,
+    "category": "Information",
+    "front": "Country info",
+    "back": "GG COU FR"
+  },
+  {
+    "id": 18,
+    "category": "Information",
+    "front": "Airport info",
+    "back": "GG APT NRT"
+  },
+  {
+    "id": 19,
+    "category": "Information",
+    "front": "Weather",
+    "back": "GG WEA LAX"
+  },
+  {
+    "id": 20,
+    "category": "Help",
+    "front": "Help",
+    "back": "HE / HE A / HE NM / HE STEPS"
+  },
+  {
+    "id": 21,
+    "category": "Help",
+    "front": "Last transaction help",
+    "back": "HE/"
+  },
+  {
+    "id": 22,
+    "category": "Timatic",
+    "front": "Timatic visa",
+    "back": "TIFV"
+  },
+  {
+    "id": 23,
+    "category": "Timatic",
+    "front": "Timatic health",
+    "back": "TIFH"
+  },
+  {
+    "id": 24,
+    "category": "Timatic",
+    "front": "Timatic visa+health",
+    "back": "TIFA"
+  },
+  {
+    "id": 25,
+    "category": "Availability",
+    "front": "Availability",
+    "back": "AN01MARDOHDXB"
+  },
+  {
+    "id": 26,
+    "category": "Availability",
+    "front": "Availability by time",
+    "back": "AN01MARDOHDXB1200"
+  },
+  {
+    "id": 27,
+    "category": "Availability",
+    "front": "Airline filter",
+    "back": "AN01MARDOHDXB/AEK"
+  },
+  {
+    "id": 28,
+    "category": "Availability",
+    "front": "Via connection",
+    "back": "AN01MARDOHDXB/XAUH"
+  },
+  {
+    "id": 29,
+    "category": "Availability",
+    "front": "Class filter",
+    "back": "AN01MARDOHDXB/CV"
+  },
+  {
+    "id": 30,
+    "category": "Availability",
+    "front": "Inbound/outbound",
+    "back": "AN12MARDOHDXB*15MAR"
+  },
+  {
+    "id": 31,
+    "category": "Availability",
+    "front": "Close/bookable schedule display",
+    "back": "SN01MARDOHDXB"
+  },
+  {
+    "id": 32,
+    "category": "Selling",
+    "front": "Segment sell",
+    "back": "SS2V4 / SS2JF3"
+  },
+  {
+    "id": 33,
+    "category": "Selling",
+    "front": "Long sell",
+    "back": "SSQR001B15MARDOHLHRNN2"
+  },
+  {
+    "id": 34,
+    "category": "Selling",
+    "front": "Open segment",
+    "back": "SO QR B LHRDOH"
+  },
+  {
+    "id": 35,
+    "category": "Selling",
+    "front": "Surface/ARNK",
+    "back": "SIARNK"
+  },
+  {
+    "id": 36,
+    "category": "PNR",
+    "front": "Name",
+    "back": "NM1HUSSAIN/ALI MR"
+  },
+  {
+    "id": 37,
+    "category": "PNR",
+    "front": "Phone",
+    "back": "AP DOH 4667579"
+  },
+  {
+    "id": 38,
+    "category": "PNR",
+    "front": "Email",
+    "back": "APE-ABC@ABC.COM / APIABC@EXAMPLE.COM"
+  },
+  {
+    "id": 39,
+    "category": "PNR",
+    "front": "Ticketing OK",
+    "back": "TKOK"
+  },
+  {
+    "id": 40,
+    "category": "PNR",
+    "front": "Specific time limit",
+    "back": "TKTL12MAR/1200"
+  },
+  {
+    "id": 41,
+    "category": "PNR",
+    "front": "Auto cancellation",
+    "back": "TKXL12MAR/1200"
+  },
+  {
+    "id": 42,
+    "category": "PNR",
+    "front": "Received From",
+    "back": "RFP / RF ALI"
+  },
+  {
+    "id": 43,
+    "category": "PNR",
+    "front": "End transaction",
+    "back": "ET"
+  },
+  {
+    "id": 44,
+    "category": "PNR",
+    "front": "End + redisplay",
+    "back": "ER"
+  },
+  {
+    "id": 45,
+    "category": "Retrieval",
+    "front": "Retrieve PNR",
+    "back": "RTXXXXXX / RT/AHMED / RT4"
+  },
+  {
+    "id": 46,
+    "category": "Retrieval",
+    "front": "Other-airline PNR",
+    "back": "RL"
+  },
+  {
+    "id": 47,
+    "category": "Retrieval",
+    "front": "List PNRs",
+    "back": "LM/QR001/12MAR/DOHLHR"
+  },
+  {
+    "id": 48,
+    "category": "PNR",
+    "front": "Frequent flyer",
+    "back": "FFNQR-1111111111/P2"
+  },
+  {
+    "id": 49,
+    "category": "PNR",
+    "front": "Manual FF",
+    "back": "SRFQTVEK-EK111111111/P3"
+  },
+  {
+    "id": 50,
+    "category": "Seats",
+    "front": "Seat map",
+    "back": "SM3"
+  },
+  {
+    "id": 51,
+    "category": "Seats",
+    "front": "Seat request",
+    "back": "ST/R/20K / ST/A/S4"
+  },
+  {
+    "id": 52,
+    "category": "Services",
+    "front": "OSI",
+    "back": "OS EK PAX IS VIP"
+  },
+  {
+    "id": 53,
+    "category": "Services",
+    "front": "SSR",
+    "back": "SR VGML / SR VGML LH/P2"
+  },
+  {
+    "id": 54,
+    "category": "Modify",
+    "front": "Cancel segment",
+    "back": "XE4"
+  },
+  {
+    "id": 55,
+    "category": "Modify",
+    "front": "Cancel itinerary",
+    "back": "XI"
+  },
+  {
+    "id": 56,
+    "category": "Modify",
+    "front": "Change class/date",
+    "back": "SBJ / SBJ4 / SB30MAR3"
+  },
+  {
+    "id": 57,
+    "category": "History",
+    "front": "PNR history",
+    "back": "RH / RHS4 / RLH"
+  },
+  {
+    "id": 58,
+    "category": "PNR",
+    "front": "General remark",
+    "back": "RM PLEASE CONFIRM SEGMENT 4"
+  },
+  {
+    "id": 59,
+    "category": "PNR",
+    "front": "Confidential remark",
+    "back": "RC CHARGE EXTRA QAR400"
+  },
+  {
+    "id": 60,
+    "category": "Utilities",
+    "front": "Print",
+    "back": "WRS/RT / WRA/RT"
+  },
+  {
+    "id": 61,
+    "category": "Queues",
+    "front": "Queue reminder",
+    "back": "OP12MAR/FREE TEXT"
+  },
+  {
+    "id": 62,
+    "category": "Queues",
+    "front": "Queue bank",
+    "back": "QT"
+  },
+  {
+    "id": 63,
+    "category": "Queues",
+    "front": "Queue detail",
+    "back": "QS2C30D1"
+  },
+  {
+    "id": 64,
+    "category": "Queues",
+    "front": "Ignore, remain in queue",
+    "back": "QI"
+  },
+  {
+    "id": 65,
+    "category": "Queues",
+    "front": "Remove from queue",
+    "back": "QN"
+  },
+  {
+    "id": 66,
+    "category": "Queues",
+    "front": "Delay and retrieve next",
+    "back": "QD"
+  },
+  {
+    "id": 67,
+    "category": "Queues",
+    "front": "Place on queue",
+    "back": "QE30"
+  },
+  {
+    "id": 68,
+    "category": "Split",
+    "front": "Split PNR",
+    "back": "SP3"
+  },
+  {
+    "id": 69,
+    "category": "Split",
+    "front": "Finalize split",
+    "back": "EF"
+  },
+  {
+    "id": 70,
+    "category": "Ticketing",
+    "front": "Manual ticket number",
+    "back": "FHA / FHM / FHE"
+  },
+  {
+    "id": 71,
+    "category": "Pricing",
+    "front": "Check fare in booked class",
+    "back": "FX"
+  },
+  {
+    "id": 72,
+    "category": "Pricing",
+    "front": "Save booked-class fare",
+    "back": "FXP"
+  },
+  {
+    "id": 73,
+    "category": "Pricing",
+    "front": "Check lowest fare",
+    "back": "FXR"
+  },
+  {
+    "id": 74,
+    "category": "Pricing",
+    "front": "Save lowest fare",
+    "back": "FXB"
+  },
+  {
+    "id": 75,
+    "category": "Pricing",
+    "front": "Check lowest fare within cabin",
+    "back": "FXR/K"
+  },
+  {
+    "id": 76,
+    "category": "Pricing",
+    "front": "Save lowest fare within cabin",
+    "back": "FXB/K"
+  },
+  {
+    "id": 77,
+    "category": "Pricing",
+    "front": "Display TST",
+    "back": "TQT"
+  },
+  {
+    "id": 78,
+    "category": "Pricing",
+    "front": "Ticket transaction history",
+    "back": "TTH"
+  },
+  {
+    "id": 79,
+    "category": "Pricing",
+    "front": "Display fare elements",
+    "back": "RTF"
+  },
+  {
+    "id": 80,
+    "category": "Ticketing",
+    "front": "Endorsement",
+    "back": "FE"
+  },
+  {
+    "id": 81,
+    "category": "Ticketing",
+    "front": "Commission",
+    "back": "FM"
+  },
+  {
+    "id": 82,
+    "category": "Ticketing",
+    "front": "Form of payment",
+    "back": "FP CASH"
+  },
+  {
+    "id": 83,
+    "category": "Ticketing",
+    "front": "Validating carrier",
+    "back": "FV"
+  },
+  {
+    "id": 84,
+    "category": "Ticketing",
+    "front": "Issue ticket",
+    "back": "TTP / TT"
+  },
+  {
+    "id": 85,
+    "category": "Ticketing",
+    "front": "Verify after ticketing",
+    "back": "RTA"
+  },
+  {
+    "id": 86,
+    "category": "Master Pricer",
+    "front": "Fare for booked flight",
+    "back": "FXA"
+  },
+  {
+    "id": 87,
+    "category": "Master Pricer",
+    "front": "Route-wide lowest fare + alternatives",
+    "back": "FXD"
+  },
+  {
+    "id": 88,
+    "category": "Master Pricer",
+    "front": "Book FXD option 3",
+    "back": "FXZ3"
+  },
+  {
+    "id": 89,
+    "category": "Master Pricer",
+    "front": "Book option + TST",
+    "back": "FXU3"
+  },
+  {
+    "id": 90,
+    "category": "Exchange",
+    "front": "Automated Ticket Changer",
+    "back": "ATC"
+  },
+  {
+    "id": 91,
+    "category": "Exchange",
+    "front": "Accept minor schedule change",
+    "back": "ERK"
+  },
+  {
+    "id": 92,
+    "category": "Exchange",
+    "front": "Involuntary exchange",
+    "back": "FXI"
+  },
+  {
+    "id": 93,
+    "category": "Void",
+    "front": "Void",
+    "back": "TRDC L8 / TRDC/TK…"
+  },
+  {
+    "id": 94,
+    "category": "Ticketing",
+    "front": "Ticket image",
+    "back": "TWD L8 / TWD/L8"
+  },
+  {
+    "id": 95,
+    "category": "Ticketing",
+    "front": "Old ticket details",
+    "back": "TWD O*"
+  },
+  {
+    "id": 96,
+    "category": "Exchange",
+    "front": "Finalize exchange",
+    "back": "TTPE T8"
+  },
+  {
+    "id": 97,
+    "category": "Concept",
+    "front": "Encode means",
+    "back": "You know the name and want the code."
+  },
+  {
+    "id": 98,
+    "category": "Concept",
+    "front": "Decode means",
+    "back": "You know the code and want the name."
+  },
+  {
+    "id": 99,
+    "category": "Concept",
+    "front": "PRINT",
+    "back": "Phone • Received From • Itinerary • Name • Ticketing/time limit."
+  },
+  {
+    "id": 100,
+    "category": "Concept",
+    "front": "ARNK",
+    "back": "Arrival Unknown / Arrival Not Known; SIARNK in the supplied guide/transcript."
+  },
+  {
+    "id": 101,
+    "category": "Pricing",
+    "front": "FXB vs FXD",
+    "back": "FXB prices the already-booked flights; FXD displays route-wide alternatives in Session 26."
+  },
+  {
+    "id": 102,
+    "category": "Pricing",
+    "front": "FXR vs FXB",
+    "back": "FXR checks; FXB saves."
+  },
+  {
+    "id": 103,
+    "category": "Pricing",
+    "front": "FXR/K vs FXB/K",
+    "back": "Check lowest fare within cabin vs save it."
+  },
+  {
+    "id": 104,
+    "category": "Services",
+    "front": "OSI vs SSR",
+    "back": "OSI conveys information; SSR requests a service/action."
+  },
+  {
+    "id": 105,
+    "category": "Ticketing",
+    "front": "Session 6 fare elements",
+    "back": "FE endorsement, FM commission, FP payment, FV validating carrier."
+  },
+  {
+    "id": 106,
+    "category": "Split",
+    "front": "Split workflow",
+    "back": "SP → RF → EF; retrieve the resulting PNR as taught in the supplied transcript."
+  },
+  {
+    "id": 107,
+    "category": "Void",
+    "front": "Void by line",
+    "back": "TRDC L[line]."
+  },
+  {
+    "id": 108,
+    "category": "Void",
+    "front": "Void by ticket",
+    "back": "TRDC/TK[ticket number]."
+  },
+  {
+    "id": 109,
+    "category": "Exchange",
+    "front": "Involuntary exchange",
+    "back": "FXI; supplied Session 28 also uses ERK, OS, TQT and TTPE in the workflow."
+  }
+]

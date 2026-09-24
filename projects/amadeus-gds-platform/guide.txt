@@ -1,0 +1,195 @@
+Welcome to Amadeus  
+Basic Reservation Guide 
+ 
+ 
+ 
+Sign-In & Sign-Out  
+Sign-in first available area: JI 0001AA/ SU  
+Sign-in All areas: JI *0001AA/ SU  
+Sign-in with password together: JI 0001AA/ SU -Password  
+Sign-out from first available area: JO  
+Sign-in out from all areas: JO * 
+ 
+Availability Display  
+Available class to book or waitlist: AN 01MARDOHDXB    
+Availability for Specified time: AN 01MARDOHDXB 1200  
+Availability for specified Airline: AN 01MARDOHDXB/ AEK  
+Availability for specified via connection: AN 01MARDOHDXB/ XAUH  
+Availability for specified Class: AN 01MARDOHDXB/ CV 
+Combination: AN 01MARDOHDXB 1200 /XAUH /AGF /CM 
+Availability for In-bound and Out-bound: AN 12MARDOHDXB *15MAR    
+Availability Display for Close or Book able: SN 01MARDOHDXB  
+ 
+Name Elements - NM  
+Single Adult Passenger Name: NM1 HUSSAIN/ALI MR  
+Same family Name for 2 Adults: NM2 HUSSAIN/ALI MR/M MRS 
+More than on Name enter together: NM1 HUSSAIN/A 
+MR ;NM1 SYED/ALI MR  
+Child passenger: NM1 HUSSAIN/NASEER MSTR (CHD)  
+Infant Same family Name as Adult: NM1 HUSSAIN/M 
+MRS (INF/NABIL)  
+Infant with Different family name: NM1 HUSSAIN/M 
+MRS (INF ALEMADI /ALI)  
+Remove Child Title from Passenger 2: 2/ (Type Enter) 
+Add Child Title to passenger 3: 3/(CHD)  (Type Enter) 
+Remove Infant from passenger 4: 4/ (Type Enter) 
+Add Infant to passenger 5: 5/(INF/ALI)  
+Update 2 nd  Name of passenger 6: 6/MARIYUM MRS  
+Segment Sell - SS    
+Sell 2 seats in V-cls on line 4 of Availability: SS 2V4 
+Sell 2 seats in J-cls leg 1 and F-cls leg 2 of line 3: SS 2JF 3 
+Long sell : SS QR001B15MARDOHLHR NN2  
+Sell In-bound and Out-bound Display : SS 2V1*V13 
+Dead Segment as OK Status for Issue Tickets: 
+SS QR001B15MARDOHLHR GK2 /QR   
+Dead Segment as WL Status for Issue Tickets  
+SS QR001B15MARDOHLHR GL2 /QR   
+Open Segment for Ticket Issuance: SO  QR B LHRDOH 
+Surface Segment: SI ARNK  
+ 
+Phone Field - AP  
+ Phone Number Field: AP  4667579 
+Phone Number Field for specific Location: AP  DOH  4667579  
+Enter your office Number: AP  (Type Enter) 
+E-mal Address: APE -abc@abc.com  
+ 
+Ticket Arrangement – TK  
+No Time limit : TK OK 
+Specific Time Limit with Date and Time : TK TL 12MAR /1200  
+Auto Cancellation on Specific Date and Time: TK XL 12MAR /1200  
+ 
+Received From Field - RF  
+Modification asked by Passenger: RF  PAX  or RF  P  
+Modification by Agent : RF  ALI  
+Modification by Mr. Al-Emadi: RF  MR ALEMADI  
+ 
+End Transaction – ET / ER  
+End the File and close the PNR : ET  
+End the File and Redisplay PNR: ER  
+ 
+Retrieve PNR - RT     
+Retrieve PNR Number: RT XXXXXX  
+Retrieve By Name: RT /AHMED  
+Retrieve By Alphabet: RT /A 
+Retrieve PNR on line 4 of the List: RT 4 
+Retrieve Other Airline PNR: RL  
+ 
+Display PNR List Booked Specific office – LM  
+Specific flight Number and Date: LM /QR001/12MAR/ DOHLHR  
+Retrieve or Display PNR ON Line 5 of the List: LM 5 
+ 
+Frequent Flyer Number - FFN   
+Enter Frequent Flyer Number Automated: FFN QR -1111111111 
+Enter Frequent Flyer Number Automated for specific PAX2:  
+FFN QR -1111111111/ P2  
+Manual Entry for Frequent Flyer: SR FQTV EK -EK 111111111  
+Manual Entry for Frequent Flyer for PAX 3 :  
+SR FQTV EK -EK 111111111/ P3  
+ 
+Seat Selection - ST  
+Display Seat Map for Segment Number 3: SM 3 
+Request specific seat Number: ST /R/20K  
+Request specific seat  Number for PAX 4: ST /R/20K/ P4  
+Request specific seat for specific segment 4: ST /R/20K/ S4  
+Generic Smoking Seat: ST /S 
+Generic Non-Smoking: ST 
+ 
+Seat Selection - ST  
+Generic Non-Smoking Window for Passenger #2: ST /W/P2   
+Generic Non-Smoking Aisle for Segment # 4: ST /A/S4  
+Generic Non-Smoking Bulk Head for Segment # 5 and PAX # 3: 
+ST /B/S5 /P3  
+ 
+Other Services Information - OS  
+Information for specific carrier: OS  EK  PAX IS VIP 
+Information for All carriers: OS  YY  PAX IS VIP 
+ 
+Services Required - SR  
+ Specific Meal request for All Carriers and Segments: SR  VGML  
+Specific Meal request for Specific carrier and Passenger : SR  VGML 
+LH /P2  
+Specific Meal request for Specific carrier and Segment : SR  VGML 
+LH /S4 
+Passport Information :SR  PSPT  EK HK1-A123456 -PK -04FEB67 -
+MINHAS/ZAFARMR -M-H/P1 
+                                        SR  PSPT  EK HK1-A123456 -PK -04FEB67 -
+MINHAS/AMRS -F-H/P2  
+                                         SR  PSPT  EK HK1-A123456 -PK -04FEB67 -
+MINHAS/TALAL -MI/ P2 
+                                      SR  PSPT  EK HK1-A123456 -PK -04FEB67 -
+MINHAS/HALA -FI/ P2  
+ 
+ 
+Cancellation – XE / XI  
+Specific Segment cancel: XE 4 
+Cancel Itinerary: XI 
+ 
+Change Booking Class – SB  
+Chang booking class from B-cls to J-cls All segments: SB J 
+Chang booking class from B-cls to J-cls Specific segment # 4: SB J4 
+Change booking date for Specific segment # 3: SB 30MAR 3 
+   
+Retrieve History - RH   
+Retrieve History: RH  
+Retrieve History for specific Segment # 4: RH S4  
+Retrieve History for other Airline PNR: RLH  
+ 
+Remarks – RM / RC  
+General Remark only View by Amadeus Airline Users: RM  please 
+confirm segment 4   
+Confidential Remarks View by Your office: RC  charge extra 
+QAR400.00   
+ 
+Print – WRS / WRA  
+Print screen only on default printer: WRS /RT  
+Print All on default printer: WRA /RT  
+ 
+Option – OP  
+ To remind you in Queue # 3 for Action : OP 12MAR/ free Text  
+ 
+Queue – QT / QS / QE / QI / QN / QD  
+Display Queue Bank : QT 
+Display specific Queue 2, Category (C )30, and Date Range(D) 1: 
+QS 2C30 D1 
+Ignore Queue and PNR still in Queue: QI 
+Remove from Queue: QN  
+Delay PNR in Queue and Retrieve next Queue: QD  
+To place Queue on Queue 30: QE 30    
+Step for Split PNR – SP  
+Split passenger # 3: SP 3 
+Received from: RF  P  
+File Split PNR: EF  
+Received Again : RF  P  
+End Transaction: ET  or ER    
+Manual Ticket Number – FH  
+Basic Entry for Automated Issued Ticket : FHA  157-9196789012 
+Basic Entry for Manual Issued Ticket : FHM  157-2124564781 
+Basic Entry for Electronic Issued Ticket : FHE  157-9196789012 
+Automated Issued Ticket For Infant: FHA  INF  157-9196789012 
+Automated Issued Ticket For Non Infant: FHA  PAX  157-9196789012 
+Automated Issued Ticket For Specific Passenger: FHA  PAX  157-
+9196789012/ P2  
+Automated Issued Ticket as Conjunction: FHA  PAX  157-
+9196789012-013  
+ 
+ 
+For Fareast Domestic Airlines also passed Ticket 
+Numbers in TKNA field:  
+ 
+SROTHS GA - TKNA   126-4401123456 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

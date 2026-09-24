@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "title": "Build a PNR",
+    "description": "Use PRINT: Itinerary, Name, Phone/contact, Ticketing, Received From.",
+    "workflow": "AN → SS → NM → AP/APE → TKOK/TKTL → RF; then end as required."
+  },
+  {
+    "id": 2,
+    "title": "Price a booked itinerary",
+    "description": "Customer keeps the selected flights but wants the lowest fare available for those flights.",
+    "workflow": "Use FXR to check and FXB to save the lowest fare; FX/FXP are the booked-class family in the supplied Session 5 transcript."
+  },
+  {
+    "id": 3,
+    "title": "Find market alternatives",
+    "description": "Customer is flexible about airline and wants route-wide options.",
+    "workflow": "Use FXD; Session 26 distinguishes FXD from FXB because FXD displays alternatives for the route."
+  },
+  {
+    "id": 4,
+    "title": "Surface gap",
+    "description": "Passenger arrives in Mumbai and later departs Delhi.",
+    "workflow": "Use SIARNK so the itinerary records the surface gap."
+  },
+  {
+    "id": 5,
+    "title": "Split passengers",
+    "description": "One passenger in a shared PNR needs a different itinerary.",
+    "workflow": "Use SP with the passenger selection, RF/EF to finalize as taught, retrieve the resulting PNR, then modify it."
+  },
+  {
+    "id": 6,
+    "title": "Void",
+    "description": "A ticket must be voided within the applicable market window.",
+    "workflow": "Check ticket image with TWD, then use TRDC L[line] or TRDC/TK[ticket number] according to the supplied Session 27 workflow."
+  },
+  {
+    "id": 7,
+    "title": "Involuntary exchange",
+    "description": "Airline changed a flight and supplied a waiver.",
+    "workflow": "The supplied Session 28 workflow uses ERK for TK→HK, FXI, endorsement/waiver handling, OS, TQT, TTPE and TWD verification."
+  },
+  {
+    "id": 8,
+    "title": "Name correction",
+    "description": "Passenger name is incorrect.",
+    "workflow": "The transcript emphasizes airline authorization/rules before name modification. Use HE NM for name-element help and follow the authorized airline-specific procedure."
+  },
+  {
+    "id": 9,
+    "title": "Manual exchange",
+    "description": "ATC cannot handle a case and a penalty is collected separately.",
+    "workflow": "The manual-exchange sessions require checking fare rules, original ticket data and calculating the exchange manually; use the exact source workflow rather than inventing a production format."
+  },
+  {
+    "id": 10,
+    "title": "Queue",
+    "description": "Agent wants to ignore the current queue item but leave it in the queue.",
+    "workflow": "Use QI. QD is the delay-and-retrieve-next workflow."
+  },
+  {
+    "id": 11,
+    "title": "Ticket issue",
+    "description": "PNR is priced and ticketing elements are present.",
+    "workflow": "Review fare/TST elements as required, ensure FP/FE/FM/FV requirements are satisfied, then use TTP in the supplied Session 6 workflow."
+  },
+  {
+    "id": 12,
+    "title": "Support",
+    "description": "Agent does not know the command for a task.",
+    "workflow": "Use HE/ for help on the last transaction or targeted help such as HE NM / HE STEPS."
+  }
+]

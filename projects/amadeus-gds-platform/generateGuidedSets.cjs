@@ -1,0 +1,2749 @@
+const guidedSets = [
+  {
+    "id": "set_encode_decode",
+    "title": "Session 1: Encode and Decode",
+    "module": "Encode & Decode",
+    "steps": [
+      {
+        "prompt": "Encode Country INDIA.",
+        "expectedCommand": "DC INDIA"
+      },
+      {
+        "prompt": "Decode Country code DE.",
+        "expectedCommand": "DC DE"
+      },
+      {
+        "prompt": "Encode Airline INDIGO.",
+        "expectedCommand": "DNA INDIGO"
+      },
+      {
+        "prompt": "Decode Airline numeric code 001.",
+        "expectedCommand": "DNA 001"
+      },
+      {
+        "prompt": "Encode City DELHI.",
+        "expectedCommand": "DAN DELHI"
+      },
+      {
+        "prompt": "Decode City code BOM.",
+        "expectedCommand": "DAC BOM"
+      }
+    ],
+    "questions": [
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'What command do you use to find an airline code?'",
+      "Say: 'I use DNA followed by the airline name, for example DNA INDIGO. To decode a numeric",
+      "      airline code I use DAC with the code. For city codes I use DC with the city name",
+      "      to encode or DC with the code to decode.'",
+      "",
+      "If asked: 'How do you find the IATA code for a city?'",
+      "Say: 'I use DC followed by the city name — for example DC DELHI — which returns the",
+      "      IATA city code DEL. To decode, I enter DC DEL and the system returns the city name.'",
+      "",
+      "If asked: 'Why is encoding important in Amadeus?'",
+      "Say: 'Amadeus uses IATA codes for all entries. If I enter a wrong code or do not know",
+      "      the correct code, the system will return an error or retrieve the wrong result.",
+      "      Encoding/decoding ensures I use precise, standardized IATA identifiers.'"
+    ]
+  },
+  {
+    "id": "set_time_currency",
+    "title": "Session 2: Time and Currency Calculations",
+    "module": "Time & Currency",
+    "steps": [
+      {
+        "prompt": "Check current time in New York.",
+        "expectedCommand": "DDNYC"
+      },
+      {
+        "prompt": "Convert 12:00 Dubai time to Mumbai time.",
+        "expectedCommand": "DDDXB1200/BOM"
+      },
+      {
+        "prompt": "Calculate 500 + 230.",
+        "expectedCommand": "DF500;230"
+      },
+      {
+        "prompt": "Convert AED 100000 to INR.",
+        "expectedCommand": "FCC100000AED/INR"
+      }
+    ],
+    "questions": [
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'How do you check the current time at a destination?'",
+      "Say: 'I use DATI followed by the city code — for example DATI LHR — to display",
+      "      the current local time and date at London Heathrow.'",
+      "",
+      "If asked: 'How do you convert currencies in Amadeus?'",
+      "Say: 'I use DC followed by the amount, the source currency code, and the target",
+      "      currency code — for example DC 5000 INR/USD — to see the converted amount',",
+      "      using the current IATA exchange rate.'",
+      "",
+      "If asked: 'What is the difference between GMT and local time?'",
+      "Say: 'GMT is the universal reference time. Local time differs based on the",
+      "      time zone and any daylight saving offset. Amadeus flight times are",
+      "      displayed in local time. I use DATI to check local time at any city.'"
+    ]
+  },
+  {
+    "id": "set_pnr_creation",
+    "title": "PNR Creation and Ticket Issuance",
+    "module": "PNR & Ticketing",
+    "steps": [
+      {
+        "prompt": "Check availability for Delhi to London on 25 September.",
+        "expectedCommand": "AN25SEPDELLHR"
+      },
+      {
+        "prompt": "Sell 1 seat in Y class from line 1.",
+        "expectedCommand": "SS1Y1"
+      },
+      {
+        "prompt": "Enter adult passenger name CHAUDHARY/ANUJ MR.",
+        "expectedCommand": "NM1CHAUDHARY/ANUJ MR"
+      },
+      {
+        "prompt": "Enter contact phone number DEL 919876543210.",
+        "expectedCommand": "AP DEL 919876543210"
+      },
+      {
+        "prompt": "Set ticketing arrangement to OK.",
+        "expectedCommand": "TKOK"
+      },
+      {
+        "prompt": "Enter Received From ANUJ.",
+        "expectedCommand": "RF ANUJ"
+      },
+      {
+        "prompt": "Price the itinerary and create the TST.",
+        "expectedCommand": "FXP"
+      },
+      {
+        "prompt": "Display the stored TST.",
+        "expectedCommand": "TQT"
+      },
+      {
+        "prompt": "Enter form of payment CASH.",
+        "expectedCommand": "FP CASH"
+      },
+      {
+        "prompt": "End the transaction and redisplay (ER).",
+        "expectedCommand": "ER"
+      },
+      {
+        "prompt": "Retrieve the newly created PNR (assume ABC123).",
+        "expectedCommand": "RT ABC123"
+      },
+      {
+        "prompt": "Issue the ticket.",
+        "expectedCommand": "TTP"
+      },
+      {
+        "prompt": "Verify the electronic ticket.",
+        "expectedCommand": "TWD"
+      }
+    ],
+    "overview": [
+      "Master Workflow: A-S-N-C-T-R-P-F-E-I-V",
+      "Availability (AN) ↓ Sell (SS) ↓ Name (NM) ↓ Contact (AP) ↓ Ticketing (TK) ↓ Received (RF) ↓ Price (FXP) ↓ FOP (FP) ↓ End (ER) ↓ Issue (TTP) ↓ Verify (TWD)",
+      "The 5 Mandatory PNR Elements: Itinerary (SS), Name (NM), Contact (AP), Ticketing (TK), Received From (RF) [I-N-C-T-R].",
+      "FXP prices the PNR and creates a TST. FXX prices without creating a TST.",
+      "ER ends and redisplays the PNR. ET ends and ignores it."
+    ],
+    "questions": [
+      "Q: What are the 5 mandatory elements required to save a PNR?",
+      "A: Itinerary, Name, Contact, Ticketing, Received From (I-N-C-T-R).",
+      "Q: Does ER issue the ticket?",
+      "A: No, ER only saves/ends the PNR. TTP issues the ticket.",
+      "Q: What is the difference between FXP and FXX?",
+      "A: FXP prices the itinerary and creates a TST. FXX prices the itinerary but does not create a TST.",
+      "",
+      "⚠️  COMMON INTERVIEW MISTAKE — Do NOT say:",
+      "    'ER issues the ticket.'",
+      "    Correct answer: ER ends the PNR and saves it. TTP issues the ticket. TWD verifies it.",
+      "",
+      "Real-life Scenario — Interviewer asks:",
+      "    'Walk me through creating a PNR and issuing a ticket for one passenger.'",
+      "Strong answer:",
+      "  AN25SEPDELLHR → SS1Y1 → NM1CHAUDHARY/ANUJ MR → AP DEL 919876543210",
+      "  → TKOK → RF ANUJ → FXP → TQT → FP CASH → ER → RT ABC123 → TTP → TWD",
+      "",
+      "Interview Q: What are the 5 mandatory PNR elements?",
+      "A: Itinerary (SS), Name (NM), Contact (AP), Ticketing (TK), Received From (RF). [I-N-C-T-R]",
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'Walk me through creating a PNR from scratch and issuing a ticket.'",
+      "Say: 'First I check availability with AN — for example AN25SEPDELLHR. I select",
+      "      a flight and sell seats using SS — for example SS1Y1 for one seat in Y class",
+      "      on line 1. I then create the mandatory PNR elements: passenger name with NM,",
+      "      contact with AP, ticketing arrangement with TKOK, and received-from with RF.",
+      "      I price the itinerary with FXP which creates the TST, verify with TQT,",
+      "      add form of payment with FP, and end the PNR with ER. After retrieving with RT",
+      "      I issue the ticket using TTP and verify the e-ticket with TWD.'",
+      "",
+      "If asked: 'What happens if you miss the RF element before ER?'",
+      "Say: 'Amadeus will reject the End Transaction and return an error asking for",
+      "      the Received From element. RF is mandatory. It records who authorised",
+      "      the booking and is part of the PNR audit trail visible in RH.'",
+      "",
+      "If asked: 'What is the difference between ER and ET?'",
+      "Say: 'ER ends the transaction and redisplays the PNR with the new record locator.",
+      "      ET ends the transaction and clears the work area — the PNR is saved but",
+      "      you are returned to a blank screen. Use ER when you want to see the saved PNR.'",
+      "",
+      "If asked: 'What is FXP and when do you use it?'",
+      "Say: 'FXP is the standard itinerary pricing command. It prices the PNR using",
+      "      the booking classes already stored and creates a TST. I use it after the",
+      "      mandatory elements are in place and before adding the form of payment.",
+      "      FXX is the alternative that prices without creating a TST — useful for",
+      "      showing the fare to a passenger before committing.'"
+    ]
+  },
+  {
+    "id": "set_split_pnr",
+    "title": "How to Split PNR",
+    "module": "PNR & Profiles",
+    "steps": [
+      {
+        "prompt": "Retrieve the parent PNR (Locator: ABC123).",
+        "expectedCommand": "RT ABC123"
+      },
+      {
+        "prompt": "Split passenger 2.",
+        "expectedCommand": "SP2"
+      },
+      {
+        "prompt": "Enter Received From in the new associate PNR.",
+        "expectedCommand": "RF PAX"
+      },
+      {
+        "prompt": "End and File the associate PNR.",
+        "expectedCommand": "EF"
+      },
+      {
+        "prompt": "Enter Received From in the parent PNR.",
+        "expectedCommand": "RF PAX"
+      },
+      {
+        "prompt": "End the parent PNR transaction.",
+        "expectedCommand": "ET"
+      }
+    ],
+    "overview": [
+      "Split Workflow:\\nRT ↓ SP2 ↓ RF PAX ↓ EF ↓ Parent PNR ↓ RF PAX ↓ ET",
+      "SP = Split PNR. Example: SP2 or SP2,4.",
+      "EF = End and File (used for the associate PNR).",
+      "The parent and child PNRs remain linked via AXR."
+    ],
+    "questions": [
+      "Q: Can you use ER to end the associate PNR?",
+      "A: No, you must use EF (End and File) for the associate PNR, then finish the parent PNR.",
+      "Q: How do you split multiple passengers?",
+      "A: You can use SP2,4 or SP3,4,5-7 depending on the name elements.",
+      "Q: How do you retrieve the associated split PNR later?",
+      "A: You use RTAXR while the parent PNR is retrieved.",
+      "",
+      "⚠️  COMMON INTERVIEW MISTAKE — Do NOT say:",
+      "    'After SP I use ER to save.'",
+      "    Correct answer: For the associate/split PNR use EF (End and File), not ER.",
+      "    Then RF + ET on the parent PNR.",
+      "",
+      "Real-life Scenario:",
+      "    'Passenger SHARMA in a group of 3 now wants to travel on a different date.'",
+      "Correct workflow:",
+      "  RT [locator] → SP2 (split SHARMA) → RF PAX → EF",
+      "  → Parent PNR appears → RF PAX → ET",
+      "  → Retrieve child PNR → rebook required flight → ticket",
+      "",
+      "Interview Q: How are the parent and child PNRs linked after a split?",
+      "A: Through AXR (Associated Record Indexing). Use RTAXR to display the link.",
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'How do you split a PNR?'",
+      "Say: 'I retrieve the parent PNR with RT. I identify the passenger name element",
+      "      number I want to separate and enter SP followed by the number — for example",
+      "      SP2 to split passenger 2. Amadeus creates an associate PNR containing the",
+      "      split passenger. I enter RF and use EF to End and File the associate PNR.",
+      "      Amadeus returns me to the parent PNR. I enter RF again and end the parent",
+      "      with ET. The two PNRs remain linked through AXR.'",
+      "",
+      "If asked: 'Why do you use EF instead of ER or ET for the split PNR?'",
+      "Say: 'EF means End and File — it saves the associate PNR without displaying it",
+      "      again and returns control to the parent PNR so I can complete that transaction.",
+      "      ER would redisplay the associate and ET would end both in an incomplete state.'",
+      "",
+      "If asked: 'How do you retrieve the linked associate PNR later?'",
+      "Say: 'While the parent PNR is retrieved, I enter RTAXR to display the AXR",
+      "      Associated Record Indexing link. I can then select the associated PNR",
+      "      from the list. I can also retrieve it directly by its own record locator.'",
+      "",
+      "If asked: 'Can you split multiple passengers at once?'",
+      "Say: 'Yes. I use SP followed by multiple passenger numbers — for example SP2,4",
+      "      to split passengers 2 and 4 simultaneously, or SP3,4,5-7 for a range.'"
+    ]
+  },
+  {
+    "id": "set_arnk",
+    "title": "Arrival Unknown (ARNK)",
+    "module": "PNR & Profiles",
+    "steps": [
+      {
+        "prompt": "Retrieve the PNR.",
+        "expectedCommand": "RT ABC123"
+      },
+      {
+        "prompt": "Insert an Arrival Unknown (ARNK) segment to fill the surface gap.",
+        "expectedCommand": "SIARNK"
+      },
+      {
+        "prompt": "Display the PNR to verify the ARNK segment.",
+        "expectedCommand": "RT"
+      },
+      {
+        "prompt": "Receive from agent.",
+        "expectedCommand": "RF ANUJ"
+      },
+      {
+        "prompt": "End transaction.",
+        "expectedCommand": "ET"
+      }
+    ],
+    "overview": [
+      "ARNK Workflow:\\nRT ↓ SIARNK ↓ RT ↓ RF ↓ ET",
+      "SIARNK = Insert ARNK / surface segment. Used when surface transportation is unknown.",
+      "SIARNK20NOV = ARNK with a specific date.",
+      "SIARNK20NOV/P2 = ARNK for a specific passenger.",
+      "ARNK is automatically placed at the first point where continuity is missing."
+    ],
+    "questions": [
+      "Q: When do you use ARNK?",
+      "A: When there is a gap between two itinerary segments and the passenger's mode of transportation is unknown.",
+      "Q: What is the difference between ARNK and SO?",
+      "A: ARNK means surface transportation unknown. SO means Open flight segment where they will fly but don't know the flight/date yet.",
+      "",
+      "⚠️  COMMON INTERVIEW MISTAKE — Do NOT say:",
+      "    'ARNK books the surface leg for the passenger.'",
+      "    Correct answer: ARNK does NOT book anything. It simply indicates the surface",
+      "    transportation is unknown. It maintains itinerary continuity.",
+      "",
+      "Real-life Scenario:",
+      "    'Passenger flies DEL-LHR on Air India, then takes Eurostar to CDG,",
+      "    then flies CDG-DEL on Air France. What do you do?'",
+      "Correct workflow:",
+      "  Sell: SS1Y1 (DEL-LHR) → SS1Y1 (CDG-DEL) → SIARNK",
+      "  Amadeus automatically places ARNK between LHR and CDG.",
+      "",
+      "Interview Q: What is the difference between ARNK and SO?",
+      "A: ARNK = surface transport unknown (no air booking). SO = open air segment",
+      "   (passenger will fly but date/flight is not confirmed yet).",
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'What is an ARNK segment and when would you use it?'",
+      "Say: 'ARNK stands for Arrival Not Known. I use it when there is a surface gap",
+      "      between two air segments — meaning the passenger is travelling by another",
+      "      mode of transport between the arrival city of one flight and the departure",
+      "      city of the next. For example if a passenger flies DEL to LHR and then",
+      "      LHR to Paris by Eurostar before flying CDG to DEL, I insert SIARNK between",
+      "      the LHR arrival and the CDG departure to maintain itinerary continuity.'",
+      "",
+      "If asked: 'How do you insert an ARNK for a specific passenger?'",
+      "Say: 'I use SIARNK20NOV/P2 — where 20NOV is the date of the surface leg and",
+      "      P2 specifies passenger 2. Without a passenger association, the ARNK applies",
+      "      to all passengers in the PNR.'",
+      "",
+      "If asked: 'Can you have two ARNKs in one PNR?'",
+      "Say: 'Two ARNKs can exist if there are two separate surface gaps, but an ARNK",
+      "      cannot immediately precede another ARNK. Amadeus will reject consecutive",
+      "      ARNKs as an invalid itinerary.'"
+    ]
+  },
+  {
+    "id": "set_rebooking",
+    "title": "Advanced: Rebooking/Change Date (SB)",
+    "module": "Rebooking",
+    "steps": [
+      {
+        "prompt": "Retrieve the PNR.",
+        "expectedCommand": "RTABC123"
+      },
+      {
+        "prompt": "Change segment 2 to 25 September.",
+        "expectedCommand": "SB25SEP2"
+      },
+      {
+        "prompt": "Price the rebooked itinerary.",
+        "expectedCommand": "FXP"
+      },
+      {
+        "prompt": "Receive from passenger.",
+        "expectedCommand": "RF P"
+      },
+      {
+        "prompt": "End and Redisplay.",
+        "expectedCommand": "ER"
+      }
+    ],
+    "questions": [
+      "",
+      "⚠️  COMMON INTERVIEW MISTAKE — Do NOT say:",
+      "    'I just rebook the new flight and the old one disappears.'",
+      "    Correct answer: You must explicitly cancel the old segment before or after rebooking,",
+      "    depending on the situation. Always verify the status codes after rebooking.",
+      "",
+      "Real-life Scenario:",
+      "    'Passenger wants to change DEL-LHR 25SEP to 28SEP. Ticket not yet issued.'",
+      "Correct workflow:",
+      "  RT → rebook new segment (SS or SB) → cancel old segment if needed",
+      "  → RF → ER → verify segment status (HK expected)",
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'How do you rebook a passenger to a different flight?'",
+      "Say: 'I retrieve the PNR with RT and check the availability of the new flight",
+      "      using AN. I cancel the original segment if required, then sell the new",
+      "      flight using SS. Alternatively, for a date change on the same flight I",
+      "      can use SB followed by the new date and segment number — for example",
+      "      SB28SEP1. I always verify the new segment status is HK, update the TST",
+      "      with FXP, add RF and end the transaction with ER.'",
+      "",
+      "If asked: 'What status code should a confirmed segment show?'",
+      "Say: 'HK — Holding Confirmed. If the segment shows HL it is on the waitlist,",
+      "      HX means the airline has cancelled it, and UN means unable to confirm.",
+      "      Only HK means the seat is genuinely confirmed.'"
+    ]
+  },
+  {
+    "id": "set_atc",
+    "title": "Session 10: Automated Ticket Changer (ATC)",
+    "module": "ATC",
+    "steps": [
+      {
+        "prompt": "Retrieve the PNR.",
+        "expectedCommand": "RTABC123"
+      },
+      {
+        "prompt": "Price the voluntary reissue and store the TST.",
+        "expectedCommand": "FXF"
+      },
+      {
+        "prompt": "Save the changes.",
+        "expectedCommand": "ER"
+      },
+      {
+        "prompt": "Issue the new ticket for Passenger 1.",
+        "expectedCommand": "TTP/EXCH/P1"
+      }
+    ],
+    "overview": [
+      "",
+      "--- WORKFLOW FLOWCHART ---",
+      "Workflow:\\nChange booking ↓ FXF ↓ Tell customer amount ↓ Customer agrees ↓ FXQ ↓ TQT/TQR ↓ FOP ↓ TTP/TTM ↓ TWD"
+    ],
+    "questions": [
+      "",
+      "⚠️  COMMON INTERVIEW MISTAKE — Do NOT say:",
+      "    'FXF confirms the reissue.'",
+      "    Correct answer: FXF is informative only — no PNR/TST change.",
+      "    FXQ is the confirmed ATC pricing that updates the TST.",
+      "",
+      "Real-life Scenario:",
+      "    'Passenger wants to change their DEL-LHR flight from 25SEP to 28SEP.",
+      "    The ticket is completely unused.'",
+      "Correct workflow:",
+      "  RT → TWD (confirm OPEN status) → rebook → FXF (show cost to passenger)",
+      "  → passenger agrees → FXQ → TQT → TQR → FP → TTP → TWD",
+      "",
+      "Interview Q: What is the Golden Rule for partially used tickets?",
+      "A: You MUST specify all unflown segments: FXF/S2-3 and FXQ/S2-3.",
+      "   Failing to do so causes incorrect ATC pricing.",
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'What is ATC and what does it do?'",
+      "Say: 'ATC stands for Amadeus Ticket Changer. It is an automated tool that",
+      "      calculates the fare difference, tax difference and applicable penalty",
+      "      for a voluntary or involuntary itinerary change, using the original",
+      "      ticket data and the applicable fare rules. For voluntary changes I use",
+      "      FXF for informative pricing and FXQ to confirm. For involuntary airline",
+      "      disruptions I use FXI. ATC supports both unused and partially used tickets.'",
+      "",
+      "If asked: 'What is the difference between FXF and FXQ?'",
+      "Say: 'FXF is the ATC informative pricing command — it calculates the change",
+      "      cost but does not update the PNR or TST. I use it to tell the passenger",
+      "      the total amount due. FXQ is the confirmed pricing — it updates the TST",
+      "      and commits the reissue. I only run FXQ after the passenger agrees to pay.'",
+      "",
+      "If asked: 'When is ATC not available?'",
+      "Say: 'ATC may not be available if the airline has not filed Category 31 voluntary",
+      "      change conditions, if the ticket is a complex interline itinerary without",
+      "      ATC support, or if the system cannot match the original ticket data.",
+      "      In those cases I perform a manual exchange using TTU/TTK/EXCH/FO/TTP.'"
+    ]
+  },
+  {
+    "id": "set_retrieve_name",
+    "title": "Session 13: Retrieve PNR by Name",
+    "module": "Retrieval",
+    "steps": [
+      {
+        "prompt": "Retrieve PNR by surname AHMED.",
+        "expectedCommand": "RT/AHMED"
+      },
+      {
+        "prompt": "Retrieve PNR from line 4 of the list.",
+        "expectedCommand": "RT4"
+      }
+    ],
+    "questions": [
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'How do you retrieve a PNR if you only have the passenger name?'",
+      "Say: 'I use RT/SMITH to retrieve all PNRs containing the surname SMITH.",
+      "      If there are multiple results, I select with RT1, RT2 etc.",
+      "      To narrow it down I can add the first initial: RT/SMITH/J,",
+      "      or combine with a date: RT/12AUG-SMITH,",
+      "      or with a flight: RT KL153/12AUG-SMITH.'",
+      "",
+      "If asked: 'What is the difference between RT and RO?'",
+      "Say: 'RT retrieves a PNR that is stored in the Amadeus system.",
+      "      RO is used to claim or retrieve a PNR from another GDS or airline",
+      "      system — for example from a codeshare partner system — using their",
+      "      record locator. After RO the PNR is transferred to my office.'"
+    ]
+  },
+  {
+    "id": "set_fare_rule",
+    "title": "Session 15: Check Fare Rule",
+    "module": "Fare Rules",
+    "steps": [
+      {
+        "prompt": "Open Fare Quote Display for the route.",
+        "expectedCommand": "FQD"
+      }
+    ],
+    "questions": [
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'How do you check fare rules in Amadeus?'",
+      "Say: 'I use FQN after a fare display to view the fare notes and conditions.",
+      "      FQN shows all applicable fare rule categories including advance purchase,",
+      "      minimum/maximum stay, penalties and change conditions.",
+      "      I use FQR for routing information and FQS for booking code details.",
+      "      For a quick summary of key rules I use FQF1 or FWR.'",
+      "",
+      "If asked: 'A passenger asks if they can get a refund. How do you check?'",
+      "Say: 'I open the fare display with FQD and then use FQN to check Category 33",
+      "      — Ticket Refunds. This tells me whether the fare is non-refundable,",
+      "      partially refundable, or fully refundable, and what penalty applies.'"
+    ]
+  },
+  {
+    "id": "set_fare_comparison",
+    "title": "Advanced: Fare Comparison & Rules",
+    "module": "Fare Rules",
+    "steps": [
+      {
+        "prompt": "Display the ticket image for line 5.",
+        "expectedCommand": "TWD5"
+      },
+      {
+        "prompt": "Check Fare Rules for LHR to DXB on BA, Class V, departing 15APR, issued 29JAN.",
+        "expectedCommand": "FQD LHR DXB/A BA/C V/D 15APR/R,UP,29JAN"
+      },
+      {
+        "prompt": "Display full fare rule details for line 30.",
+        "expectedCommand": "FQN30/P"
+      }
+    ],
+    "questions": [
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'How do you compare different fare options for a route?'",
+      "Say: 'I use FQD followed by the route — for example FQD DELLHR — to display",
+      "      all available fares sorted by price. I can filter by cabin, fare basis,",
+      "      passenger type and other criteria. I then use FQN on a specific fare",
+      "      line to check its conditions before recommending it to the passenger.'",
+      "",
+      "If asked: 'What is the difference between FXP and FXB?'",
+      "Say: 'FXP prices the PNR using the booking class already stored and creates a TST.",
+      "      FXB finds the cheapest applicable fare, rebooks the PNR into the required",
+      "      booking class automatically, and creates a TST.",
+      "      FXP = Price the Present booking. FXB = Best price with automatic rebook.'"
+    ]
+  },
+  {
+    "id": "set_name_correction",
+    "title": "Session 21: Name Correction & Name Change",
+    "module": "Name Correction",
+    "steps": [
+      {
+        "prompt": "Retrieve the PNR.",
+        "expectedCommand": "RTABC123"
+      },
+      {
+        "prompt": "Open name-element help to check airline rules.",
+        "expectedCommand": "HE NM"
+      },
+      {
+        "prompt": "Update the first name of passenger 1 to MARIYUM MRS.",
+        "expectedCommand": "1/MARIYUM MRS"
+      },
+      {
+        "prompt": "Add a confidential remark for Name Change.",
+        "expectedCommand": "RC NAME CHANGE"
+      },
+      {
+        "prompt": "Receive from passenger.",
+        "expectedCommand": "RF PAX"
+      },
+      {
+        "prompt": "End and Redisplay.",
+        "expectedCommand": "ER"
+      }
+    ],
+    "questions": [
+      "",
+      "⚠️  COMMON INTERVIEW MISTAKE — Do NOT say:",
+      "    'I can change the passenger name at any time.'",
+      "    Correct answer: Name changes are airline-policy specific.",
+      "    Minor corrections (typos) may be allowed. Full name changes generally are not.",
+      "",
+      "Real-life Scenario:",
+      "    'Agent misspelled CHAUDHARY as CHAUDHERY. Ticket not yet issued.'",
+      "Correct workflow:",
+      "  RT → identify name element number → use appropriate name change command",
+      "  → RF → ER → TTP → TWD",
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'How do you correct a passenger name in Amadeus?'",
+      "Say: 'First I retrieve the PNR with RT and identify the name element number.",
+      "      For a minor correction I use the appropriate name change entry.",
+      "      If the ticket has already been issued, I must check the airline policy",
+      "      — some airlines allow minor corrections through a reissue, others do not.",
+      "      For pre-ticketing corrections, I cancel the original name element",
+      "      and re-enter the correct name, then add RF and end with ER.'",
+      "",
+      "If asked: 'What is the difference between a name correction and a name change?'",
+      "Say: 'A name correction fixes a typographical error — for example CHAUDHERY",
+      "      corrected to CHAUDHARY. A name change is a transfer to a completely",
+      "      different person, which most airlines do not permit. The distinction",
+      "      is important because airlines may allow corrections but not changes,",
+      "      and the allowance depends on the fare rules and airline policy.'"
+    ]
+  },
+  {
+    "id": "set_refunds",
+    "title": "Session 22: Automated Refunds Workflow",
+    "module": "Refunds",
+    "steps": [
+      {
+        "prompt": "Retrieve the PNR.",
+        "expectedCommand": "RTABC123"
+      },
+      {
+        "prompt": "Initiate refund for ticket 125-1234567890.",
+        "expectedCommand": "TRF125-1234567890"
+      },
+      {
+        "prompt": "Calculate refund taxes.",
+        "expectedCommand": "TRFT"
+      },
+      {
+        "prompt": "Update refund record.",
+        "expectedCommand": "TRFU"
+      },
+      {
+        "prompt": "Process the final refund.",
+        "expectedCommand": "TRFP"
+      }
+    ],
+    "overview": [
+      "",
+      "--- WORKFLOW FLOWCHART ---",
+      "Refund Workflow:\\nTRF ↓ TRFT ↓ TRFU ↓ TRFP"
+    ],
+    "questions": [
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'How do you process a refund in Amadeus?'",
+      "Say: 'The master refund workflow is TRF → TRFT → TRFU → TRFP.",
+      "      I start with TRF followed by the ticket number to initiate the refund.",
+      "      TRFT calculates the refund amount based on the applicable fare conditions.",
+      "      TRFU updates the refund record.",
+      "      TRFP processes/pays the refund and generates the refund document.",
+      "      Finally I verify the ticket coupon status is REFUNDED using TWD.'",
+      "",
+      "If asked: 'What is the difference between a void and a refund?'",
+      "Say: 'A void reverses a ticket transaction before BSP confirmation — it is as if",
+      "      the ticket was never issued. The command is TRDC. A refund processes a formal",
+      "      return of the fare and taxes through the BSP and generates a refund notice.",
+      "      Voids are only possible within the permitted void window before BSP closes.'"
+    ]
+  },
+  {
+    "id": "set_history",
+    "title": "Session 23: PNR History",
+    "module": "History",
+    "steps": [
+      {
+        "prompt": "Retrieve the PNR.",
+        "expectedCommand": "RTABC123"
+      },
+      {
+        "prompt": "Retrieve the full PNR history.",
+        "expectedCommand": "RH"
+      },
+      {
+        "prompt": "Retrieve history for specific segment 4.",
+        "expectedCommand": "RHS4"
+      }
+    ],
+    "questions": [
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'How do you investigate what changes were made to a PNR?'",
+      "Say: 'I retrieve the PNR with RT and then display the full history using RH.",
+      "      RH shows every modification in sequence with step numbers, action codes,",
+      "      agent signs, office IDs and timestamps. I use RHA for air segment history,",
+      "      RHN for name history, RHG for SSR/OSI, RHK for ticketing and RHF for fare",
+      "      elements. This lets me trace exactly what changed, when, and who made the change.'",
+      "",
+      "If asked: 'What do the action codes in PNR history mean?'",
+      "Say: 'O = Original entry, A = Added, C = Changed, X = Cancelled.",
+      "      Combined with element codes: ON = Original Name, CS = Changed Status,",
+      "      XS = Cancelled Segment, AF = Added Fare element. The step numbers show",
+      "      when an element was first created versus when it was modified or cancelled.'"
+    ]
+  },
+  {
+    "id": "set_master_pricer",
+    "title": "Session 26: Master Pricer (FXB vs FXD)",
+    "module": "Master Pricer",
+    "steps": [
+      {
+        "prompt": "Check the lowest fare for booked flights (FXR).",
+        "expectedCommand": "FXR"
+      },
+      {
+        "prompt": "Save the lowest fare for booked flights (FXB).",
+        "expectedCommand": "FXB"
+      },
+      {
+        "prompt": "Display route-wide lowest fare alternatives (FXD).",
+        "expectedCommand": "FXD"
+      },
+      {
+        "prompt": "Book FXD option 3.",
+        "expectedCommand": "FXZ3"
+      }
+    ],
+    "questions": [
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'What is the Master Pricer and when would you use it?'",
+      "Say: 'The Master Pricer is an Amadeus availability and pricing tool that",
+      "      simultaneously searches across multiple airlines and cabin classes to",
+      "      find the best fare options for a given route and date. The basic command",
+      "      is FLQD followed by the route and date parameters. Unlike AN which shows",
+      "      one flight at a time, Master Pricer returns a ranked list of fare/flight",
+      "      combinations — very useful when the passenger wants the cheapest option.'",
+      "",
+      "If asked: 'How is FXB different from the Master Pricer?'",
+      "Say: 'The Master Pricer (FLQD) is used during the shopping phase — before",
+      "      selling — to find the best fare-and-flight combination.",
+      "      FXB is used after a booking is already made to reprice and rebook",
+      "      the PNR into the cheapest available fare class automatically.'"
+    ]
+  },
+  {
+    "id": "set_void",
+    "title": "Session 27: How to Void a Ticket",
+    "module": "Void",
+    "steps": [
+      {
+        "prompt": "Retrieve the PNR.",
+        "expectedCommand": "RTABC123"
+      },
+      {
+        "prompt": "Open the ticket image on line 8 to verify status.",
+        "expectedCommand": "TWD L8"
+      },
+      {
+        "prompt": "Void the ticket at line 8.",
+        "expectedCommand": "TRDC L8"
+      }
+    ],
+    "overview": [
+      "",
+      "--- WORKFLOW FLOWCHART ---",
+      "Void Workflow:\\nRT ↓ TWD ↓ TRDC ↓ TWD"
+    ],
+    "questions": [
+      "",
+      "⚠️  COMMON INTERVIEW MISTAKE — Do NOT say:",
+      "    'I can void any ticket anytime.'",
+      "    Correct answer: A ticket can only be voided if it has NOT yet been",
+      "    confirmed by the local BSP/ARC, and within the permitted void window.",
+      "",
+      "Real-life Scenario:",
+      "    'You issued a ticket 30 minutes ago with wrong passenger name.",
+      "    The BSP has not yet closed. What do you do?'",
+      "Correct workflow:",
+      "  RT [locator] → TWD (confirm ticket status) → TRDC → TWD (verify VOID status)",
+      "",
+      "Interview Q: What is the difference between void and refund?",
+      "A: Void reverses the ticket transaction (no refund record to BSP).",
+      "   Refund processes a return of fare/taxes through the normal BSP channel.",
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'How do you void a ticket?'",
+      "Say: 'I retrieve the PNR with RT and display the ticket with TWD to confirm",
+      "      the ticket number and that it has not yet been reported to BSP.",
+      "      I then enter TRDC followed by the ticket number to void it.",
+      "      I verify the coupon status has changed to VOID using TWD.',",
+      "      The key restriction is that voiding must happen before BSP confirmation",
+      "      — after that, a refund must be processed instead.'",
+      "",
+      "If asked: 'What is TRDC?'",
+      "Say: 'TRDC stands for Ticket/Document Cancel. It is the Amadeus command",
+      "      used to void a ticket. Memory hook: TR = Ticket Record, DC = Document Cancel.'"
+    ]
+  },
+  {
+    "id": "set_involuntary",
+    "title": "Session 28: Involuntary Exchange (FXI)",
+    "module": "Involuntary Exchange",
+    "steps": [
+      {
+        "prompt": "Retrieve the PNR.",
+        "expectedCommand": "RTABC123"
+      },
+      {
+        "prompt": "Accept the minor schedule change (TK to HK).",
+        "expectedCommand": "ERK"
+      },
+      {
+        "prompt": "Run the automated involuntary exchange command.",
+        "expectedCommand": "FXI"
+      },
+      {
+        "prompt": "Delete incorrect endorsement on line 9.",
+        "expectedCommand": "XE9"
+      },
+      {
+        "prompt": "Recalculate TST.",
+        "expectedCommand": "TQT"
+      },
+      {
+        "prompt": "Finalize exchange from TST 8.",
+        "expectedCommand": "TTPE T8"
+      }
+    ],
+    "overview": [
+      "",
+      "--- WORKFLOW FLOWCHART ---",
+      "Workflow:\\nChange booking ↓ FXF ↓ Tell customer amount ↓ Customer agrees ↓ FXQ ↓ TQT/TQR ↓ FOP ↓ TTP/TTM ↓ TWD"
+    ],
+    "questions": [
+      "",
+      "⚠️  COMMON INTERVIEW MISTAKE — Do NOT say:",
+      "    'For an involuntary change I use FXQ.'",
+      "    Correct answer: FXQ is for VOLUNTARY changes. Involuntary disruptions use FXI.",
+      "    FXI automatically prepares the TST without penalty or additional collection.",
+      "",
+      "Real-life Scenario:",
+      "    'Airline cancelled AI123 DEL-LHR 25SEP and rebooked on AI125 26SEP.",
+      "    What command do you use to reissue the ticket?'",
+      "Correct workflow:",
+      "  RT → TWD → FXI → TQT → TQR (verify no penalty) → TTP → TWD",
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'What is an involuntary change and how do you handle it?'",
+      "Say: 'An involuntary change is a disruption caused by the airline rather than",
+      "      the passenger — for example a flight cancellation, schedule change or",
+      "      route amendment. The airline typically rebooks the passenger on an",
+      "      alternative flight. I retrieve the PNR with RT, verify the original",
+      "      ticket with TWD, confirm the airline has provided the new itinerary,",
+      "      and then run FXI for an ATC involuntary reissue. FXI automatically",
+      "      prepares the TST with the original fare, taxes, endorsement FE SKCHG,",
+      "      FO and FPO without any additional collection or penalty.',",
+      "      I then check with TQT/TQR and issue with TTP.'",
+      "",
+      "If asked: 'Can a passenger be charged for an involuntary change?'",
+      "Say: 'No — for a genuine involuntary change caused by the airline, the passenger",
+      "      should not pay a change penalty or additional collection. FXI reflects this",
+      "      — it carries the original fare and taxes without adding charges.",
+      "      If the passenger voluntarily chooses a more expensive alternative, that",
+      "      portion may be collected, depending on airline policy.'"
+    ]
+  },
+  {
+    "id": "set_schedule_change",
+    "title": "Session 28: Accept Schedule Changes",
+    "module": "Schedule Change",
+    "steps": [
+      {
+        "prompt": "Retrieve the PNR.",
+        "expectedCommand": "RTABC123"
+      },
+      {
+        "prompt": "Accept the minor schedule change (TK to HK).",
+        "expectedCommand": "ERK"
+      },
+      {
+        "prompt": "Receive from agent.",
+        "expectedCommand": "RF ALI"
+      },
+      {
+        "prompt": "End and Redisplay to save changes.",
+        "expectedCommand": "ER"
+      }
+    ],
+    "questions": [
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'A passenger calls saying the airline changed their flight time by 3 hours. What do you do?'",
+      "Say: 'First I retrieve the PNR with RT and check the current segment status.",
+      "      I display the PNR history with RH or RHA to confirm the schedule change",
+      "      and note when it was made. I check the new flight details and compare",
+      "      with the original. If the change is significant, the passenger may be",
+      "      entitled to a free rebooking or refund per the airline policy.",
+      "      If rebooking, I check availability with AN, cancel the old segment,",
+      "      sell the preferred alternative, and if a ticket was issued,",
+      "      process a reissue through ATC FXI or a manual involuntary exchange.',",
+      "      I always verify the final state with TWD.'"
+    ]
+  },
+  {
+    "id": "set_queues",
+    "title": "QRG: Queue Management",
+    "module": "Queues",
+    "steps": [
+      {
+        "prompt": "Display the total queue count.",
+        "expectedCommand": "QT"
+      },
+      {
+        "prompt": "Display all existing queues for the office.",
+        "expectedCommand": "QTQ"
+      },
+      {
+        "prompt": "Start processing Queue 97, Category 0, Date Range 1.",
+        "expectedCommand": "QS97C0D1"
+      },
+      {
+        "prompt": "Redisplay the queue message.",
+        "expectedCommand": "QU"
+      },
+      {
+        "prompt": "Remove the current item from the queue and display the next one.",
+        "expectedCommand": "QN"
+      },
+      {
+        "prompt": "Delay the current queue item and display the next one.",
+        "expectedCommand": "QD"
+      },
+      {
+        "prompt": "Delay the current queue item until 09 December at 12:00.",
+        "expectedCommand": "QD09DEC/1200"
+      },
+      {
+        "prompt": "End transaction and exit queue mode (Finish and remove).",
+        "expectedCommand": "QF"
+      },
+      {
+        "prompt": "Ignore the current PNR and exit queue mode (leave on queue).",
+        "expectedCommand": "QI"
+      },
+      {
+        "prompt": "Place the current PNR on Queue 8, Category 1 of your own office.",
+        "expectedCommand": "QE8C1"
+      },
+      {
+        "prompt": "Send a free-flow text message to another office (DELA0900) Queue 97.",
+        "expectedCommand": "QE/DELA0900/97"
+      },
+      {
+        "prompt": "Add a queue nickname JANE for Queue 30 Category 1.",
+        "expectedCommand": "QLAJANE/30C1"
+      },
+      {
+        "prompt": "Display the nickname list.",
+        "expectedCommand": "QLD"
+      },
+      {
+        "prompt": "Place the current PNR on the queue represented by nickname JANE.",
+        "expectedCommand": "QE.JANE"
+      },
+      {
+        "prompt": "Display the list of PNRs on Queue 8 without entering processing mode (Queue View).",
+        "expectedCommand": "QV/8"
+      },
+      {
+        "prompt": "Scroll down in the Queue View display.",
+        "expectedCommand": "QVMD"
+      },
+      {
+        "prompt": "Open the second PNR from the Queue View list.",
+        "expectedCommand": "QV2"
+      },
+      {
+        "prompt": "Display the Queue Summary Planner by record locator.",
+        "expectedCommand": "QVR"
+      },
+      {
+        "prompt": "Add a Queue Monitor for Queue 2.",
+        "expectedCommand": "QOA2"
+      }
+    ],
+    "overview": [
+      "Queues are Amadeus's filing system for PNRs that need attention.",
+      "QT displays the total queue count, while QS starts processing a specific queue.",
+      "In queue mode, use QN to remove the current PNR and view the next one, or QD to delay the current PNR.",
+      "QF finishes your transaction and exits the queue completely, while QI ignores changes and exits."
+    ],
+    "questions": [
+      "Q: What is the difference between QN and QD?",
+      "A: QN removes the current PNR from the queue and views the next one. QD delays the current PNR on the queue and views the next.",
+      "",
+      "Q: If you use QI while in a queue, is the PNR removed from the queue?",
+      "A: No, QI ignores the PNR and exits the queue, leaving the PNR exactly where it was on the queue.",
+      "",
+      "Q: What command creates a queue nickname?",
+      "A: QLA[Nickname]/[QueueCategory]",
+      "",
+      "⚠️  COMMON INTERVIEW MISTAKE — Do NOT say:",
+      "    'Queues are just messages from other agents.'",
+      "    Correct answer: Queues are a structured PNR workflow system used by airlines,",
+      "    offices and systems to send PNRs requiring action.",
+      "",
+      "Real-life Scenario:",
+      "    'An airline sends a schedule-change queue for all affected passengers.'",
+      "Correct workflow:",
+      "  QD (display queue) → open queue → RT each PNR → check RH for changes",
+      "  → action the PNR → QR (remove from queue) or QE (end/exit queue)",
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'What are queues in Amadeus and how do you work them?'",
+      "Say: 'Queues are a structured workflow system for managing PNRs requiring action.",
+      "      Airlines, offices and systems use queues to send PNRs that need attention.",
+      "      To access a queue I use QD to display the queue list, enter the queue to",
+      "      retrieve the first PNR, action the booking, then move to the next with QN",
+      "      or remove the PNR from the queue with QR. Common queues include schedule",
+      "      change queues from airlines, ticketing reminder queues and waitlist queues.'",
+      "",
+      "If asked: 'How do you move a PNR to a queue?'",
+      "Say: 'I use QE followed by the queue number and category — for example QE3C1",
+      "      to place the PNR on queue 3 category 1. The PNR can then be retrieved",
+      "      and actioned by any agent with access to that queue.'"
+    ]
+  },
+  {
+    "id": "set_unflown_reissue",
+    "title": "Voluntary Manual Reissue: Unflown Ticket",
+    "module": "Manual Reissue",
+    "steps": [
+      {
+        "prompt": "Retrieve the PNR.",
+        "expectedCommand": "RT ABC123"
+      },
+      {
+        "prompt": "Display the original e-ticket to check status.",
+        "expectedCommand": "TWD"
+      },
+      {
+        "prompt": "Display the original stored fare (TST).",
+        "expectedCommand": "TQT"
+      },
+      {
+        "prompt": "Check the original fare rules for segment 2.",
+        "expectedCommand": "FQN2"
+      },
+      {
+        "prompt": "Check availability for 05 NOV from LHR to DEL.",
+        "expectedCommand": "AN05NOVLHRDEL"
+      },
+      {
+        "prompt": "Sell 1 seat in M class from line 1.",
+        "expectedCommand": "SS1M1"
+      },
+      {
+        "prompt": "Cancel the old segment 2.",
+        "expectedCommand": "XE2"
+      },
+      {
+        "prompt": "Price the selected new itinerary segment 2.",
+        "expectedCommand": "FXP/S2"
+      },
+      {
+        "prompt": "Display the new TST to compare fares and taxes.",
+        "expectedCommand": "TQT"
+      },
+      {
+        "prompt": "Display the original ticket again to prepare for exchange.",
+        "expectedCommand": "TWD"
+      },
+      {
+        "prompt": "Create the Form of Original Issue (FO) from FA/FHE line 9.",
+        "expectedCommand": "FO*L9"
+      },
+      {
+        "prompt": "Set TST 1 into exchange mode.",
+        "expectedCommand": "TTK/EXCH/T1"
+      },
+      {
+        "prompt": "Remove the TST change flag for TST 1.",
+        "expectedCommand": "TTF/T1"
+      },
+      {
+        "prompt": "Enter Form of Payment for additional collection (CASH).",
+        "expectedCommand": "FPO/CASH+/CASH"
+      },
+      {
+        "prompt": "Receive from agent ANUJ.",
+        "expectedCommand": "RF ANUJ"
+      },
+      {
+        "prompt": "End the transaction and save.",
+        "expectedCommand": "ER"
+      },
+      {
+        "prompt": "Issue the exchange ticket (Voluntary).",
+        "expectedCommand": "TTP/EXCH"
+      },
+      {
+        "prompt": "Verify the new ticket.",
+        "expectedCommand": "TWD"
+      }
+    ],
+    "overview": [
+      "For an UNFLOWN ticket, you usually price with FXP (which stores the fare for the whole new itinerary).",
+      "Since no coupons have been used, you are replacing the entire original value.",
+      "The FO (Form of Original Issue) line must be built from the original ticket.",
+      "Any additional collection is handled in the FPO line (e.g., FPO/CASH+/CASH) and TTP/EXCH issues the new ticket.",
+      "",
+      "--- WORKFLOW FLOWCHART ---",
+      "Voluntary Unflown Workflow:\\nRT ↓ TWD ↓ CHANGE ↓ FXF ↓ FXQ ↓ TQT/TQR ↓ FOP ↓ TTP ↓ TWD"
+    ],
+    "questions": [
+      "Q: Why do we use FXP for an unflown ticket reissue instead of TTU?",
+      "A: FXP creates a completely new TST because no coupons have been used, replacing the entire original value.",
+      "",
+      "Q: What command is used to set the TST into exchange mode?",
+      "A: TTK/EXCH/T1 (or the relevant TST number).",
+      "",
+      "Q: How is the Form of Original Issue (FO) line constructed?",
+      "A: Usually FO*L9 (where 9 is the FA/FHE line number of the original ticket).",
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'How do you manually reissue an unflown ticket for a voluntary change?'",
+      "Say: 'First I retrieve the PNR with RT and display the original e-ticket with TWD.",
+      "      I check the original TST and fare rules to determine whether the change is",
+      "      permitted and what penalty applies. I then rebook the new itinerary, price it",
+      "      with FXP, and compare the original and new fare, taxes and penalty to calculate",
+      "      the additional collection or residual value. I update the TST, set it into",
+      "      exchange mode with TTK/EXCH, create the FO from the original FA/FHE line,",
+      "      update the FOP, commission and endorsement as required, remove the TST flag",
+      "      with TTF, add RF and end the PNR, then issue using TTP/EXCH and verify",
+      "      the new ticket with TWD.'",
+      "",
+      "If asked: 'How do you check if a voluntary change is permitted?'",
+      "Say: 'I use FQN on the fare display or from the TST to read Category 31 —",
+      "      Voluntary Changes. This tells me whether changes are permitted, what",
+      "      advance notice is required, and what penalty applies. If no category",
+      "      31 exists, the fare is typically non-changeable.'"
+    ]
+  },
+  {
+    "id": "set_partially_flown_reissue",
+    "title": "Voluntary Manual Reissue: Partially Flown Ticket",
+    "module": "Manual Reissue",
+    "steps": [
+      {
+        "prompt": "Retrieve the PNR.",
+        "expectedCommand": "RT ABC123"
+      },
+      {
+        "prompt": "Display the e-ticket to identify USED and OPEN coupons.",
+        "expectedCommand": "TWD"
+      },
+      {
+        "prompt": "Display the stored fare.",
+        "expectedCommand": "TQT"
+      },
+      {
+        "prompt": "Check original fare rules to see if reissue is permitted after departure.",
+        "expectedCommand": "FQN"
+      },
+      {
+        "prompt": "Check availability for the new return date 10 NOV from LHR to DEL.",
+        "expectedCommand": "AN10NOVLHRDEL"
+      },
+      {
+        "prompt": "Sell 1 seat in M class from line 1 for the remaining open portion.",
+        "expectedCommand": "SS1M1"
+      },
+      {
+        "prompt": "Update TST 1 with the new rebooked segment 2.",
+        "expectedCommand": "TTU/T1/S2"
+      },
+      {
+        "prompt": "Set TST 1 into exchange mode.",
+        "expectedCommand": "TTK/EXCH/T1"
+      },
+      {
+        "prompt": "Create the Form of Original Issue (FO) from FA/FHE line 9.",
+        "expectedCommand": "FO*L9"
+      },
+      {
+        "prompt": "Enter Form of Payment for the new ticket.",
+        "expectedCommand": "FPO/CASH+/CASH"
+      },
+      {
+        "prompt": "Remove the TST change flag for TST 1.",
+        "expectedCommand": "TTF/T1"
+      },
+      {
+        "prompt": "Receive from agent ANUJ.",
+        "expectedCommand": "RF ANUJ"
+      },
+      {
+        "prompt": "End the transaction and save.",
+        "expectedCommand": "ER"
+      },
+      {
+        "prompt": "Issue the exchange ticket (Voluntary).",
+        "expectedCommand": "TTP/EXCH"
+      },
+      {
+        "prompt": "Verify the new ticket to ensure correct status and FOP.",
+        "expectedCommand": "TWD"
+      }
+    ],
+    "overview": [
+      "For a PARTIALLY FLOWN ticket, you cannot use FXP for the whole itinerary because past segments are already flown.",
+      "Instead, you use TTU (e.g., TTU/T1/S2) to manually update the specific unflown segments in the existing TST.",
+      "You must check the original fare rules (FQN) to ensure changes are permitted after departure.",
+      "You still build the FO line and enter the new FOP, and the system uses the residual value for additional collection.",
+      "",
+      "--- WORKFLOW FLOWCHART ---",
+      "Voluntary Partially Flown Workflow:\\nRT ↓ TWD ↓ CHANGE remaining ↓ FXF/S... ↓ FXQ/S... ↓ TQT/TQR ↓ FOP ↓ TTP ↓ TWD"
+    ],
+    "questions": [
+      "Q: Why do we use TTU instead of FXP for a partially flown ticket?",
+      "A: FXP would try to re-price the whole itinerary. TTU manually updates only the specific unflown segments in the existing TST.",
+      "",
+      "Q: What does TTK/EXCH/T1 do?",
+      "A: It explicitly puts TST 1 into exchange mode so the system knows you are doing a reissue rather than a new issue.",
+      "",
+      "Q: How does the system know which coupons have already been flown?",
+      "A: The system calculates the residual value based on the ticket's coupon status (flown coupons are generally marked 'F' or 'USED').",
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'How is a partially flown ticket reissue different from an unflown reissue?'",
+      "Say: 'First I check the e-ticket with TWD to identify which coupons are USED",
+      "      and which remain OPEN. I do not treat the flown portion as new transportation.",
+      "      I check the original fare rules and calculate the reissue based only on the",
+      "      remaining transportation. If there is a past-dated segment, I make sure it is",
+      "      properly excluded or associated for the pricing calculation. I then rebook",
+      "      the remaining portion, update the TST, set it to exchange mode using TTK/EXCH,",
+      "      create the FO from the original ticket, update penalty taxes and form of payment,",
+      "      remove the TST flag with TTF, issue the exchange and verify the new ticket with TWD.",
+      "      For ATC, I must specify all unflown segments using FXF/S... and FXQ/S...'",
+      "",
+      "If asked: 'What does coupon status tell you?'",
+      "Say: 'OPEN = coupon is unused and valid for travel.",
+      "      USED = coupon has been lifted at the departure airport for that sector.",
+      "      VOID = ticket has been voided.",
+      "      REFUNDED = refund has been processed for that coupon.",
+      "      SUSPENDED = coupon is on hold, often during an exchange.",
+      "      I always read coupon status in TWD before any reissue or refund action.'"
+    ]
+  },
+  {
+    "id": "set_involuntary_changes",
+    "title": "Involuntary Changes: Accept & Process",
+    "module": "Involuntary Changes",
+    "steps": [
+      {
+        "prompt": "Retrieve the PNR with locator ABC123.",
+        "expectedCommand": "RT ABC123"
+      },
+      {
+        "prompt": "Review the ticket to verify original flight details.",
+        "expectedCommand": "TWD"
+      },
+      {
+        "prompt": "Method 1: Accept the schedule change specifically for segment 8 only.",
+        "expectedCommand": "8/HK"
+      },
+      {
+        "prompt": "End the transaction.",
+        "expectedCommand": "ER"
+      },
+      {
+        "prompt": "Method 2: Process all status changes (KL/KK to HK, etc.) and End transaction.",
+        "expectedCommand": "ETK"
+      },
+      {
+        "prompt": "Method 3: Process all status changes, End transaction, and Redisplay PNR.",
+        "expectedCommand": "ERK"
+      },
+      {
+        "prompt": "If the involuntary change requires reissue, prepare the involuntary exchange with ATC.",
+        "expectedCommand": "FXI"
+      }
+    ],
+    "overview": [
+      "Accepting an involuntary schedule change involves updating the PNR segment status separately from the ticket.",
+      "8/HK forces a single segment (like segment 8) to Holding Confirmed.",
+      "ETK processes all status changes (like KL to HK, UN to history) and Ends the transaction.",
+      "ERK processes all status changes, Ends the transaction, and instantly Redisplays the PNR.",
+      "After accepting the PNR change, you may need to reissue the ticket using FXI (Involuntary Exchange) if a new document is required.",
+      "",
+      "IMPORTANT STATUS CODES:",
+      "HK = Confirmed | KK = Confirmed by airline | KL = Confirmed from waitlist",
+      "TK = Schedule change / new time confirmed",
+      "UN = Unable / flight does not operate | UC = Unable to confirm",
+      "NO = No action taken by airline | HX = Segment cancelled by airline",
+      "RR = Reconfirmed",
+      "",
+      "--- WORKFLOW FLOWCHART ---",
+      "Workflow:\\nChange booking ↓ FXF ↓ Tell customer amount ↓ Customer agrees ↓ FXQ ↓ TQT/TQR ↓ FOP ↓ TTP/TTM ↓ TWD"
+    ],
+    "questions": [
+      "Q: What is the difference between ETK and ERK?",
+      "A: Both process status changes and End the transaction, but ERK instantly Redisplays the PNR after.",
+      "",
+      "Q: Does ERK automatically reissue the ticket?",
+      "A: No, ERK only accepts the PNR segment change. You must still take ticket action (e.g. revalidate or FXI).",
+      "",
+      "Q: When would you use 8/HK instead of ERK?",
+      "A: When you only want to accept the schedule change for one specific segment (segment 8) and not the entire PNR.",
+      "",
+      "Q: What does FXI do?",
+      "A: It prepares the automated involuntary exchange (ATC Involuntary) without penalty.",
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'What is the difference between a voluntary and involuntary reissue?'",
+      "Say: 'Voluntary: The passenger requested the change. I use FXF then FXQ through ATC.",
+      "      Penalties and fare differences may apply per Category 31.",
+      "      Involuntary: The airline caused the change. I use FXI through ATC.",
+      "      No penalty or additional collection. FXI carries original fare, taxes and",
+      "      endorsement. The endorsement FE SKCHG is added automatically.",
+      "      Key distinction: Always confirm who initiated the change before choosing FXQ vs FXI.'"
+    ]
+  },
+  {
+    "id": "set_involuntary_atc",
+    "title": "Involuntary Exchange: ATC (FXI)",
+    "module": "Involuntary Changes",
+    "steps": [
+      {
+        "prompt": "Retrieve the PNR with locator ABC123.",
+        "expectedCommand": "RT ABC123"
+      },
+      {
+        "prompt": "Display the original e-ticket to check its status and details.",
+        "expectedCommand": "TWD"
+      },
+      {
+        "prompt": "Prepare the involuntary exchange using ATC.",
+        "expectedCommand": "FXI"
+      },
+      {
+        "prompt": "Display the newly generated TST to review.",
+        "expectedCommand": "TQT"
+      },
+      {
+        "prompt": "Check the ATC reissue panel for details.",
+        "expectedCommand": "TQR"
+      },
+      {
+        "prompt": "Issue the new ticket.",
+        "expectedCommand": "TTP"
+      },
+      {
+        "prompt": "Verify the new ticket image.",
+        "expectedCommand": "TWD"
+      }
+    ],
+    "overview": [
+      "An involuntary change is caused by the airline (e.g., flight cancellation, schedule change).",
+      "FXI is the Automated Ticket Changer (ATC) command specifically designed to process involuntary exchanges.",
+      "FXI automatically prepares the new TST carrying over the original fare, taxes, and Form of Payment (FOP), with no additional penalty.",
+      "It also generates required endorsements (e.g., FE SKCHG) and the FO (Form of Original Issue) line automatically.",
+      "Always remember the core FXI workflow: RT → TWD → FXI → TQT → TTP → TWD.",
+      "",
+      "--- WORKFLOW FLOWCHART ---",
+      "Involuntary ATC Workflow:\\nRT ↓ TWD ↓ Airline changes/rebooks ↓ FXI ↓ TQT/TQR ↓ TTP ↓ TWD"
+    ],
+    "questions": [
+      "Q: What is the difference between FXI and FXQ?",
+      "A: FXI is for Involuntary exchanges (no penalty). FXQ is for Voluntary confirmed pricing/reissue (applies penalties).",
+      "",
+      "Q: Why is FXI preferred over a manual reissue for involuntary changes?",
+      "A: FXI automatically generates the TST, carries over the original fare/taxes/FOP, and creates the FO line and endorsements (like FE SKCHG).",
+      "",
+      "Q: What does the command TQR do in this workflow?",
+      "A: It displays the Amadeus Ticket Changer (ATC) reissue panel/details.",
+      "",
+      "Q: Can you describe the complete end-to-end workflow for an ATC involuntary exchange?",
+      "A: For an involuntary change, first I retrieve the PNR and verify the original e-ticket with TWD. If ATC Involuntary is supported, I make sure the PNR has the airline-authorized new itinerary and use FXI. FXI automatically prepares the involuntary exchange TST with the original fare, taxes, FO, FOP and appropriate endorsement. I check the TST with TQT/TQR, issue with TTP and verify with TWD.",
+      "",
+      "Interview Scenario - Airline Disruption:",
+      "Q: The airline delayed a flight by 10 hours and auto-rebooked the passenger. They need a new ticket. Should you use FXQ or FXI?",
+      "A: Since this is an involuntary change caused by the airline, I must use FXI (ATC Involuntary). FXQ is for voluntary changes and would incorrectly attempt to charge the passenger penalties and fare differences.",
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'Walk me through the complete FXI workflow.'",
+      "Say: 'I retrieve the PNR with RT and verify the original ticket with TWD.",
+      "      The airline should have already provided the new itinerary in the PNR.",
+      "      I run FXI — Amadeus automatically creates a TST with the original fare,",
+      "      taxes, FO from the original ticket, FPO, and the endorsement FE SKCHG.",
+      "      I check the TST with TQT and review the ATC reissue panel with TQR to",
+      "      confirm no additional collection is shown. I then issue with TTP and",
+      "      verify the new ticket coupon status is OPEN using TWD.'",
+      "",
+      "If asked: 'What endorsement does FXI add automatically?'",
+      "Say: 'FXI adds the endorsement FE SKCHG — meaning Schedule Change —",
+      "      which signals to the airline that the reissue was caused by an",
+      "      involuntary disruption and no penalty is applicable.'"
+    ]
+  },
+  {
+    "id": "set_involuntary_manual",
+    "title": "Involuntary Exchange: Manual Process",
+    "module": "Involuntary Changes",
+    "steps": [
+      {
+        "prompt": "Retrieve the PNR with locator ABC123.",
+        "expectedCommand": "RT ABC123"
+      },
+      {
+        "prompt": "Display the original e-ticket.",
+        "expectedCommand": "TWD"
+      },
+      {
+        "prompt": "Update the existing TST (e.g. TST 1) with the new rebooked segments (e.g. segment 2).",
+        "expectedCommand": "TTU/T1/S2"
+      },
+      {
+        "prompt": "Put TST 1 into exchange mode.",
+        "expectedCommand": "TTK/EXCH/T1"
+      },
+      {
+        "prompt": "Create the Form of Original Issue (FO) from the FA/FHE line 11.",
+        "expectedCommand": "FO*L11"
+      },
+      {
+        "prompt": "Remove the TST change flag for TST 1.",
+        "expectedCommand": "TTF/T1"
+      },
+      {
+        "prompt": "Add the Received From remark with your name (ANUJ).",
+        "expectedCommand": "RF ANUJ"
+      },
+      {
+        "prompt": "End the transaction.",
+        "expectedCommand": "ER"
+      },
+      {
+        "prompt": "Issue the involuntary exchange ticket.",
+        "expectedCommand": "TTP/EXCH/INV/RT"
+      },
+      {
+        "prompt": "Verify the new ticket.",
+        "expectedCommand": "TWD"
+      }
+    ],
+    "overview": [
+      "You must perform a manual involuntary exchange when ATC (FXI) fails or is unsupported.",
+      "Unlike FXI, you must manually rebook the new flight and manually update the TST (using TTU).",
+      "You must also manually place the TST into exchange mode (TTK/EXCH) and build the FO line.",
+      "The critical ticketing command is TTP/EXCH/INV/RT, which specifically tells the system it is an INVOLUNTARY exchange.",
+      "",
+      "--- WORKFLOW FLOWCHART ---",
+      "Workflow:\\nChange booking ↓ FXF ↓ Tell customer amount ↓ Customer agrees ↓ FXQ ↓ TQT/TQR ↓ FOP ↓ TTP/TTM ↓ TWD"
+    ],
+    "questions": [
+      "Q: When might you be forced to use a manual involuntary exchange instead of FXI?",
+      "A: When FXI is not supported by the airline/market, or mandatory original-ticket data is missing.",
+      "",
+      "Q: What command sets the TST into exchange mode?",
+      "A: TTK/EXCH/T1",
+      "",
+      "Q: Why is the /INV flag important when issuing the ticket manually (TTP/EXCH/INV/RT)?",
+      "A: It specifically tells the system to process the exchange as an involuntary transaction without standard voluntary penalties.",
+      "",
+      "Q: What is the complete workflow if FXI cannot be used for an involuntary exchange?",
+      "A: If FXI cannot be used, I process the exchange manually: rebook the authorized itinerary, update the TST with TTU, put the TST into exchange mode with TTK/EXCH, create the FO from the original ticket, verify the fare/taxes/FOP/endorsement, remove the TST change flag with TTF, end the PNR and issue using the appropriate involuntary exchange entry such as TTP/EXCH/INV/RT, then verify the new ticket with TWD.",
+      "",
+      "Interview Scenario - Missing ATC Support:",
+      "Q: You need to process an involuntary exchange, but the airline does not support ATC FXI. How do you ensure the passenger isn't charged a penalty?",
+      "A: I have to do a manual involuntary reissue. The most critical step is issuing the ticket with the /INV modifier (e.g., TTP/EXCH/INV/RT). This modifier tells the system to process it as an involuntary exchange, bypassing voluntary penalties.",
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'When would you do a manual involuntary exchange instead of FXI?'",
+      "Say: 'FXI may not be available if the airline does not support ATC Involuntary,",
+      "      if the itinerary is complex interline, or if the system cannot automatically",
+      "      match the original ticket. In those cases I perform the exchange manually:",
+      "      I rebook the authorized new itinerary, update the TST with TTU,",
+      "      place it into exchange mode with TTK/EXCH, create the FO from the FA/FHE line,",
+      "      add the involuntary endorsement manually, remove the TST flag with TTF,",
+      "      add RF and end with ER, then issue with TTP/EXCH/INV/RT.'",
+      "",
+      "If asked: 'What is the difference between TTP/EXCH and TTP/EXCH/INV/RT?'",
+      "Say: 'TTP/EXCH is used for voluntary exchanges.",
+      "      TTP/EXCH/INV/RT specifically flags the issuance as an involuntary exchange,",
+      "      which is important for BSP reporting and ensures the correct exchange",
+      "      reason code is attached to the ticket.'"
+    ]
+  },
+  {
+    "id": "set_ticket_void",
+    "title": "Ticket Void: TRDC Workflow",
+    "module": "Refund & Void",
+    "steps": [
+      {
+        "prompt": "Retrieve the PNR.",
+        "expectedCommand": "RT ABC123"
+      },
+      {
+        "prompt": "Display the e-ticket from FA/FH line 5 to check coupon status.",
+        "expectedCommand": "TWD/L5"
+      },
+      {
+        "prompt": "Check the airline's e-ticket capabilities (e.g., airline XX).",
+        "expectedCommand": "HE ETT XX"
+      },
+      {
+        "prompt": "Display the relevant market capability page (e.g., market 152).",
+        "expectedCommand": "MS152"
+      },
+      {
+        "prompt": "Move to the next page to find the VOID : Y indicator.",
+        "expectedCommand": "MD"
+      },
+      {
+        "prompt": "Void the ticket from FA/FH line 5.",
+        "expectedCommand": "TRDC/L5"
+      },
+      {
+        "prompt": "Verify the ticket to ensure the status is now V (Voided).",
+        "expectedCommand": "TWD/L5"
+      }
+    ],
+    "overview": [
+      "Voiding (TRDC) cancels the ticket transaction completely. It can only be done BEFORE the ticket is confirmed by the local BSP/ARC.",
+      "Refund (TRF) is used AFTER the ticket is confirmed or when you want to return refundable value based on rules.",
+      "Before voiding, you must verify the coupon status (TWD) and check if the airline/market permits voiding (HE ETT).",
+      "If the ticket is successfully voided, its status changes to V (Voided).",
+      "",
+      "--- WORKFLOW FLOWCHART ---",
+      "Void Workflow:\\nRT ↓ TWD ↓ TRDC ↓ TWD"
+    ],
+    "questions": [
+      "Q: What is the primary difference between a Void (TRDC) and a Refund (TRF)?",
+      "A: A void reverses the transaction (before BSP confirmation). A refund returns value according to fare rules (after confirmation).",
+      "",
+      "Q: What command is used to void an e-ticket located on FA/FHE line 5?",
+      "A: TRDC/L5",
+      "",
+      "Q: Can you void a ticket that has already been confirmed by the BSP/ARC?",
+      "A: No, you must process a refund instead.",
+      "",
+      "Q: What is the complete step-by-step process for voiding a ticket?",
+      "A: First I retrieve the PNR and identify the FA/FH line containing the ticket. I display the e-ticket with TWD/Lnn and verify the coupon/document status. I then check the airline's e-ticket capability using HE ETT XX and the appropriate market reference to confirm that VOID = Y. If the ticket has not been confirmed by BSP/ARC and voiding is permitted, I use TRDC/Lnn, for example TRDC/L5. I then verify the result with TWD/L5 and check the PNR/report as required.",
+      "",
+      "Interview Scenario - Accidental Issue:",
+      "Q: You just issued a ticket and realized the name was spelled wrong. It's the same day. What do you do?",
+      "A: Assuming the BSP/ARC hasn't run the end-of-day sales report, I will immediately void the ticket using TRDC. I check coupon status first using TWD, then void the document, verify the void status, correct the name in the PNR, and reissue a fresh ticket.",
+      "",
+      "⚠️  COMMON INTERVIEW MISTAKE — Do NOT say:",
+      "    'TRDC works any time after issue.'",
+      "    Correct answer: TRDC (void) is only available before BSP confirmation.",
+      "    After that, you must process a full refund using TRF workflow.",
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'What is the difference between void, refund and exchange?'",
+      "Say: 'Void (TRDC): Cancels the ticket before BSP confirmation.",
+      "      No refund record is generated — the transaction is simply reversed.",
+      "      Refund (TRF → TRFT → TRFU → TRFP): Formally returns the fare/taxes",
+      "      through BSP after the ticket has been reported. Generates a refund notice.",
+      "      Exchange/Reissue (TTK/EXCH or ATC FXQ/FXI): A new ticket is issued",
+      "      based on the original, reflecting the changed itinerary, fare difference",
+      "      and applicable penalty. The original ticket coupons are marked EXCHANGED.'"
+    ]
+  },
+  {
+    "id": "set_pricing_booked",
+    "title": "Pricing: FXP vs FXX vs FXB",
+    "module": "Pricing",
+    "steps": [
+      {
+        "prompt": "Retrieve the PNR.",
+        "expectedCommand": "RT ABC123"
+      },
+      {
+        "prompt": "Check the fare in the booked class without creating a TST.",
+        "expectedCommand": "FXX"
+      },
+      {
+        "prompt": "Price the itinerary in the booked class and create a TST.",
+        "expectedCommand": "FXP"
+      },
+      {
+        "prompt": "Find the cheapest available fare, automatically rebook, and create a TST.",
+        "expectedCommand": "FXB"
+      },
+      {
+        "prompt": "Verify the rebooked itinerary.",
+        "expectedCommand": "RT"
+      },
+      {
+        "prompt": "Display the stored TST.",
+        "expectedCommand": "TQT"
+      }
+    ],
+    "overview": [
+      "The core pricing commands differ based on whether they create a TST (save) and whether they rebook (lowest fare).",
+      "COMMAND  ACTION                  SAVES TST?  REBOOKS?",
+      "-------  ----------------------  ----------  --------",
+      "FXX      Check booked fare       No          No",
+      "FXP      Price & save booked     Yes         No",
+      "FXR      Check lowest fare       No          No",
+      "FXB      Best buy (save low)     Yes         Yes",
+      "Memory Hooks:",
+      "- 'P' = Price Present (prices current booking, creates TST).",
+      "- 'XX' = eXamine (prices current booking, NO TST).",
+      "- 'B' = Best Buy (finds lower fare, rebooks, creates TST)."
+    ],
+    "questions": [
+      "Q: Does FXP always give the cheapest fare?",
+      "A: No. FXP prices the itinerary in the booking class already booked. It does not rebook.",
+      "",
+      "Q: What is the main difference between FXB and FXR?",
+      "A: Both find the lowest fare and rebook, but FXB creates a TST, while FXR does NOT create a TST.",
+      "",
+      "Q: What happens to the booking class when you use FXP?",
+      "A: FXP prices the itinerary using the class already booked. It does not normally change the booking class.",
+      "",
+      "Q: What happens if FXB cannot find a lower fare?",
+      "A: It indicates that no lower applicable fare is available, meaning the current booking may already be at the lowest fare or cheaper fares are sold out.",
+      "",
+      "Q: How does FQD differ from FXB?",
+      "A: FQD is just a fare display (looks at published fares). FXB evaluates the actual PNR itinerary, availability, and fare conditions to find the lowest usable fare.",
+      "",
+      "Interview Scenario - Quoting a Fare:",
+      "Q: A customer calls and asks 'How much would my current booking cost?' Which command do you use and why?",
+      "A: I would use FXX. FXX prices the itinerary in the booked class without creating a TST. I wouldn't use FXP yet because the customer hasn't confirmed they want to save the fare, and I wouldn't use FXB because they asked for the cost of their *current* booking, not the cheapest alternative.",
+      "",
+      "⚠️  COMMON INTERVIEW MISTAKE — Do NOT say:",
+      "    'FXX creates the TST.'",
+      "    Correct answer: FXX prices the PNR but does NOT create a TST.",
+      "    FXP prices the PNR AND creates the TST.",
+      "",
+      "Real-life Scenario:",
+      "    'You want to show a passenger the fare breakdown before committing.'",
+      "Correct workflow:",
+      "  FXX → show the price → passenger confirms → FXP (creates TST) → TQT → TTP",
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'What is the difference between FXP and FXX?'",
+      "Say: 'FXP prices the PNR using the booked classes and creates a stored TST.",
+      "      FXX prices without creating a TST — useful for checking the fare without",
+      "      committing it to the PNR. Memory hook: P = Prepare/Price with TST.",
+      "      X = eXamine only, no TST.'",
+      "",
+      "If asked: 'How do you check what is in the TST?'",
+      "Say: 'I use TQT to display the stored TST. TQT/T1 displays TST number 1",
+      "      specifically when there are multiple TSTs in the PNR.",
+      "      The TST shows passenger, fare basis, total fare, taxes and FOP.'"
+    ]
+  },
+  {
+    "id": "set_pricing_master",
+    "title": "Pricing: FXA, FXL, FXU, FXZ",
+    "module": "Pricing",
+    "steps": [
+      {
+        "prompt": "Retrieve the PNR.",
+        "expectedCommand": "RT ABC123"
+      },
+      {
+        "prompt": "Display lower available fares without automatically rebooking.",
+        "expectedCommand": "FXA"
+      },
+      {
+        "prompt": "Book option 3 from the FXA list and create a TST.",
+        "expectedCommand": "FXU3"
+      },
+      {
+        "prompt": "Check the lowest possible fare for the route regardless of availability.",
+        "expectedCommand": "FXL"
+      }
+    ],
+    "overview": [
+      "Master Pricer commands help you explore options before committing.",
+      "COMMAND  ACTION                                 CREATES TST?",
+      "-------  -------------------------------------  ------------",
+      "FXA      Display lower available fares          No",
+      "FXL      Lowest possible fare (Informative)     No",
+      "FXZ[n]   Select and rebook option [n]           No",
+      "FXU[n]   Select and rebook option [n] + TST     Yes",
+      "Memory Hooks:",
+      "- 'A' = Ask/Show alternatives.",
+      "- 'Z' = Zero TST (rebooks without TST).",
+      "- 'U' = Ultimate / Use (rebooks AND creates TST).",
+      "- 'L' = Lowest possible (even if sold out)."
+    ],
+    "questions": [
+      "Q: If a customer wants to see lower fare options before deciding, which command do you use?",
+      "A: FXA. It displays options without automatically rebooking (unlike FXB).",
+      "",
+      "Q: After using FXA, what command selects option 2, rebooks, and creates a TST?",
+      "A: FXU2",
+      "",
+      "Q: Can you book option 2 from an FXA display without creating a TST?",
+      "A: Yes, use FXZ2. FXU2 would book it AND create the TST.",
+      "",
+      "Q: Is the fare shown by FXL guaranteed to be available for booking?",
+      "A: No, FXL finds the lowest possible fare regardless of current seat availability. It is informative only.",
+      "",
+      "Interview Scenario - Finding Alternatives:",
+      "Q: The customer says their current fare is too expensive and asks 'What is the absolute cheapest option you have, even if I have to change flights?'",
+      "A: I would use FXA. FXA displays a list of lower available fares and alternative itineraries. If they like option 3, I can select it and create a TST simultaneously using FXU3.",
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'How do you find the cheapest available fare for a route?'",
+      "Say: 'I use the Master Pricer — FLQD or MPD depending on the configuration —",
+      "      which searches across airlines and cabins simultaneously and ranks results",
+      "      by price. I select the best option and confirm with the appropriate",
+      "      sell entry. Alternatively I can use FXB after making a booking to",
+      "      automatically rebook into the cheapest applicable fare class.'"
+    ]
+  },
+  {
+    "id": "set_purged_pnr",
+    "title": "Retrieval: Purged PNRs & Old Tickets",
+    "module": "Retrieval",
+    "steps": [
+      {
+        "prompt": "Attempt to retrieve the live PNR.",
+        "expectedCommand": "RT ABC123"
+      },
+      {
+        "prompt": "PNR was purged. Request the past-date record by locator.",
+        "expectedCommand": "RPD/RLC-ABC123/15MAR26"
+      },
+      {
+        "prompt": "Check the recall request list.",
+        "expectedCommand": "RLD"
+      },
+      {
+        "prompt": "Display item 1 from the list once it is PROCESSED.",
+        "expectedCommand": "RLDT1"
+      },
+      {
+        "prompt": "View the history of the purged PNR.",
+        "expectedCommand": "RPP/RH"
+      },
+      {
+        "prompt": "View the TST of the purged PNR.",
+        "expectedCommand": "RPP/TST"
+      },
+      {
+        "prompt": "Display the e-ticket directly by its ticket number, bypassing the PNR.",
+        "expectedCommand": "TWD/TKT074-1234567890"
+      }
+    ],
+    "overview": [
+      "PNRs are purged after a certain period. To retrieve a Past Date Record (PDR), you must use the RPD/RLD workflow.",
+      "RPD submits a deferred request to recall purged data.",
+      "RLD displays the list of recall requests and their statuses.",
+      "RLDT[n] opens the retrieved PNR.",
+      "RPP/RH and RPP/TST display the history and TST of the purged record.",
+      "If you only need the ticket and have the ticket number, you can bypass the PNR entirely by using TWD/TKT[number]."
+    ],
+    "questions": [
+      "Q: What is the difference between RPD and TWD?",
+      "A: RPD recalls a purged PNR (booking). TWD displays an e-ticket record.",
+      "",
+      "Q: Why use RPD/TKT-... instead of TWD/TKT...?",
+      "A: RPD/TKT searches for the purged PNR using the ticket number. TWD/TKT displays the ticket record itself.",
+      "",
+      "Q: What does RLDT1 do?",
+      "A: It displays item 1 from the Recall List Display (RLD) once it has been processed.",
+      "",
+      "Interview Scenario - Purged PNR Retrieval:",
+      "Q: How do you retrieve a purged PNR?",
+      "A: First I would confirm that the PNR is actually purged rather than simply unavailable in the current office. If I have the Amadeus record locator, I can submit a past-date recall using RPD/RLC-.... I then use RLD to check the recall request status. Once the request is processed, I use RLDT with the appropriate line number to display the retrieved PDR. If I need the historical record or TST, the applicable RPP/RH or RPP/TST entries can be used where supported.",
+      "",
+      "Interview Scenario - Old Ticket Check:",
+      "Q: How do you check an old ticket?",
+      "A: If I have the ticket number, I can display the e-ticket directly using TWD/TKT followed by the ticket number. If I have the live PNR, I can use TWD, or TWD/Lx when I know the FA/FHE line containing the ticket information.",
+      "",
+      "⚠️  COMMON INTERVIEW MISTAKE — Do NOT say:",
+      "    'RPD immediately opens the old PNR.'",
+      "    Correct answer: RPD submits/recalls a purged-record request;",
+      "    RLD is used to check the request status, and RLDT retrieves the processed result.",
+      "",
+      "Real-life Scenario — Customer says:",
+      "    'I travelled six months ago. My booking reference was AB12CD.",
+      "    I need my old itinerary and ticket details.'",
+      "Correct workflow:",
+      "  1. Try RT AB12CD — if purged, the system will say NOT FOUND",
+      "  2. Use RPD/RLC-AB12CD/[date] to request a past-date recall",
+      "  3. Use RLD to check if the request has been processed",
+      "  4. Use RLDT1 to open the retrieved PDR",
+      "  5. Use TWD/TKT[number] to display the actual e-ticket if needed",
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'A passenger travelled 8 months ago and needs proof of travel. What do you do?'",
+      "Say: 'If the PNR is purged, RT will return NOT FOUND. I submit a past-date recall",
+      "      using RPD/RLC-[locator]/[date]. I check RLD to see if the request has been",
+      "      processed, and once it appears as PROCESSED I use RLDT1 to open the PDR.",
+      "      If I only need the ticket details I can use TWD/TKT followed by the",
+      "      ticket number directly, which works independently of the PNR.'",
+      "",
+      "If asked: 'RPD immediately retrieves the PNR, correct?'",
+      "Say: 'This is a common misconception. RPD submits a request — it does not",
+      "      immediately open the PNR. The retrieval is a deferred/batch process.",
+      "      I must use RLD to check the request status and RLDT to open the result",
+      "      once it is marked PROCESSED.'"
+    ]
+  },
+  {
+    "id": "set_pnr_history",
+    "title": "PNR History & Troubleshooting",
+    "module": "History",
+    "steps": [
+      {
+        "prompt": "Retrieve the current PNR.",
+        "expectedCommand": "RT ABC123"
+      },
+      {
+        "prompt": "Display the entire PNR history.",
+        "expectedCommand": "RH"
+      },
+      {
+        "prompt": "Display the PNR history including all queue activity.",
+        "expectedCommand": "RH/ALL"
+      },
+      {
+        "prompt": "Display history specifically for air segments.",
+        "expectedCommand": "RHA"
+      },
+      {
+        "prompt": "Display history for segment 3 only.",
+        "expectedCommand": "RHS3"
+      },
+      {
+        "prompt": "Display history of the name elements.",
+        "expectedCommand": "RHN"
+      },
+      {
+        "prompt": "Display history for general facts (SSR/OSI).",
+        "expectedCommand": "RHG"
+      },
+      {
+        "prompt": "Display history for ticketing arrangements.",
+        "expectedCommand": "RHK"
+      },
+      {
+        "prompt": "Display history for fare elements.",
+        "expectedCommand": "RHF"
+      },
+      {
+        "prompt": "Display queue history.",
+        "expectedCommand": "RHQ"
+      }
+    ],
+    "overview": [
+      "PNR History (RH) is your audit trail. It tells you what changed, when it changed, who changed it, and what the previous value was.",
+      "History entries have step numbers (e.g., 001/003 means entered in step 1, changed/cancelled in step 3).",
+      "",
+      "ACTION CODES:",
+      "O = Original (ON, OS, OP, OF)",
+      "A = Added (AN, AS, AF)",
+      "C = Changed (CN, CS, CF)",
+      "X = Cancelled (XN, XS, XF)",
+      "RF = Received From",
+      "",
+      "FILTERING HISTORY:",
+      "RHA = Air segments",
+      "RHS[n] = Specific segment",
+      "RHN = Name history",
+      "RHG = SSR/OSI (General facts)",
+      "RHK = Ticketing history",
+      "RHF = Fare elements",
+      "RHQ = Queue history"
+    ],
+    "questions": [
+      "Q: What does a history line like '001/003 CS/BA123...' mean?",
+      "A: 001 is when the segment was originally created. 003 is when it was changed. CS means Changed Status.",
+      "",
+      "Q: How do you check if a customer's requested wheelchair SSR was actually added?",
+      "A: Use RHG to view general facts history and look for SA/SR WCHR.",
+      "",
+      "Q: What is the difference between RT and RH?",
+      "A: RT shows what the booking looks like NOW. RH shows what happened to the booking in the PAST.",
+      "",
+      "Interview Scenario - Schedule Change Investigation:",
+      "Q: A customer says their flight was changed without their permission. How will you investigate?",
+      "A: First I retrieve the PNR using RT. I check the current itinerary and then display the PNR history using RH or the air-segment history using RHA. I locate the affected segment and compare the original and changed entries using the history step numbers. I check the history action code to determine whether the segment was added, changed or cancelled, and I check the agent sign, office and date/time recorded in the history. If it appears to be an airline schedule change, I look for the relevant flight-time/status history, including TC where applicable. Finally, I check TWD if I need to determine whether the ticket coupon was affected.",
+      "",
+      "⚠️  COMMON INTERVIEW MISTAKE — Do NOT say:",
+      "    'I use RT to see what changes were made.'",
+      "    Correct answer: RT shows the CURRENT state of the PNR.",
+      "    RH (PNR History) is the audit trail showing all past changes.",
+      "",
+      "Real-life Scenario — Supervisor asks:",
+      "    'Who changed passenger SHARMA's flight segment yesterday?'",
+      "Correct workflow:",
+      "  1. RT [locator] — retrieve the PNR",
+      "  2. RHA — view air segment history",
+      "  3. Look for CS (Changed Status) or the relevant action code",
+      "  4. Note the agent sign, office ID and date/time of the change",
+      "",
+      "Interview Q: What action codes might you see in RH?",
+      "A: O = Original entry, A = Added, C = Changed, X = Cancelled.",
+      "   For example: ON = Original Name, CS = Changed Status, XS = Cancelled Segment.",
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'How do you prove a booking was modified without the passenger's consent?'",
+      "Say: 'I retrieve the PNR with RT and display the history with RH or the",
+      "      relevant filtered history — RHA for air segments. The history shows",
+      "      every change with the agent sign, office ID, date and time.",
+      "      I locate the relevant entry, read the action code (C = Changed),",
+      "      compare the step numbers before and after the modification, and",
+      "      note who made the change and from which office.",
+      "      This constitutes a full audit trail for dispute resolution.'"
+    ]
+  },
+  {
+    "id": "set_refund_vol_unflown",
+    "title": "Refund: Voluntary (Unflown)",
+    "module": "Refund & Void",
+    "steps": [
+      {
+        "prompt": "Retrieve the PNR.",
+        "expectedCommand": "RT ABC123"
+      },
+      {
+        "prompt": "Display the e-ticket to verify it is completely unused.",
+        "expectedCommand": "TWD"
+      },
+      {
+        "prompt": "Initiate the refund record from FA/FHE line 6.",
+        "expectedCommand": "TRF/L6"
+      },
+      {
+        "prompt": "Check refundable taxes.",
+        "expectedCommand": "TRFT"
+      },
+      {
+        "prompt": "Apply a cancellation penalty of 5000 amount.",
+        "expectedCommand": "TRFU/CP5000A"
+      },
+      {
+        "prompt": "Update Form of Payment 1 with the refund total of 32000.",
+        "expectedCommand": "TRFU/FPA132000"
+      },
+      {
+        "prompt": "Process the refund.",
+        "expectedCommand": "TRFP"
+      }
+    ],
+    "overview": [
+      "The Master Refund Workflow: TRF → TRFT → TRFU → TRFP.",
+      "TRF initiates the refund record.",
+      "TRFT displays refundable taxes.",
+      "TRFU updates the refund record (e.g., TRFU/CP for cancellation penalty).",
+      "TRFP processes the refund.",
+      "TRFIG ignores the refund before processing, TRDX cancels an un-processed refund, and TRDC cancels it after processing if permitted.",
+      "",
+      "--- WORKFLOW FLOWCHART ---",
+      "Voluntary Unflown Workflow:\\nRT ↓ TWD ↓ CHANGE ↓ FXF ↓ FXQ ↓ TQT/TQR ↓ FOP ↓ TTP ↓ TWD"
+    ],
+    "questions": [
+      "Q: What does TRFU/CP5 do compared to TRFU/CP5000A?",
+      "A: TRFU/CP5 applies a 5% penalty, whereas CP5000A applies a flat amount penalty of 5000.",
+      "",
+      "Q: What is the difference between TRFIG, TRDX, and TRDC in the refund process?",
+      "A: TRFIG ignores/cancels the refund workflow before the record is saved. TRDX cancels an updated but un-processed refund record. TRDC voids/cancels the refund document after it has been fully processed (TRFP) if permitted.",
+      "",
+      "Q: Why must you check TRFT before processing?",
+      "A: To ensure only eligible taxes are being refunded. If a tax is non-refundable, you must delete it (e.g., TRFU/TX1).",
+      "",
+      "Interview Scenario - Voluntary Unflown Refund:",
+      "Q: A customer has a completely unused ticket and wants a voluntary refund. What will you do?",
+      "A: First I retrieve the PNR with RT and check the e-ticket with TWD. I verify the fare's voluntary-refund and penalty conditions. Then I initiate the automated refund using TRF by ticket number or FA line. I review the refund record and use TRFT to check refundable taxes. If required, I update the cancellation penalty, taxes, waiver or FOP with TRFU. After verifying that the refund total and FOP reconcile, I process the refund using TRFP and verify the transaction in TJQ.",
+      "",
+      "⚠️  COMMON INTERVIEW MISTAKE — Do NOT say:",
+      "    'TRFP issues the refund immediately.'",
+      "    Correct answer: TRFP processes/pays the refund after TRF → TRFT → TRFU.",
+      "    Master workflow: TRF → TRFT → TRFU → TRFP",
+      "",
+      "Real-life Scenario:",
+      "    'Passenger bought a fully flexible ticket but cannot travel. No sectors flown.'",
+      "Correct workflow:",
+      "  TRF/TKT[number] → TRFT (fare calculation) → TRFU (update)",
+      "  → TRFP (process refund) → TWD (verify coupon status = REFUNDED)",
+      "",
+      "Interview Q: What command cancels an unprocessed refund?",
+      "A: TRDX — cancels a refund before it has been processed/confirmed.",
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'How do you process a refund on a fully unused ticket?'",
+      "Say: 'I retrieve the PNR and verify the ticket with TWD to confirm all",
+      "      coupons are OPEN. I initiate the refund with TRF/TKT[number],",
+      "      use TRFT to calculate the refund amount based on Category 33 conditions,",
+      "      TRFU to update, and TRFP to process and generate the refund document.",
+      "      I verify the coupon status has changed to REFUNDED using TWD.",
+      "      If the passenger does not agree after TRFT I can cancel with TRDX.'"
+    ]
+  },
+  {
+    "id": "set_refund_vol_partial",
+    "title": "Refund: Voluntary (Partially Flown)",
+    "module": "Refund & Void",
+    "steps": [
+      {
+        "prompt": "Retrieve the PNR.",
+        "expectedCommand": "RT ABC123"
+      },
+      {
+        "prompt": "Display the e-ticket to identify USED vs OPEN coupons.",
+        "expectedCommand": "TWD"
+      },
+      {
+        "prompt": "Initiate the refund record from FA/FHE line 6.",
+        "expectedCommand": "TRF/L6"
+      },
+      {
+        "prompt": "Update the used fare to 15000.",
+        "expectedCommand": "TRFU/U15000"
+      },
+      {
+        "prompt": "Check refundable taxes.",
+        "expectedCommand": "TRFT"
+      },
+      {
+        "prompt": "Process the refund.",
+        "expectedCommand": "TRFP"
+      }
+    ],
+    "overview": [
+      "For partially flown tickets, you cannot simply refund the original fare.",
+      "The golden rule is: FARE REFUND = FARE PAID - FARE USED.",
+      "You must manually determine and input the used fare amount using TRFU/U... before applying penalties.",
+      "",
+      "--- WORKFLOW FLOWCHART ---",
+      "Voluntary Partially Flown Workflow:\\nRT ↓ TWD ↓ CHANGE remaining ↓ FXF/S... ↓ FXQ/S... ↓ TQT/TQR ↓ FOP ↓ TTP ↓ TWD"
+    ],
+    "questions": [
+      "Q: How does a partially flown refund differ from a completely unflown refund?",
+      "A: You must determine and input the 'fare used' (TRFU/U). The refund is based on fare paid minus fare used.",
+      "",
+      "Interview Scenario - Voluntary Partially Flown Refund:",
+      "Q: A customer flew the first leg of their trip but wants a refund for the remaining unused segments. How do you process it?",
+      "A: First I retrieve the PNR and display the e-ticket using TWD to identify used and unused coupons. I initiate the refund with TRF, then verify the fare used and refundable fare. For a partially used ticket, the used fare is critical because the refund is based on fare paid minus fare used, plus eligible taxes, less applicable penalty. I check taxes with TRFT, make any authorized TRFU updates, verify the FOP and process with TRFP.",
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'How is a partial refund different from a full refund?'",
+      "Say: 'For a partially flown ticket, only the unused coupons are eligible for refund.",
+      "      I verify TWD to confirm which coupons are USED and which are OPEN.",
+      "      The refund calculation covers only the unused transportation, and the fare",
+      "      rules (Category 33) determine whether the unused portion is refundable",
+      "      and what penalty deduction applies. I use the same TRF → TRFT → TRFU → TRFP",
+      "      workflow but the amount will reflect only the unused sectors.'"
+    ]
+  },
+  {
+    "id": "set_refund_tax_only",
+    "title": "Refund: Tax-Only",
+    "module": "Refund & Void",
+    "steps": [
+      {
+        "prompt": "Initiate a tax-only refund by ticket number.",
+        "expectedCommand": "TRF057-1234567890/TAX"
+      },
+      {
+        "prompt": "Check refundable taxes.",
+        "expectedCommand": "TRFT"
+      },
+      {
+        "prompt": "Delete tax line 1 if it is non-refundable.",
+        "expectedCommand": "TRFU/TX1"
+      },
+      {
+        "prompt": "Process the refund.",
+        "expectedCommand": "TRFP"
+      }
+    ],
+    "overview": [
+      "If the base fare is non-refundable but unused taxes are refundable, process a tax-only refund.",
+      "Use the /TAX modifier when initiating TRF to ensure only taxes are evaluated.",
+      "You can bypass the review entirely by appending /FULL (e.g., TRF.../TAX/FULL).",
+      "",
+      "--- WORKFLOW FLOWCHART ---",
+      "Refund Workflow:\\nTRF ↓ TRFT ↓ TRFU ↓ TRFP"
+    ],
+    "questions": [
+      "Q: What command deletes tax line 4 from the refund record?",
+      "A: TRFU/TX4",
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'Can you refund taxes on a non-refundable ticket?'",
+      "Say: 'Yes — even on non-refundable tickets, certain government taxes and airport",
+      "      fees that are only collected when travel actually takes place may be",
+      "      refundable if the passenger did not fly. I process this as a tax-only refund.",
+      "      The fare itself is forfeited but the refundable taxes are returned.",
+      "      I check which specific taxes are refundable in the ticket conditions",
+      "      before processing through the TRF workflow.'"
+    ]
+  },
+  {
+    "id": "set_refund_atc",
+    "title": "Refund: ATC Automated",
+    "module": "Refund & Void",
+    "steps": [
+      {
+        "prompt": "Retrieve the PNR.",
+        "expectedCommand": "RT ABC123"
+      },
+      {
+        "prompt": "Display the e-ticket.",
+        "expectedCommand": "TWD"
+      },
+      {
+        "prompt": "Initiate ATC refund from FA line 6.",
+        "expectedCommand": "TRF/L6/ATC"
+      },
+      {
+        "prompt": "Check refundable taxes.",
+        "expectedCommand": "TRFT"
+      },
+      {
+        "prompt": "Process the refund.",
+        "expectedCommand": "TRFP"
+      }
+    ],
+    "overview": [
+      "ATC Refund automatically calculates the refund using the airline's filed Category 33 Voluntary Refund rules.",
+      "If supported by the airline, it prevents manual calculation errors.",
+      "",
+      "--- WORKFLOW FLOWCHART ---",
+      "Refund Workflow:\\nTRF ↓ TRFT ↓ TRFU ↓ TRFP"
+    ],
+    "questions": [
+      "Q: What fare rule category does ATC Refund use?",
+      "A: Category 33 (Voluntary Refunds).",
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'What is ATC Refund and how does it differ from a manual refund?'",
+      "Say: 'ATC Refund automates the refund calculation using the airline-filed",
+      "      Category 33 voluntary refund conditions stored in the system.",
+      "      It calculates fare paid, used portion, cancellation penalty and refund amount",
+      "      automatically. A manual refund requires the agent to calculate these manually",
+      "      and enter the values. ATC Refund is faster and less error-prone,",
+      "      but it is only available when Category 33 data exists for the fare.'"
+    ]
+  },
+  {
+    "id": "set_refund_involuntary",
+    "title": "Refund: Involuntary (Disruption)",
+    "module": "Refund & Void",
+    "steps": [
+      {
+        "prompt": "Retrieve the PNR.",
+        "expectedCommand": "RT ABC123"
+      },
+      {
+        "prompt": "Display the e-ticket to confirm it is unused.",
+        "expectedCommand": "TWD"
+      },
+      {
+        "prompt": "Initiate the refund record from FA/FHE line 6.",
+        "expectedCommand": "TRF/L6"
+      },
+      {
+        "prompt": "Check refundable taxes.",
+        "expectedCommand": "TRFT"
+      },
+      {
+        "prompt": "Add the authorized airline waiver code (e.g., WAIVER123).",
+        "expectedCommand": "TRFU/WAWAIVER123"
+      },
+      {
+        "prompt": "Process the refund.",
+        "expectedCommand": "TRFP"
+      }
+    ],
+    "overview": [
+      "An involuntary refund is triggered by the airline (e.g. flight cancellation).",
+      "Do NOT treat this as an ordinary voluntary refund. Standard penalties are normally waived.",
+      "You must enter the airline's authorized waiver code using TRFU/WA...",
+      "",
+      "--- WORKFLOW FLOWCHART ---",
+      "Refund Workflow:\\nTRF ↓ TRFT ↓ TRFU ↓ TRFP"
+    ],
+    "questions": [
+      "Q: What is the main difference between voluntary and involuntary refunds?",
+      "A: Voluntary is passenger-initiated and governed by fare rules (penalties apply). Involuntary is airline-caused (e.g. cancellation), penalties are waived, and it usually requires an authorized waiver code.",
+      "",
+      "Interview Scenario - Involuntary Unflown Refund:",
+      "Q: The airline cancelled the passenger's completely unused flight. They request a refund. What is the process?",
+      "A: I first verify the airline's disruption and refund authorization, retrieve the PNR and check the ticket with TWD. I confirm that the ticket is unused and check whether an authorized waiver or specific airline instruction applies. I initiate the refund with TRF, review the taxes and refund amount, apply the authorized waiver if required, verify the FOP and process using TRFP. I then verify the refund in TJQ.",
+      "",
+      "Interview Scenario - Involuntary Partially Flown Refund:",
+      "Q: The passenger flew the outbound leg, but the airline cancelled the return flight. How do you process this involuntary refund?",
+      "A: I retrieve the PNR and display the ticket with TWD to identify the used and unused coupons. I confirm the airline's involuntary-refund authorization and applicable waiver instructions. I initiate the refund with TRF, verify the used fare and refundable unused portion, review taxes with TRFT, make only the authorized TRFU updates, verify the FOP and process with TRFP. Because the ticket is partially used, I pay particular attention to the used fare and coupon status.",
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'How does an involuntary refund differ from a voluntary refund?'",
+      "Say: 'A voluntary refund is processed when the passenger chooses not to travel.",
+      "      Penalties from the fare rules apply and the refund amount may be partial.",
+      "      An involuntary refund occurs when the airline cancels or significantly",
+      "      changes the flight and the passenger declines the alternative.",
+      "      In this case, the full fare and taxes are refundable — no penalty applies.",
+      "      The process may require an airline waiver code or a specific involuntary",
+      "      refund entry depending on the airline and BSP setup.'"
+    ]
+  },
+  {
+    "id": "set_fare_rules_basics",
+    "title": "Fare Rules: Basics (FQD, FQN, FQR, FQS)",
+    "module": "Pricing & Ticketing",
+    "steps": [
+      {
+        "prompt": "Display fares from DEL to LHR for 25 September.",
+        "expectedCommand": "FQDDELLHR/D25SEP"
+      },
+      {
+        "prompt": "Display the fare notes/rules for fare line 2.",
+        "expectedCommand": "FQN2"
+      },
+      {
+        "prompt": "Check the permitted routing for fare line 2.",
+        "expectedCommand": "FQR2"
+      },
+      {
+        "prompt": "Check the required booking class/code for fare line 2.",
+        "expectedCommand": "FQS2"
+      }
+    ],
+    "overview": [
+      "Fare rules must be checked before confirming changes or refunds.",
+      "The normal workflow is FQD (Find Fare) → FQN (Find Notes) → FQR (Find Route) → FQS (Find Class)."
+    ],
+    "questions": [
+      "Q: What is the difference between FQN, FQR, and FQS?",
+      "A: FQN displays the textual rules (Notes). FQR displays permitted geographical Routings. FQS displays the required Selling/booking classes.",
+      "",
+      "Interview Scenario - Checking a Fare:",
+      "Q: A customer wants to know if a specific fare on line 2 allows stopovers. How do you check?",
+      "A: I would first use FQN2 to open the fare notes index for that fare, and then look for the Stopovers category (usually ST) to read the specific conditions.",
+      "",
+      "⚠️  COMMON INTERVIEW MISTAKE — Do NOT say:",
+      "    'FQN shows me the price of the fare.'",
+      "    Correct answer: FQN shows fare rules/conditions (restrictions, penalties, etc.).",
+      "    To display a fare price, use FQD (Fare Quote Display).",
+      "",
+      "Real-life Scenario:",
+      "    'Customer asks: Can I change my flight for free?'",
+      "Correct workflow:",
+      "  FQD[route] → FQN (check Category 31 – Voluntary Changes) for penalty details.",
+      "",
+      "Interview Q: What are the 3 key fare rule commands?",
+      "A: FQN = Fare Notes (rules), FQR = Routing, FQS = Booking code information.",
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'A passenger asks whether they can change their flight. How do you find out?'",
+      "Say: 'I access the fare display with FQD for the route and fare basis, then",
+      "      use FQN to read the fare rules — specifically Category 31 Voluntary Changes.",
+      "      This tells me whether changes are permitted, the advance notice required,",
+      "      and the penalty amount. If FQN is not available from the fare display,",
+      "      I can also access fare notes from within the stored TST.'",
+      "",
+      "If asked: 'What are the most important fare rule categories to know for an interview?'",
+      "Say: 'Category 31 — Voluntary Changes (penalties for date/flight changes).",
+      "      Category 33 — Ticket Refunds (refund conditions and penalties).",
+      "      Category 35 — Advance Purchase (how far in advance the ticket must be bought).",
+      "      Category 5 — Advance Purchase. Category 6 — Minimum Stay. Category 7 — Maximum Stay.",
+      "      These cover the most common passenger questions about flexibility.'"
+    ]
+  },
+  {
+    "id": "set_fare_rules_categories",
+    "title": "Fare Rules: Categories (PE, VC, VR)",
+    "module": "Pricing & Ticketing",
+    "steps": [
+      {
+        "prompt": "Display the fare notes for fare line 1.",
+        "expectedCommand": "FQN1"
+      },
+      {
+        "prompt": "Check the Penalties category for fare line 1.",
+        "expectedCommand": "FQN1*PE"
+      },
+      {
+        "prompt": "Check the Voluntary Changes category for fare line 1.",
+        "expectedCommand": "FQN1*VC"
+      },
+      {
+        "prompt": "Check the Voluntary Refunds category for fare line 1.",
+        "expectedCommand": "FQN1*VR"
+      },
+      {
+        "prompt": "Check the Advance Purchase category for fare line 1.",
+        "expectedCommand": "FQN1*AP"
+      }
+    ],
+    "overview": [
+      "FQN does not always show everything on one screen. It shows an index.",
+      "You must drill down into categories. The most important are PE (Penalties), VC (Voluntary Change), VR (Voluntary Refund), and AP (Advance Purchase).",
+      "Do not rely solely on PE; for reissues, VC is critical. For refunds, VR is critical."
+    ],
+    "questions": [
+      "Q: If a customer asks 'Can I change my ticket?', what categories must you check?",
+      "A: You must check VC (Voluntary Changes) to see if changes are permitted and under what conditions, and PE (Penalties) to see the cost.",
+      "",
+      "Interview Scenario - Customer Query:",
+      "Q: Customer wants to know whether their ticket is refundable and changeable. What will you do?",
+      "A: First I identify the applicable fare and fare basis. If I don't already have the fare display, I use FQD for the city pair and date. I then use FQN followed by the fare-line number to display the fare notes. I check the penalties section PE, voluntary changes VC, and voluntary refunds VR. If necessary I also check advance purchase, minimum/maximum stay and routing using the applicable fare-rule categories and FQR. If the PNR is already priced, I can use FWR to view the Mini Rules. I would not quote a change or refund penalty until I verify the actual fare conditions.",
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'What is Category PE in Amadeus fare rules?'",
+      "Say: 'PE refers to Penalty conditions — it covers charges for voluntary changes",
+      "      and cancellations. It is part of what is shown in Category 31 (Voluntary Changes)",
+      "      and Category 33 (Refunds) in the standard IATA fare rule structure.",
+      "      I read the PE conditions to tell a passenger exactly how much it will cost",
+      "      to change or cancel their ticket.'",
+      "",
+      "If asked: 'What is VC in fare rules?'",
+      "Say: 'VC stands for Voluntary Changes — conditions under which the passenger",
+      "      may request itinerary modifications. It covers permitted change types,",
+      "      advance notice requirements, and fee amounts.'"
+    ]
+  },
+  {
+    "id": "set_fare_rules_mini",
+    "title": "Fare Rules: Mini Rules (FWR)",
+    "module": "Pricing & Ticketing",
+    "steps": [
+      {
+        "prompt": "Price the itinerary in the booked class.",
+        "expectedCommand": "FXP"
+      },
+      {
+        "prompt": "Display the Mini Rules for the current pricing.",
+        "expectedCommand": "FWR"
+      },
+      {
+        "prompt": "Display the Mini Rules specifically for TST 1.",
+        "expectedCommand": "FWR/T1"
+      },
+      {
+        "prompt": "Display the Mini Rules from FA/FHE line 8.",
+        "expectedCommand": "FWR/L8"
+      },
+      {
+        "prompt": "View fare-family details for fare family 1.",
+        "expectedCommand": "FQF1"
+      }
+    ],
+    "overview": [
+      "Mini Rules (FWR) provide a concise, easy-to-read summary of fare conditions after pricing.",
+      "They are a faster alternative to FQN, showing Revalidation, Reissue, Refund allowances, and Penalties.",
+      "You can access them generally (FWR), by TST (FWR/T1), or by ticket/FA line (FWR/L8)."
+    ],
+    "questions": [
+      "Q: What is the difference between FQN and FWR?",
+      "A: FQN provides the full, official, detailed fare rules usually from a fare display (FQD). FWR provides a quick, concise summary of conditions (Mini Rules) usually after the PNR has been priced.",
+      "",
+      "Interview Scenario - Quick Quote:",
+      "Q: You just priced a PNR with FXP and the customer immediately asks 'Is this non-refundable?' What is the fastest way to check?",
+      "A: I would use FWR to display the Mini Rules for the pricing I just created. It will provide a quick 'Yes/No' summary for refunds and changes without having to manually read the full FQN rule categories.",
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'How do you quickly check key fare conditions without reading the full rules?'",
+      "Say: 'I use FWR or FQF1 — the Mini Rules display — which gives a condensed",
+      "      one-screen summary of the most important conditions: advance purchase,",
+      "      minimum and maximum stay, stopovers, transfers, changes and refunds.",
+      "      It is the fastest way to answer common passenger questions about",
+      "      flexibility without reading through every category in full.'"
+    ]
+  },
+  {
+    "id": "set_pnr_retrieval_advanced",
+    "title": "PNR Retrieval: Advanced Search",
+    "module": "PNR & Profiles",
+    "steps": [
+      {
+        "prompt": "Retrieve a PNR using record locator ABC123.",
+        "expectedCommand": "RT ABC123"
+      },
+      {
+        "prompt": "Search for PNRs containing the passenger surname SMITH.",
+        "expectedCommand": "RT/SMITH"
+      },
+      {
+        "prompt": "Search for PNRs for SMITH with the first initial J.",
+        "expectedCommand": "RT/SMITH/J"
+      },
+      {
+        "prompt": "Select the second PNR from a similar-name list.",
+        "expectedCommand": "RT2"
+      },
+      {
+        "prompt": "Return to the previous similar-name list.",
+        "expectedCommand": "RT0"
+      },
+      {
+        "prompt": "Retrieve a PNR for SMITH travelling on 12 August.",
+        "expectedCommand": "RT/12AUG-SMITH"
+      },
+      {
+        "prompt": "Retrieve a PNR for SMITH on flight KL153 on 12 August.",
+        "expectedCommand": "RT KL153/12AUG-SMITH"
+      },
+      {
+        "prompt": "Retrieve using record locator Q6RBB3 and surname JOHNSON.",
+        "expectedCommand": "RT-Q6RBB3-JOHNSON"
+      },
+      {
+        "prompt": "Retrieve using ticket number 016-1234567890.",
+        "expectedCommand": "RT TKT/016-1234567890"
+      },
+      {
+        "prompt": "Claim a PNR from another system using record locator CO123ABC.",
+        "expectedCommand": "RO CO123ABC"
+      }
+    ],
+    "overview": [
+      "Amadeus supports retrieval by record locator, passenger name, partial name, date/name, flight/date/name, ticket number, and more.",
+      "RT = Retrieve an active PNR in your system.",
+      "RO = Claim a PNR from another system.",
+      "RPD = Recall a purged/past-date PNR.",
+      "If you only have a ticket number, you can also use TWD/TKT... followed by RT*E to retrieve the locator."
+    ],
+    "questions": [
+      "Q: What is the difference between RT and RO?",
+      "A: RT retrieves a PNR. RO claims a PNR from another GDS or airline system.",
+      "",
+      "Interview Scenario - PNR Retrieval Methods:",
+      "Q: How can you retrieve a PNR in Amadeus?",
+      "A: The primary command is RT. I can retrieve a PNR by record locator using RT ABC123, by passenger name using RT/SMITH, by partial name using RT/SMIT, by date and name using RT/12AUG-SMITH, by flight/date/name using RT KL153/12AUG-SMITH, and from an availability line using RT/4-SMITH/A MR. I can also retrieve using a ticket number, office information, frequent flyer number, or other stored identifiers. If multiple PNRs are returned, I use RT1, RT2, etc. to select one and RT0 to return to the list. For a purged PNR I use RPD, while RO is used when I need to claim a PNR from another system.",
+      "",
+      "⚠️  COMMON INTERVIEW MISTAKE — Do NOT say:",
+      "    'RT always finds the booking.'",
+      "    Correct answer: RT works for active/live PNRs. For purged bookings use RPD.",
+      "    For PNRs on another GDS/airline system, use RO to claim them.",
+      "",
+      "Real-life Scenario:",
+      "    'I only have a ticket number 074-1234567890. Can I find the booking?'",
+      "Correct answer:",
+      "  Use RT TKT/074-1234567890 to retrieve via ticket number.",
+      "  Or use TWD/TKT074-1234567890 to view the e-ticket directly.",
+      "",
+      "Interview Q: A passenger gives you only their surname and flight number. How do you retrieve?",
+      "A: RT KL153/12AUG-SMITH — retrieve by flight/date/name combination.",
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'Describe every way you can retrieve a PNR in Amadeus.'",
+      "Say: 'By record locator: RT ABC123.",
+      "      By surname: RT/SMITH.",
+      "      By surname and initial: RT/SMITH/J.",
+      "      By surname and date: RT/12AUG-SMITH.",
+      "      By flight, date and name: RT KL153/12AUG-SMITH.",
+      "      By ticket number: RT TKT/016-1234567890.",
+      "      From another system: RO [locator].",
+      "      Purged PNR: RPD workflow.",
+      "      If I get a list I select with RT1, RT2 etc. and RT0 returns to the list.",
+      "      I can also retrieve using the TWD/TKT display and then RT*E to jump to the PNR.'"
+    ]
+  },
+  {
+    "id": "set_atc_voluntary_unflown",
+    "title": "ATC Reissue: Voluntary Unflown",
+    "module": "Ticketing & Reissue",
+    "steps": [
+      {
+        "prompt": "Retrieve the PNR ABC123",
+        "expectedCommand": "RT ABC123"
+      },
+      {
+        "prompt": "Check the ticket status to confirm it is unused",
+        "expectedCommand": "TWD"
+      },
+      {
+        "prompt": "Change segment 1 date to 28 September",
+        "expectedCommand": "SB28SEP1"
+      },
+      {
+        "prompt": "Perform informative ATC pricing",
+        "expectedCommand": "FXF"
+      },
+      {
+        "prompt": "Customer accepts the price, perform confirmed ATC pricing",
+        "expectedCommand": "FXQ"
+      },
+      {
+        "prompt": "Display the TST",
+        "expectedCommand": "TQT"
+      },
+      {
+        "prompt": "Check the ATC Reissue Details panel",
+        "expectedCommand": "TQR"
+      },
+      {
+        "prompt": "Update form of payment if required (e.g. cash)",
+        "expectedCommand": "FP CASH"
+      },
+      {
+        "prompt": "Issue the new ticket",
+        "expectedCommand": "TTP"
+      },
+      {
+        "prompt": "Verify the new ticket",
+        "expectedCommand": "TWD"
+      }
+    ],
+    "overview": [
+      "Voluntary Unflown Workflow:\\nRT ↓ TWD ↓ CHANGE ↓ FXF ↓ FXQ ↓ TQT/TQR ↓ FOP ↓ TTP ↓ TWD",
+      "FXF = Find/Forecast the cost (Informative)",
+      "FXQ = Quote (Confirmed)",
+      "Always check the ticket status (OPEN) with TWD before starting."
+    ],
+    "questions": [
+      "Q: What is the difference between FXF and FXQ?",
+      "A: FXF is informative and does not change the PNR/TST. FXQ is confirmed and updates the PNR/TST.",
+      "Q: Why must you use TWD first?",
+      "A: To establish the ticket number, coupon status (OPEN vs USED), and whether the ticket is wholly unflown or partially flown.",
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'Walk me through ATC for a voluntary change on an unused ticket.'",
+      "Say: 'I retrieve the PNR with RT and verify the ticket is OPEN with TWD.",
+      "      I make the required itinerary change — for example rebooking to 28SEP with SB28SEP1.",
+      "      I run FXF to get the informative ATC price — this shows the fare difference,",
+      "      tax difference and any penalty. I tell the passenger the total due.",
+      "      If they agree, I run FXQ to confirm the pricing and update the TST.",
+      "      I check the TST with TQT, review the ATC reissue panel with TQR,",
+      "      update the FOP if needed, end with ER, and issue the new ticket with TTP.",
+      "      I verify the new ticket with TWD.'"
+    ]
+  },
+  {
+    "id": "set_atc_voluntary_partial",
+    "title": "ATC Reissue: Voluntary Partially Flown",
+    "module": "Ticketing & Reissue",
+    "steps": [
+      {
+        "prompt": "Retrieve the PNR ABC123",
+        "expectedCommand": "RT ABC123"
+      },
+      {
+        "prompt": "Check ticket status to see which coupons are used/open",
+        "expectedCommand": "TWD"
+      },
+      {
+        "prompt": "Rebook the unflown segments (e.g. segment 2 to 28SEP)",
+        "expectedCommand": "SB28SEP2"
+      },
+      {
+        "prompt": "Perform informative ATC pricing for unflown segments 2 and 3",
+        "expectedCommand": "FXF/S2-3"
+      },
+      {
+        "prompt": "Customer accepts, confirm the pricing for segments 2 and 3",
+        "expectedCommand": "FXQ/S2-3"
+      },
+      {
+        "prompt": "Display the TST",
+        "expectedCommand": "TQT"
+      },
+      {
+        "prompt": "Check the ATC Reissue Details panel",
+        "expectedCommand": "TQR"
+      },
+      {
+        "prompt": "Issue the new ticket",
+        "expectedCommand": "TTP"
+      }
+    ],
+    "overview": [
+      "Voluntary Partially Flown Workflow:\\nRT ↓ TWD ↓ CHANGE remaining ↓ FXF/S... ↓ FXQ/S... ↓ TQT/TQR ↓ FOP ↓ TTP ↓ TWD",
+      "CRITICAL RULE: For a partially used ticket, you must identify ALL unflown segments in the ATC pricing entry (e.g., FXF/S2-3)."
+    ],
+    "questions": [
+      "Q: What is the critical rule for a partially used ticket?",
+      "A: You must specify all unflown segments in the ATC pricing entry using /S... (e.g., FXF/S4-5).",
+      "Q: What happens if you just use FXF on a partially flown ticket?",
+      "A: ATC may fail or price incorrectly because it needs to know which segments are still alive.",
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'How do you handle ATC for a partially flown ticket?'",
+      "Say: 'I display the ticket with TWD to identify which coupons are USED and which",
+      "      are OPEN. I rebook the unflown sectors I need to change.",
+      "      Critically, I must specify all unflown segments in the ATC entry —",
+      "      for example FXF/S2-3 for segments 2 and 3. Without the segment selection",
+      "      ATC cannot correctly calculate the reissue for the remaining journey.",
+      "      Once the customer confirms, I run FXQ/S2-3 to update the TST.",
+      "      I then check TQT and TQR, issue with TTP and verify with TWD.'",
+      "",
+      "If asked: 'What is the most common mistake on a partially flown ticket?'",
+      "Say: 'Forgetting to include the /S... segment selection in the FXF and FXQ entries.",
+      "      Without it, ATC either fails or prices the entire original itinerary",
+      "      instead of just the remaining unflown sectors.'"
+    ]
+  },
+  {
+    "id": "set_atc_involuntary",
+    "title": "ATC Reissue: Involuntary (FXI)",
+    "module": "Ticketing & Reissue",
+    "steps": [
+      {
+        "prompt": "Retrieve the PNR ABC123 containing the airline-changed itinerary",
+        "expectedCommand": "RT ABC123"
+      },
+      {
+        "prompt": "Verify the original ticket and coupon status",
+        "expectedCommand": "TWD"
+      },
+      {
+        "prompt": "Run the ATC Involuntary pricing",
+        "expectedCommand": "FXI"
+      },
+      {
+        "prompt": "Display the generated TST",
+        "expectedCommand": "TQT"
+      },
+      {
+        "prompt": "Review the ATC reissue details (no additional collection/penalty)",
+        "expectedCommand": "TQR"
+      },
+      {
+        "prompt": "Issue the involuntary reissue",
+        "expectedCommand": "TTP"
+      },
+      {
+        "prompt": "Verify the new ticket",
+        "expectedCommand": "TWD"
+      }
+    ],
+    "overview": [
+      "Involuntary ATC Workflow:\\nRT ↓ TWD ↓ Airline changes/rebooks ↓ FXI ↓ TQT/TQR ↓ TTP ↓ TWD",
+      "FXI automatically prepares the ticket for reissue without penalty, additional collection, or residual value.",
+      "It generates a TST with the original fare, taxes, FE SKCHG endorsement, FO, and FPO."
+    ],
+    "questions": [
+      "Q: What is the biggest difference between FXQ and FXI?",
+      "A: FXQ is for voluntary changes initiated by the passenger and may involve penalties/collection. FXI is for involuntary disruptions initiated by the airline and normally has no penalties or additional collection.",
+      "Q: Does FXI require an informative step like FXF?",
+      "A: No, FXI itself prepares the involuntary reissue TST directly.",
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'What does FXI do and how is it different from FXQ?'",
+      "Say: 'FXI is the ATC Involuntary command — used when the airline has caused the",
+      "      change. It automatically prepares the TST using the original fare, taxes,",
+      "      FO from the original ticket, original FOP, and adds the endorsement FE SKCHG.",
+      "      No additional collection or penalty is applied.",
+      "      FXQ is for voluntary changes initiated by the passenger — it calculates",
+      "      fare differences and penalties and requires a separate FXF informative step first.',",
+      "      The rule: if the airline caused it, use FXI. If the passenger caused it, use FXQ.'"
+    ]
+  },
+  {
+    "id": "set_atc_best_pricer",
+    "title": "ATC Best Pricer vs Standard",
+    "module": "Ticketing & Reissue",
+    "steps": [
+      {
+        "prompt": "Retrieve the PNR ABC123",
+        "expectedCommand": "RT ABC123"
+      },
+      {
+        "prompt": "Perform ATC standard informative pricing",
+        "expectedCommand": "FXF"
+      },
+      {
+        "prompt": "Perform ATC Best Pricer informative pricing",
+        "expectedCommand": "FXE"
+      },
+      {
+        "prompt": "Perform ATC Best Pricer confirmed pricing",
+        "expectedCommand": "FXO"
+      }
+    ],
+    "overview": [
+      "Standard ATC: FXF (Informative) / FXQ (Confirmed)",
+      "Best Pricer ATC: FXE (Informative) / FXO (Confirmed)",
+      "Best Pricer explores alternative cheaper availability if requested."
+    ],
+    "questions": [
+      "Q: What is the difference between FXQ and FXO?",
+      "A: FXQ confirms standard ATC pricing, while FXO confirms Best Pricer ATC.",
+      "",
+      "--- INTERVIEW ANSWERS ---",
+      "",
+      "If asked: 'What is ATC Best Pricer?'",
+      "Say: 'ATC Best Pricer is an enhanced version of standard ATC that searches for",
+      "      a cheaper fare option for the new itinerary rather than simply applying",
+      "      the same fare class. FXE is the Best Pricer informative command",
+      "      (equivalent to FXF in standard ATC), and FXO confirms the Best Pricer",
+      "      result (equivalent to FXQ). Use Best Pricer when the passenger wants",
+      "      the most economical option for the new dates.'",
+      "",
+      "If asked: 'When would you use FXO instead of FXQ?'",
+      "Say: 'When I have used FXE (Best Pricer informative) and the passenger agrees",
+      "      to the best-price option, I confirm with FXO. If I used FXF (standard",
+      "      informative) I confirm with FXQ. The pair must match:",
+      "      FXF → FXQ, and FXE → FXO.'"
+    ]
+  }
+];
+
+module.exports = guidedSets;

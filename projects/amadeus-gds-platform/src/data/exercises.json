@@ -1,0 +1,1442 @@
+[
+  {
+    "id": 1,
+    "module": "S1 Encode/Decode",
+    "task": "Encode India.",
+    "expectedCommand": "DC INDIA"
+  },
+  {
+    "id": 2,
+    "module": "S1 Encode/Decode",
+    "task": "Decode country code DE.",
+    "expectedCommand": "DC DE"
+  },
+  {
+    "id": 3,
+    "module": "S1 Encode/Decode",
+    "task": "Encode airline Indigo.",
+    "expectedCommand": "DNA INDIGO"
+  },
+  {
+    "id": 4,
+    "module": "S1 Encode/Decode",
+    "task": "Decode airline numeric code 001.",
+    "expectedCommand": "DNA 001"
+  },
+  {
+    "id": 5,
+    "module": "S1 Encode/Decode",
+    "task": "Encode Delhi.",
+    "expectedCommand": "DAN DELHI"
+  },
+  {
+    "id": 6,
+    "module": "S1 Encode/Decode",
+    "task": "Decode BOM.",
+    "expectedCommand": "DAC BOM"
+  },
+  {
+    "id": 7,
+    "module": "S1 Encode/Decode",
+    "task": "Decode DXB.",
+    "expectedCommand": "DAC DXB"
+  },
+  {
+    "id": 8,
+    "module": "S2 Time/Currency",
+    "task": "Check current time in New York.",
+    "expectedCommand": "DDNYC"
+  },
+  {
+    "id": 9,
+    "module": "S2 Time/Currency",
+    "task": "Convert 1200 Dubai time to Mumbai time.",
+    "expectedCommand": "DDDXB1200/BOM"
+  },
+  {
+    "id": 10,
+    "module": "S2 Time/Currency",
+    "task": "Convert 0700 Melbourne time to Delhi time.",
+    "expectedCommand": "DDMEL0700/DEL"
+  },
+  {
+    "id": 11,
+    "module": "S2 Time/Currency",
+    "task": "Calculate 500 + 230.",
+    "expectedCommand": "DF500;230"
+  },
+  {
+    "id": 12,
+    "module": "S2 Time/Currency",
+    "task": "Calculate 500 − 230.",
+    "expectedCommand": "DF500-230"
+  },
+  {
+    "id": 13,
+    "module": "S2 Time/Currency",
+    "task": "Calculate 170 × 4.",
+    "expectedCommand": "DF170*4"
+  },
+  {
+    "id": 14,
+    "module": "S2 Time/Currency",
+    "task": "Calculate 800 ÷ 5.",
+    "expectedCommand": "DF800/5"
+  },
+  {
+    "id": 15,
+    "module": "S2 Time/Currency",
+    "task": "Convert AED 100000 to INR.",
+    "expectedCommand": "FCC100000AED/INR"
+  },
+  {
+    "id": 16,
+    "module": "S3 PNR",
+    "task": "Availability 21MAR PAR–LON.",
+    "expectedCommand": "AN21MARPARLON"
+  },
+  {
+    "id": 17,
+    "module": "S3 PNR",
+    "task": "Sell one G-class seat from line 3.",
+    "expectedCommand": "SS1G3"
+  },
+  {
+    "id": 18,
+    "module": "S3 PNR",
+    "task": "Enter JOHN/WILLIAM MR.",
+    "expectedCommand": "NM1JOHN/WILLIAMMR"
+  },
+  {
+    "id": 19,
+    "module": "S3 PNR",
+    "task": "Enter mobile +91 9876543210.",
+    "expectedCommand": "AP919876543210"
+  },
+  {
+    "id": 20,
+    "module": "S3 PNR",
+    "task": "Enter email abc@example.com.",
+    "expectedCommand": "APIABC@EXAMPLE.COM"
+  },
+  {
+    "id": 21,
+    "module": "S3 PNR",
+    "task": "Set ticketing OK.",
+    "expectedCommand": "TKOK"
+  },
+  {
+    "id": 22,
+    "module": "S3 PNR",
+    "task": "Receive from passenger.",
+    "expectedCommand": "RFP"
+  },
+  {
+    "id": 23,
+    "module": "S3 PNR",
+    "task": "Recall PRINT mnemonic.",
+    "expectedCommand": "PRINT"
+  },
+  {
+    "id": 24,
+    "module": "S4 PNR Live",
+    "task": "Availability 08MAR LHR–DXB.",
+    "expectedCommand": "AN08MARLHRDXB"
+  },
+  {
+    "id": 25,
+    "module": "S4 PNR Live",
+    "task": "Sell one seat from line 1 in lowest displayed class.",
+    "expectedCommand": "SS1N1"
+  },
+  {
+    "id": 26,
+    "module": "S4 PNR Live",
+    "task": "Add Patrick John MR.",
+    "expectedCommand": "NM1JOHN/PATRICKMR"
+  },
+  {
+    "id": 27,
+    "module": "S4 PNR Live",
+    "task": "Add mobile contact.",
+    "expectedCommand": "AP919999999999"
+  },
+  {
+    "id": 28,
+    "module": "S4 PNR Live",
+    "task": "Add email contact.",
+    "expectedCommand": "APIANUJ@EXAMPLE.COM"
+  },
+  {
+    "id": 29,
+    "module": "S4 PNR Live",
+    "task": "Complete ticketing field as OK.",
+    "expectedCommand": "TKOK"
+  },
+  {
+    "id": 30,
+    "module": "S4 PNR Live",
+    "task": "Receive from passenger.",
+    "expectedCommand": "RFP"
+  },
+  {
+    "id": 31,
+    "module": "S5 Pricing",
+    "task": "Check fare in booked class.",
+    "expectedCommand": "FX"
+  },
+  {
+    "id": 32,
+    "module": "S5 Pricing",
+    "task": "Save booked-class fare.",
+    "expectedCommand": "FXP"
+  },
+  {
+    "id": 33,
+    "module": "S5 Pricing",
+    "task": "Check lowest fare for booked flights.",
+    "expectedCommand": "FXR"
+  },
+  {
+    "id": 34,
+    "module": "S5 Pricing",
+    "task": "Save lowest fare for booked flights.",
+    "expectedCommand": "FXB"
+  },
+  {
+    "id": 35,
+    "module": "S5 Pricing",
+    "task": "Check lowest fare within a cabin.",
+    "expectedCommand": "FXR/K"
+  },
+  {
+    "id": 36,
+    "module": "S5 Pricing",
+    "task": "Save lowest fare within a cabin.",
+    "expectedCommand": "FXB/K"
+  },
+  {
+    "id": 37,
+    "module": "S5 Pricing",
+    "task": "Display saved TST.",
+    "expectedCommand": "TQT"
+  },
+  {
+    "id": 38,
+    "module": "S5 Pricing",
+    "task": "Display ticket transaction history.",
+    "expectedCommand": "TTH"
+  },
+  {
+    "id": 39,
+    "module": "S6 Ticketing",
+    "task": "Display fare elements.",
+    "expectedCommand": "RTF"
+  },
+  {
+    "id": 40,
+    "module": "S6 Ticketing",
+    "task": "Enter cash payment.",
+    "expectedCommand": "FP CASH"
+  },
+  {
+    "id": 41,
+    "module": "S6 Ticketing",
+    "task": "Issue ticket.",
+    "expectedCommand": "TTP"
+  },
+  {
+    "id": 42,
+    "module": "S6 Ticketing",
+    "task": "Verify PNR after ticketing.",
+    "expectedCommand": "RTA"
+  },
+  {
+    "id": 43,
+    "module": "S8 Master Pricer",
+    "task": "Display route-wide lowest fare alternatives.",
+    "expectedCommand": "FXD"
+  },
+  {
+    "id": 44,
+    "module": "S8 Master Pricer",
+    "task": "Book FXD option 3.",
+    "expectedCommand": "FXZ3"
+  },
+  {
+    "id": 45,
+    "module": "S8 Master Pricer",
+    "task": "Book option 3 and generate TST.",
+    "expectedCommand": "FXU3"
+  },
+  {
+    "id": 46,
+    "module": "S9 ARNK",
+    "task": "Insert Arrival Unknown.",
+    "expectedCommand": "SIARNK"
+  },
+  {
+    "id": 47,
+    "module": "Zulu Time",
+    "task": "Convert Dubai 1200 to Mumbai local time.",
+    "expectedCommand": "DDDXB1200/BOM"
+  },
+  {
+    "id": 48,
+    "module": "S10 ATC",
+    "task": "Start Automated Ticket Changer workflow.",
+    "expectedCommand": "ATC"
+  },
+  {
+    "id": 49,
+    "module": "S13 Retrieval",
+    "task": "Retrieve locator ABC123.",
+    "expectedCommand": "RTABC123"
+  },
+  {
+    "id": 50,
+    "module": "S13 Retrieval",
+    "task": "Retrieve by surname AHMED.",
+    "expectedCommand": "RT/AHMED"
+  },
+  {
+    "id": 51,
+    "module": "S13 Retrieval",
+    "task": "Retrieve list line 4.",
+    "expectedCommand": "RT4"
+  },
+  {
+    "id": 52,
+    "module": "S15 Fare Rules",
+    "task": "Open fare quote display.",
+    "expectedCommand": "FQD"
+  },
+  {
+    "id": 53,
+    "module": "S16 Manual Exchange",
+    "task": "Retrieve ticket image line 8.",
+    "expectedCommand": "TWD L8"
+  },
+  {
+    "id": 54,
+    "module": "S17 Manual TST",
+    "task": "Display TST.",
+    "expectedCommand": "TQT"
+  },
+  {
+    "id": 55,
+    "module": "S18 Manual Exchange",
+    "task": "Retrieve original ticket image.",
+    "expectedCommand": "TWD L8"
+  },
+  {
+    "id": 56,
+    "module": "MCT",
+    "task": "Check minimum connecting time information.",
+    "expectedCommand": "DM"
+  },
+  {
+    "id": 57,
+    "module": "S21 Name",
+    "task": "Retrieve PNR before authorized name work.",
+    "expectedCommand": "RTABC123"
+  },
+  {
+    "id": 58,
+    "module": "S21 Name",
+    "task": "Open name-element help.",
+    "expectedCommand": "HE NM"
+  },
+  {
+    "id": 59,
+    "module": "S22 Refund",
+    "task": "Retrieve ticket image before refund handling.",
+    "expectedCommand": "TWD L8"
+  },
+  {
+    "id": 60,
+    "module": "S23 History",
+    "task": "Retrieve complete PNR history.",
+    "expectedCommand": "RH"
+  },
+  {
+    "id": 61,
+    "module": "S23 History",
+    "task": "Retrieve segment 4 history.",
+    "expectedCommand": "RHS4"
+  },
+  {
+    "id": 62,
+    "module": "S26 FXB vs FXD",
+    "task": "Price already-booked flights at lowest available fare.",
+    "expectedCommand": "FXB"
+  },
+  {
+    "id": 63,
+    "module": "S26 FXB vs FXD",
+    "task": "Display route-wide alternatives.",
+    "expectedCommand": "FXD"
+  },
+  {
+    "id": 64,
+    "module": "S27 Void",
+    "task": "Void ticket by line 8.",
+    "expectedCommand": "TRDC L8"
+  },
+  {
+    "id": 65,
+    "module": "S27 Void",
+    "task": "Void ticket by ticket number.",
+    "expectedCommand": "TRDC/TK5578123456"
+  },
+  {
+    "id": 66,
+    "module": "S27 Void",
+    "task": "Open ticket image line 8.",
+    "expectedCommand": "TWD L8"
+  },
+  {
+    "id": 67,
+    "module": "S7 Split",
+    "task": "Split passenger 3.",
+    "expectedCommand": "SP3"
+  },
+  {
+    "id": 68,
+    "module": "S7 Split",
+    "task": "Receive from passenger during split.",
+    "expectedCommand": "RFP"
+  },
+  {
+    "id": 69,
+    "module": "S7 Split",
+    "task": "Finalize split.",
+    "expectedCommand": "EF"
+  },
+  {
+    "id": 70,
+    "module": "S7 Split",
+    "task": "Retrieve the split PNR via AXR workflow.",
+    "expectedCommand": "RT AXR"
+  },
+  {
+    "id": 71,
+    "module": "S28 Involuntary",
+    "task": "Accept schedule-change segment in the transcript workflow.",
+    "expectedCommand": "ERK"
+  },
+  {
+    "id": 72,
+    "module": "S28 Involuntary",
+    "task": "Run automated involuntary exchange.",
+    "expectedCommand": "FXI"
+  },
+  {
+    "id": 73,
+    "module": "S28 Involuntary",
+    "task": "Delete incorrect endorsement line 9.",
+    "expectedCommand": "XE9"
+  },
+  {
+    "id": 74,
+    "module": "S28 Involuntary",
+    "task": "Retrieve original ticket details from line 8.",
+    "expectedCommand": "TWD/L8"
+  },
+  {
+    "id": 75,
+    "module": "S28 Involuntary",
+    "task": "Recalculate TST.",
+    "expectedCommand": "TQT"
+  },
+  {
+    "id": 76,
+    "module": "S28 Involuntary",
+    "task": "Finalize exchange from TST 8.",
+    "expectedCommand": "TTPE T8"
+  },
+  {
+    "id": 77,
+    "module": "QRG Availability",
+    "task": "Availability with specified airline EK.",
+    "expectedCommand": "AN01MARDOHDXB/AEK"
+  },
+  {
+    "id": 78,
+    "module": "QRG Availability",
+    "task": "Availability via AUH.",
+    "expectedCommand": "AN01MARDOHDXB/XAUH"
+  },
+  {
+    "id": 79,
+    "module": "QRG Availability",
+    "task": "Availability in V class.",
+    "expectedCommand": "AN01MARDOHDXB/CV"
+  },
+  {
+    "id": 80,
+    "module": "QRG Availability",
+    "task": "Inbound/outbound display.",
+    "expectedCommand": "AN12MARDOHDXB*15MAR"
+  },
+  {
+    "id": 81,
+    "module": "QRG Selling",
+    "task": "Sell two V seats from line 4.",
+    "expectedCommand": "SS2V4"
+  },
+  {
+    "id": 82,
+    "module": "QRG Selling",
+    "task": "Sell two seats J/F from line 3.",
+    "expectedCommand": "SS2JF3"
+  },
+  {
+    "id": 83,
+    "module": "QRG Selling",
+    "task": "Long sell two QR001 B seats.",
+    "expectedCommand": "SSQR001B15MARDOHLHRNN2"
+  },
+  {
+    "id": 84,
+    "module": "QRG Selling",
+    "task": "Create open QR B LHR–DOH segment.",
+    "expectedCommand": "SO QR B LHRDOH"
+  },
+  {
+    "id": 85,
+    "module": "QRG PNR",
+    "task": "Enter one adult.",
+    "expectedCommand": "NM1HUSSAIN/ALI MR"
+  },
+  {
+    "id": 86,
+    "module": "QRG PNR",
+    "task": "Enter child.",
+    "expectedCommand": "NM1HUSSAIN/NASEER MSTR(CHD)"
+  },
+  {
+    "id": 87,
+    "module": "QRG PNR",
+    "task": "Enter infant.",
+    "expectedCommand": "NM1HUSSAIN/M MRS(INF/NABIL)"
+  },
+  {
+    "id": 88,
+    "module": "QRG PNR",
+    "task": "Enter DOH phone.",
+    "expectedCommand": "APDOH4667579"
+  },
+  {
+    "id": 89,
+    "module": "QRG PNR",
+    "task": "Enter office phone.",
+    "expectedCommand": "AP"
+  },
+  {
+    "id": 90,
+    "module": "QRG PNR",
+    "task": "Enter email.",
+    "expectedCommand": "APE-ABC@ABC.COM"
+  },
+  {
+    "id": 91,
+    "module": "QRG PNR",
+    "task": "Set time limit.",
+    "expectedCommand": "TKTL12MAR/1200"
+  },
+  {
+    "id": 92,
+    "module": "QRG PNR",
+    "task": "Set auto cancellation.",
+    "expectedCommand": "TKXL12MAR/1200"
+  },
+  {
+    "id": 93,
+    "module": "QRG PNR",
+    "task": "Receive from agent Ali.",
+    "expectedCommand": "RF ALI"
+  },
+  {
+    "id": 94,
+    "module": "QRG Seats",
+    "task": "Display seat map segment 3.",
+    "expectedCommand": "SM3"
+  },
+  {
+    "id": 95,
+    "module": "QRG Seats",
+    "task": "Request seat 20K.",
+    "expectedCommand": "ST/R/20K"
+  },
+  {
+    "id": 96,
+    "module": "QRG Seats",
+    "task": "Request aisle on segment 4.",
+    "expectedCommand": "ST/A/S4"
+  },
+  {
+    "id": 97,
+    "module": "QRG Services",
+    "task": "Add EK OSI VIP.",
+    "expectedCommand": "OS EK PAX IS VIP"
+  },
+  {
+    "id": 98,
+    "module": "QRG Services",
+    "task": "Request VGML.",
+    "expectedCommand": "SR VGML"
+  },
+  {
+    "id": 99,
+    "module": "QRG Services",
+    "task": "Request VGML on LH for PAX 2.",
+    "expectedCommand": "SR VGML LH/P2"
+  },
+  {
+    "id": 100,
+    "module": "QRG Modify",
+    "task": "Cancel segment 4.",
+    "expectedCommand": "XE4"
+  },
+  {
+    "id": 101,
+    "module": "QRG Modify",
+    "task": "Cancel itinerary.",
+    "expectedCommand": "XI"
+  },
+  {
+    "id": 102,
+    "module": "QRG Modify",
+    "task": "Change all segments to J.",
+    "expectedCommand": "SBJ"
+  },
+  {
+    "id": 103,
+    "module": "QRG Modify",
+    "task": "Change segment 4 to J.",
+    "expectedCommand": "SBJ4"
+  },
+  {
+    "id": 104,
+    "module": "QRG Modify",
+    "task": "Change segment 3 date to 30MAR.",
+    "expectedCommand": "SB30MAR3"
+  },
+  {
+    "id": 105,
+    "module": "QRG History",
+    "task": "History.",
+    "expectedCommand": "RH"
+  },
+  {
+    "id": 106,
+    "module": "QRG History",
+    "task": "Segment 4 history.",
+    "expectedCommand": "RHS4"
+  },
+  {
+    "id": 107,
+    "module": "QRG Queues",
+    "task": "Display queue bank.",
+    "expectedCommand": "QT"
+  },
+  {
+    "id": 108,
+    "module": "QRG Queues",
+    "task": "Display queue detail.",
+    "expectedCommand": "QS2C30D1"
+  },
+  {
+    "id": 109,
+    "module": "QRG Queues",
+    "task": "Keep PNR in queue after ignore.",
+    "expectedCommand": "QI"
+  },
+  {
+    "id": 110,
+    "module": "QRG Queues",
+    "task": "Remove from queue.",
+    "expectedCommand": "QN"
+  },
+  {
+    "id": 111,
+    "module": "QRG Queues",
+    "task": "Delay and retrieve next.",
+    "expectedCommand": "QD"
+  },
+  {
+    "id": 112,
+    "module": "QRG Queues",
+    "task": "Place on queue 30.",
+    "expectedCommand": "QE30"
+  },
+  {
+    "id": 113,
+    "module": "QRG Split",
+    "task": "Split passenger 3.",
+    "expectedCommand": "SP3"
+  },
+  {
+    "id": 114,
+    "module": "QRG Split",
+    "task": "Finalize split.",
+    "expectedCommand": "EF"
+  },
+  {
+    "id": 115,
+    "module": "QRG Ticketing",
+    "task": "Enter automated ticket number.",
+    "expectedCommand": "FHA 157-9196789012"
+  },
+  {
+    "id": 116,
+    "module": "QRG Ticketing",
+    "task": "Enter manual ticket number.",
+    "expectedCommand": "FHM 157-2124564781"
+  },
+  {
+    "id": 117,
+    "module": "QRG Ticketing",
+    "task": "Enter electronic ticket number.",
+    "expectedCommand": "FHE 157-9196789012"
+  },
+  {
+    "id": 118,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Country encode/decode? ",
+    "expectedCommand": "DC"
+  },
+  {
+    "id": 119,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Airline encode/decode? ",
+    "expectedCommand": "DNA"
+  },
+  {
+    "id": 120,
+    "module": "Reverse Recall",
+    "task": "What command is used for: City/airport encode? ",
+    "expectedCommand": "DAN"
+  },
+  {
+    "id": 121,
+    "module": "Reverse Recall",
+    "task": "What command is used for: City/airport decode? ",
+    "expectedCommand": "DAC"
+  },
+  {
+    "id": 122,
+    "module": "Reverse Recall",
+    "task": "What command is used for: City time / time conversion? ",
+    "expectedCommand": "DD"
+  },
+  {
+    "id": 123,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Calculator? ",
+    "expectedCommand": "DF"
+  },
+  {
+    "id": 124,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Currency conversion? ",
+    "expectedCommand": "FCC"
+  },
+  {
+    "id": 125,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Sign in one work area? ",
+    "expectedCommand": "JI"
+  },
+  {
+    "id": 126,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Sign in all work areas? ",
+    "expectedCommand": "JI*"
+  },
+  {
+    "id": 127,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Jump to C? ",
+    "expectedCommand": "JXC"
+  },
+  {
+    "id": 128,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Jump to B? ",
+    "expectedCommand": "JMB"
+  },
+  {
+    "id": 129,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Jump display? ",
+    "expectedCommand": "JD"
+  },
+  {
+    "id": 130,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Redisplay sign message? ",
+    "expectedCommand": "JB"
+  },
+  {
+    "id": 131,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Sign out? ",
+    "expectedCommand": "JO"
+  },
+  {
+    "id": 132,
+    "module": "Reverse Recall",
+    "task": "What command is used for: AIS main menu? ",
+    "expectedCommand": "GG"
+  },
+  {
+    "id": 133,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Airline info? ",
+    "expectedCommand": "GG"
+  },
+  {
+    "id": 134,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Country info? ",
+    "expectedCommand": "GG"
+  },
+  {
+    "id": 135,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Airport info? ",
+    "expectedCommand": "GG"
+  },
+  {
+    "id": 136,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Weather? ",
+    "expectedCommand": "GG"
+  },
+  {
+    "id": 137,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Help? ",
+    "expectedCommand": "HE"
+  },
+  {
+    "id": 138,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Last transaction help? ",
+    "expectedCommand": "HE/"
+  },
+  {
+    "id": 139,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Timatic visa? ",
+    "expectedCommand": "TIFV"
+  },
+  {
+    "id": 140,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Timatic health? ",
+    "expectedCommand": "TIFH"
+  },
+  {
+    "id": 141,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Timatic visa+health? ",
+    "expectedCommand": "TIFA"
+  },
+  {
+    "id": 142,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Availability? ",
+    "expectedCommand": "AN"
+  },
+  {
+    "id": 143,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Availability by time? ",
+    "expectedCommand": "AN…time"
+  },
+  {
+    "id": 144,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Airline filter? ",
+    "expectedCommand": "AN…/A"
+  },
+  {
+    "id": 145,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Via connection? ",
+    "expectedCommand": "AN…/X"
+  },
+  {
+    "id": 146,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Class filter? ",
+    "expectedCommand": "AN…/C"
+  },
+  {
+    "id": 147,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Inbound/outbound? ",
+    "expectedCommand": "AN…*date"
+  },
+  {
+    "id": 148,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Close/bookable schedule display? ",
+    "expectedCommand": "SN"
+  },
+  {
+    "id": 149,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Segment sell? ",
+    "expectedCommand": "SS"
+  },
+  {
+    "id": 150,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Long sell? ",
+    "expectedCommand": "SS"
+  },
+  {
+    "id": 151,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Open segment? ",
+    "expectedCommand": "SO"
+  },
+  {
+    "id": 152,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Surface/ARNK? ",
+    "expectedCommand": "SIARNK"
+  },
+  {
+    "id": 153,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Name? ",
+    "expectedCommand": "NM"
+  },
+  {
+    "id": 154,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Phone? ",
+    "expectedCommand": "AP"
+  },
+  {
+    "id": 155,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Email? ",
+    "expectedCommand": "APE"
+  },
+  {
+    "id": 156,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Ticketing OK? ",
+    "expectedCommand": "TKOK"
+  },
+  {
+    "id": 157,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Specific time limit? ",
+    "expectedCommand": "TKTL"
+  },
+  {
+    "id": 158,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Auto cancellation? ",
+    "expectedCommand": "TKXL"
+  },
+  {
+    "id": 159,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Received From? ",
+    "expectedCommand": "RF"
+  },
+  {
+    "id": 160,
+    "module": "Reverse Recall",
+    "task": "What command is used for: End transaction? ",
+    "expectedCommand": "ET"
+  },
+  {
+    "id": 161,
+    "module": "Reverse Recall",
+    "task": "What command is used for: End + redisplay? ",
+    "expectedCommand": "ER"
+  },
+  {
+    "id": 162,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Retrieve PNR? ",
+    "expectedCommand": "RT"
+  },
+  {
+    "id": 163,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Other-airline PNR? ",
+    "expectedCommand": "RL"
+  },
+  {
+    "id": 164,
+    "module": "Reverse Recall",
+    "task": "What command is used for: List PNRs? ",
+    "expectedCommand": "LM"
+  },
+  {
+    "id": 165,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Frequent flyer? ",
+    "expectedCommand": "FFN"
+  },
+  {
+    "id": 166,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Manual FF? ",
+    "expectedCommand": "SRFQTV"
+  },
+  {
+    "id": 167,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Seat map? ",
+    "expectedCommand": "SM"
+  },
+  {
+    "id": 168,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Seat request? ",
+    "expectedCommand": "ST"
+  },
+  {
+    "id": 169,
+    "module": "Reverse Recall",
+    "task": "What command is used for: OSI? ",
+    "expectedCommand": "OS"
+  },
+  {
+    "id": 170,
+    "module": "Reverse Recall",
+    "task": "What command is used for: SSR? ",
+    "expectedCommand": "SR"
+  },
+  {
+    "id": 171,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Cancel segment? ",
+    "expectedCommand": "XE"
+  },
+  {
+    "id": 172,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Cancel itinerary? ",
+    "expectedCommand": "XI"
+  },
+  {
+    "id": 173,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Change class/date? ",
+    "expectedCommand": "SB"
+  },
+  {
+    "id": 174,
+    "module": "Reverse Recall",
+    "task": "What command is used for: PNR history? ",
+    "expectedCommand": "RH"
+  },
+  {
+    "id": 175,
+    "module": "Reverse Recall",
+    "task": "What command is used for: General remark? ",
+    "expectedCommand": "RM"
+  },
+  {
+    "id": 176,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Confidential remark? ",
+    "expectedCommand": "RC"
+  },
+  {
+    "id": 177,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Print? ",
+    "expectedCommand": "WRS/WRA"
+  },
+  {
+    "id": 178,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Queue reminder? ",
+    "expectedCommand": "OP"
+  },
+  {
+    "id": 179,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Queue bank? ",
+    "expectedCommand": "QT"
+  },
+  {
+    "id": 180,
+    "module": "Reverse Recall",
+    "task": "What command is used for: Queue detail? ",
+    "expectedCommand": "QS"
+  },
+  {
+    "id": 181,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: Name.",
+    "expectedCommand": "NM"
+  },
+  {
+    "id": 182,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: Phone.",
+    "expectedCommand": "AP"
+  },
+  {
+    "id": 183,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: Email.",
+    "expectedCommand": "APE"
+  },
+  {
+    "id": 184,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: Ticketing OK.",
+    "expectedCommand": "TKOK"
+  },
+  {
+    "id": 185,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: Specific time limit.",
+    "expectedCommand": "TKTL"
+  },
+  {
+    "id": 186,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: Auto cancellation.",
+    "expectedCommand": "TKXL"
+  },
+  {
+    "id": 187,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: Received From.",
+    "expectedCommand": "RF"
+  },
+  {
+    "id": 188,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: End transaction.",
+    "expectedCommand": "ET"
+  },
+  {
+    "id": 189,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: End + redisplay.",
+    "expectedCommand": "ER"
+  },
+  {
+    "id": 190,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: Retrieve PNR.",
+    "expectedCommand": "RT"
+  },
+  {
+    "id": 191,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: Other-airline PNR.",
+    "expectedCommand": "RL"
+  },
+  {
+    "id": 192,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: List PNRs.",
+    "expectedCommand": "LM"
+  },
+  {
+    "id": 193,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: Frequent flyer.",
+    "expectedCommand": "FFN"
+  },
+  {
+    "id": 194,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: Manual FF.",
+    "expectedCommand": "SRFQTV"
+  },
+  {
+    "id": 195,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: OSI.",
+    "expectedCommand": "OS"
+  },
+  {
+    "id": 196,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: SSR.",
+    "expectedCommand": "SR"
+  },
+  {
+    "id": 197,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: Cancel segment.",
+    "expectedCommand": "XE"
+  },
+  {
+    "id": 198,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: Cancel itinerary.",
+    "expectedCommand": "XI"
+  },
+  {
+    "id": 199,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: Change class/date.",
+    "expectedCommand": "SB"
+  },
+  {
+    "id": 200,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: General remark.",
+    "expectedCommand": "RM"
+  },
+  {
+    "id": 201,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: Confidential remark.",
+    "expectedCommand": "RC"
+  },
+  {
+    "id": 202,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: Queue reminder.",
+    "expectedCommand": "OP"
+  },
+  {
+    "id": 203,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: Queue bank.",
+    "expectedCommand": "QT"
+  },
+  {
+    "id": 204,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: Queue detail.",
+    "expectedCommand": "QS"
+  },
+  {
+    "id": 205,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: Ignore, remain in queue.",
+    "expectedCommand": "QI"
+  },
+  {
+    "id": 206,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: Remove from queue.",
+    "expectedCommand": "QN"
+  },
+  {
+    "id": 207,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: Delay and retrieve next.",
+    "expectedCommand": "QD"
+  },
+  {
+    "id": 208,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: Place on queue.",
+    "expectedCommand": "QE"
+  },
+  {
+    "id": 209,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: Split PNR.",
+    "expectedCommand": "SP"
+  },
+  {
+    "id": 210,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: Finalize split.",
+    "expectedCommand": "EF"
+  },
+  {
+    "id": 211,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: Manual ticket number.",
+    "expectedCommand": "FH"
+  },
+  {
+    "id": 212,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: Check fare in booked class.",
+    "expectedCommand": "FX"
+  },
+  {
+    "id": 213,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: Save booked-class fare.",
+    "expectedCommand": "FXP"
+  },
+  {
+    "id": 214,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: Check lowest fare.",
+    "expectedCommand": "FXR"
+  },
+  {
+    "id": 215,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: Save lowest fare.",
+    "expectedCommand": "FXB"
+  },
+  {
+    "id": 216,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: Check lowest fare within cabin.",
+    "expectedCommand": "FXR/K"
+  },
+  {
+    "id": 217,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: Save lowest fare within cabin.",
+    "expectedCommand": "FXB/K"
+  },
+  {
+    "id": 218,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: Display TST.",
+    "expectedCommand": "TQT"
+  },
+  {
+    "id": 219,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: Ticket transaction history.",
+    "expectedCommand": "TTH"
+  },
+  {
+    "id": 220,
+    "module": "Advanced Recall",
+    "task": "Give the training command for: Display fare elements.",
+    "expectedCommand": "RTF"
+  },
+  {
+    "id": 221,
+    "module": "Manual Reissue",
+    "task": "Create Form of Original Issue (FO) from line 9.",
+    "expectedCommand": "FO*L9"
+  },
+  {
+    "id": 222,
+    "module": "Manual Reissue",
+    "task": "Set TST 1 into exchange mode.",
+    "expectedCommand": "TTK/EXCH/T1"
+  },
+  {
+    "id": 223,
+    "module": "Manual Reissue",
+    "task": "Update TST 1 for segment 2.",
+    "expectedCommand": "TTU/T1/S2"
+  },
+  {
+    "id": 224,
+    "module": "Manual Reissue",
+    "task": "Remove TST change flag.",
+    "expectedCommand": "TTF/T1"
+  },
+  {
+    "id": 225,
+    "module": "Manual Reissue",
+    "task": "Issue the exchange ticket.",
+    "expectedCommand": "TTP/EXCH"
+  },
+  {
+    "id": 226,
+    "module": "Queue Management",
+    "task": "Display the total queue count.",
+    "expectedCommand": "QT"
+  },
+  {
+    "id": 227,
+    "module": "Queue Management",
+    "task": "Display all existing queues.",
+    "expectedCommand": "QTQ"
+  },
+  {
+    "id": 228,
+    "module": "Queue Management",
+    "task": "Start Queue 97, Category 0, Date 1.",
+    "expectedCommand": "QS97C0D1"
+  },
+  {
+    "id": 229,
+    "module": "Queue Management",
+    "task": "Remove current item, show next.",
+    "expectedCommand": "QN"
+  },
+  {
+    "id": 230,
+    "module": "Queue Management",
+    "task": "Delay current item, show next.",
+    "expectedCommand": "QD"
+  },
+  {
+    "id": 231,
+    "module": "Queue Management",
+    "task": "Finish transaction and exit queue.",
+    "expectedCommand": "QF"
+  },
+  {
+    "id": 232,
+    "module": "Queue Management",
+    "task": "Ignore PNR and exit queue.",
+    "expectedCommand": "QI"
+  },
+  {
+    "id": 233,
+    "module": "Queue Management",
+    "task": "Redisplay queue message.",
+    "expectedCommand": "QU"
+  },
+  {
+    "id": 234,
+    "module": "Queue Management",
+    "task": "Place PNR on Queue 8 Category 1.",
+    "expectedCommand": "QE8C1"
+  },
+  {
+    "id": 235,
+    "module": "Queue Management",
+    "task": "Display list of PNRs on Queue 8.",
+    "expectedCommand": "QV/8"
+  },
+  {
+    "id": 236,
+    "module": "Queue Management",
+    "task": "Add a Queue Monitor for Queue 2.",
+    "expectedCommand": "QOA2"
+  },
+  {
+    "id": 237,
+    "module": "Involuntary Changes",
+    "task": "Accept schedule change specifically for segment 8.",
+    "expectedCommand": "8/HK"
+  },
+  {
+    "id": 238,
+    "module": "Involuntary Changes",
+    "task": "End transaction, process status changes, and move NO/UN/UC to history.",
+    "expectedCommand": "ETK"
+  },
+  {
+    "id": 239,
+    "module": "Involuntary Changes",
+    "task": "End transaction, process status changes, and redisplay PNR.",
+    "expectedCommand": "ERK"
+  },
+  {
+    "id": 240,
+    "module": "Involuntary Changes",
+    "task": "Run automated involuntary exchange for ATC.",
+    "expectedCommand": "FXI"
+  }
+]

@@ -13,6 +13,10 @@
       {
         "source": "/projects/aetherRead/app/reader/**",
         "destination": "/projects/aetherRead/app/reader/_placeholder/index.html"
+      },
+      {
+        "source": "/projects/amadeus-gds-platform/dist/**",
+        "destination": "/projects/amadeus-gds-platform/dist/index.html"
       }
     ],
     "headers": [

@@ -1,0 +1,770 @@
+[
+  {
+    "id": 1,
+    "command": "DC",
+    "purpose": "Country encode/decode",
+    "example": "DC INDIA / DC DE",
+    "group": "Basics",
+    "detail": "This command is used for country encode/decode within the Amadeus system. It is a core part of the Basics workflow."
+  },
+  {
+    "id": 2,
+    "command": "DNA",
+    "purpose": "Airline encode/decode",
+    "example": "DNA INDIGO / DNA 001",
+    "group": "Basics",
+    "detail": "This command is used for airline encode/decode within the Amadeus system. It is a core part of the Basics workflow."
+  },
+  {
+    "id": 3,
+    "command": "DAN",
+    "purpose": "City/airport encode",
+    "example": "DAN DELHI",
+    "group": "Basics",
+    "detail": "This command is used for city/airport encode within the Amadeus system. It is a core part of the Basics workflow."
+  },
+  {
+    "id": 4,
+    "command": "DAC",
+    "purpose": "City/airport decode",
+    "example": "DAC BOM / DAC DXB",
+    "group": "Basics",
+    "detail": "This command is used for city/airport decode within the Amadeus system. It is a core part of the Basics workflow."
+  },
+  {
+    "id": 5,
+    "command": "DD",
+    "purpose": "City time / time conversion",
+    "example": "DDNYC / DDDXB1200/BOM",
+    "group": "Time & Currency",
+    "detail": "This command is used for city time / time conversion within the Amadeus system. It is a core part of the Time & Currency workflow."
+  },
+  {
+    "id": 6,
+    "command": "DF",
+    "purpose": "Calculator",
+    "example": "DF500;230 / DF800/5",
+    "group": "Time & Currency",
+    "detail": "This command is used for calculator within the Amadeus system. It is a core part of the Time & Currency workflow."
+  },
+  {
+    "id": 7,
+    "command": "FCC",
+    "purpose": "Currency conversion",
+    "example": "FCC100000AED/INR",
+    "group": "Time & Currency",
+    "detail": "This command is used for currency conversion within the Amadeus system. It is a core part of the Time & Currency workflow."
+  },
+  {
+    "id": 8,
+    "command": "JI",
+    "purpose": "Sign in one work area",
+    "example": "JI0001AA/SU",
+    "group": "Sign In",
+    "detail": "This command is used for sign in one work area within the Amadeus system. It is a core part of the Sign In workflow."
+  },
+  {
+    "id": 9,
+    "command": "JI*",
+    "purpose": "Sign in all work areas",
+    "example": "JI*0001AA/SU",
+    "group": "Sign In",
+    "detail": "This command is used for sign in all work areas within the Amadeus system. It is a core part of the Sign In workflow."
+  },
+  {
+    "id": 10,
+    "command": "JXC",
+    "purpose": "Jump to C",
+    "example": "JXC",
+    "group": "Sign In",
+    "detail": "This command is used for jump to c within the Amadeus system. It is a core part of the Sign In workflow."
+  },
+  {
+    "id": 11,
+    "command": "JMB",
+    "purpose": "Jump to B",
+    "example": "JMB",
+    "group": "Sign In",
+    "detail": "This command is used for jump to b within the Amadeus system. It is a core part of the Sign In workflow."
+  },
+  {
+    "id": 12,
+    "command": "JD",
+    "purpose": "Jump display",
+    "example": "JD",
+    "group": "Sign In",
+    "detail": "This command is used for jump display within the Amadeus system. It is a core part of the Sign In workflow."
+  },
+  {
+    "id": 13,
+    "command": "JB",
+    "purpose": "Redisplay sign message",
+    "example": "JB",
+    "group": "Sign In",
+    "detail": "This command is used for redisplay sign message within the Amadeus system. It is a core part of the Sign In workflow."
+  },
+  {
+    "id": 14,
+    "command": "JO / JO* / JOB",
+    "purpose": "Sign out",
+    "example": "JO / JO* / JOB",
+    "group": "Sign In",
+    "detail": "This command is used for sign out within the Amadeus system. It is a core part of the Sign In workflow."
+  },
+  {
+    "id": 15,
+    "command": "GG AIS",
+    "purpose": "AIS main menu",
+    "example": "GG AIS",
+    "group": "Information",
+    "detail": "This command is used for ais main menu within the Amadeus system. It is a core part of the Information workflow."
+  },
+  {
+    "id": 16,
+    "command": "GG AIR",
+    "purpose": "Airline info",
+    "example": "GG AIR UL",
+    "group": "Information",
+    "detail": "This command is used for airline info within the Amadeus system. It is a core part of the Information workflow."
+  },
+  {
+    "id": 17,
+    "command": "GG COU",
+    "purpose": "Country info",
+    "example": "GG COU FR",
+    "group": "Information",
+    "detail": "This command is used for country info within the Amadeus system. It is a core part of the Information workflow."
+  },
+  {
+    "id": 18,
+    "command": "GG APT",
+    "purpose": "Airport info",
+    "example": "GG APT NRT",
+    "group": "Information",
+    "detail": "This command is used for airport info within the Amadeus system. It is a core part of the Information workflow."
+  },
+  {
+    "id": 19,
+    "command": "GG WEA",
+    "purpose": "Weather",
+    "example": "GG WEA LAX",
+    "group": "Information",
+    "detail": "This command is used for weather within the Amadeus system. It is a core part of the Information workflow."
+  },
+  {
+    "id": 20,
+    "command": "HE",
+    "purpose": "Help",
+    "example": "HE / HE A / HE NM / HE STEPS",
+    "group": "Help",
+    "detail": "This command is used for help within the Amadeus system. It is a core part of the Help workflow."
+  },
+  {
+    "id": 21,
+    "command": "HE/",
+    "purpose": "Last transaction help",
+    "example": "HE/",
+    "group": "Help",
+    "detail": "This command is used for last transaction help within the Amadeus system. It is a core part of the Help workflow."
+  },
+  {
+    "id": 22,
+    "command": "TIFV",
+    "purpose": "Timatic visa",
+    "example": "TIFV",
+    "group": "Timatic",
+    "detail": "This command is used for timatic visa within the Amadeus system. It is a core part of the Timatic workflow."
+  },
+  {
+    "id": 23,
+    "command": "TIFH",
+    "purpose": "Timatic health",
+    "example": "TIFH",
+    "group": "Timatic",
+    "detail": "This command is used for timatic health within the Amadeus system. It is a core part of the Timatic workflow."
+  },
+  {
+    "id": 24,
+    "command": "TIFA",
+    "purpose": "Timatic visa+health",
+    "example": "TIFA",
+    "group": "Timatic",
+    "detail": "This command is used for timatic visa+health within the Amadeus system. It is a core part of the Timatic workflow."
+  },
+  {
+    "id": 25,
+    "command": "AN",
+    "purpose": "Availability",
+    "example": "AN01MARDOHDXB",
+    "group": "Availability",
+    "detail": "This command is used for availability within the Amadeus system. It is a core part of the Availability workflow."
+  },
+  {
+    "id": 26,
+    "command": "AN…time",
+    "purpose": "Availability by time",
+    "example": "AN01MARDOHDXB1200",
+    "group": "Availability",
+    "detail": "This command is used for availability by time within the Amadeus system. It is a core part of the Availability workflow."
+  },
+  {
+    "id": 27,
+    "command": "AN…/A",
+    "purpose": "Airline filter",
+    "example": "AN01MARDOHDXB/AEK",
+    "group": "Availability",
+    "detail": "This command is used for airline filter within the Amadeus system. It is a core part of the Availability workflow."
+  },
+  {
+    "id": 28,
+    "command": "AN…/X",
+    "purpose": "Via connection",
+    "example": "AN01MARDOHDXB/XAUH",
+    "group": "Availability",
+    "detail": "This command is used for via connection within the Amadeus system. It is a core part of the Availability workflow."
+  },
+  {
+    "id": 29,
+    "command": "AN…/C",
+    "purpose": "Class filter",
+    "example": "AN01MARDOHDXB/CV",
+    "group": "Availability",
+    "detail": "This command is used for class filter within the Amadeus system. It is a core part of the Availability workflow."
+  },
+  {
+    "id": 30,
+    "command": "AN…*date",
+    "purpose": "Inbound/outbound",
+    "example": "AN12MARDOHDXB*15MAR",
+    "group": "Availability",
+    "detail": "This command is used for inbound/outbound within the Amadeus system. It is a core part of the Availability workflow."
+  },
+  {
+    "id": 31,
+    "command": "SN",
+    "purpose": "Close/bookable schedule display",
+    "example": "SN01MARDOHDXB",
+    "group": "Availability",
+    "detail": "This command is used for close/bookable schedule display within the Amadeus system. It is a core part of the Availability workflow."
+  },
+  {
+    "id": 32,
+    "command": "SS",
+    "purpose": "Segment sell",
+    "example": "SS2V4 / SS2JF3",
+    "group": "Selling",
+    "detail": "This command is used for segment sell within the Amadeus system. It is a core part of the Selling workflow."
+  },
+  {
+    "id": 33,
+    "command": "SS long",
+    "purpose": "Long sell",
+    "example": "SSQR001B15MARDOHLHRNN2",
+    "group": "Selling",
+    "detail": "This command is used for long sell within the Amadeus system. It is a core part of the Selling workflow."
+  },
+  {
+    "id": 34,
+    "command": "SO",
+    "purpose": "Open segment",
+    "example": "SO QR B LHRDOH",
+    "group": "Selling",
+    "detail": "This command is used for open segment within the Amadeus system. It is a core part of the Selling workflow."
+  },
+  {
+    "id": 35,
+    "command": "SIARNK",
+    "purpose": "Surface/ARNK",
+    "example": "SIARNK",
+    "group": "Selling",
+    "detail": "This command is used for surface/arnk within the Amadeus system. It is a core part of the Selling workflow."
+  },
+  {
+    "id": 36,
+    "command": "NM",
+    "purpose": "Name",
+    "example": "NM1HUSSAIN/ALI MR",
+    "group": "PNR",
+    "detail": "This command is used for name within the Amadeus system. It is a core part of the PNR workflow."
+  },
+  {
+    "id": 37,
+    "command": "AP",
+    "purpose": "Phone",
+    "example": "AP DOH 4667579",
+    "group": "PNR",
+    "detail": "This command is used for phone within the Amadeus system. It is a core part of the PNR workflow."
+  },
+  {
+    "id": 38,
+    "command": "APE / API",
+    "purpose": "Email",
+    "example": "APE-ABC@ABC.COM / APIABC@EXAMPLE.COM",
+    "group": "PNR",
+    "detail": "This command is used for email within the Amadeus system. It is a core part of the PNR workflow."
+  },
+  {
+    "id": 39,
+    "command": "TKOK",
+    "purpose": "Ticketing OK",
+    "example": "TKOK",
+    "group": "PNR",
+    "detail": "This command is used for ticketing ok within the Amadeus system. It is a core part of the PNR workflow."
+  },
+  {
+    "id": 40,
+    "command": "TKTL",
+    "purpose": "Specific time limit",
+    "example": "TKTL12MAR/1200",
+    "group": "PNR",
+    "detail": "This command is used for specific time limit within the Amadeus system. It is a core part of the PNR workflow."
+  },
+  {
+    "id": 41,
+    "command": "TKXL",
+    "purpose": "Auto cancellation",
+    "example": "TKXL12MAR/1200",
+    "group": "PNR",
+    "detail": "This command is used for auto cancellation within the Amadeus system. It is a core part of the PNR workflow."
+  },
+  {
+    "id": 42,
+    "command": "RF",
+    "purpose": "Received From",
+    "example": "RFP / RF ALI",
+    "group": "PNR",
+    "detail": "This command is used for received from within the Amadeus system. It is a core part of the PNR workflow."
+  },
+  {
+    "id": 43,
+    "command": "ET",
+    "purpose": "End transaction",
+    "example": "ET",
+    "group": "PNR",
+    "detail": "This command is used for end transaction within the Amadeus system. It is a core part of the PNR workflow."
+  },
+  {
+    "id": 44,
+    "command": "ER",
+    "purpose": "End + redisplay",
+    "example": "ER",
+    "group": "PNR",
+    "detail": "This command is used for end + redisplay within the Amadeus system. It is a core part of the PNR workflow."
+  },
+  {
+    "id": 45,
+    "command": "RT",
+    "purpose": "Retrieve PNR",
+    "example": "RTXXXXXX / RT/AHMED / RT4",
+    "group": "Retrieval",
+    "detail": "This command is used for retrieve pnr within the Amadeus system. It is a core part of the Retrieval workflow."
+  },
+  {
+    "id": 46,
+    "command": "RL",
+    "purpose": "Other-airline PNR",
+    "example": "RL",
+    "group": "Retrieval",
+    "detail": "This command is used for other-airline pnr within the Amadeus system. It is a core part of the Retrieval workflow."
+  },
+  {
+    "id": 47,
+    "command": "LM",
+    "purpose": "List PNRs",
+    "example": "LM/QR001/12MAR/DOHLHR",
+    "group": "Retrieval",
+    "detail": "This command is used for list pnrs within the Amadeus system. It is a core part of the Retrieval workflow."
+  },
+  {
+    "id": 48,
+    "command": "FFN",
+    "purpose": "Frequent flyer",
+    "example": "FFNQR-1111111111/P2",
+    "group": "PNR",
+    "detail": "This command is used for frequent flyer within the Amadeus system. It is a core part of the PNR workflow."
+  },
+  {
+    "id": 49,
+    "command": "SRFQTV",
+    "purpose": "Manual FF",
+    "example": "SRFQTVEK-EK111111111/P3",
+    "group": "PNR",
+    "detail": "This command is used for manual ff within the Amadeus system. It is a core part of the PNR workflow."
+  },
+  {
+    "id": 50,
+    "command": "SM",
+    "purpose": "Seat map",
+    "example": "SM3",
+    "group": "Seats",
+    "detail": "This command is used for seat map within the Amadeus system. It is a core part of the Seats workflow."
+  },
+  {
+    "id": 51,
+    "command": "ST",
+    "purpose": "Seat request",
+    "example": "ST/R/20K / ST/A/S4",
+    "group": "Seats",
+    "detail": "This command is used for seat request within the Amadeus system. It is a core part of the Seats workflow."
+  },
+  {
+    "id": 52,
+    "command": "OS",
+    "purpose": "OSI",
+    "example": "OS EK PAX IS VIP",
+    "group": "Services",
+    "detail": "This command is used for osi within the Amadeus system. It is a core part of the Services workflow."
+  },
+  {
+    "id": 53,
+    "command": "SR",
+    "purpose": "SSR",
+    "example": "SR VGML / SR VGML LH/P2",
+    "group": "Services",
+    "detail": "This command is used for ssr within the Amadeus system. It is a core part of the Services workflow."
+  },
+  {
+    "id": 54,
+    "command": "XE",
+    "purpose": "Cancel segment",
+    "example": "XE4",
+    "group": "Modify",
+    "detail": "This command is used for cancel segment within the Amadeus system. It is a core part of the Modify workflow."
+  },
+  {
+    "id": 55,
+    "command": "XI",
+    "purpose": "Cancel itinerary",
+    "example": "XI",
+    "group": "Modify",
+    "detail": "This command is used for cancel itinerary within the Amadeus system. It is a core part of the Modify workflow."
+  },
+  {
+    "id": 56,
+    "command": "SB",
+    "purpose": "Change class/date",
+    "example": "SBJ / SBJ4 / SB30MAR3",
+    "group": "Modify",
+    "detail": "This command is used for change class/date within the Amadeus system. It is a core part of the Modify workflow."
+  },
+  {
+    "id": 57,
+    "command": "RH",
+    "purpose": "PNR history",
+    "example": "RH / RHS4 / RLH",
+    "group": "History",
+    "detail": "This command is used for pnr history within the Amadeus system. It is a core part of the History workflow."
+  },
+  {
+    "id": 58,
+    "command": "RM",
+    "purpose": "General remark",
+    "example": "RM PLEASE CONFIRM SEGMENT 4",
+    "group": "PNR",
+    "detail": "This command is used for general remark within the Amadeus system. It is a core part of the PNR workflow."
+  },
+  {
+    "id": 59,
+    "command": "RC",
+    "purpose": "Confidential remark",
+    "example": "RC CHARGE EXTRA QAR400",
+    "group": "PNR",
+    "detail": "This command is used for confidential remark within the Amadeus system. It is a core part of the PNR workflow."
+  },
+  {
+    "id": 60,
+    "command": "WRS/WRA",
+    "purpose": "Print",
+    "example": "WRS/RT / WRA/RT",
+    "group": "Utilities",
+    "detail": "This command is used for print within the Amadeus system. It is a core part of the Utilities workflow."
+  },
+  {
+    "id": 61,
+    "command": "OP",
+    "purpose": "Queue reminder",
+    "example": "OP12MAR/FREE TEXT",
+    "group": "Queues",
+    "detail": "This command is used for queue reminder within the Amadeus system. It is a core part of the Queues workflow."
+  },
+  {
+    "id": 62,
+    "command": "QT",
+    "purpose": "Queue bank",
+    "example": "QT",
+    "group": "Queues",
+    "detail": "This command is used for queue bank within the Amadeus system. It is a core part of the Queues workflow."
+  },
+  {
+    "id": 63,
+    "command": "QS",
+    "purpose": "Queue detail",
+    "example": "QS2C30D1",
+    "group": "Queues",
+    "detail": "This command is used for queue detail within the Amadeus system. It is a core part of the Queues workflow."
+  },
+  {
+    "id": 64,
+    "command": "QI",
+    "purpose": "Ignore, remain in queue",
+    "example": "QI",
+    "group": "Queues",
+    "detail": "This command is used for ignore, remain in queue within the Amadeus system. It is a core part of the Queues workflow."
+  },
+  {
+    "id": 65,
+    "command": "QN",
+    "purpose": "Remove from queue",
+    "example": "QN",
+    "group": "Queues",
+    "detail": "This command is used for remove from queue within the Amadeus system. It is a core part of the Queues workflow."
+  },
+  {
+    "id": 66,
+    "command": "QD",
+    "purpose": "Delay and retrieve next",
+    "example": "QD",
+    "group": "Queues",
+    "detail": "This command is used for delay and retrieve next within the Amadeus system. It is a core part of the Queues workflow."
+  },
+  {
+    "id": 67,
+    "command": "QE",
+    "purpose": "Place on queue",
+    "example": "QE30",
+    "group": "Queues",
+    "detail": "This command is used for place on queue within the Amadeus system. It is a core part of the Queues workflow."
+  },
+  {
+    "id": 68,
+    "command": "SP",
+    "purpose": "Split PNR",
+    "example": "SP3",
+    "group": "Split",
+    "detail": "This command is used for split pnr within the Amadeus system. It is a core part of the Split workflow."
+  },
+  {
+    "id": 69,
+    "command": "EF",
+    "purpose": "Finalize split",
+    "example": "EF",
+    "group": "Split",
+    "detail": "This command is used for finalize split within the Amadeus system. It is a core part of the Split workflow."
+  },
+  {
+    "id": 70,
+    "command": "FH",
+    "purpose": "Manual ticket number",
+    "example": "FHA / FHM / FHE",
+    "group": "Ticketing",
+    "detail": "This command is used for manual ticket number within the Amadeus system. It is a core part of the Ticketing workflow."
+  },
+  {
+    "id": 71,
+    "command": "FX",
+    "purpose": "Check fare in booked class",
+    "example": "FX",
+    "group": "Pricing",
+    "detail": "This command is used for check fare in booked class within the Amadeus system. It is a core part of the Pricing workflow."
+  },
+  {
+    "id": 72,
+    "command": "FXP",
+    "purpose": "Save booked-class fare",
+    "example": "FXP",
+    "group": "Pricing",
+    "detail": "This command is used for save booked-class fare within the Amadeus system. It is a core part of the Pricing workflow."
+  },
+  {
+    "id": 73,
+    "command": "FXR",
+    "purpose": "Check lowest fare",
+    "example": "FXR",
+    "group": "Pricing",
+    "detail": "This command is used for check lowest fare within the Amadeus system. It is a core part of the Pricing workflow."
+  },
+  {
+    "id": 74,
+    "command": "FXB",
+    "purpose": "Save lowest fare",
+    "example": "FXB",
+    "group": "Pricing",
+    "detail": "This command is used for save lowest fare within the Amadeus system. It is a core part of the Pricing workflow."
+  },
+  {
+    "id": 75,
+    "command": "FXR/K",
+    "purpose": "Check lowest fare within cabin",
+    "example": "FXR/K",
+    "group": "Pricing",
+    "detail": "This command is used for check lowest fare within cabin within the Amadeus system. It is a core part of the Pricing workflow."
+  },
+  {
+    "id": 76,
+    "command": "FXB/K",
+    "purpose": "Save lowest fare within cabin",
+    "example": "FXB/K",
+    "group": "Pricing",
+    "detail": "This command is used for save lowest fare within cabin within the Amadeus system. It is a core part of the Pricing workflow."
+  },
+  {
+    "id": 77,
+    "command": "TQT",
+    "purpose": "Display TST",
+    "example": "TQT",
+    "group": "Pricing",
+    "detail": "This command is used for display tst within the Amadeus system. It is a core part of the Pricing workflow."
+  },
+  {
+    "id": 78,
+    "command": "TTH",
+    "purpose": "Ticket transaction history",
+    "example": "TTH",
+    "group": "Pricing",
+    "detail": "This command is used for ticket transaction history within the Amadeus system. It is a core part of the Pricing workflow."
+  },
+  {
+    "id": 79,
+    "command": "RTF",
+    "purpose": "Display fare elements",
+    "example": "RTF",
+    "group": "Pricing",
+    "detail": "This command is used for display fare elements within the Amadeus system. It is a core part of the Pricing workflow."
+  },
+  {
+    "id": 80,
+    "command": "FE",
+    "purpose": "Endorsement",
+    "example": "FE",
+    "group": "Ticketing",
+    "detail": "This command is used for endorsement within the Amadeus system. It is a core part of the Ticketing workflow."
+  },
+  {
+    "id": 81,
+    "command": "FM",
+    "purpose": "Commission",
+    "example": "FM",
+    "group": "Ticketing",
+    "detail": "This command is used for commission within the Amadeus system. It is a core part of the Ticketing workflow."
+  },
+  {
+    "id": 82,
+    "command": "FP",
+    "purpose": "Form of payment",
+    "example": "FP CASH",
+    "group": "Ticketing",
+    "detail": "This command is used for form of payment within the Amadeus system. It is a core part of the Ticketing workflow."
+  },
+  {
+    "id": 83,
+    "command": "FV",
+    "purpose": "Validating carrier",
+    "example": "FV",
+    "group": "Ticketing",
+    "detail": "This command is used for validating carrier within the Amadeus system. It is a core part of the Ticketing workflow."
+  },
+  {
+    "id": 84,
+    "command": "TTP / TT",
+    "purpose": "Issue ticket",
+    "example": "TTP / TT",
+    "group": "Ticketing",
+    "detail": "This command is used for issue ticket within the Amadeus system. It is a core part of the Ticketing workflow."
+  },
+  {
+    "id": 85,
+    "command": "RTA",
+    "purpose": "Verify after ticketing",
+    "example": "RTA",
+    "group": "Ticketing",
+    "detail": "This command is used for verify after ticketing within the Amadeus system. It is a core part of the Ticketing workflow."
+  },
+  {
+    "id": 86,
+    "command": "FXA",
+    "purpose": "Fare for booked flight",
+    "example": "FXA",
+    "group": "Master Pricer",
+    "detail": "This command is used for fare for booked flight within the Amadeus system. It is a core part of the Master Pricer workflow."
+  },
+  {
+    "id": 87,
+    "command": "FXD",
+    "purpose": "Route-wide lowest fare + alternatives",
+    "example": "FXD",
+    "group": "Master Pricer",
+    "detail": "This command is used for route-wide lowest fare + alternatives within the Amadeus system. It is a core part of the Master Pricer workflow."
+  },
+  {
+    "id": 88,
+    "command": "FXZ3",
+    "purpose": "Book FXD option 3",
+    "example": "FXZ3",
+    "group": "Master Pricer",
+    "detail": "This command is used for book fxd option 3 within the Amadeus system. It is a core part of the Master Pricer workflow."
+  },
+  {
+    "id": 89,
+    "command": "FXU3",
+    "purpose": "Book option + TST",
+    "example": "FXU3",
+    "group": "Master Pricer",
+    "detail": "This command is used for book option + tst within the Amadeus system. It is a core part of the Master Pricer workflow."
+  },
+  {
+    "id": 90,
+    "command": "ATC",
+    "purpose": "Automated Ticket Changer",
+    "example": "ATC",
+    "group": "Exchange",
+    "detail": "This command is used for automated ticket changer within the Amadeus system. It is a core part of the Exchange workflow."
+  },
+  {
+    "id": 91,
+    "command": "ERK",
+    "purpose": "Accept minor schedule change",
+    "example": "ERK",
+    "group": "Exchange",
+    "detail": "This command is used for accept minor schedule change within the Amadeus system. It is a core part of the Exchange workflow."
+  },
+  {
+    "id": 92,
+    "command": "FXI",
+    "purpose": "Involuntary exchange",
+    "example": "FXI",
+    "group": "Exchange",
+    "detail": "This command is used for involuntary exchange within the Amadeus system. It is a core part of the Exchange workflow."
+  },
+  {
+    "id": 93,
+    "command": "TRDC",
+    "purpose": "Void",
+    "example": "TRDC L8 / TRDC/TK…",
+    "group": "Void",
+    "detail": "This command is used for void within the Amadeus system. It is a core part of the Void workflow."
+  },
+  {
+    "id": 94,
+    "command": "TWD",
+    "purpose": "Ticket image",
+    "example": "TWD L8 / TWD/L8",
+    "group": "Ticketing",
+    "detail": "This command is used for ticket image within the Amadeus system. It is a core part of the Ticketing workflow."
+  },
+  {
+    "id": 95,
+    "command": "TWD O*",
+    "purpose": "Old ticket details",
+    "example": "TWD O*",
+    "group": "Ticketing",
+    "detail": "This command is used for old ticket details within the Amadeus system. It is a core part of the Ticketing workflow."
+  },
+  {
+    "id": 96,
+    "command": "TTPE",
+    "purpose": "Finalize exchange",
+    "example": "TTPE T8",
+    "group": "Exchange",
+    "detail": "This command is used for finalize exchange within the Amadeus system. It is a core part of the Exchange workflow."
+  }
+]
