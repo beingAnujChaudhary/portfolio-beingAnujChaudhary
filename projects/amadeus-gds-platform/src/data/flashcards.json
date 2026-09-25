@@ -1,656 +1,185 @@
 [
-  {
-    "id": 1,
-    "category": "Basics",
-    "front": "Country encode/decode",
-    "back": "DC INDIA / DC DE"
-  },
-  {
-    "id": 2,
-    "category": "Basics",
-    "front": "Airline encode/decode",
-    "back": "DNA INDIGO / DNA 001"
-  },
-  {
-    "id": 3,
-    "category": "Basics",
-    "front": "City/airport encode",
-    "back": "DAN DELHI"
-  },
-  {
-    "id": 4,
-    "category": "Basics",
-    "front": "City/airport decode",
-    "back": "DAC BOM / DAC DXB"
-  },
-  {
-    "id": 5,
-    "category": "Time & Currency",
-    "front": "City time / time conversion",
-    "back": "DDNYC / DDDXB1200/BOM"
-  },
-  {
-    "id": 6,
-    "category": "Time & Currency",
-    "front": "Calculator",
-    "back": "DF500;230 / DF800/5"
-  },
-  {
-    "id": 7,
-    "category": "Time & Currency",
-    "front": "Currency conversion",
-    "back": "FCC100000AED/INR"
-  },
-  {
-    "id": 8,
-    "category": "Sign In",
-    "front": "Sign in one work area",
-    "back": "JI0001AA/SU"
-  },
-  {
-    "id": 9,
-    "category": "Sign In",
-    "front": "Sign in all work areas",
-    "back": "JI*0001AA/SU"
-  },
-  {
-    "id": 10,
-    "category": "Sign In",
-    "front": "Jump to C",
-    "back": "JXC"
-  },
-  {
-    "id": 11,
-    "category": "Sign In",
-    "front": "Jump to B",
-    "back": "JMB"
-  },
-  {
-    "id": 12,
-    "category": "Sign In",
-    "front": "Jump display",
-    "back": "JD"
-  },
-  {
-    "id": 13,
-    "category": "Sign In",
-    "front": "Redisplay sign message",
-    "back": "JB"
-  },
-  {
-    "id": 14,
-    "category": "Sign In",
-    "front": "Sign out",
-    "back": "JO / JO* / JOB"
-  },
-  {
-    "id": 15,
-    "category": "Information",
-    "front": "AIS main menu",
-    "back": "GG AIS"
-  },
-  {
-    "id": 16,
-    "category": "Information",
-    "front": "Airline info",
-    "back": "GG AIR UL"
-  },
-  {
-    "id": 17,
-    "category": "Information",
-    "front": "Country info",
-    "back": "GG COU FR"
-  },
-  {
-    "id": 18,
-    "category": "Information",
-    "front": "Airport info",
-    "back": "GG APT NRT"
-  },
-  {
-    "id": 19,
-    "category": "Information",
-    "front": "Weather",
-    "back": "GG WEA LAX"
-  },
-  {
-    "id": 20,
-    "category": "Help",
-    "front": "Help",
-    "back": "HE / HE A / HE NM / HE STEPS"
-  },
-  {
-    "id": 21,
-    "category": "Help",
-    "front": "Last transaction help",
-    "back": "HE/"
-  },
-  {
-    "id": 22,
-    "category": "Timatic",
-    "front": "Timatic visa",
-    "back": "TIFV"
-  },
-  {
-    "id": 23,
-    "category": "Timatic",
-    "front": "Timatic health",
-    "back": "TIFH"
-  },
-  {
-    "id": 24,
-    "category": "Timatic",
-    "front": "Timatic visa+health",
-    "back": "TIFA"
-  },
-  {
-    "id": 25,
-    "category": "Availability",
-    "front": "Availability",
-    "back": "AN01MARDOHDXB"
-  },
-  {
-    "id": 26,
-    "category": "Availability",
-    "front": "Availability by time",
-    "back": "AN01MARDOHDXB1200"
-  },
-  {
-    "id": 27,
-    "category": "Availability",
-    "front": "Airline filter",
-    "back": "AN01MARDOHDXB/AEK"
-  },
-  {
-    "id": 28,
-    "category": "Availability",
-    "front": "Via connection",
-    "back": "AN01MARDOHDXB/XAUH"
-  },
-  {
-    "id": 29,
-    "category": "Availability",
-    "front": "Class filter",
-    "back": "AN01MARDOHDXB/CV"
-  },
-  {
-    "id": 30,
-    "category": "Availability",
-    "front": "Inbound/outbound",
-    "back": "AN12MARDOHDXB*15MAR"
-  },
-  {
-    "id": 31,
-    "category": "Availability",
-    "front": "Close/bookable schedule display",
-    "back": "SN01MARDOHDXB"
-  },
-  {
-    "id": 32,
-    "category": "Selling",
-    "front": "Segment sell",
-    "back": "SS2V4 / SS2JF3"
-  },
-  {
-    "id": 33,
-    "category": "Selling",
-    "front": "Long sell",
-    "back": "SSQR001B15MARDOHLHRNN2"
-  },
-  {
-    "id": 34,
-    "category": "Selling",
-    "front": "Open segment",
-    "back": "SO QR B LHRDOH"
-  },
-  {
-    "id": 35,
-    "category": "Selling",
-    "front": "Surface/ARNK",
-    "back": "SIARNK"
-  },
-  {
-    "id": 36,
-    "category": "PNR",
-    "front": "Name",
-    "back": "NM1HUSSAIN/ALI MR"
-  },
-  {
-    "id": 37,
-    "category": "PNR",
-    "front": "Phone",
-    "back": "AP DOH 4667579"
-  },
-  {
-    "id": 38,
-    "category": "PNR",
-    "front": "Email",
-    "back": "APE-ABC@ABC.COM / APIABC@EXAMPLE.COM"
-  },
-  {
-    "id": 39,
-    "category": "PNR",
-    "front": "Ticketing OK",
-    "back": "TKOK"
-  },
-  {
-    "id": 40,
-    "category": "PNR",
-    "front": "Specific time limit",
-    "back": "TKTL12MAR/1200"
-  },
-  {
-    "id": 41,
-    "category": "PNR",
-    "front": "Auto cancellation",
-    "back": "TKXL12MAR/1200"
-  },
-  {
-    "id": 42,
-    "category": "PNR",
-    "front": "Received From",
-    "back": "RFP / RF ALI"
-  },
-  {
-    "id": 43,
-    "category": "PNR",
-    "front": "End transaction",
-    "back": "ET"
-  },
-  {
-    "id": 44,
-    "category": "PNR",
-    "front": "End + redisplay",
-    "back": "ER"
-  },
-  {
-    "id": 45,
-    "category": "Retrieval",
-    "front": "Retrieve PNR",
-    "back": "RTXXXXXX / RT/AHMED / RT4"
-  },
-  {
-    "id": 46,
-    "category": "Retrieval",
-    "front": "Other-airline PNR",
-    "back": "RL"
-  },
-  {
-    "id": 47,
-    "category": "Retrieval",
-    "front": "List PNRs",
-    "back": "LM/QR001/12MAR/DOHLHR"
-  },
-  {
-    "id": 48,
-    "category": "PNR",
-    "front": "Frequent flyer",
-    "back": "FFNQR-1111111111/P2"
-  },
-  {
-    "id": 49,
-    "category": "PNR",
-    "front": "Manual FF",
-    "back": "SRFQTVEK-EK111111111/P3"
-  },
-  {
-    "id": 50,
-    "category": "Seats",
-    "front": "Seat map",
-    "back": "SM3"
-  },
-  {
-    "id": 51,
-    "category": "Seats",
-    "front": "Seat request",
-    "back": "ST/R/20K / ST/A/S4"
-  },
-  {
-    "id": 52,
-    "category": "Services",
-    "front": "OSI",
-    "back": "OS EK PAX IS VIP"
-  },
-  {
-    "id": 53,
-    "category": "Services",
-    "front": "SSR",
-    "back": "SR VGML / SR VGML LH/P2"
-  },
-  {
-    "id": 54,
-    "category": "Modify",
-    "front": "Cancel segment",
-    "back": "XE4"
-  },
-  {
-    "id": 55,
-    "category": "Modify",
-    "front": "Cancel itinerary",
-    "back": "XI"
-  },
-  {
-    "id": 56,
-    "category": "Modify",
-    "front": "Change class/date",
-    "back": "SBJ / SBJ4 / SB30MAR3"
-  },
-  {
-    "id": 57,
-    "category": "History",
-    "front": "PNR history",
-    "back": "RH / RHS4 / RLH"
-  },
-  {
-    "id": 58,
-    "category": "PNR",
-    "front": "General remark",
-    "back": "RM PLEASE CONFIRM SEGMENT 4"
-  },
-  {
-    "id": 59,
-    "category": "PNR",
-    "front": "Confidential remark",
-    "back": "RC CHARGE EXTRA QAR400"
-  },
-  {
-    "id": 60,
-    "category": "Utilities",
-    "front": "Print",
-    "back": "WRS/RT / WRA/RT"
-  },
-  {
-    "id": 61,
-    "category": "Queues",
-    "front": "Queue reminder",
-    "back": "OP12MAR/FREE TEXT"
-  },
-  {
-    "id": 62,
-    "category": "Queues",
-    "front": "Queue bank",
-    "back": "QT"
-  },
-  {
-    "id": 63,
-    "category": "Queues",
-    "front": "Queue detail",
-    "back": "QS2C30D1"
-  },
-  {
-    "id": 64,
-    "category": "Queues",
-    "front": "Ignore, remain in queue",
-    "back": "QI"
-  },
-  {
-    "id": 65,
-    "category": "Queues",
-    "front": "Remove from queue",
-    "back": "QN"
-  },
-  {
-    "id": 66,
-    "category": "Queues",
-    "front": "Delay and retrieve next",
-    "back": "QD"
-  },
-  {
-    "id": 67,
-    "category": "Queues",
-    "front": "Place on queue",
-    "back": "QE30"
-  },
-  {
-    "id": 68,
-    "category": "Split",
-    "front": "Split PNR",
-    "back": "SP3"
-  },
-  {
-    "id": 69,
-    "category": "Split",
-    "front": "Finalize split",
-    "back": "EF"
-  },
-  {
-    "id": 70,
-    "category": "Ticketing",
-    "front": "Manual ticket number",
-    "back": "FHA / FHM / FHE"
-  },
-  {
-    "id": 71,
-    "category": "Pricing",
-    "front": "Check fare in booked class",
-    "back": "FX"
-  },
-  {
-    "id": 72,
-    "category": "Pricing",
-    "front": "Save booked-class fare",
-    "back": "FXP"
-  },
-  {
-    "id": 73,
-    "category": "Pricing",
-    "front": "Check lowest fare",
-    "back": "FXR"
-  },
-  {
-    "id": 74,
-    "category": "Pricing",
-    "front": "Save lowest fare",
-    "back": "FXB"
-  },
-  {
-    "id": 75,
-    "category": "Pricing",
-    "front": "Check lowest fare within cabin",
-    "back": "FXR/K"
-  },
-  {
-    "id": 76,
-    "category": "Pricing",
-    "front": "Save lowest fare within cabin",
-    "back": "FXB/K"
-  },
-  {
-    "id": 77,
-    "category": "Pricing",
-    "front": "Display TST",
-    "back": "TQT"
-  },
-  {
-    "id": 78,
-    "category": "Pricing",
-    "front": "Ticket transaction history",
-    "back": "TTH"
-  },
-  {
-    "id": 79,
-    "category": "Pricing",
-    "front": "Display fare elements",
-    "back": "RTF"
-  },
-  {
-    "id": 80,
-    "category": "Ticketing",
-    "front": "Endorsement",
-    "back": "FE"
-  },
-  {
-    "id": 81,
-    "category": "Ticketing",
-    "front": "Commission",
-    "back": "FM"
-  },
-  {
-    "id": 82,
-    "category": "Ticketing",
-    "front": "Form of payment",
-    "back": "FP CASH"
-  },
-  {
-    "id": 83,
-    "category": "Ticketing",
-    "front": "Validating carrier",
-    "back": "FV"
-  },
-  {
-    "id": 84,
-    "category": "Ticketing",
-    "front": "Issue ticket",
-    "back": "TTP / TT"
-  },
-  {
-    "id": 85,
-    "category": "Ticketing",
-    "front": "Verify after ticketing",
-    "back": "RTA"
-  },
-  {
-    "id": 86,
-    "category": "Master Pricer",
-    "front": "Fare for booked flight",
-    "back": "FXA"
-  },
-  {
-    "id": 87,
-    "category": "Master Pricer",
-    "front": "Route-wide lowest fare + alternatives",
-    "back": "FXD"
-  },
-  {
-    "id": 88,
-    "category": "Master Pricer",
-    "front": "Book FXD option 3",
-    "back": "FXZ3"
-  },
-  {
-    "id": 89,
-    "category": "Master Pricer",
-    "front": "Book option + TST",
-    "back": "FXU3"
-  },
-  {
-    "id": 90,
-    "category": "Exchange",
-    "front": "Automated Ticket Changer",
-    "back": "ATC"
-  },
-  {
-    "id": 91,
-    "category": "Exchange",
-    "front": "Accept minor schedule change",
-    "back": "ERK"
-  },
-  {
-    "id": 92,
-    "category": "Exchange",
-    "front": "Involuntary exchange",
-    "back": "FXI"
-  },
-  {
-    "id": 93,
-    "category": "Void",
-    "front": "Void",
-    "back": "TRDC L8 / TRDC/TK…"
-  },
-  {
-    "id": 94,
-    "category": "Ticketing",
-    "front": "Ticket image",
-    "back": "TWD L8 / TWD/L8"
-  },
-  {
-    "id": 95,
-    "category": "Ticketing",
-    "front": "Old ticket details",
-    "back": "TWD O*"
-  },
-  {
-    "id": 96,
-    "category": "Exchange",
-    "front": "Finalize exchange",
-    "back": "TTPE T8"
-  },
-  {
-    "id": 97,
-    "category": "Concept",
-    "front": "Encode means",
-    "back": "You know the name and want the code."
-  },
-  {
-    "id": 98,
-    "category": "Concept",
-    "front": "Decode means",
-    "back": "You know the code and want the name."
-  },
-  {
-    "id": 99,
-    "category": "Concept",
-    "front": "PRINT",
-    "back": "Phone • Received From • Itinerary • Name • Ticketing/time limit."
-  },
-  {
-    "id": 100,
-    "category": "Concept",
-    "front": "ARNK",
-    "back": "Arrival Unknown / Arrival Not Known; SIARNK in the supplied guide/transcript."
-  },
-  {
-    "id": 101,
-    "category": "Pricing",
-    "front": "FXB vs FXD",
-    "back": "FXB prices the already-booked flights; FXD displays route-wide alternatives in Session 26."
-  },
-  {
-    "id": 102,
-    "category": "Pricing",
-    "front": "FXR vs FXB",
-    "back": "FXR checks; FXB saves."
-  },
-  {
-    "id": 103,
-    "category": "Pricing",
-    "front": "FXR/K vs FXB/K",
-    "back": "Check lowest fare within cabin vs save it."
-  },
-  {
-    "id": 104,
-    "category": "Services",
-    "front": "OSI vs SSR",
-    "back": "OSI conveys information; SSR requests a service/action."
-  },
-  {
-    "id": 105,
-    "category": "Ticketing",
-    "front": "Session 6 fare elements",
-    "back": "FE endorsement, FM commission, FP payment, FV validating carrier."
-  },
-  {
-    "id": 106,
-    "category": "Split",
-    "front": "Split workflow",
-    "back": "SP → RF → EF; retrieve the resulting PNR as taught in the supplied transcript."
-  },
-  {
-    "id": 107,
-    "category": "Void",
-    "front": "Void by line",
-    "back": "TRDC L[line]."
-  },
-  {
-    "id": 108,
-    "category": "Void",
-    "front": "Void by ticket",
-    "back": "TRDC/TK[ticket number]."
-  },
-  {
-    "id": 109,
-    "category": "Exchange",
-    "front": "Involuntary exchange",
-    "back": "FXI; supplied Session 28 also uses ERK, OS, TQT and TTPE in the workflow."
-  }
+  { "id": 1, "category": "TST Display", "front": "Displays the TST index/summary in the PNR so you can see TST number, passenger association, total, FOP and segments. Use this before a manual reissue or after ATC confirmed pricing.", "back": "TQT" },
+  { "id": 2, "category": "TST Display", "front": "Displays TST number 1 in detail. Useful when checking the stored itinerary, fare, taxes, fare calculation, fare basis, baggage, FE/FM/FP/FV and exchange indicators.", "back": "TQT/T1" },
+  { "id": 3, "category": "TST Display", "front": "Displays the TST associated with passenger 1. Helpful in a multi-passenger PNR when different passengers have different TSTs.", "back": "TQT/P1" },
+  { "id": 4, "category": "TST Display", "front": "Displays TST information associated with segments 4–5. Segment association is especially important in partial reissues.", "back": "TQT/S4-5" },
+  { "id": 5, "category": "TST History", "front": "Displays the historical pricing record, including who priced it, when it was priced, and how it was priced (system vs. manual).", "back": "TQH" },
+  { "id": 6, "category": "TST Creation", "front": "Creates a blank TST for all passengers and segments. Used as a starting point for 100% manual pricing/reissues.", "back": "TTC" },
+  { "id": 7, "category": "TST Creation", "front": "Creates a blank TST specifically for segments 4, 5, and 6. Use when manually pricing only part of the itinerary.", "back": "TTC/S4-6" },
+  { "id": 8, "category": "TST Creation", "front": "Creates a blank TST specifically for passenger 1. Use when doing a manual reissue for only one person in a party.", "back": "TTC/P1" },
+  { "id": 9, "category": "TST Creation", "front": "Creates a blank TST specifying the passenger type code as Adult (ADT). Important for forcing adult taxes/fares in a manual TST.", "back": "TTC/PTC-ADT" },
+  { "id": 10, "category": "TST Update", "front": "Modifies passenger association in an existing TST. Assigns TST 1 to passenger 1. Critical when splitting TSTs in multi-passenger reissues.", "back": "TTP/T1/P1" },
+  { "id": 11, "category": "TST Delete", "front": "Removes the TST index from the PNR completely. Use this if you made a mistake and need to start the manual pricing over.", "back": "TTE/ALL" },
+  { "id": 12, "category": "TST Delete", "front": "Removes only TST number 1. Useful if there are multiple TSTs and only one is incorrect.", "back": "TTE/T1" },
+  { "id": 13, "category": "Manual TST", "front": "Updates the fare basis in the TST (for segment 2) to Y26. Required when manually building a TST to match the old or new fare rule.", "back": "TTI/B2-Y26" },
+  { "id": 14, "category": "Manual TST", "front": "Sets the \"Not Valid Before\" (NVB) date on segment 2 to 10 December. Used to match ticketing restrictions.", "back": "TTI/V2-10DEC" },
+  { "id": 15, "category": "Manual TST", "front": "Sets the \"Not Valid After\" (NVA) date on segment 2 to 10 December. Often tied to maximum stay rules.", "back": "TTI/A2-10DEC" },
+  { "id": 16, "category": "Manual TST", "front": "Updates the free baggage allowance on segment 2 to 2 pieces (2PC). Essential for preserving baggage rights on a manual reissue.", "back": "TTI/G2-2PC" },
+  { "id": 17, "category": "Manual TST", "front": "Enters the base fare amount in USD (450.00). Must match the base fare being charged for the new journey.", "back": "TTK/FUSD450.00" },
+  { "id": 18, "category": "Manual TST", "front": "Enters the base fare amount in GBP (450.00). Ensure currency matches the point of origin or desired currency.", "back": "TTK/FGBP450.00" },
+  { "id": 19, "category": "Manual TST", "front": "Enters the final total amount for the ticket (825.00 USD). This is Base Fare + Taxes + Penalty (if collected as tax).", "back": "TTK/TUSD825.00" },
+  { "id": 20, "category": "Manual TST", "front": "Adds a specific tax to the TST (25.00 USD, code US). Represents a new tax being collected or an old tax being carried forward.", "back": "TTK/XUSD25.00US" },
+  { "id": 21, "category": "Manual TST", "front": "Marks the passenger as exempt from the specified tax code (US). Used for specific passenger types (e.g., diplomats) or routing rules.", "back": "TTK/XEXEMPTUS" },
+  { "id": 22, "category": "Manual TST", "front": "Adds multiple taxes simultaneously. Adds a 25.00 USD 'US' tax and a 10.00 USD 'AY' tax.", "back": "TTK/XUSD25.00US/XUSD10.00AY" },
+  { "id": 23, "category": "Manual TST", "front": "Removes the specific tax code (US) from the TST. Use this if a tax was incorrectly added or is no longer applicable on the new routing.", "back": "TTK/X0.00US" },
+  { "id": 24, "category": "Manual TST", "front": "Overwrites ALL existing taxes with new ones. The 'T' indicates these are the only taxes. Replaces the old tax list.", "back": "TTK/TUSD25.00US/XUSD10.00AY" },
+  { "id": 25, "category": "Manual TST", "front": "Enters the Equivalent Fare Paid (350.00 GBP). Used when the base fare currency differs from the ticketing currency.", "back": "TTK/EGBP350.00" },
+  { "id": 26, "category": "Manual TST", "front": "Enters the Banker's Selling Rate (1.250). Used alongside the Equivalent Fare to define the exchange rate used for conversion.", "back": "TTK/R1.250" },
+  { "id": 27, "category": "Manual TST", "front": "Enters the Rate of Exchange (0.850000). Used when converting NUCs (Neutral Units of Construction) to the local base currency.", "back": "TTK/C0.850000" },
+  { "id": 28, "category": "Manual TST", "front": "Adds free text to the Endorsement box (FE). Often used to indicate restrictions like \"NONREF/REBOOK 50USD PENALTY\".", "back": "FE NONREF/PENALTY APPLIES" },
+  { "id": 29, "category": "Manual TST", "front": "Adds a Tour Code to the FT box. Used for corporate fares, IT/BT fares, or agency-specific discount codes required by the airline.", "back": "FT *CORP123" },
+  { "id": 30, "category": "Manual TST", "front": "Adds the Form of Payment to the FP box. Crucial for ticketing.", "back": "FP CC" },
+  { "id": 31, "category": "Manual TST", "front": "Specifies the FOP for a reissue. 'O/' indicates the old FOP (e.g., CASH) and '+/CH' adds the new FOP (e.g., CHQ) for any additional collection.", "back": "FP O/CASH+/CH" },
+  { "id": 32, "category": "Manual TST", "front": "Enters the Original Issue details (FO line). Requires Document Number, Date (DDMMM), City, IATA. Absolutely mandatory for any reissue.", "back": "FO 125-1234567890/15MAR/LON/12345678" },
+  { "id": 33, "category": "Manual TST", "front": "Enters the complete fare calculation line (FC). Shows how the fare was constructed (city pairs, NUCs, Roe, etc.). Must accurately reflect the journey.", "back": "FC LON BA NYC 500.00 BA LON 500.00 NUC1000.00END ROE1.00" },
+  { "id": 34, "category": "Manual TST", "front": "Forces the Validating Carrier (FV) to British Airways (BA). Essential when interlining or if the system defaults to the wrong airline.", "back": "FV BA" },
+  { "id": 35, "category": "ATC Rebook", "front": "Initiates the Amadeus Ticket Changer (ATC) process to automatically calculate fare differences, taxes, and penalties for a changed itinerary.", "back": "FXQ" },
+  { "id": 36, "category": "ATC Rebook", "front": "Runs ATC re-pricing against a specific historical TST (TST 1). Useful if the PNR has multiple TSTs or a complex history.", "back": "FXQ/T1" },
+  { "id": 37, "category": "ATC Rebook", "front": "Runs ATC re-pricing for Passenger 1 only. Used when only one passenger in a multi-pax PNR is changing their flights.", "back": "FXQ/P1" },
+  { "id": 38, "category": "ATC Rebook", "front": "Runs ATC re-pricing focusing on specific segments (4 and 5). Helps ATC understand which segments are being exchanged.", "back": "FXQ/S4-5" },
+  { "id": 39, "category": "ATC Rebook", "front": "Forces ATC to use a specific ticket number for the exchange calculation. Crucial when the automatic FO line retrieval fails or is ambiguous.", "back": "FXQ/T-125-1234567890" },
+  { "id": 40, "category": "ATC Rebook", "front": "Forces ATC to attempt pricing even if it encounters minor errors. Similar to 'best buy' pricing but for reissues. Use with caution.", "back": "FXO" },
+  { "id": 41, "category": "ATC Rebook", "front": "Runs a \"what-if\" ATC calculation without saving the TST. Use this to quote a penalty/fare difference to a customer before they confirm.", "back": "FXF" },
+  { "id": 42, "category": "ATC Rebook", "front": "Displays the detailed breakdown of the ATC calculation (Base, Tax, Penalty, Total Add Collect/Refund). Review this carefully before confirming the reissue.", "back": "TQF" },
+  { "id": 43, "category": "Ticketing", "front": "Issues the ticket based on the stored TST. The standard command used after a successful manual TST build or ATC confirmation.", "back": "TTP/EXCH" },
+  { "id": 44, "category": "Ticketing", "front": "Issues the ticket specifically from TST 1. Use when multiple TSTs exist in the PNR to avoid issuing the wrong one.", "back": "TTP/T1/EXCH" },
+  { "id": 45, "category": "Ticketing", "front": "Issues the ticket specifically for Passenger 1. Used in multi-passenger reissues where pax are ticketed separately.", "back": "TTP/P1/EXCH" },
+  { "id": 46, "category": "Ticketing", "front": "Issues the ticket and applies the Form of Payment (CASH) at the time of ticketing. Overrides or provides the FOP if missing from the TST.", "back": "TTP/EXCH/FPCASH" },
+  { "id": 47, "category": "Ticketing", "front": "Issues the ticket and sends the output to a designated printer. Used for hardcopy receipts/itineraries.", "back": "TTP/EXCH/RT" },
+  { "id": 48, "category": "Ticketing", "front": "Voids ticket number 1 in the PNR. Must be done on the same day of issuance (usually before midnight local time). Irreversible.", "back": "TRV/T1" },
+  { "id": 49, "category": "Ticketing", "front": "Displays the electronic ticket record. Always check the ticket status (OPEN, FLOWN, EXCH, RFND) before attempting a reissue or refund.", "back": "TWD" },
+  { "id": 50, "category": "Refund", "front": "Initiates an automated refund calculation. The system tries to calculate the refund amount based on fare rules.", "back": "TRF" },
+  { "id": 51, "category": "Refund", "front": "Initiates an automated refund calculation for a specific ticket number.", "back": "TRF/T-125-1234567890" },
+  { "id": 52, "category": "Refund", "front": "Manually updates the Total Refund Amount to 200.00. Used during manual refunds or to correct an automated refund calculation.", "back": "TRFU/T200.00" },
+  { "id": 53, "category": "Refund", "front": "Manually updates the refundable tax amount for code US to 15.00. Used to adjust tax refunds.", "back": "TRFU/X15.00US" },
+  { "id": 54, "category": "Refund", "front": "Adds or updates a cancellation penalty of 50.00. This amount is deducted from the refund total.", "back": "TRFU/CP50.00" },
+  { "id": 55, "category": "Refund", "front": "Finalizes and processes the refund transaction. This commits the refund to the reporting system (BSP/ARC).", "back": "TRFP" },
+  { "id": 56, "category": "Refund", "front": "Ignores and cancels the refund process. Use if you started a refund but realized it was a mistake before finalizing.", "back": "TRFI" },
+  { "id": 57, "category": "Refund", "front": "Displays the history of the electronic ticket. Shows changes in status (e.g., OPEN to EXCH to FLOWN) and timestamps.", "back": "TWH" },
+  { "id": 58, "category": "Availability", "front": "Requests standard flight availability from LHR to JFK on 10NOV.", "back": "AN10NOVLHRJFK" },
+  { "id": 59, "category": "Availability", "front": "Requests availability from LHR to JFK on 10NOV, specifically on British Airways (BA).", "back": "AN10NOVLHRJFK/ABA" },
+  { "id": 60, "category": "Availability", "front": "Requests availability from LHR to JFK on 10NOV, looking for flights departing around 09:00 AM.", "back": "AN10NOVLHRJFK0900" },
+  { "id": 61, "category": "Availability", "front": "Requests direct access availability into a specific carrier's system. Often more accurate than standard availability.", "back": "110NOVLHRJFK" },
+  { "id": 62, "category": "Availability", "front": "Displays the timetable (scheduled flights, not necessarily available seats) from LHR to JFK on 10NOV.", "back": "TN10NOVLHRJFK" },
+  { "id": 63, "category": "Segment Sell", "front": "Sells 1 seat in Y class from line 2 of the availability display.", "back": "SS1Y2" },
+  { "id": 64, "category": "Segment Sell", "front": "Sells 2 seats in M class from line 3 of the availability display.", "back": "SS2M3" },
+  { "id": 65, "category": "Segment Sell", "front": "Waitlists 1 seat in J class from line 4. The status code returned will be LL instead of HK.", "back": "SS1J4/LL" },
+  { "id": 66, "category": "Segment Sell", "front": "Sells 1 seat in Y class on line 1, and the corresponding connecting flight on the next line.", "back": "SS1Y1*" },
+  { "id": 67, "category": "Segment Sell", "front": "Sells a seat without an availability display. Requires Carrier (BA), Flight Number, Class, Date, Origin/Destination, and Number of Seats.", "back": "SS BA 117 Y 10NOV LHRJFK 1" },
+  { "id": 68, "category": "Segment Sell", "front": "Cancels itinerary segment number 2.", "back": "XE2" },
+  { "id": 69, "category": "Segment Sell", "front": "Cancels itinerary segments 2, 3, and 4.", "back": "XE2-4" },
+  { "id": 70, "category": "Segment Sell", "front": "Cancels all itinerary segments in the PNR. Passenger details remain.", "back": "XI" },
+  { "id": 71, "category": "Segment Sell", "front": "Sells 1 seat in Y class from line 1 and inserts it into the itinerary after existing segment 2. Useful for keeping flights in chronological order.", "back": "SS1Y1/S2" },
+  { "id": 72, "category": "Segment Sell", "front": "Manually changes the status code of segment 2 to HK (Holding Confirmed).", "back": "2/HK" },
+  { "id": 73, "category": "Segment Sell", "front": "Attempts to change the booking class of segment 2 to 'M' class. Only works if 'M' class is available on the same flight.", "back": "SB M 2" },
+  { "id": 74, "category": "Fare Quote", "front": "Prices the itinerary at the lowest available fare for the currently booked classes.", "back": "FXP" },
+  { "id": 75, "category": "Fare Quote", "front": "Prices the itinerary and attempts to rebook into the lowest available class, even if it requires changing the current booking class.", "back": "FXB" },
+  { "id": 76, "category": "Fare Quote", "front": "Prices the itinerary for Passenger 1 only.", "back": "FXP/P1" },
+  { "id": 77, "category": "Fare Quote", "front": "Prices the itinerary using only segments 2 and 3.", "back": "FXP/S2,3" },
+  { "id": 78, "category": "Fare Quote", "front": "Prices the itinerary forcing the Passenger Type Code to Child (CHD).", "back": "FXP/R,U*CHD" },
+  { "id": 79, "category": "Fare Quote", "front": "Prices the itinerary but does not create a TST. Used to quote a price to a customer without saving it.", "back": "FXX" },
+  { "id": 80, "category": "Fare Quote", "front": "Finds the lowest available fare and rebooks the classes informatively (does not save changes to PNR).", "back": "FXR" },
+  { "id": 81, "category": "Fare Quote", "front": "Displays the fare rules for the fare basis priced in TST 1. Essential for checking cancellation and change penalties.", "back": "FQN1" },
+  { "id": 82, "category": "Fare Quote", "front": "Displays Category 16 (Penalties) for the fare rule associated with TST 1. Saves reading the entire rule text.", "back": "FQN1*PE" },
+  { "id": 83, "category": "Fare Quote", "front": "Displays a list of available fares (Fare Quote Display) from LHR to JFK on 10NOV for carrier BA.", "back": "FQD LHRJFK/10NOV/ABA" },
+  { "id": 84, "category": "Fare Quote", "front": "Displays fares from LHR to JFK on 10NOV, specifically for 'Y' class.", "back": "FQD LHRJFK/10NOV/CY" },
+  { "id": 85, "category": "Passenger Names", "front": "Adds one adult passenger named SMITH/JOHN MR.", "back": "NM1SMITH/JOHN MR" },
+  { "id": 86, "category": "Passenger Names", "front": "Adds one child passenger named SMITH/TOM MSTR, specifying they are a child (CHD) and their date of birth.", "back": "NM1SMITH/TOM MSTR(CHD/10MAY15)" },
+  { "id": 87, "category": "Passenger Names", "front": "Adds one adult passenger and an infant on lap. The infant's name and DOB must be included in the INF brackets.", "back": "NM1SMITH/JANE MRS(INF/SMITH/BABY/15MAR23)" },
+  { "id": 88, "category": "Passenger Names", "front": "Modifies passenger name number 1. (Note: Many airlines prohibit name changes; this is often restricted to minor corrections).", "back": "1/1SMITH/JONATHAN MR" },
+  { "id": 89, "category": "Passenger Names", "front": "Deletes passenger number 1.", "back": "XE1" },
+  { "id": 90, "category": "PNR Elements", "front": "Adds the agency contact phone number.", "back": "AP 123 456 7890 - A" },
+  { "id": 91, "category": "PNR Elements", "front": "Adds the passenger's home phone number.", "back": "AP 098 765 4321 - H" },
+  { "id": 92, "category": "PNR Elements", "front": "Adds the passenger's mobile phone number.", "back": "AP 111 222 3333 - M" },
+  { "id": 93, "category": "PNR Elements", "front": "Adds an email address to the PNR. Important for e-ticket receipts and schedule change notifications.", "back": "APE-JOHN.SMITH@EMAIL.COM" },
+  { "id": 94, "category": "PNR Elements", "front": "Sets a ticketing time limit (TL) indicating the ticket must be issued by 10NOV.", "back": "TKTL10NOV" },
+  { "id": 95, "category": "PNR Elements", "front": "Updates the ticketing element to indicate the ticket has been issued (OK).", "back": "TKOK" },
+  { "id": 96, "category": "PNR Elements", "front": "Adds the \"Received From\" field (RF). Mandatory before saving any changes to a PNR.", "back": "RF JOHN" },
+  { "id": 97, "category": "PNR Elements", "front": "Ends the transaction, saves the PNR, and immediately retrieves it back to the screen.", "back": "ER" },
+  { "id": 98, "category": "PNR Elements", "front": "Ends the transaction and saves the PNR. The screen clears.", "back": "ET" },
+  { "id": 99, "category": "PNR Elements", "front": "Ignores unsaved changes and clears the screen.", "back": "IG" },
+  { "id": 100, "category": "SSR & OSI", "front": "Adds an Other Service Information (OSI) message for all airlines (YY) indicating the passenger is a VIP.", "back": "OS YY VIP PAX" },
+  { "id": 101, "category": "SSR & OSI", "front": "Adds an OSI message specifically directed to British Airways (BA).", "back": "OS BA VIP PAX" },
+  { "id": 102, "category": "SSR & OSI", "front": "Requests a Wheelchair to/from the gate (WCHR) for passenger 1. SSRs require airline action/confirmation.", "back": "SR WCHR/P1" },
+  { "id": 103, "category": "SSR & OSI", "front": "Requests a Vegetarian Vegan Meal (VGML) for passenger 1.", "back": "SR VGML/P1" },
+  { "id": 104, "category": "SSR & OSI", "front": "Adds a Frequent Flyer number for passenger 1 on British Airways (BA).", "back": "FFN BA-12345678/P1" },
+  { "id": 105, "category": "PNR Elements", "front": "Adds a general remark (RM) to the PNR. Visible only to the agency, not sent to the airline.", "back": "RM CORPORATE BOOKING" },
+  { "id": 106, "category": "PNR Elements", "front": "Adds a remark (RIR) that will print on the passenger's itinerary document.", "back": "RIR HAVE A GOOD TRIP" },
+  { "id": 107, "category": "PNR Management", "front": "Initiates the split/divide process by separating Passenger 1 into a new PNR.", "back": "SP1" },
+  { "id": 108, "category": "PNR Management", "front": "Files the new (child) PNR created during the divide process. Must be followed by finishing the original (parent) PNR.", "back": "EF" },
+  { "id": 109, "category": "PNR Management", "front": "Retrieves a PNR using its 6-character alphanumeric Record Locator (e.g., ABCD12).", "back": "RT ABCD12" },
+  { "id": 110, "category": "PNR Management", "front": "Retrieves a list of PNRs matching the surname SMITH.", "back": "RT SMITH" },
+  { "id": 111, "category": "PNR Management", "front": "Displays the complete history of changes made to the PNR, including who made them and when.", "back": "RH/ALL" },
+  { "id": 112, "category": "Display Navigation", "front": "Moves the display down to view more information.", "back": "MD" },
+  { "id": 113, "category": "Display Navigation", "front": "Moves the display up to view previous information.", "back": "MU" },
+  { "id": 114, "category": "Display Navigation", "front": "Moves the display to the very bottom of the output.", "back": "MB" },
+  { "id": 115, "category": "Display Navigation", "front": "Moves the display to the very top of the output.", "back": "MT" },
+  { "id": 116, "category": "Encode / Decode", "front": "Finds the 3-letter IATA city code for London.", "back": "DAN LONDON" },
+  { "id": 117, "category": "Encode / Decode", "front": "Finds the city name for the 3-letter IATA code LHR.", "back": "DAC LHR" },
+  { "id": 118, "category": "Encode / Decode", "front": "Finds the 2-letter IATA airline code for British Airways.", "back": "DNA BRITISH AIRWAYS" },
+  { "id": 119, "category": "Encode / Decode", "front": "Finds the airline name for the 2-letter IATA code BA.", "back": "DNA BA" },
+  { "id": 120, "category": "Encode / Decode", "front": "Finds the 3-letter IATA equipment code for a Boeing 777.", "back": "DNE BOEING 777" },
+  { "id": 121, "category": "Encode / Decode", "front": "Finds the aircraft type for the 3-letter IATA code 777.", "back": "DND 777" },
+  { "id": 122, "category": "Utilities", "front": "Calculates the Great Circle distance (mileage) between London (LHR) and New York (JFK).", "back": "FQM LHRJFK" },
+  { "id": 123, "category": "Utilities", "front": "Converts 100 USD to GBP using the current system exchange rate.", "back": "FQC 100USD/GBP" },
+  { "id": 124, "category": "Utilities", "front": "Displays the current system date and time.", "back": "DD" },
+  { "id": 125, "category": "Utilities", "front": "Calculates the date 30 days after 10NOV.", "back": "DD 10NOV/30" },
+  { "id": 126, "category": "Queue Management", "front": "Displays the count of PNRs in all queues for the current office.", "back": "QC" },
+  { "id": 127, "category": "Queue Management", "front": "Starts working through Queue 1, Category 0. Displays the first PNR in that queue.", "back": "QS 1 C0" },
+  { "id": 128, "category": "Queue Management", "front": "Removes the current PNR from the queue and displays the next one.", "back": "QN" },
+  { "id": 129, "category": "Queue Management", "front": "Leaves the current PNR on the queue (doesn't remove it) and displays the next one.", "back": "QI" },
+  { "id": 130, "category": "Queue Management", "front": "Exits the queue processing mode.", "back": "QX" },
+  { "id": 131, "category": "Queue Management", "front": "Places the current PNR onto Queue 5, Category 0 for the designated office ID.", "back": "QE 5 C0" },
+  { "id": 132, "category": "System", "front": "Signs into the Amadeus system. Requires user ID and password prompts to follow.", "back": "JI" },
+  { "id": 133, "category": "System", "front": "Signs out of the Amadeus system.", "back": "JO" },
+  { "id": 134, "category": "System", "front": "Displays the current Office ID (OID) you are signed into.", "back": "JD" },
+  { "id": 135, "category": "System", "front": "Routes hardcopy tickets (ATB) to printer ID 123456.", "back": "PTR/ATB-123456" },
+  { "id": 136, "category": "System", "front": "Routes itinerary documents (IEP) to printer ID 654321.", "back": "PTR/IEP-654321" },
+  { "id": 137, "category": "System", "front": "Opens the main Help menu in Amadeus.", "back": "HE" },
+  { "id": 138, "category": "System", "front": "Opens the Help page specifically for the TQT command.", "back": "HE TQT" },
+  { "id": 139, "category": "APIS / SFPD", "front": "Enters Secure Flight Passenger Data (SFPD) Date of Birth for passenger 1 (Format: DDMMMYY). Mandatory for US flights.", "back": "SR DOCO - ///////15MAR80/M//P1" },
+  { "id": 140, "category": "APIS / SFPD", "front": "Enters SFPD Gender for passenger 1 (M or F).", "back": "SR DOCS - ///////M//P1" },
+  { "id": 141, "category": "APIS / SFPD", "front": "Enters Advance Passenger Information System (APIS) passport details including country, number, nationality, DOB, gender, expiry, and name.", "back": "SR DOCS - P/GBR/123456789/GBR/15MAR80/M/10NOV25/SMITH/JOHN/P1" },
+  { "id": 142, "category": "Manual TST", "front": "Forces an update to the free baggage allowance to 1 Piece on a manual TST for segment 2.", "back": "TTI/G2-1PC" },
+  { "id": 143, "category": "EMD", "front": "Creates a blank Electronic Miscellaneous Document (EMD) record. Used for collecting miscellaneous fees (e.g., penalty fees not collected as a tax).", "back": "TMC" },
+  { "id": 144, "category": "EMD", "front": "Displays the EMD summary/index in the PNR.", "back": "TMD" },
+  { "id": 145, "category": "EMD", "front": "Issues the EMD based on the stored TMC record.", "back": "TTM" },
+  { "id": 146, "category": "Fare Quote", "front": "Displays a specific tariff record.", "back": "FQR" },
+  { "id": 147, "category": "Availability", "front": "Shows detailed information for a specific flight, such as meal service, equipment, and on-time performance.", "back": "DO BA117/10NOV" },
+  { "id": 148, "category": "Utilities", "front": "Checks the Minimum Connecting Time (MCT) allowed between flights at a specific airport (e.g., LHR).", "back": "DM LHR" },
+  { "id": 149, "category": "Ticketing", "front": "Revalidates an e-ticket to match a new flight/date without requiring a full reissue (rarely used now, depends on airline policy).", "back": "TTP/REV" },
+  { "id": 150, "category": "PNR Management", "front": "Takes ownership of a PNR created by an airline or another agency, provided security permissions allow it.", "back": "RP BA/123456" },
+  { "id": 151, "category": "PNR Management", "front": "Views the agency's stored profile information.", "back": "PV" },
+  { "id": 152, "category": "PNR Management", "front": "Moves data from a stored corporate profile into the current PNR.", "back": "NMC CORP123" },
+  { "id": 153, "category": "Ticketing", "front": "Checks the check-digit and basic validity of a ticket number format.", "back": "TKT 1251234567890" },
+  { "id": 154, "category": "SSR & OSI", "front": "Adds mandatory security information required by certain governments.", "back": "SR SECU-KNOWN TRAVELER" },
+  { "id": 155, "category": "PNR Management", "front": "Views the history of changes made only to the itinerary segments.", "back": "RH/ITIN" },
+  { "id": 156, "category": "Availability", "front": "Displays real-time operational status (arrived, delayed, departed) of a flight for the current day (FLIFO).", "back": "DO BA117" },
+  { "id": 157, "category": "Seat Assignment", "front": "Displays the seat map for segment 2.", "back": "SM 2" },
+  { "id": 158, "category": "Seat Assignment", "front": "Requests specific seat 14A for the passenger on segment 2.", "back": "ST 14A/S2" },
+  { "id": 159, "category": "Seat Assignment", "front": "Requests any Aisle (A) seat for the passenger on segment 2.", "back": "ST /A/S2" },
+  { "id": 160, "category": "Seat Assignment", "front": "Cancels the assigned seat on segment 2.", "back": "SX 2" },
+  { "id": 161, "category": "PNR Management", "front": "Sends a plain text itinerary to the default itinerary printer or email.", "back": "IEP" },
+  { "id": 162, "category": "PNR Management", "front": "Generates an agency invoice for the booking.", "back": "DIN" },
+  { "id": 163, "category": "Passenger Names", "front": "Modifies a name to reflect a marriage change, requiring specific airline format and authorization.", "back": "NU 1/1JONES/MARY MRS" },
+  { "id": 164, "category": "Manual TST", "front": "Shows the commission percentage or amount stored in the TST.", "back": "TQC" },
+  { "id": 165, "category": "Manual TST", "front": "Manually updates the commission to 5% on the TST.", "back": "TTK/K5" },
+  { "id": 166, "category": "Fare Quote", "front": "Views the net fare calculation if a negotiated or private fare is used.", "back": "FQN" },
+  { "id": 167, "category": "PNR Elements", "front": "Adds a remark indicating a net fare was used, often required for accounting.", "back": "RM *NET*" },
+  { "id": 168, "category": "Queue Management", "front": "Sends a message or the PNR directly to an airline's specific queue.", "back": "QE BA/12" },
+  { "id": 169, "category": "SSR & OSI", "front": "Sends a Teletype (TTY) free-text message to an airline regarding a PNR.", "back": "OSM BA PLS CONFIRM WCHR" },
+  { "id": 170, "category": "Fare Quote", "front": "Shows interline ticketing agreements between airlines.", "back": "TGAD" },
+  { "id": 171, "category": "Fare Quote", "front": "Shows standard baggage allowances and fees for a specific airline/route.", "back": "FQD/BG" },
+  { "id": 172, "category": "Fare Quote", "front": "Quotes only the taxes for an itinerary, without the base fare.", "back": "FXT" },
+  { "id": 173, "category": "Utilities", "front": "Forces a specific ticketing date (past or future) for manual calculation purposes.", "back": "TKD 10NOV" },
+  { "id": 174, "category": "Passenger Names", "front": "Adds an infant to an existing adult passenger record without a seat.", "back": "IN 1/SMITH/BABY" },
+  { "id": 175, "category": "SSR & OSI", "front": "Requests UNMR service and provides necessary contact details for an unaccompanied minor.", "back": "SR UMNR" },
+  { "id": 176, "category": "SSR & OSI", "front": "Shows a summary of all Special Service Requests present in the PNR.", "back": "SRD" },
+  { "id": 177, "category": "SSR & OSI", "front": "Removes a specific SSR (e.g., meal request) from the PNR by element number.", "back": "XE 5" },
+  { "id": 178, "category": "Fare Quote", "front": "Restricts fare quote to only show corporate or negotiated rates.", "back": "FXP/R,U*CORP" },
+  { "id": 179, "category": "Fare Quote", "front": "Attaches a corporate discount code to the pricing command.", "back": "FCA *CORP123" },
+  { "id": 180, "category": "PNR Management", "front": "Retrieves the PNR quickly without loading the extensive history file.", "back": "RTS" },
+  { "id": 181, "category": "PNR Management", "front": "Immediately dispatches the itinerary to the stored email address.", "back": "EML" },
+  { "id": 182, "category": "System", "front": "Views default settings (currency, language) for the specific office ID.", "back": "JDS" },
+  { "id": 183, "category": "System", "front": "Safely closes the session and disconnects from the terminal emulator.", "back": "JX" }
 ]
