@@ -1,0 +1,2046 @@
+{
+  "cards": [
+    {
+      "id": 1,
+      "category": "Deck 1: Pronouns & Rules",
+      "front": "What is the German pronoun for **\"मैं / I\"**?",
+      "back": "**ich**"
+    },
+    {
+      "id": 2,
+      "category": "Deck 1: Pronouns & Rules",
+      "front": "What is the German pronoun for **\"तू / You (informal singular)\"**?",
+      "back": "**du**"
+    },
+    {
+      "id": 3,
+      "category": "Deck 1: Pronouns & Rules",
+      "front": "What is the German pronoun for **\"वह (पुल्लिंग) / He\"**?",
+      "back": "**er**"
+    },
+    {
+      "id": 4,
+      "category": "Deck 1: Pronouns & Rules",
+      "front": "What is the German pronoun for **\"वह (स्त्रीलिंग) / She\"**?",
+      "back": "**sie** (lowercase `s`)"
+    },
+    {
+      "id": 5,
+      "category": "Deck 1: Pronouns & Rules",
+      "front": "What is the German pronoun for **\"वह (नपुंसकलिंग) / It\"**?",
+      "back": "**es**"
+    },
+    {
+      "id": 6,
+      "category": "Deck 1: Pronouns & Rules",
+      "front": "What is the German pronoun for **\"तुम सब / तुम दोनों / You all (informal plural)\"**?",
+      "back": "**ihr**"
+    },
+    {
+      "id": 7,
+      "category": "Deck 1: Pronouns & Rules",
+      "front": "What is the German pronoun for **\"हम / We\"**?",
+      "back": "**wir**"
+    },
+    {
+      "id": 8,
+      "category": "Deck 1: Pronouns & Rules",
+      "front": "What is the German pronoun for **\"वे / वे लोग / They\"**?",
+      "back": "**sie** (lowercase `s`)"
+    },
+    {
+      "id": 9,
+      "category": "Deck 1: Pronouns & Rules",
+      "front": "What is the German pronoun for **\"आप / YOU (formal/respectful)\"**?",
+      "back": "**Sie** (Capital `S`)"
+    },
+    {
+      "id": 10,
+      "category": "Deck 1: Pronouns & Rules",
+      "front": "What does the German pronoun **`ich`** mean in Hindi and English?",
+      "back": "**मैं / I**"
+    },
+    {
+      "id": 11,
+      "category": "Deck 1: Pronouns & Rules",
+      "front": "What does the German pronoun **`du`** mean in Hindi and English?",
+      "back": "**तू / You (informal singular)**"
+    },
+    {
+      "id": 12,
+      "category": "Deck 1: Pronouns & Rules",
+      "front": "What does the German pronoun **`er`** mean in Hindi and English?",
+      "back": "**वह (लड़का/पुल्लिंग) / He**"
+    },
+    {
+      "id": 13,
+      "category": "Deck 1: Pronouns & Rules",
+      "front": "What does the German pronoun **`es`** mean in Hindi and English?",
+      "back": "**वह/यह (निर्जीव/नपुंसकलिंग) / It**"
+    },
+    {
+      "id": 14,
+      "category": "Deck 1: Pronouns & Rules",
+      "front": "What does the German pronoun **`ihr`** mean in Hindi and English?",
+      "back": "**तुम सब (तुम दोनों) / You all**"
+    },
+    {
+      "id": 15,
+      "category": "Deck 1: Pronouns & Rules",
+      "front": "What does the German pronoun **`wir`** mean in Hindi and English?",
+      "back": "**हम / We**"
+    },
+    {
+      "id": 16,
+      "category": "Deck 1: Pronouns & Rules",
+      "front": "What are the two meanings of lowercase **`sie`**?",
+      "back": "**1. She (वह - स्त्रीलिंग)** and **2. They (वे लोग)**"
+    },
+    {
+      "id": 17,
+      "category": "Deck 1: Pronouns & Rules",
+      "front": "How do you distinguish between **`sie` (She)** and **`sie` (They)** in a sentence?",
+      "back": "By **context and the verb ending**: `sie` (She) takes **-t** (*sie trinkt*), while `sie` (They) takes **-en** (*sie trinken*)."
+    },
+    {
+      "id": 18,
+      "category": "Deck 1: Pronouns & Rules",
+      "front": "How do you distinguish between **`sie` (They)** and **`Sie` (You - formal आप)** in writing?",
+      "back": "Formal **आप (`Sie`)** always starts with a **Capital `S`**, even in the middle of a sentence."
+    },
+    {
+      "id": 19,
+      "category": "Deck 1: Pronouns & Rules",
+      "front": "Nearly 99% of German infinitive verbs end with which two letters?",
+      "back": "**-en** (equivalent to **-ना** in Hindi verbs like खाना, पीना)"
+    },
+    {
+      "id": 20,
+      "category": "Deck 1: Pronouns & Rules",
+      "front": "How do you find the **Stem (Root Word / मूल शब्द)** of a regular German verb?",
+      "back": "Remove **-en** from the end of the infinitive verb (e.g., *trinken* $\\rightarrow$ **trink**)."
+    },
+    {
+      "id": 21,
+      "category": "Deck 1: Pronouns & Rules",
+      "front": "Which verb ending is added to the stem for **`ich` (मैं)**?",
+      "back": "**-e** (e.g., *ich trinke*)"
+    },
+    {
+      "id": 22,
+      "category": "Deck 1: Pronouns & Rules",
+      "front": "Which verb ending is added to the stem for **`du` (तू)**?",
+      "back": "**-st** (e.g., *du trinkst*)"
+    },
+    {
+      "id": 23,
+      "category": "Deck 1: Pronouns & Rules",
+      "front": "Which verb ending is added to the stem for **`er` (He)**?",
+      "back": "**-t** (e.g., *er trinkt*)"
+    },
+    {
+      "id": 24,
+      "category": "Deck 1: Pronouns & Rules",
+      "front": "Which verb ending is added to the stem for **`sie` (She)** and **`es` (It)**?",
+      "back": "**-t** (e.g., *sie trinkt, es trinkt*)"
+    },
+    {
+      "id": 25,
+      "category": "Deck 1: Pronouns & Rules",
+      "front": "Which verb ending is added to the stem for **`ihr` (तुम सब)**?",
+      "back": "**-t** (e.g., *ihr trinkt*)"
+    },
+    {
+      "id": 26,
+      "category": "Deck 1: Pronouns & Rules",
+      "front": "Which verb ending is added to the stem for **`wir` (हम)**?",
+      "back": "**-en** (e.g., *wir trinken*)"
+    },
+    {
+      "id": 27,
+      "category": "Deck 1: Pronouns & Rules",
+      "front": "Which verb ending is added to the stem for **`sie` (वे - They)** and **`Sie` (आप - Formal You)**?",
+      "back": "**-en** (e.g., *sie trinken, Sie trinken*)"
+    },
+    {
+      "id": 28,
+      "category": "Deck 1: Pronouns & Rules",
+      "front": "What is the 6-step **Conjugation Mantra** for the verb *trinken*?",
+      "back": "*ich trinke, du trinkst, er/sie/es trinkt, ihr trinkt, wir trinken, sie/Sie trinken*"
+    },
+    {
+      "id": 29,
+      "category": "Deck 1: Pronouns & Rules",
+      "front": "Where is the verb placed in a Hindi sentence vs. a simple German sentence?",
+      "back": "Hindi: **At the end** (*मैं चाय पीता हूँ*). German: **Always in the 2nd position** (*Ich trinke Tee*)."
+    },
+    {
+      "id": 30,
+      "category": "Deck 1: Pronouns & Rules",
+      "front": "Which two pronouns does Kedar Sir recommend practicing first for 3–4 days, and why?",
+      "back": "**`ich`** and **`wir`**, because their conjugation (`-e` and `-en`) is effortless and 100% regular across virtually all daily verbs."
+    },
+    {
+      "id": 31,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "What does **`kommen`** mean, and what is its stem?",
+      "back": "**आना / to come** — Stem: **komm**"
+    },
+    {
+      "id": 32,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "What does **`gehen`** mean, and what is its stem?",
+      "back": "**जाना / to go** — Stem: **geh**"
+    },
+    {
+      "id": 33,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "What does **`machen`** mean, and what is its stem?",
+      "back": "**करना / to do, make** — Stem: **mach**"
+    },
+    {
+      "id": 34,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "What does **`wohnen`** mean, and what is its stem?",
+      "back": "**रहना / to live, reside** — Stem: **wohn**"
+    },
+    {
+      "id": 35,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "What does **`lieben`** mean, and what is its stem?",
+      "back": "**प्यार करना / to love** — Stem: **lieb**"
+    },
+    {
+      "id": 36,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "What does **`bringen`** mean, and what is its stem?",
+      "back": "**लाना / to bring** — Stem: **bring**"
+    },
+    {
+      "id": 37,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "What does **`sprechen`** mean, and what is its stem?",
+      "back": "**बोलना / to speak** — Stem: **sprech**"
+    },
+    {
+      "id": 38,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "What does **`kochen`** mean, and what is its stem?",
+      "back": "**खाना पकाना / to cook** — Stem: **koch**"
+    },
+    {
+      "id": 39,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "What does **`fragen`** mean, and what is its stem?",
+      "back": "**पूछना / to ask** — Stem: **frag**"
+    },
+    {
+      "id": 40,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "What does **`antworten`** mean, and what is its stem?",
+      "back": "**जवाब देना / to reply, answer** — Stem: **antwort**"
+    },
+    {
+      "id": 41,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "What does **`baden`** mean, and what is its stem?",
+      "back": "**नहाना** / **to bathe** — Stem: **bad**"
+    },
+    {
+      "id": 42,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "What does **`essen`** mean, and what is its stem?",
+      "back": "**खाना / to eat** — Stem: **ess**"
+    },
+    {
+      "id": 43,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "What does **`singen`** mean, and what is its stem?",
+      "back": "**गाना / to sing** — Stem: **sing**"
+    },
+    {
+      "id": 44,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "What does **`tanzen`** mean, and what is its stem?",
+      "back": "**नाचना / to dance** — Stem: **tanz**"
+    },
+    {
+      "id": 45,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "What does **`arbeiten`** mean, and what is its stem?",
+      "back": "**काम करना / to work** — Stem: **arbeit**"
+    },
+    {
+      "id": 46,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "What does **`sehen`** mean, and what is its stem?",
+      "back": "**देखना / to see** — Stem: **seh**"
+    },
+    {
+      "id": 47,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "What does **`hören`** mean, and what is its stem?",
+      "back": "**सुनना / to listen, hear** — Stem: **hör**"
+    },
+    {
+      "id": 48,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "What does **`laufen`** mean, and what is its stem?",
+      "back": "**दौड़ना / to run, walk** — Stem: **lauf**"
+    },
+    {
+      "id": 49,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "What does **`lesen`** mean, and what is its stem?",
+      "back": "**पढ़ना / to read** — Stem: **les**"
+    },
+    {
+      "id": 50,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "What does **`schreiben`** mean, and what is its stem?",
+      "back": "**लिखना / to write** — Stem: **schreib**"
+    },
+    {
+      "id": 51,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "What does **`suchen`** mean, and what is its stem?",
+      "back": "**ढूँढना / to search** — Stem: **such**"
+    },
+    {
+      "id": 52,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "What does **`finden`** mean, and what is its stem?",
+      "back": "**पाना / मिलना / to find** — Stem: **find**"
+    },
+    {
+      "id": 53,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "What does **`stehen`** mean, and what is its stem?",
+      "back": "**खड़े होना / to stand** — Stem: **steh**"
+    },
+    {
+      "id": 54,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "What does **`sitzen`** mean, and what is its stem?",
+      "back": "**बैठना / to sit** — Stem: **sitz**"
+    },
+    {
+      "id": 55,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "What does **`fahren`** mean, and what is its stem?",
+      "back": "**गाड़ी चलाना / to drive** — Stem: **fahr**"
+    },
+    {
+      "id": 56,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "What does **`reisen`** mean, and what is its stem?",
+      "back": "**यात्रा करना / to travel** — Stem: **reis**"
+    },
+    {
+      "id": 57,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "What does **`treffen`** mean, and what is its stem?",
+      "back": "**मिलना / to meet** — Stem: **treff**"
+    },
+    {
+      "id": 58,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "What does **`schlafen`** mean, and what is its stem?",
+      "back": "**सोना / to sleep** — Stem: **schlaf**"
+    },
+    {
+      "id": 59,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "What does **`lernen`** mean, and what is its stem?",
+      "back": "**सीखना / to learn** — Stem: **lern**"
+    },
+    {
+      "id": 60,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "What does **`lachen`** mean, and what is its stem?",
+      "back": "**हँसना / to laugh** — Stem: **lach**"
+    },
+    {
+      "id": 61,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "What does **`trinken`** mean, and what is its stem?",
+      "back": "**पीना / to drink** — Stem: **trink**"
+    },
+    {
+      "id": 62,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "What does **`spielen`** mean, and what is its stem?",
+      "back": "**खेलना / to play** — Stem: **spiel**"
+    },
+    {
+      "id": 63,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "German verb for **\"आना / to come\"**?",
+      "back": "**kommen**"
+    },
+    {
+      "id": 64,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "German verb for **\"जाना / to go\"**?",
+      "back": "**gehen**"
+    },
+    {
+      "id": 65,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "German verb for **\"करना / to do\"**?",
+      "back": "**machen**"
+    },
+    {
+      "id": 66,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "German verb for **\"रहना / to live\"**?",
+      "back": "**wohnen**"
+    },
+    {
+      "id": 67,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "German verb for **\"प्यार करना / to love\"**?",
+      "back": "**lieben**"
+    },
+    {
+      "id": 68,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "German verb for **\"लाना / to bring\"**?",
+      "back": "**bringen**"
+    },
+    {
+      "id": 69,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "German verb for **\"बोलना / to speak\"**?",
+      "back": "**sprechen**"
+    },
+    {
+      "id": 70,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "German verb for **\"खाना पकाना / to cook\"**?",
+      "back": "**kochen**"
+    },
+    {
+      "id": 71,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "German verb for **\"पूछना / to ask\"**?",
+      "back": "**fragen**"
+    },
+    {
+      "id": 72,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "German verb for **\"जवाब देना / to reply\"**?",
+      "back": "**antworten**"
+    },
+    {
+      "id": 73,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "German verb for **\"नहाना / to bathe\"**?",
+      "back": "**baden**"
+    },
+    {
+      "id": 74,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "German verb for **\"खाना / to eat\"**?",
+      "back": "**essen**"
+    },
+    {
+      "id": 75,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "German verb for **\"गाना / to sing\"**?",
+      "back": "**singen**"
+    },
+    {
+      "id": 76,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "German verb for **\"नाचना / to dance\"**?",
+      "back": "**tanzen**"
+    },
+    {
+      "id": 77,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "German verb for **\"काम करना / to work\"**?",
+      "back": "**arbeiten**"
+    },
+    {
+      "id": 78,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "German verb for **\"देखना / to see\"**?",
+      "back": "**sehen**"
+    },
+    {
+      "id": 79,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "German verb for **\"सुनना / to listen\"**?",
+      "back": "**hören**"
+    },
+    {
+      "id": 80,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "German verb for **\"दौड़ना / to run\"**?",
+      "back": "**laufen**"
+    },
+    {
+      "id": 81,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "German verb for **\"पढ़ना / to read\"**?",
+      "back": "**lesen**"
+    },
+    {
+      "id": 82,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "German verb for **\"लिखना / to write\"**?",
+      "back": "**schreiben**"
+    },
+    {
+      "id": 83,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "German verb for **\"ढूँढना / to search\"**?",
+      "back": "**suchen**"
+    },
+    {
+      "id": 84,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "German verb for **\"पाना / to find\"**?",
+      "back": "**finden**"
+    },
+    {
+      "id": 85,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "German verb for **\"खड़े होना / to stand\"**?",
+      "back": "**stehen**"
+    },
+    {
+      "id": 86,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "German verb for **\"बैठना / to sit\"**?",
+      "back": "**sitzen**"
+    },
+    {
+      "id": 87,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "German verb for **\"गाड़ी चलाना / to drive\"**?",
+      "back": "**fahren**"
+    },
+    {
+      "id": 88,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "German verb for **\"यात्रा करना / to travel\"**?",
+      "back": "**reisen**"
+    },
+    {
+      "id": 89,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "German verb for **\"मिलना / to meet\"**?",
+      "back": "**treffen**"
+    },
+    {
+      "id": 90,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "German verb for **\"सोना / to sleep\"**?",
+      "back": "**schlafen**"
+    },
+    {
+      "id": 91,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "German verb for **\"सीखना / to learn\"**?",
+      "back": "**lernen**"
+    },
+    {
+      "id": 92,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "German verb for **\"हँसना / to laugh\"**?",
+      "back": "**lachen**"
+    },
+    {
+      "id": 93,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "German verb for **\"पीना / to drink\"**?",
+      "back": "**trinken**"
+    },
+    {
+      "id": 94,
+      "category": "Deck 2: 32 Core Verbs",
+      "front": "German verb for **\"खेलना / to play\"**?",
+      "back": "**spielen**"
+    },
+    {
+      "id": 95,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "मैं आता हूँ / I come (`kommen`)",
+      "back": "**ich komme**"
+    },
+    {
+      "id": 96,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "हम आते हैं / We come (`kommen`)",
+      "back": "**wir kommen**"
+    },
+    {
+      "id": 97,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "मैं जाता हूँ / I go (`gehen`)",
+      "back": "**ich gehe**"
+    },
+    {
+      "id": 98,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "हम जाते हैं / We go (`gehen`)",
+      "back": "**wir gehen**"
+    },
+    {
+      "id": 99,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "मैं करता हूँ / I do (`machen`)",
+      "back": "**ich mache**"
+    },
+    {
+      "id": 100,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "हम करते हैं / We do (`machen`)",
+      "back": "**wir machen**"
+    },
+    {
+      "id": 101,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "मैं रहता हूँ / I live (`wohnen`)",
+      "back": "**ich wohne**"
+    },
+    {
+      "id": 102,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "हम रहते हैं / We live (`wohnen`)",
+      "back": "**wir wohnen**"
+    },
+    {
+      "id": 103,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "मैं प्यार करता हूँ / I love (`lieben`)",
+      "back": "**ich liebe**"
+    },
+    {
+      "id": 104,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "हम प्यार करते हैं / We love (`lieben`)",
+      "back": "**wir lieben**"
+    },
+    {
+      "id": 105,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "मैं लाता हूँ / I bring (`bringen`)",
+      "back": "**ich bringe**"
+    },
+    {
+      "id": 106,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "हम लाते हैं / We bring (`bringen`)",
+      "back": "**wir bringen**"
+    },
+    {
+      "id": 107,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "मैं बोलता हूँ / I speak (`sprechen`)",
+      "back": "**ich spreche**"
+    },
+    {
+      "id": 108,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "हम बोलते हैं / We speak (`sprechen`)",
+      "back": "**wir sprechen**"
+    },
+    {
+      "id": 109,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "मैं पकाता हूँ / I cook (`kochen`)",
+      "back": "**ich koche**"
+    },
+    {
+      "id": 110,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "हम पकाते हैं / We cook (`kochen`)",
+      "back": "**wir kochen**"
+    },
+    {
+      "id": 111,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "मैं पूछता हूँ / I ask (`fragen`)",
+      "back": "**ich frage**"
+    },
+    {
+      "id": 112,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "हम पूछते हैं / We ask (`fragen`)",
+      "back": "**wir fragen**"
+    },
+    {
+      "id": 113,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "मैं जवाब देता हूँ / I reply (`antworten`)",
+      "back": "**ich antworte**"
+    },
+    {
+      "id": 114,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "हम जवाब देते हैं / We reply (`antworten`)",
+      "back": "**wir antworten**"
+    },
+    {
+      "id": 115,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "मैं नहाता हूँ / I bathe (`baden`)",
+      "back": "**ich bade**"
+    },
+    {
+      "id": 116,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "हम नहाते हैं / We bathe (`baden`)",
+      "back": "**wir baden**"
+    },
+    {
+      "id": 117,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "मैं खाता हूँ / I eat (`essen`)",
+      "back": "**ich** esse"
+    },
+    {
+      "id": 118,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "हम खाते हैं / We eat (`essen`)",
+      "back": "**wir essen**"
+    },
+    {
+      "id": 119,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "मैं गाता हूँ / I sing (`singen`)",
+      "back": "**ich singe**"
+    },
+    {
+      "id": 120,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "हम गाते हैं / We sing (`singen`)",
+      "back": "**wir singen**"
+    },
+    {
+      "id": 121,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "मैं नाचता हूँ / I dance (`tanzen`)",
+      "back": "**ich tanze**"
+    },
+    {
+      "id": 122,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "हम नाचते हैं / We dance (`tanzen`)",
+      "back": "**wir tanzen**"
+    },
+    {
+      "id": 123,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "मैं काम करता हूँ / I work (`arbeiten`)",
+      "back": "**ich arbeite**"
+    },
+    {
+      "id": 124,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "हम काम करते हैं / We work (`arbeiten`)",
+      "back": "**wir arbeiten**"
+    },
+    {
+      "id": 125,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "मैं देखता हूँ / I see (`sehen`)",
+      "back": "**ich sehe**"
+    },
+    {
+      "id": 126,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "हम देखते हैं / We see (`sehen`)",
+      "back": "**wir sehen**"
+    },
+    {
+      "id": 127,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "मैं सुनता हूँ / I listen (`hören`)",
+      "back": "**ich höre**"
+    },
+    {
+      "id": 128,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "हम सुनते हैं / We listen (`hören`)",
+      "back": "**wir hören**"
+    },
+    {
+      "id": 129,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "मैं दौड़ता हूँ / I run (`laufen`)",
+      "back": "**ich laufe**"
+    },
+    {
+      "id": 130,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "हम दौड़ते हैं / We run (`laufen`)",
+      "back": "**wir laufen**"
+    },
+    {
+      "id": 131,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "मैं पढ़ता हूँ / I read (`lesen`)",
+      "back": "**ich lese**"
+    },
+    {
+      "id": 132,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "हम पढ़ते हैं / We read (`lesen`)",
+      "back": "**wir lesen**"
+    },
+    {
+      "id": 133,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "मैं लिखता हूँ / I write (`schreiben`)",
+      "back": "**ich schreibe**"
+    },
+    {
+      "id": 134,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "हम लिखते हैं / We write (`schreiben`)",
+      "back": "**wir schreiben**"
+    },
+    {
+      "id": 135,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "मैं ढूँढता हूँ / I search (`suchen`)",
+      "back": "**ich suche**"
+    },
+    {
+      "id": 136,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "हम ढूँढते हैं / We search (`suchen`)",
+      "back": "**wir suchen**"
+    },
+    {
+      "id": 137,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "मैं पाता हूँ / I find (`finden`)",
+      "back": "**ich** finde"
+    },
+    {
+      "id": 138,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "हम पाते हैं / We find (`finden`)",
+      "back": "**wir finden**"
+    },
+    {
+      "id": 139,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "मैं खड़ा होता हूँ / I stand (`stehen`)",
+      "back": "**ich stehe**"
+    },
+    {
+      "id": 140,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "हम खड़े होते हैं / We stand (`stehen`)",
+      "back": "**wir stehen**"
+    },
+    {
+      "id": 141,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "मैं बैठता हूँ / I sit (`sitzen`)",
+      "back": "**ich sitze**"
+    },
+    {
+      "id": 142,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "हम बैठते हैं / We sit (`sitzen`)",
+      "back": "**wir sitzen**"
+    },
+    {
+      "id": 143,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "मैं गाड़ी चलाता हूँ / I drive (`fahren`)",
+      "back": "**ich fahre**"
+    },
+    {
+      "id": 144,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "हम गाड़ी चलाते हैं / We drive (`fahren`)",
+      "back": "**wir fahren**"
+    },
+    {
+      "id": 145,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "मैं यात्रा करता हूँ / I travel (`reisen`)",
+      "back": "**ich reise**"
+    },
+    {
+      "id": 146,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "हम यात्रा करते हैं / We travel (`reisen`)",
+      "back": "**wir reisen**"
+    },
+    {
+      "id": 147,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "मैं मिलता हूँ / I meet (`treffen`)",
+      "back": "**ich treffe**"
+    },
+    {
+      "id": 148,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "हम मिलते हैं / We meet (`treffen`)",
+      "back": "**wir treffen**"
+    },
+    {
+      "id": 149,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "मैं सोता हूँ / I sleep (`schlafen`)",
+      "back": "**ich schlafe**"
+    },
+    {
+      "id": 150,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "हम सोते हैं / We sleep (`schlafen`)",
+      "back": "**wir schlafen**"
+    },
+    {
+      "id": 151,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "मैं सीखता हूँ / I learn (`lernen`)",
+      "back": "**ich lerne**"
+    },
+    {
+      "id": 152,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "हम सीखते हैं / We learn (`lernen`)",
+      "back": "**wir lernen**"
+    },
+    {
+      "id": 153,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "मैं हँसता हूँ / I laugh (`lachen`)",
+      "back": "**ich lache**"
+    },
+    {
+      "id": 154,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "हम हँसते हैं / We laugh (`lachen`)",
+      "back": "**wir lachen**"
+    },
+    {
+      "id": 155,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "मैं पीता हूँ / I drink (`trinken`)",
+      "back": "**ich trinke**"
+    },
+    {
+      "id": 156,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "हम पीते हैं / We drink (`trinken`)",
+      "back": "**wir trinken**"
+    },
+    {
+      "id": 157,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "मैं खेलता हूँ / I play (`spielen`)",
+      "back": "**ich spiele**"
+    },
+    {
+      "id": 158,
+      "category": "Deck 3: ich & wir Drills",
+      "front": "हम खेलते हैं / We play (`spielen`)",
+      "back": "**wir spielen**"
+    },
+    {
+      "id": 159,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `kommen` with **`du`**",
+      "back": "**du kommst** (तू आता है / You come)"
+    },
+    {
+      "id": 160,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `kommen` with **`er`**",
+      "back": "**er kommt** (वह आता है / He comes)"
+    },
+    {
+      "id": 161,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `kommen` with **`ihr`**",
+      "back": "**ihr kommt** (तुम सब आते हो / You all come)"
+    },
+    {
+      "id": 162,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `kommen` with **`Sie`**",
+      "back": "**Sie kommen** (आप आते हैं / YOU come)"
+    },
+    {
+      "id": 163,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `gehen` with **`du`**",
+      "back": "**du gehst** (तू जाता है / You go)"
+    },
+    {
+      "id": 164,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `gehen` with **`sie` (she)**",
+      "back": "**sie geht** (वह जाती है / She goes)"
+    },
+    {
+      "id": 165,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `gehen` with **`ihr`**",
+      "back": "**ihr geht** (तुम सब जाते हो / You all go)"
+    },
+    {
+      "id": 166,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `gehen` with **`sie` (they)**",
+      "back": "**sie gehen** (वे जाते हैं / They go)"
+    },
+    {
+      "id": 167,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `machen` with **`du`**",
+      "back": "**du machst** (तू करता है / You do)"
+    },
+    {
+      "id": 168,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `machen` with **`er`**",
+      "back": "**er macht** (वह करता है / He does)"
+    },
+    {
+      "id": 169,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `machen` with **`ihr`**",
+      "back": "**ihr macht** (तुम सब करते हो / You all do)"
+    },
+    {
+      "id": 170,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `machen` with **`Sie`**",
+      "back": "**Sie machen** (आप करते हैं / YOU do)"
+    },
+    {
+      "id": 171,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `wohnen` with **`du`**",
+      "back": "**du wohnst** (तू रहता है / You live)"
+    },
+    {
+      "id": 172,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `wohnen` with **`sie` (she)**",
+      "back": "**sie wohnt** (वह रहती है / She lives)"
+    },
+    {
+      "id": 173,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `wohnen` with **`ihr`**",
+      "back": "**ihr wohnt** (तुम सब रहते हो / You all live)"
+    },
+    {
+      "id": 174,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `wohnen` with **`sie` (they)**",
+      "back": "**sie wohnen** (वे रहते हैं / They live)"
+    },
+    {
+      "id": 175,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `lieben` with **`du`**",
+      "back": "**du liebst** (तू प्यार करता है / You love)"
+    },
+    {
+      "id": 176,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `lieben` with **`er`**",
+      "back": "**er liebt** (वह प्यार करता है / He loves)"
+    },
+    {
+      "id": 177,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `lieben` with **`ihr`**",
+      "back": "**ihr liebt** (तुम सब प्यार करते हो / You all love)"
+    },
+    {
+      "id": 178,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `lieben` with **`Sie`**",
+      "back": "**Sie lieben** (आप प्यार करते हैं / YOU love)"
+    },
+    {
+      "id": 179,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `bringen` with **`du`**",
+      "back": "**du bringst** (तू लाता है / You bring)"
+    },
+    {
+      "id": 180,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `bringen` with **`er`**",
+      "back": "**er bringt** (वह लाता है / He brings)"
+    },
+    {
+      "id": 181,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `bringen` with **`ihr`**",
+      "back": "**ihr bringt** (तुम सब लाते हो / You all bring)"
+    },
+    {
+      "id": 182,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `bringen` with **`sie` (they)**",
+      "back": "**sie bringen** (वे लाते हैं / They bring)"
+    },
+    {
+      "id": 183,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `kochen` with **`du`**",
+      "back": "**du kochst** (तू पकाता है / You cook)"
+    },
+    {
+      "id": 184,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `kochen` with **`sie` (she)**",
+      "back": "**sie kocht** (वह पकाती है / She cooks)"
+    },
+    {
+      "id": 185,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `kochen` with **`ihr`**",
+      "back": "**ihr kocht** (तुम सब पकाते हो / You all cook)"
+    },
+    {
+      "id": 186,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `kochen` with **`Sie`**",
+      "back": "**Sie kochen** (आप पकाते हैं / YOU cook)"
+    },
+    {
+      "id": 187,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `fragen` with **`du`**",
+      "back": "**du fragst** (तू पूछता है / You ask)"
+    },
+    {
+      "id": 188,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `fragen` with **`er`**",
+      "back": "**er fragt** (वह पूछता है / He asks)"
+    },
+    {
+      "id": 189,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `fragen` with **`ihr`**",
+      "back": "**ihr fragt** (तुम सब पूछते हो / You all ask)"
+    },
+    {
+      "id": 190,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `fragen` with **`sie` (they)**",
+      "back": "**sie fragen** (वे पूछते हैं / They ask)"
+    },
+    {
+      "id": 191,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `singen` with **`du`**",
+      "back": "**du singst** (तू गाता है / You sing)"
+    },
+    {
+      "id": 192,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `singen` with **`sie` (she)**",
+      "back": "**sie singt** (वह गाती है / She sings)"
+    },
+    {
+      "id": 193,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `singen` with **`ihr`**",
+      "back": "**ihr singt** (तुम सब गाते हो / You all sing)"
+    },
+    {
+      "id": 194,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `singen` with **`Sie`**",
+      "back": "**Sie singen** (आप गाते हैं / YOU sing)"
+    },
+    {
+      "id": 195,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `hören` with **`du`**",
+      "back": "**du hörst** (तू सुनता है / You listen)"
+    },
+    {
+      "id": 196,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `hören` with **`er`**",
+      "back": "**er hört** (वह सुनता है / He listens)"
+    },
+    {
+      "id": 197,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `hören` with **`ihr`**",
+      "back": "**ihr hört** (तुम सब सुनते हो / You all listen)"
+    },
+    {
+      "id": 198,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `hören` with **`sie` (they)**",
+      "back": "**sie hören** (वे सुनते हैं / They listen)"
+    },
+    {
+      "id": 199,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `schreiben` with **`du`**",
+      "back": "**du schreibst** (तू लिखता है / You write)"
+    },
+    {
+      "id": 200,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `schreiben` with **`sie` (she)**",
+      "back": "**sie schreibt** (वह लिखती है / She writes)"
+    },
+    {
+      "id": 201,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `schreiben` with **`ihr`**",
+      "back": "**ihr schreibt** (तुम सब लिखते हो / You all write)"
+    },
+    {
+      "id": 202,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `schreiben` with **`Sie`**",
+      "back": "**Sie schreiben** (आप लिखते हैं / YOU write)"
+    },
+    {
+      "id": 203,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `suchen` with **`du`**",
+      "back": "**du suchst** (तू ढूँढता है / You search)"
+    },
+    {
+      "id": 204,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `suchen` with **`er`**",
+      "back": "**er sucht** (वह ढूँढता है / He searches)"
+    },
+    {
+      "id": 205,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `suchen` with **`ihr`**",
+      "back": "**ihr sucht** (तुम सब ढूँढते हो / You all search)"
+    },
+    {
+      "id": 206,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `suchen` with **`sie` (they)**",
+      "back": "**sie suchen** (वे ढूँढते हैं / They search)"
+    },
+    {
+      "id": 207,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `stehen` with **`du`**",
+      "back": "**du stehst** (तू खड़ा होता है / You stand)"
+    },
+    {
+      "id": 208,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `stehen` with **`er`**",
+      "back": "**er steht** (वह खड़ा होता है / He stands)"
+    },
+    {
+      "id": 209,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `stehen` with **`ihr`**",
+      "back": "**ihr steht** (तुम सब खड़े होते हो / You all stand)"
+    },
+    {
+      "id": 210,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `stehen` with **`Sie`**",
+      "back": "**Sie stehen** (आप खड़े होते हैं / YOU stand)"
+    },
+    {
+      "id": 211,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `lernen` with **`du`**",
+      "back": "**du lernst** (तू सीखता है / You learn)"
+    },
+    {
+      "id": 212,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `lernen` with **`sie` (she)**",
+      "back": "**sie lernt** (वह सीखती है / She learns)"
+    },
+    {
+      "id": 213,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `lernen` with **`ihr`**",
+      "back": "**ihr lernt** (तुम सब सीखते हो / You all learn)"
+    },
+    {
+      "id": 214,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `lernen` with **`sie` (they)**",
+      "back": "**sie lernen** (वे सीखते हैं / They learn)"
+    },
+    {
+      "id": 215,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `lachen` with **`du`**",
+      "back": "**du lachst** (तू हँसता है / You laugh)"
+    },
+    {
+      "id": 216,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `lachen` with **`er`**",
+      "back": "**er lacht** (वह हँसता है / He laughs)"
+    },
+    {
+      "id": 217,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `lachen` with **`ihr`**",
+      "back": "**ihr lacht** (तुम सब हँसते हो / You all laugh)"
+    },
+    {
+      "id": 218,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `lachen` with **`Sie`**",
+      "back": "**Sie lachen** (आप हँसते हैं / YOU laugh)"
+    },
+    {
+      "id": 219,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `trinken` with **`du`**",
+      "back": "**du trinkst** (तू पीता है / You drink)"
+    },
+    {
+      "id": 220,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `trinken` with **`er`**",
+      "back": "**er trinkt** (वह पीता है / He drinks)"
+    },
+    {
+      "id": 221,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `trinken` with **`sie` (she)**",
+      "back": "**sie trinkt** (वह पीती है / She drinks)"
+    },
+    {
+      "id": 222,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `trinken` with **`es`**",
+      "back": "**es trinkt** (वह पीता है / It drinks)"
+    },
+    {
+      "id": 223,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `trinken` with **`ihr`**",
+      "back": "**ihr trinkt** (तुम सब पीते हो / You all drink)"
+    },
+    {
+      "id": 224,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `trinken` with **`sie` (they)**",
+      "back": "**sie trinken** (वे पीते हैं / They drink)"
+    },
+    {
+      "id": 225,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `trinken` with **`Sie` (formal)**",
+      "back": "**Sie** trinken (आप पीते हैं / YOU drink)"
+    },
+    {
+      "id": 226,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `spielen` with **`du`**",
+      "back": "**du spielst** (तू खेलता है / You play)"
+    },
+    {
+      "id": 227,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `spielen` with **`er`**",
+      "back": "**er spielt** (वह खेलता है / He plays)"
+    },
+    {
+      "id": 228,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `spielen` with **`ihr`**",
+      "back": "**ihr spielt** (तुम सब खेलते हो / You all play)"
+    },
+    {
+      "id": 229,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `spielen` with **`sie` (they)**",
+      "back": "**sie spielen** (वे खेलते हैं / They play)"
+    },
+    {
+      "id": 230,
+      "category": "Deck 4: du, er, ihr, sie Drills",
+      "front": "Conjugate `spielen` with **`Sie` (formal)**",
+      "back": "**Sie spielen** (आप खेलते हैं / YOU play)"
+    },
+    {
+      "id": 231,
+      "category": "Deck 5: Sentence Practice",
+      "front": "मैं चाय पीता हूँ। / I drink tea.",
+      "back": "**Ich trinke Tee.**"
+    },
+    {
+      "id": 232,
+      "category": "Deck 5: Sentence Practice",
+      "front": "तू चाय पीता है। / You drink tea.",
+      "back": "**Du trinkst Tee.**"
+    },
+    {
+      "id": 233,
+      "category": "Deck 5: Sentence Practice",
+      "front": "वह (लड़का) चाय पीता है। / He drinks tea.",
+      "back": "**Er trinkt Tee.**"
+    },
+    {
+      "id": 234,
+      "category": "Deck 5: Sentence Practice",
+      "front": "वह (लड़की) चाय पीती है। / She drinks tea.",
+      "back": "**Sie trinkt Tee.**"
+    },
+    {
+      "id": 235,
+      "category": "Deck 5: Sentence Practice",
+      "front": "तुम सब चाय पीते हो। / You all drink tea.",
+      "back": "**Ihr trinkt Tee.**"
+    },
+    {
+      "id": 236,
+      "category": "Deck 5: Sentence Practice",
+      "front": "हम चाय पीते हैं। / We drink tea.",
+      "back": "**Wir trinken Tee.**"
+    },
+    {
+      "id": 237,
+      "category": "Deck 5: Sentence Practice",
+      "front": "वे लोग चाय पीते हैं। / They drink tea.",
+      "back": "**Sie trinken Tee.**"
+    },
+    {
+      "id": 238,
+      "category": "Deck 5: Sentence Practice",
+      "front": "आप चाय पीते हैं। / YOU (formal) drink tea.",
+      "back": "**Sie trinken Tee.**"
+    },
+    {
+      "id": 239,
+      "category": "Deck 5: Sentence Practice",
+      "front": "मैं पेप्सी पीता हूँ। / I drink Pepsi.",
+      "back": "**Ich trinke Pepsi.**"
+    },
+    {
+      "id": 240,
+      "category": "Deck 5: Sentence Practice",
+      "front": "तू पेप्सी पीता है। / You drink Pepsi.",
+      "back": "**Du trinkst Pepsi.**"
+    },
+    {
+      "id": 241,
+      "category": "Deck 5: Sentence Practice",
+      "front": "वह (लड़का) पेप्सी पीता है। / He drinks Pepsi.",
+      "back": "**Er trinkt Pepsi.**"
+    },
+    {
+      "id": 242,
+      "category": "Deck 5: Sentence Practice",
+      "front": "हम पेप्सी पीते हैं। / We drink Pepsi.",
+      "back": "**Wir trinken Pepsi.**"
+    },
+    {
+      "id": 243,
+      "category": "Deck 5: Sentence Practice",
+      "front": "वे पेप्सी पीते हैं। / They drink Pepsi.",
+      "back": "**Sie trinken Pepsi.**"
+    },
+    {
+      "id": 244,
+      "category": "Deck 5: Sentence Practice",
+      "front": "मैं कॉफ़ी पीता हूँ। / I drink coffee.",
+      "back": "**Ich trinke Kaffee.**"
+    },
+    {
+      "id": 245,
+      "category": "Deck 5: Sentence Practice",
+      "front": "हम कॉफ़ी पीते हैं। / We drink coffee.",
+      "back": "**Wir trinken Kaffee.**"
+    },
+    {
+      "id": 246,
+      "category": "Deck 5: Sentence Practice",
+      "front": "आप कॉफ़ी पीते हैं। / YOU (formal) drink coffee.",
+      "back": "**Sie trinken Kaffee.**"
+    },
+    {
+      "id": 247,
+      "category": "Deck 5: Sentence Practice",
+      "front": "मैं पिज़्ज़ा खाता हूँ। / I eat pizza.",
+      "back": "**Ich esse Pizza.**"
+    },
+    {
+      "id": 248,
+      "category": "Deck 5: Sentence Practice",
+      "front": "हम पिज़्ज़ा खाते हैं। / We eat pizza.",
+      "back": "**Wir essen Pizza.**"
+    },
+    {
+      "id": 249,
+      "category": "Deck 5: Sentence Practice",
+      "front": "वे लोग पिज़्ज़ा खाते हैं। / They eat pizza.",
+      "back": "**Sie essen Pizza.**"
+    },
+    {
+      "id": 250,
+      "category": "Deck 5: Sentence Practice",
+      "front": "आप पिज़्ज़ा खाते हैं। / YOU (formal) eat pizza.",
+      "back": "**Sie essen Pizza.**"
+    },
+    {
+      "id": 251,
+      "category": "Deck 5: Sentence Practice",
+      "front": "मैं क्रिकेट खेलता हूँ। / I play cricket.",
+      "back": "**Ich spiele Cricket.**"
+    },
+    {
+      "id": 252,
+      "category": "Deck 5: Sentence Practice",
+      "front": "तू क्रिकेट खेलता है। / You play cricket.",
+      "back": "**Du spielst Cricket.**"
+    },
+    {
+      "id": 253,
+      "category": "Deck 5: Sentence Practice",
+      "front": "वह (लड़का) क्रिकेट खेलता है। / He plays cricket.",
+      "back": "**Er spielt Cricket.**"
+    },
+    {
+      "id": 254,
+      "category": "Deck 5: Sentence Practice",
+      "front": "वह (लड़की) क्रिकेट खेलती है। / She plays cricket.",
+      "back": "**Sie spielt Cricket.**"
+    },
+    {
+      "id": 255,
+      "category": "Deck 5: Sentence Practice",
+      "front": "तुम दोनों क्रिकेट खेलते हो। / You both play cricket.",
+      "back": "**Ihr spielt Cricket.**"
+    },
+    {
+      "id": 256,
+      "category": "Deck 5: Sentence Practice",
+      "front": "हम क्रिकेट खेलते हैं। / We play cricket.",
+      "back": "**Wir spielen Cricket.**"
+    },
+    {
+      "id": 257,
+      "category": "Deck 5: Sentence Practice",
+      "front": "वे लोग क्रिकेट खेलते हैं। / They play cricket.",
+      "back": "**Sie spielen Cricket.**"
+    },
+    {
+      "id": 258,
+      "category": "Deck 5: Sentence Practice",
+      "front": "आप क्रिकेट खेलते हैं। / YOU (formal) play cricket.",
+      "back": "**Sie spielen Cricket.**"
+    },
+    {
+      "id": 259,
+      "category": "Deck 5: Sentence Practice",
+      "front": "मैं हिंदी सीखता हूँ। / I learn Hindi.",
+      "back": "**Ich lerne Hindi.**"
+    },
+    {
+      "id": 260,
+      "category": "Deck 5: Sentence Practice",
+      "front": "तू हिंदी सीखता है। / You learn Hindi.",
+      "back": "**Du lernst Hindi.**"
+    },
+    {
+      "id": 261,
+      "category": "Deck 5: Sentence Practice",
+      "front": "वह (लड़का) हिंदी सीखता है। / He learns Hindi.",
+      "back": "**Er lernt Hindi.**"
+    },
+    {
+      "id": 262,
+      "category": "Deck 5: Sentence Practice",
+      "front": "वह (लड़की) हिंदी सीखती है। / She learns Hindi.",
+      "back": "**Sie lernt Hindi.**"
+    },
+    {
+      "id": 263,
+      "category": "Deck 5: Sentence Practice",
+      "front": "तुम सब हिंदी सीखते हो। / You all learn Hindi.",
+      "back": "**Ihr lernt Hindi.**"
+    },
+    {
+      "id": 264,
+      "category": "Deck 5: Sentence Practice",
+      "front": "हम हिंदी सीखते हैं। / We learn Hindi.",
+      "back": "**Wir lernen Hindi.**"
+    },
+    {
+      "id": 265,
+      "category": "Deck 5: Sentence Practice",
+      "front": "वे हिंदी सीखते हैं। / They learn Hindi.",
+      "back": "**Sie lernen Hindi.**"
+    },
+    {
+      "id": 266,
+      "category": "Deck 5: Sentence Practice",
+      "front": "आप हिंदी सीखते हैं। / YOU (formal) learn Hindi.",
+      "back": "**Sie lernen Hindi.**"
+    },
+    {
+      "id": 267,
+      "category": "Deck 5: Sentence Practice",
+      "front": "मैं जर्मन (Deutsch) सीखता हूँ। / I learn German.",
+      "back": "**Ich lerne Deutsch.**"
+    },
+    {
+      "id": 268,
+      "category": "Deck 5: Sentence Practice",
+      "front": "हम जर्मन (Deutsch) सीखते हैं। / We learn German.",
+      "back": "**Wir lernen Deutsch.**"
+    },
+    {
+      "id": 269,
+      "category": "Deck 5: Sentence Practice",
+      "front": "तू जर्मन (Deutsch) सीखता है। / You learn German.",
+      "back": "**Du lernst Deutsch.**"
+    },
+    {
+      "id": 270,
+      "category": "Deck 5: Sentence Practice",
+      "front": "तुम सब जर्मन (Deutsch) सीखते हो। / You all learn German.",
+      "back": "**Ihr lernt Deutsch.**"
+    },
+    {
+      "id": 271,
+      "category": "Deck 5: Sentence Practice",
+      "front": "मैं पिज़्ज़ा पकाता (बनाता) हूँ। / I cook pizza.",
+      "back": "**Ich koche Pizza.**"
+    },
+    {
+      "id": 272,
+      "category": "Deck 5: Sentence Practice",
+      "front": "वह (लड़का) चाय बनाता है। / He makes tea.",
+      "back": "**Er macht Tee.**"
+    },
+    {
+      "id": 273,
+      "category": "Deck 5: Sentence Practice",
+      "front": "हम संगीत (Musik) सुनते हैं। / We listen to music.",
+      "back": "**Wir hören Musik.**"
+    },
+    {
+      "id": 274,
+      "category": "Deck 5: Sentence Practice",
+      "front": "मैं संगीत (Musik) सुनता हूँ। / I listen to music.",
+      "back": "**Ich höre Musik.**"
+    },
+    {
+      "id": 275,
+      "category": "Deck 5: Sentence Practice",
+      "front": "तू संगीत (Musik) सुनता है। / You listen to music.",
+      "back": "**Du hörst Musik.**"
+    },
+    {
+      "id": 276,
+      "category": "Deck 5: Sentence Practice",
+      "front": "वह (लड़की) संगीत सुनती है। / She listens to music.",
+      "back": "**Sie hört Musik.**"
+    },
+    {
+      "id": 277,
+      "category": "Deck 5: Sentence Practice",
+      "front": "मैं चाय लाता हूँ। / I bring tea.",
+      "back": "**Ich bringe Tee.**"
+    },
+    {
+      "id": 278,
+      "category": "Deck 5: Sentence Practice",
+      "front": "हम पिज़्ज़ा लाते हैं। / We bring pizza.",
+      "back": "**Wir bringen Pizza.**"
+    },
+    {
+      "id": 279,
+      "category": "Deck 5: Sentence Practice",
+      "front": "मैं क्रिकेट से प्यार करता हूँ। / I love cricket.",
+      "back": "**Ich liebe Cricket.**"
+    },
+    {
+      "id": 280,
+      "category": "Deck 5: Sentence Practice",
+      "front": "हम चाय से प्यार करते हैं। / We love tea.",
+      "back": "**Wir lieben Tee.**"
+    },
+    {
+      "id": 281,
+      "category": "Deck 6: Context & Tricks",
+      "front": "Translate using Kedar Sir's beginner trick: **\"I go to office.\"**",
+      "back": "**Ich gehe to office.** (Conjugate subject + verb in German; use English for unknown words temporarily!)"
+    },
+    {
+      "id": 282,
+      "category": "Deck 6: Context & Tricks",
+      "front": "Translate using Kedar Sir's beginner trick: **\"I come from office.\"**",
+      "back": "**Ich komme from office.**"
+    },
+    {
+      "id": 283,
+      "category": "Deck 6: Context & Tricks",
+      "front": "Translate using Kedar Sir's beginner trick: **\"We go to Mumbai.\"**",
+      "back": "**Wir gehen to Mumbai.**"
+    },
+    {
+      "id": 284,
+      "category": "Deck 6: Context & Tricks",
+      "front": "Translate using Kedar Sir's beginner trick: **\"I live in Delhi.\"**",
+      "back": "**Ich** wohne in **Delhi.** (`in` is the same in German and English!)"
+    },
+    {
+      "id": 285,
+      "category": "Deck 6: Context & Tricks",
+      "front": "Translate: **\"We live in Munich.\"**",
+      "back": "**Wir wohnen in Munich.**"
+    },
+    {
+      "id": 286,
+      "category": "Deck 6: Context & Tricks",
+      "front": "Translate: **\"He lives in India.\"**",
+      "back": "**Er wohnt in India.**"
+    },
+    {
+      "id": 287,
+      "category": "Deck 6: Context & Tricks",
+      "front": "In the sentence **`\"Was machst du?\"`**, why does `machen` end in `-st`?",
+      "back": "Because the subject is **`du`** (तू), which always takes the **`-st`** ending."
+    },
+    {
+      "id": 288,
+      "category": "Deck 6: Context & Tricks",
+      "front": "In **`\"er trinkt\"`** and **`\"ihr trinkt\"`**, the verb form is identical (`trinkt`). How do you know who is drinking?",
+      "back": "From the **pronoun** before the verb: **`er`** means *He*, while **`ihr`** means *You all (तुम सब)*."
+    },
+    {
+      "id": 289,
+      "category": "Deck 6: Context & Tricks",
+      "front": "What does **`\"sie spielt Cricket\"`** mean: *\"She plays cricket\"* or *\"They play cricket\"*?",
+      "back": "**\"She plays cricket\"** (वह क्रिकेट खेलती है), because the verb ends in **`-t`** (`spielt`), which is singular."
+    },
+    {
+      "id": 290,
+      "category": "Deck 6: Context & Tricks",
+      "front": "What does **`\"sie spielen Cricket\"`** (with a small `s` in middle of a clause) mean?",
+      "back": "**\"They play cricket\"** (वे क्रिकेट खेलते हैं), because small `sie` + **`-en`** ending means *They*."
+    },
+    {
+      "id": 291,
+      "category": "Deck 6: Context & Tricks",
+      "front": "If you are speaking to your boss or a stranger in Germany and want to say **\"आप चाय पीते हैं\"**, what do you say?",
+      "back": "**Sie trinken Tee.** (Capital `S` + `-en` ending)."
+    },
+    {
+      "id": 292,
+      "category": "Deck 6: Context & Tricks",
+      "front": "If you are speaking to two of your friends together and want to say **\"तुम दोनों क्रिकेट खेलते हो\"**, what do you say?",
+      "back": "**Ihr spielt Cricket.** (`ihr` + `-t` ending)."
+    },
+    {
+      "id": 293,
+      "category": "Deck 6: Context & Tricks",
+      "front": "Spot the mistake: **`\"Ich trinken Tee.\"`**",
+      "back": "With **`ich`**, the verb must end in **`-e`**, not `-en`. Correct: **`Ich trinke Tee.`**"
+    },
+    {
+      "id": 294,
+      "category": "Deck 6: Context & Tricks",
+      "front": "Spot the mistake: **`\"Du trinke Pepsi.\"`**",
+      "back": "With **`du`**, the verb must end in **`-st`**, not `-e`. Correct: **`Du trinkst Pepsi.`**"
+    },
+    {
+      "id": 295,
+      "category": "Deck 6: Context & Tricks",
+      "front": "Spot the mistake: **`\"Wir trinkt Tee.\"`**",
+      "back": "With **`wir`**, the verb must end in **`-en`**, not `-t`. Correct: **`Wir trinken Tee.`**"
+    },
+    {
+      "id": 296,
+      "category": "Deck 6: Context & Tricks",
+      "front": "Spot the mistake in word order: **`\"Ich Cricket spiele.\"`**",
+      "back": "In German, the verb must be in the **2nd position**, not at the end like Hindi. Correct: **`Ich spiele Cricket.`**"
+    },
+    {
+      "id": 297,
+      "category": "Deck 6: Context & Tricks",
+      "front": "Spot the mistake in word order: **`\"Wir Hindi lernen.\"`**",
+      "back": "Move the verb to the **2nd position**. Correct: **`Wir lernen Hindi.`**"
+    },
+    {
+      "id": 298,
+      "category": "Deck 6: Context & Tricks",
+      "front": "Complete the sentence: **`\"Er ______ (kochen) Pizza.\"`**",
+      "back": "**Er kocht Pizza.** (Stem `koch` + `-t`)."
+    },
+    {
+      "id": 299,
+      "category": "Deck 6: Context & Tricks",
+      "front": "Complete the sentence: **`\"Ihr ______ (lernen) Deutsch.\"`**",
+      "back": "**Ihr lernt Deutsch.** (Stem `lern` + `-t`)."
+    },
+    {
+      "id": 300,
+      "category": "Deck 6: Context & Tricks",
+      "front": "What is Kedar Sir's daily homework rule to speak fluent German in 3 months?",
+      "back": "**Write 5 new German sentences every single day** in a notebook using the 30 daily-life verbs!"
+    }
+  ],
+  "verbs": [
+    {
+      "num": 1,
+      "infinitive": "kommen",
+      "extra": "",
+      "stem": "komm",
+      "english": "come",
+      "hindi": "आना"
+    },
+    {
+      "num": 2,
+      "infinitive": "gehen",
+      "extra": "",
+      "stem": "geh",
+      "english": "go",
+      "hindi": "जाना"
+    },
+    {
+      "num": 3,
+      "infinitive": "machen",
+      "extra": "",
+      "stem": "mach",
+      "english": "do / make",
+      "hindi": "करना / बनाना"
+    },
+    {
+      "num": 4,
+      "infinitive": "wohnen",
+      "extra": "",
+      "stem": "wohn",
+      "english": "live / reside",
+      "hindi": "रहना"
+    },
+    {
+      "num": 5,
+      "infinitive": "lieben",
+      "extra": "",
+      "stem": "lieb",
+      "english": "love",
+      "hindi": "प्यार करना"
+    },
+    {
+      "num": 6,
+      "infinitive": "bringen",
+      "extra": "",
+      "stem": "bring",
+      "english": "bring",
+      "hindi": "लाना"
+    },
+    {
+      "num": 7,
+      "infinitive": "sprechen",
+      "extra": "",
+      "stem": "sprech",
+      "english": "speak",
+      "hindi": "बोलना"
+    },
+    {
+      "num": 8,
+      "infinitive": "kochen",
+      "extra": "",
+      "stem": "koch",
+      "english": "cook",
+      "hindi": "खाना पकाना"
+    },
+    {
+      "num": 9,
+      "infinitive": "fragen",
+      "extra": "",
+      "stem": "frag",
+      "english": "ask",
+      "hindi": "पूछना"
+    },
+    {
+      "num": 10,
+      "infinitive": "antworten",
+      "extra": "",
+      "stem": "antwort",
+      "english": "reply / answer",
+      "hindi": "जवाब देना / उत्तर देना"
+    },
+    {
+      "num": 11,
+      "infinitive": "baden",
+      "extra": "",
+      "stem": "bad",
+      "english": "bathe",
+      "hindi": "नहाना"
+    },
+    {
+      "num": 12,
+      "infinitive": "essen",
+      "extra": "",
+      "stem": "ess",
+      "english": "eat",
+      "hindi": "खाना"
+    },
+    {
+      "num": 13,
+      "infinitive": "singen",
+      "extra": "",
+      "stem": "sing",
+      "english": "sing",
+      "hindi": "गाना"
+    },
+    {
+      "num": 14,
+      "infinitive": "tanzen",
+      "extra": "",
+      "stem": "tanz",
+      "english": "dance",
+      "hindi": "नाचना"
+    },
+    {
+      "num": 15,
+      "infinitive": "arbeiten",
+      "extra": "",
+      "stem": "arbeit",
+      "english": "work",
+      "hindi": "काम करना"
+    },
+    {
+      "num": 16,
+      "infinitive": "sehen",
+      "extra": "",
+      "stem": "seh",
+      "english": "see",
+      "hindi": "देखना"
+    },
+    {
+      "num": 17,
+      "infinitive": "hören",
+      "extra": "",
+      "stem": "hör",
+      "english": "listen / hear",
+      "hindi": "सुनना"
+    },
+    {
+      "num": 18,
+      "infinitive": "laufen",
+      "extra": "",
+      "stem": "lauf",
+      "english": "run / walk",
+      "hindi": "दौड़ना / भागना"
+    },
+    {
+      "num": 19,
+      "infinitive": "lesen",
+      "extra": "",
+      "stem": "les",
+      "english": "read",
+      "hindi": "पढ़ना"
+    },
+    {
+      "num": 20,
+      "infinitive": "schreiben",
+      "extra": "",
+      "stem": "schreib",
+      "english": "write",
+      "hindi": "लिखना"
+    },
+    {
+      "num": 21,
+      "infinitive": "suchen",
+      "extra": "",
+      "stem": "such",
+      "english": "search / look for",
+      "hindi": "ढूँढना / खोजना"
+    },
+    {
+      "num": 22,
+      "infinitive": "finden",
+      "extra": "",
+      "stem": "find",
+      "english": "find",
+      "hindi": "पाना / मिलना"
+    },
+    {
+      "num": 23,
+      "infinitive": "stehen",
+      "extra": "",
+      "stem": "steh",
+      "english": "stand",
+      "hindi": "खड़े होना"
+    },
+    {
+      "num": 24,
+      "infinitive": "sitzen",
+      "extra": "",
+      "stem": "sitz",
+      "english": "sit",
+      "hindi": "बैठना"
+    },
+    {
+      "num": 25,
+      "infinitive": "fahren",
+      "extra": "",
+      "stem": "fahr",
+      "english": "drive / go by vehicle",
+      "hindi": "गाड़ी चलाना / सफर करना"
+    },
+    {
+      "num": 26,
+      "infinitive": "reisen",
+      "extra": "",
+      "stem": "reis",
+      "english": "travel",
+      "hindi": "यात्रा करना"
+    },
+    {
+      "num": 27,
+      "infinitive": "treffen",
+      "extra": "",
+      "stem": "treff",
+      "english": "meet",
+      "hindi": "मिलना"
+    },
+    {
+      "num": 28,
+      "infinitive": "schlafen",
+      "extra": "",
+      "stem": "schlaf",
+      "english": "sleep",
+      "hindi": "सोना"
+    },
+    {
+      "num": 29,
+      "infinitive": "lernen",
+      "extra": "",
+      "stem": "lern",
+      "english": "learn",
+      "hindi": "सीखना"
+    },
+    {
+      "num": 30,
+      "infinitive": "lachen",
+      "extra": "",
+      "stem": "lach",
+      "english": "laugh",
+      "hindi": "हँसना"
+    }
+  ]
+}

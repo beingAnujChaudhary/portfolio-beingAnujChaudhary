@@ -1,0 +1,549 @@
+{
+  "ex1": [
+    {
+      "id": 1,
+      "prompt": "मैं (I)",
+      "ans": "ich",
+      "options": [
+        "ich",
+        "du",
+        "er",
+        "sie (she)",
+        "es",
+        "ihr",
+        "wir",
+        "sie (they)",
+        "Sie (formal)"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "तू (You - informal singular)",
+      "ans": "du",
+      "options": [
+        "ich",
+        "du",
+        "er",
+        "sie (she)",
+        "es",
+        "ihr",
+        "wir",
+        "sie (they)",
+        "Sie (formal)"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "वह - लड़का (He)",
+      "ans": "er",
+      "options": [
+        "ich",
+        "du",
+        "er",
+        "sie (she)",
+        "es",
+        "ihr",
+        "wir",
+        "sie (they)",
+        "Sie (formal)"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "वह - लड़की (She)",
+      "ans": "sie (she)",
+      "options": [
+        "ich",
+        "du",
+        "er",
+        "sie (she)",
+        "es",
+        "ihr",
+        "wir",
+        "sie (they)",
+        "Sie (formal)"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "वह - निर्जीव (It)",
+      "ans": "es",
+      "options": [
+        "ich",
+        "du",
+        "er",
+        "sie (she)",
+        "es",
+        "ihr",
+        "wir",
+        "sie (they)",
+        "Sie (formal)"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "तुम सब / तुम दोनों (You all)",
+      "ans": "ihr",
+      "options": [
+        "ich",
+        "du",
+        "er",
+        "sie (she)",
+        "es",
+        "ihr",
+        "wir",
+        "sie (they)",
+        "Sie (formal)"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "हम (We)",
+      "ans": "wir",
+      "options": [
+        "ich",
+        "du",
+        "er",
+        "sie (she)",
+        "es",
+        "ihr",
+        "wir",
+        "sie (they)",
+        "Sie (formal)"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "वे लोग (They)",
+      "ans": "sie (they)",
+      "options": [
+        "ich",
+        "du",
+        "er",
+        "sie (she)",
+        "es",
+        "ihr",
+        "wir",
+        "sie (they)",
+        "Sie (formal)"
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "आप (You - formal/respectful)",
+      "ans": "Sie (formal)",
+      "options": [
+        "ich",
+        "du",
+        "er",
+        "sie (she)",
+        "es",
+        "ihr",
+        "wir",
+        "sie (they)",
+        "Sie (formal)"
+      ]
+    }
+  ],
+  "ex2": [
+    {
+      "verb": "kommen",
+      "stem": "komm",
+      "meaning": "to come / आना"
+    },
+    {
+      "verb": "gehen",
+      "stem": "geh",
+      "meaning": "to go / जाना"
+    },
+    {
+      "verb": "machen",
+      "stem": "mach",
+      "meaning": "to do, make / करना"
+    },
+    {
+      "verb": "wohnen",
+      "stem": "wohn",
+      "meaning": "to live / रहना"
+    },
+    {
+      "verb": "lieben",
+      "stem": "lieb",
+      "meaning": "to love / प्यार करना"
+    },
+    {
+      "verb": "bringen",
+      "stem": "bring",
+      "meaning": "to bring / लाना"
+    },
+    {
+      "verb": "kochen",
+      "stem": "koch",
+      "meaning": "to cook / पकाना"
+    },
+    {
+      "verb": "fragen",
+      "stem": "frag",
+      "meaning": "to ask / पूछना"
+    },
+    {
+      "verb": "singen",
+      "stem": "sing",
+      "meaning": "to sing / गाना"
+    },
+    {
+      "verb": "hören",
+      "stem": "hör",
+      "meaning": "to hear, listen / सुनना"
+    },
+    {
+      "verb": "schreiben",
+      "stem": "schreib",
+      "meaning": "to write / लिखना"
+    },
+    {
+      "verb": "suchen",
+      "stem": "such",
+      "meaning": "to search / ढूँढना"
+    },
+    {
+      "verb": "lernen",
+      "stem": "lern",
+      "meaning": "to learn / सीखना"
+    },
+    {
+      "verb": "lachen",
+      "stem": "lach",
+      "meaning": "to laugh / हँसना"
+    },
+    {
+      "verb": "spielen",
+      "stem": "spiel",
+      "meaning": "to play / खेलना"
+    }
+  ],
+  "ex3": [
+    {
+      "id": 1,
+      "sentence": "Ich __________ (trinken) Tee.",
+      "answer": "trinke"
+    },
+    {
+      "id": 2,
+      "sentence": "Du __________ (trinken) Pepsi.",
+      "answer": "trinkst"
+    },
+    {
+      "id": 3,
+      "sentence": "Er __________ (trinken) Kaffee.",
+      "answer": "trinkt"
+    },
+    {
+      "id": 4,
+      "sentence": "Wir __________ (trinken) Tee.",
+      "answer": "trinken"
+    },
+    {
+      "id": 5,
+      "sentence": "Ihr __________ (trinken) Pepsi.",
+      "answer": "trinkt"
+    },
+    {
+      "id": 6,
+      "sentence": "Ich __________ (spielen) Cricket.",
+      "answer": "spiele"
+    },
+    {
+      "id": 7,
+      "sentence": "Du __________ (spielen) Cricket.",
+      "answer": "spielst"
+    },
+    {
+      "id": 8,
+      "sentence": "Sie (she) __________ (spielen) Cricket.",
+      "answer": "spielt"
+    },
+    {
+      "id": 9,
+      "sentence": "Wir __________ (spielen) Cricket.",
+      "answer": "spielen"
+    },
+    {
+      "id": 10,
+      "sentence": "Sie (they) __________ (spielen) Cricket.",
+      "answer": "spielen"
+    },
+    {
+      "id": 11,
+      "sentence": "Ich __________ (lernen) Hindi.",
+      "answer": "lerne"
+    },
+    {
+      "id": 12,
+      "sentence": "Du __________ (lernen) Deutsch.",
+      "answer": "lernst"
+    },
+    {
+      "id": 13,
+      "sentence": "Er __________ (lernen) Hindi.",
+      "answer": "lernt"
+    },
+    {
+      "id": 14,
+      "sentence": "Ihr __________ (lernen) Deutsch.",
+      "answer": "lernt"
+    },
+    {
+      "id": 15,
+      "sentence": "Wir __________ (lernen) Deutsch.",
+      "answer": "lernen"
+    },
+    {
+      "id": 16,
+      "sentence": "Ich __________ (kochen) Pizza.",
+      "answer": "koche"
+    },
+    {
+      "id": 17,
+      "sentence": "Du __________ (machen) Tee.",
+      "answer": "machst"
+    },
+    {
+      "id": 18,
+      "sentence": "Sie (formal आप) __________ (wohnen) in Delhi.",
+      "answer": "wohnen"
+    },
+    {
+      "id": 19,
+      "sentence": "Er __________ (hören) Musik.",
+      "answer": "hört"
+    },
+    {
+      "id": 20,
+      "sentence": "Wir __________ (kommen) from office.",
+      "answer": "kommen"
+    }
+  ],
+  "ex4": [
+    {
+      "id": 1,
+      "sentence": "Herr Müller, trinken Sie Tee?",
+      "pronoun": "Sie",
+      "ans": "आप (You - Formal)",
+      "explanation": "Capital S + addressed to Herr Müller"
+    },
+    {
+      "id": 2,
+      "sentence": "Das ist Priya. Sie lernt Deutsch.",
+      "pronoun": "Sie",
+      "ans": "वह (She)",
+      "explanation": "Refers to Priya (singular female) + verb ends in -t (lernt)"
+    },
+    {
+      "id": 3,
+      "sentence": "Rahul und Neha sind hier. Sie spielen Cricket.",
+      "pronoun": "Sie",
+      "ans": "वे लोग (They)",
+      "explanation": "Refers to 2 people (Rahul & Neha) + verb ends in -en (spielen)"
+    },
+    {
+      "id": 4,
+      "sentence": "Ich kenne Maria. Sie wohnt in Mumbai.",
+      "pronoun": "Sie",
+      "ans": "वह (She)",
+      "explanation": "Refers to Maria + verb ends in -t (wohnt)"
+    },
+    {
+      "id": 5,
+      "sentence": "Meine Freunde sind da. Sie trinken Pepsi.",
+      "pronoun": "Sie",
+      "ans": "वे लोग (They)",
+      "explanation": "Refers to plural friends (Freunde) + verb ends in -en (trinken)"
+    },
+    {
+      "id": 6,
+      "sentence": "Frau Sharma, Sie singen super!",
+      "pronoun": "Sie",
+      "ans": "आप (You - Formal)",
+      "explanation": "Respectful address to Frau Sharma with capital S"
+    },
+    {
+      "id": 7,
+      "sentence": "Wo ist Anjali? Sie kocht Pizza.",
+      "pronoun": "Sie",
+      "ans": "वह (She)",
+      "explanation": "Refers to Anjali + verb ends in -t (kocht)"
+    },
+    {
+      "id": 8,
+      "sentence": "Die Studenten sind fleißig; sie lernen Hindi.",
+      "pronoun": "sie",
+      "ans": "वे लोग (They)",
+      "explanation": "Refers to students (Studenten) + lowercase s in clause + lernen (-en)"
+    }
+  ],
+  "ex5": [
+    {
+      "id": 1,
+      "prompt": "मैं चाय पीता हूँ। (I drink tea.)",
+      "german": "Ich trinke Tee."
+    },
+    {
+      "id": 2,
+      "prompt": "हम चाय पीते हैं। (We drink tea.)",
+      "german": "Wir trinken Tee."
+    },
+    {
+      "id": 3,
+      "prompt": "तू पेप्सी पीता है। (You drink Pepsi.)",
+      "german": "Du trinkst Pepsi."
+    },
+    {
+      "id": 4,
+      "prompt": "वह (लड़का) कॉफ़ी पीता है। (He drinks coffee.)",
+      "german": "Er trinkt Kaffee."
+    },
+    {
+      "id": 5,
+      "prompt": "तुम सब पेप्सी पीते हो। (You all drink Pepsi.)",
+      "german": "Ihr trinkt Pepsi."
+    },
+    {
+      "id": 6,
+      "prompt": "आप चाय पीते हैं। (YOU [formal] drink tea.)",
+      "german": "Sie trinken Tee."
+    },
+    {
+      "id": 7,
+      "prompt": "मैं क्रिकेट खेलता हूँ। (I play cricket.)",
+      "german": "Ich spiele Cricket."
+    },
+    {
+      "id": 8,
+      "prompt": "हम क्रिकेट खेलते हैं। (We play cricket.)",
+      "german": "Wir spielen Cricket."
+    },
+    {
+      "id": 9,
+      "prompt": "तू क्रिकेट खेलता है। (You play cricket.)",
+      "german": "Du spielst Cricket."
+    },
+    {
+      "id": 10,
+      "prompt": "वह (लड़की) क्रिकेट खेलती है। (She plays cricket.)",
+      "german": "Sie spielt Cricket."
+    },
+    {
+      "id": 11,
+      "prompt": "मैं हिंदी सीखता हूँ। (I learn Hindi.)",
+      "german": "Ich lerne Hindi."
+    },
+    {
+      "id": 12,
+      "prompt": "हम जर्मन (Deutsch) सीखते हैं। (We learn German.)",
+      "german": "Wir lernen Deutsch."
+    },
+    {
+      "id": 13,
+      "prompt": "तुम दोनों हिंदी सीखते हो। (You both learn Hindi.)",
+      "german": "Ihr lernt Hindi."
+    },
+    {
+      "id": 14,
+      "prompt": "वे लोग जर्मन सीखते हैं। (They learn German.)",
+      "german": "Sie lernen Deutsch."
+    },
+    {
+      "id": 15,
+      "prompt": "मैं पिज़्ज़ा खाता हूँ। (I eat pizza.)",
+      "german": "Ich esse Pizza."
+    },
+    {
+      "id": 16,
+      "prompt": "हम पिज़्ज़ा खाते हैं। (We eat pizza.)",
+      "german": "Wir essen Pizza."
+    },
+    {
+      "id": 17,
+      "prompt": "मैं संगीत (Musik) सुनता हूँ। (I listen to music.)",
+      "german": "Ich höre Musik."
+    },
+    {
+      "id": 18,
+      "prompt": "वह (लड़का) संगीत सुनता है। (He listens to music.)",
+      "german": "Er hört Musik."
+    },
+    {
+      "id": 19,
+      "prompt": "मैं दिल्ली में रहता हूँ। (I live in Delhi.)",
+      "german": "Ich wohne in Delhi."
+    },
+    {
+      "id": 20,
+      "prompt": "हम म्यूनिख (Munich) में रहते हैं। (We live in Munich.)",
+      "german": "Wir wohnen in Munich."
+    }
+  ],
+  "ex6": [
+    {
+      "id": 1,
+      "bad": "Ich trinken Pepsi.",
+      "good": "Ich trinke Pepsi.",
+      "rule": "With ich, ending is -e."
+    },
+    {
+      "id": 2,
+      "bad": "Du spieles Cricket.",
+      "good": "Du spielst Cricket.",
+      "rule": "With du, stem spiel + -st."
+    },
+    {
+      "id": 3,
+      "bad": "Wir lernt Hindi.",
+      "good": "Wir lernen Hindi.",
+      "rule": "With wir, ending is -en."
+    },
+    {
+      "id": 4,
+      "bad": "Ich Tee trinke.",
+      "good": "Ich trinke Tee.",
+      "rule": "Verb must be in 2nd position."
+    },
+    {
+      "id": 5,
+      "bad": "Er kochen Pizza.",
+      "good": "Er kocht Pizza.",
+      "rule": "With er, ending is -t."
+    },
+    {
+      "id": 6,
+      "bad": "Ihr trinken Kaffee.",
+      "good": "Ihr trinkt Kaffee.",
+      "rule": "With ihr, ending is -t."
+    },
+    {
+      "id": 7,
+      "bad": "Wir Cricket spielen.",
+      "good": "Wir spielen Cricket.",
+      "rule": "Verb must be in 2nd position."
+    },
+    {
+      "id": 8,
+      "bad": "Du kommst from office?",
+      "good": "Ich komme from office.",
+      "rule": "Change subject to ich -> ich komme."
+    },
+    {
+      "id": 9,
+      "bad": "Sie (she) lernen Deutsch.",
+      "good": "Sie lernt Deutsch.",
+      "rule": "She (singular) takes -t -> lernt."
+    },
+    {
+      "id": 10,
+      "bad": "Ich wohnst in Mumbai.",
+      "good": "Ich wohne in Mumbai.",
+      "rule": "With ich, ending is -e."
+    }
+  ]
+}

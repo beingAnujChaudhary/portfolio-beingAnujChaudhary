@@ -967,6 +967,14 @@ export default function Chapter1Masterclass() {
               <ChevronLeft className="w-4 h-4" />
               <span>Roadmap</span>
             </a>
+            <a
+              href="./chapter-2.html"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-950/80 hover:bg-emerald-900/80 text-emerald-300 hover:text-emerald-200 border border-emerald-500/40 text-xs font-semibold transition shadow-sm"
+              title="Next: Chapter 2 Masterclass"
+            >
+              <span>Lektion 2</span>
+              <ChevronRight className="w-4 h-4" />
+            </a>
 
             <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg">
 

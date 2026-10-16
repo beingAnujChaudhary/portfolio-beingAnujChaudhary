@@ -10,7 +10,9 @@ export default defineConfig({
     rollupOptions: {
       input: {
         landing: resolve(import.meta.dirname, 'index.html'),
-        chapter1: resolve(import.meta.dirname, 'menschen-a1-1/index.html')
+        chapter1: resolve(import.meta.dirname, 'menschen-a1-1/index.html'),
+        chapter2: resolve(import.meta.dirname, 'menschen-a1-1/chapter-2.html'),
+        notes: resolve(import.meta.dirname, 'german-a1-notes/index.html')
       }
     }
   }
