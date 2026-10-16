@@ -530,6 +530,27 @@ export default function Chapter2Masterclass() {
             >
               <span>Lektion 1</span>
             </a>
+            <a
+              href="./chapter-3.html"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/90 hover:bg-slate-800 text-slate-300 hover:text-rose-400 border border-slate-700 text-xs font-semibold transition shadow-sm"
+              title="Go to Chapter 3"
+            >
+              <span>Lektion 3</span>
+            </a>
+            <a
+              href="./chapter-4.html"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/90 hover:bg-slate-800 text-slate-300 hover:text-teal-400 border border-slate-700 text-xs font-semibold transition shadow-sm"
+              title="Go to Chapter 4"
+            >
+              <span>Lektion 4</span>
+            </a>
+            <a
+              href="../german-a1-notes/index.html"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/90 hover:bg-slate-800 text-slate-300 hover:text-amber-400 border border-slate-700 text-xs font-semibold transition shadow-sm"
+              title="A1 Notes & 300 Flashcards"
+            >
+              <span>300 Cards</span>
+            </a>
             <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-600 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg">
               L2
             </div>

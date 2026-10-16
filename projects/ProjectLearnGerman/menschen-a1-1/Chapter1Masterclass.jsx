@@ -970,10 +970,30 @@ export default function Chapter1Masterclass() {
             <a
               href="./chapter-2.html"
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-950/80 hover:bg-emerald-900/80 text-emerald-300 hover:text-emerald-200 border border-emerald-500/40 text-xs font-semibold transition shadow-sm"
-              title="Next: Chapter 2 Masterclass"
+              title="Chapter 2 Masterclass"
             >
               <span>Lektion 2</span>
-              <ChevronRight className="w-4 h-4" />
+            </a>
+            <a
+              href="./chapter-3.html"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-purple-950/80 hover:bg-purple-900/80 text-purple-300 hover:text-purple-200 border border-purple-500/40 text-xs font-semibold transition shadow-sm"
+              title="Chapter 3 Masterclass"
+            >
+              <span>Lektion 3</span>
+            </a>
+            <a
+              href="./chapter-4.html"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-teal-950/80 hover:bg-teal-900/80 text-teal-300 hover:text-teal-200 border border-teal-500/40 text-xs font-semibold transition shadow-sm"
+              title="Chapter 4 Masterclass"
+            >
+              <span>Lektion 4</span>
+            </a>
+            <a
+              href="../german-a1-notes/index.html"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/90 hover:bg-slate-800 text-slate-300 hover:text-amber-400 border border-slate-700 text-xs font-semibold transition shadow-sm"
+              title="A1 Notes & 300 Flashcards"
+            >
+              <span>300 Cards</span>
             </a>
 
             <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg">
