@@ -7,7 +7,9 @@
       "**/.*",
       "**/node_modules/**",
       "**/*.log",
-      ".git/**"
+      ".git/**",
+      "!projects/amadeus-gds-platform/dist/**",
+      "!projects/amadeus-gds-platform/dist"
     ],
     "rewrites": [
       {

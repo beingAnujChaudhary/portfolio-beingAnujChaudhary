@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Learn German — A1 to B1 Roadmap & Masterclass | Anuj Chaudhary</title>
+  <meta name="description" content="A comprehensive 26-week German roadmap from beginner (A1) to independent speaker (B1) based on the Menschen series, with interactive chapter masterclasses, audio, grammar drills, and progress tracking.">
+  <link rel="shortcut icon" href="../../assets/images/favicon_circular.png" type="image/png">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Anuj Chaudhary">
+  <link rel="canonical" href="https://anujchaudhary.web.app/projects/ProjectLearnGerman/">
+
+  <!-- Tailwind CSS & Google Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * { font-family: 'Plus Jakarta Sans', sans-serif; }
+    code, pre, .mono { font-family: 'JetBrains Mono', monospace; }
+    body { background-color: #030712; color: #f3f4f6; overflow-x: hidden; }
+
+    .de-stripe-top {
+      background: linear-gradient(to right, #111827 0% 33.3%, #dc2626 33.3% 66.6%, #f59e0b 66.6% 100%);
+      height: 4px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+    }
+
+    .scroll-progress-bar {
+      position: fixed;
+      top: 4px;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(to right, #f59e0b, #6366f1, #10b981);
+      z-index: 101;
+      width: 0%;
+      transition: width 0.1s ease;
+    }
+
+    .glass-card {
+      background: rgba(17, 24, 39, 0.7);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 1rem;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glass-card:hover {
+      border-color: rgba(245, 158, 11, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px -15px rgba(245, 158, 11, 0.12);
+    }
+
+    .book-card-active {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
+      border: 1px solid rgba(245, 158, 11, 0.5);
+      border-top: 4px solid #f59e0b;
+      box-shadow: 0 10px 30px -10px rgba(245, 158, 11, 0.2);
+    }
+
+    .hero-glow {
+      background: radial-gradient(circle at 50% -20%, rgba(99, 102, 241, 0.25), rgba(245, 158, 11, 0.1) 40%, transparent 70%);
+    }
+
+    .btn-glow {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      box-shadow: 0 4px 20px rgba(245, 158, 11, 0.35);
+      transition: all 0.25s ease;
+    }
+    .btn-glow:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(245, 158, 11, 0.5);
+    }
+
+    /* Custom Checkbox */
+    .checkbox-custom {
+      appearance: none;
+      width: 1.25rem;
+      height: 1.25rem;
+      border: 2px solid #4b5563;
+      border-radius: 0.375rem;
+      background: rgba(17, 24, 39, 0.8);
+      cursor: pointer;
+      display: inline-grid;
+      place-content: center;
+      transition: all 0.2s ease;
+    }
+    .checkbox-custom:checked {
+      background-color: #10b981;
+      border-color: #10b981;
+    }
+    .checkbox-custom:checked::before {
+      content: "✓";
+      color: white;
+      font-size: 0.875rem;
+      font-weight: 800;
+    }
+  </style>
+</head>
+<body class="selection:bg-amber-400 selection:text-slate-950">
+
+  <!-- German Colors Top Accent Stripe -->
+  <div class="de-stripe-top"></div>
+  <div id="scrollProgressBar" class="scroll-progress-bar"></div>
+
+  <!-- Navigation Bar -->
+  <header class="fixed top-1 left-0 right-0 z-40 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="../../pages/projects.html" class="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700 transition">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+          Portfolio
+        </a>
+        <div class="h-4 w-px bg-slate-800"></div>
+        <a href="#" class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse"></span>
+          <span class="font-extrabold text-white text-sm sm:text-base tracking-tight">Project<span class="text-amber-400">LearnGerman</span></span>
+        </a>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-6 text-xs font-semibold text-slate-400">
+        <a href="#roadmap" class="hover:text-amber-400 transition">6-Month Roadmap</a>
+        <a href="#resources" class="hover:text-amber-400 transition">Resources</a>
+        <a href="#routine" class="hover:text-amber-400 transition">Weekly Schedule</a>
+        <a href="#books" class="hover:text-amber-400 transition">Menschen Books</a>
+        <a href="#milestones" class="hover:text-amber-400 transition">18 Milestones</a>
+      </nav>
+
+      <div class="flex items-center gap-2.5">
+        <a href="./menschen-a1-1/index.html" class="inline-flex items-center gap-1.5 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 text-xs font-bold px-3.5 py-1.5 rounded-full shadow-md transition transform hover:scale-105">
+          <span>Chapter 1</span>
+          <span class="bg-slate-950 text-amber-300 text-[10px] px-1.5 py-0.2 rounded-full font-black uppercase">Live</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-glow pt-36 pb-20 px-4 sm:px-6 relative overflow-hidden">
+    <div class="max-w-5xl mx-auto text-center relative z-10">
+      
+      <!-- Top Pill -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-950/80 border border-indigo-500/30 text-indigo-300 text-xs font-semibold mb-6">
+        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+        Structured Independent Study Curriculum &middot; 26 Weeks
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="text-4xl sm:text-6xl md:text-7xl font-black text-white tracking-tight leading-[1.1] mb-6">
+        Beginner to <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-amber-500">B1 German</span><br>
+        In Six Dedicated Months
+      </h1>
+
+      <p class="text-base sm:text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed mb-10">
+        Personalized roadmap for <strong>Anuj Chaudhary</strong>, architected around the complete <em>Menschen</em> coursebooks, intensive trainers, audio recordings, and interactive masterclass lessons. Built to balance with full-time professional work and IIT Madras Data Science studies.
+      </p>
+
+      <!-- Key KPI Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-3xl mx-auto mb-10">
+        <div class="glass-card p-4 text-center">
+          <div class="text-xs uppercase font-bold tracking-wider text-slate-400">Starting Point</div>
+          <div class="text-2xl sm:text-3xl font-black text-amber-400 mt-1">A1</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">Absolute Beginner</div>
+        </div>
+        <div class="glass-card p-4 text-center">
+          <div class="text-xs uppercase font-bold tracking-wider text-slate-400">Target Level</div>
+          <div class="text-2xl sm:text-3xl font-black text-emerald-400 mt-1">B1</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">Independent User (CEFR)</div>
+        </div>
+        <div class="glass-card p-4 text-center">
+          <div class="text-xs uppercase font-bold tracking-wider text-slate-400">Timeframe</div>
+          <div class="text-2xl sm:text-3xl font-black text-indigo-400 mt-1">26</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">Structured Weeks</div>
+        </div>
+        <div class="glass-card p-4 text-center">
+          <div class="text-xs uppercase font-bold tracking-wider text-slate-400">Commitment</div>
+          <div class="text-2xl sm:text-3xl font-black text-rose-400 mt-1">8–10</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">Hours Per Week</div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="./menschen-a1-1/index.html" class="btn-glow inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full text-slate-950 font-extrabold text-sm sm:text-base">
+          <span>Launch Chapter 1 Masterclass</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </a>
+        <a href="#books" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-slate-700 font-bold text-sm sm:text-base transition">
+          <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+          Explore All Coursebooks
+        </a>
+        <a href="#milestones" class="inline-flex items-center gap-2 px-5 py-3.5 rounded-full bg-emerald-950/40 hover:bg-emerald-900/40 text-emerald-300 border border-emerald-500/30 font-bold text-sm transition">
+          <span id="heroProgressBadge">0/18 Done</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 1: Resource Matrix -->
+  <section id="resources" class="py-16 px-4 sm:px-6 max-w-6xl mx-auto">
+    <div class="mb-10 text-center sm:text-left">
+      <div class="text-xs font-bold uppercase tracking-widest text-amber-400">Core Toolkit</div>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">1. Organize Your Existing Resources</h2>
+      <p class="text-slate-400 text-sm sm:text-base mt-2 max-w-2xl">
+        You already possess extensive high-quality materials. Rather than overwhelming yourself with overlapping textbooks, give each specific resource a dedicated role.
+      </p>
+    </div>
+
+    <div class="glass-card overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm">
+          <thead class="bg-slate-900/90 text-slate-300 border-b border-slate-800 text-xs uppercase tracking-wider">
+            <tr>
+              <th class="py-4 px-5 font-bold">Resource</th>
+              <th class="py-4 px-5 font-bold">Target Phase</th>
+              <th class="py-4 px-5 font-bold">How to Use It Strategically</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800/60 text-slate-300">
+            <tr class="hover:bg-slate-800/30 transition">
+              <td class="py-3.5 px-5 font-bold text-amber-400">Menschen A1.1 &amp; A1.2</td>
+              <td class="py-3.5 px-5"><span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 text-xs font-bold">Months 1–2</span></td>
+              <td class="py-3.5 px-5 text-slate-300">Core lessons, fundamental dialogues, baseline vocabulary, and foundational exercises at A1.</td>
+            </tr>
+            <tr class="hover:bg-slate-800/30 transition">
+              <td class="py-3.5 px-5 font-bold text-amber-300">Menschen A1 Testtrainer</td>
+              <td class="py-3.5 px-5"><span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 text-xs font-bold">End of Month 2</span></td>
+              <td class="py-3.5 px-5 text-slate-300">A1 revision, mock tests, and readiness evaluation before progressing to A2.</td>
+            </tr>
+            <tr class="hover:bg-slate-800/30 transition">
+              <td class="py-3.5 px-5 font-bold text-indigo-400">Menschen A2 Intensivtrainer</td>
+              <td class="py-3.5 px-5"><span class="px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 text-xs font-bold">Month 3</span></td>
+              <td class="py-3.5 px-5 text-slate-300">Supplementary drills and grammar consolidation after each corresponding A2 topic.</td>
+            </tr>
+            <tr class="hover:bg-slate-800/30 transition">
+              <td class="py-3.5 px-5 font-bold text-purple-400">Menschen B1 Intensivtrainer</td>
+              <td class="py-3.5 px-5"><span class="px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 text-xs font-bold">Months 4–5</span></td>
+              <td class="py-3.5 px-5 text-slate-300">Targeted B1 practice, advanced clause structures, and written expression alongside B1 textbook.</td>
+            </tr>
+            <tr class="hover:bg-slate-800/30 transition">
+              <td class="py-3.5 px-5 font-bold text-emerald-400">Vocabulary Lists (A1, A2, B1)</td>
+              <td class="py-3.5 px-5"><span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-xs font-bold">Ongoing (Daily)</span></td>
+              <td class="py-3.5 px-5 text-slate-300">Build contextual Anki flashcard decks: nouns always with article + plural; verbs with prepositions.</td>
+            </tr>
+            <tr class="hover:bg-slate-800/30 transition">
+              <td class="py-3.5 px-5 font-bold text-slate-200">Artikel / Gender Reference</td>
+              <td class="py-3.5 px-5"><span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-xs font-bold">Reference</span></td>
+              <td class="py-3.5 px-5 text-slate-300">Consult when learning new nouns; do not try to memorise isolated lists in a single sitting.</td>
+            </tr>
+            <tr class="hover:bg-slate-800/30 transition">
+              <td class="py-3.5 px-5 font-bold text-slate-200">Verb &amp; Conjugation Reference</td>
+              <td class="py-3.5 px-5"><span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 text-xs font-bold">Reference</span></td>
+              <td class="py-3.5 px-5 text-slate-300">Look up irregular vowel shifts (e&rarr;ie/i, a&rarr;&auml;) and review principal forms (Infinitive, Pr&auml;teritum, Partizip II).</td>
+            </tr>
+            <tr class="hover:bg-slate-800/30 transition">
+              <td class="py-3.5 px-5 font-bold text-cyan-400">H&ouml;ren Sie mal (119 Recordings)</td>
+              <td class="py-3.5 px-5"><span class="px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 text-xs font-bold">A1 through B1</span></td>
+              <td class="py-3.5 px-5 text-slate-300">Core listening comprehension and auditory training. Follow the 3-pass listening technique.</td>
+            </tr>
+            <tr class="hover:bg-slate-800/30 transition">
+              <td class="py-3.5 px-5 font-bold text-pink-400">Jojo sucht das Gl&uuml;ck (33 Episodes)</td>
+              <td class="py-3.5 px-5"><span class="px-2 py-0.5 rounded bg-pink-500/20 text-pink-300 text-xs font-bold">Months 4–6</span></td>
+              <td class="py-3.5 px-5 text-slate-300">Authentic Deutsche Welle telenovela with German subtitles for natural conversational pacing.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: 6-Month Roadmap Phases -->
+  <section id="roadmap" class="py-16 px-4 sm:px-6 max-w-6xl mx-auto">
+    <div class="mb-12 text-center">
+      <div class="text-xs font-bold uppercase tracking-widest text-amber-400">Chronological Curriculum</div>
+      <h2 class="text-3xl sm:text-5xl font-black text-white mt-1">2. Six-Month Roadmap: Month by Month</h2>
+      <p class="text-slate-400 text-sm sm:text-base mt-2 max-w-2xl mx-auto">
+        Carefully structured into 6 distinct phases to build communicative competence without cognitive burnout.
+      </p>
+    </div>
+
+    <div class="space-y-6">
+
+      <!-- Phase 1 -->
+      <div class="glass-card p-6 sm:p-8 border-l-4 border-l-amber-400 relative">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-4">
+          <div class="flex items-center gap-3">
+            <span class="w-10 h-10 rounded-xl bg-amber-400/20 text-amber-400 flex items-center justify-center font-black text-lg">01</span>
+            <div>
+              <span class="text-xs uppercase tracking-wider text-amber-400 font-bold">Weeks 1–4 &middot; Month 1</span>
+              <h3 class="text-xl sm:text-2xl font-bold text-white">Build Your A1 Foundation</h3>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-400/10 text-amber-300 border border-amber-400/30">Target: Functional A1.1</span>
+            <a href="./menschen-a1-1/index.html" class="px-3 py-1 rounded-full text-xs font-bold bg-amber-400 text-slate-950 hover:bg-amber-300 transition">Open Lektion 1 &rarr;</a>
+          </div>
+        </div>
+
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-4">
+          <strong>Primary Resources:</strong> Menschen A1.1 (all 12 chapters) &middot; H&ouml;ren Sie mal (Recordings 1–25) &middot; A1 Vocabulary list &middot; DW Nicos Weg A1 (Chapters 1–25).
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mb-5">
+          <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-800 text-xs">
+            <div class="text-amber-400 font-bold mb-1">Pronunciation &amp; Sound</div>
+            <div class="text-slate-400">Alphabet, vowel shifts, umlauts (&auml;, &ouml;, &uuml;), &szlig;, and ch-sounds.</div>
+          </div>
+          <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-800 text-xs">
+            <div class="text-amber-400 font-bold mb-1">Verb Conjugations</div>
+            <div class="text-slate-400">Present tense regular (-e, -st, -t, -en) and irregulars: <em>sein</em>, <em>haben</em>.</div>
+          </div>
+          <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-800 text-xs">
+            <div class="text-amber-400 font-bold mb-1">Gender &amp; Articles</div>
+            <div class="text-slate-400">Definite (<em>der, die, das</em>) and indefinite (<em>ein, eine</em>) in Nominativ.</div>
+          </div>
+          <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-800 text-xs">
+            <div class="text-amber-400 font-bold mb-1">Survival Social</div>
+            <div class="text-slate-400">Greetings, introductions, ordering, numbers 0–100, telling time.</div>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-indigo-950/40 border border-indigo-500/20 text-xs sm:text-sm text-indigo-200 flex items-start gap-3">
+          <svg class="w-5 h-5 text-amber-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <div>
+            <strong class="text-amber-400">Checkpoint 1:</strong> Greet someone, introduce yourself, state where you are from, ask simple questions, order a coffee/meal, and conjugate common present-tense verbs correctly without hesitating.
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="glass-card p-6 sm:p-8 border-l-4 border-l-emerald-400 relative">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-4">
+          <div class="flex items-center gap-3">
+            <span class="w-10 h-10 rounded-xl bg-emerald-400/20 text-emerald-400 flex items-center justify-center font-black text-lg">02</span>
+            <div>
+              <span class="text-xs uppercase tracking-wider text-emerald-400 font-bold">Weeks 5–8 &middot; Month 2</span>
+              <h3 class="text-xl sm:text-2xl font-bold text-white">Finish A1 and Start A2</h3>
+            </div>
+          </div>
+          <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-400/10 text-emerald-300 border border-emerald-400/30">Target: Solid A1 Certified Level</span>
+        </div>
+
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-4">
+          <strong>Primary Resources:</strong> Menschen A1.2 &middot; Menschen A1 Testtrainer &middot; H&ouml;ren Sie mal (Recordings 26–50) &middot; DW Nicos Weg A1 (Complete).
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mb-5">
+          <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-800 text-xs">
+            <div class="text-emerald-400 font-bold mb-1">Accusative Case</div>
+            <div class="text-slate-400">Direct objects: <em>den</em> / <em>einen</em> change for masculine; neuter &amp; feminine remain unchanged.</div>
+          </div>
+          <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-800 text-xs">
+            <div class="text-emerald-400 font-bold mb-1">Separable Verbs</div>
+            <div class="text-slate-400">Prefix shifts to end: <em>aufstehen</em>, <em>anrufen</em>, <em>einkaufen</em>, <em>fernsehen</em>.</div>
+          </div>
+          <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-800 text-xs">
+            <div class="text-emerald-400 font-bold mb-1">Modal Verbs</div>
+            <div class="text-slate-400"><em>K&ouml;nnen</em>, <em>m&uuml;ssen</em>, <em>wollen</em>, <em>d&uuml;rfen</em> + infinitive at sentence end.</div>
+          </div>
+          <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-800 text-xs">
+            <div class="text-emerald-400 font-bold mb-1">Past Tense (Perfekt)</div>
+            <div class="text-slate-400">Conversational past tense: <em>haben / sein</em> + Partizip II (<em>ge-...-t / ge-...-en</em>).</div>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-emerald-950/40 border border-emerald-500/20 text-xs sm:text-sm text-emerald-200 flex items-start gap-3">
+          <svg class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <div>
+            <strong class="text-emerald-400">Checkpoint 2:</strong> Score &ge; 60% on an A1 practice examination paper (Goethe A1 or Testtrainer), write a 40–50 word informal email, and follow short recorded announcements (train stations/stores).
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="glass-card p-6 sm:p-8 border-l-4 border-l-indigo-400 relative">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-4">
+          <div class="flex items-center gap-3">
+            <span class="w-10 h-10 rounded-xl bg-indigo-400/20 text-indigo-400 flex items-center justify-center font-black text-lg">03</span>
+            <div>
+              <span class="text-xs uppercase tracking-wider text-indigo-400 font-bold">Weeks 9–13 &middot; Month 3</span>
+              <h3 class="text-xl sm:text-2xl font-bold text-white">Complete A2 Curriculum</h3>
+            </div>
+          </div>
+          <span class="px-3 py-1 rounded-full text-xs font-bold bg-indigo-400/10 text-indigo-300 border border-indigo-400/30">Target: Everyday Fluency (A2)</span>
+        </div>
+
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-4">
+          <strong>Primary Resources:</strong> Complete Menschen A2.1 and progress through A2.2 &middot; A2 Intensivtrainer &middot; H&ouml;ren Sie mal (Recordings 51–75) &middot; DW Nicos Weg A2.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mb-5">
+          <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-800 text-xs">
+            <div class="text-indigo-400 font-bold mb-1">Dative Prepositions</div>
+            <div class="text-slate-400"><em>Aus, bei, mit, nach, seit, von, zu</em> always take Dativ (<em>dem, der, den +n</em>).</div>
+          </div>
+          <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-800 text-xs">
+            <div class="text-indigo-400 font-bold mb-1">Two-Way Prepositions</div>
+            <div class="text-slate-400">Wechselpr&auml;positionen: Akkusativ for movement (Wohin?), Dativ for position (Wo?).</div>
+          </div>
+          <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-800 text-xs">
+            <div class="text-indigo-400 font-bold mb-1">Reflexive Verbs</div>
+            <div class="text-slate-400"><em>Sich freuen, sich interessieren, sich erinnern</em> with reflexive pronouns.</div>
+          </div>
+          <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-800 text-xs">
+            <div class="text-indigo-400 font-bold mb-1">Subordinate Clauses</div>
+            <div class="text-slate-400"><em>Weil, dass, wenn</em> kick the conjugated verb to the very end of the clause.</div>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-indigo-950/40 border border-indigo-500/20 text-xs sm:text-sm text-indigo-200 flex items-start gap-3">
+          <svg class="w-5 h-5 text-indigo-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <div>
+            <strong class="text-indigo-400">Checkpoint 3:</strong> Speak for 3 continuous minutes about your weekend, write an email to reschedule an appointment, and follow standard spoken everyday German dialogues.
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 4 -->
+      <div class="glass-card p-6 sm:p-8 border-l-4 border-l-purple-400 relative">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-4">
+          <div class="flex items-center gap-3">
+            <span class="w-10 h-10 rounded-xl bg-purple-400/20 text-purple-400 flex items-center justify-center font-black text-lg">04</span>
+            <div>
+              <span class="text-xs uppercase tracking-wider text-purple-400 font-bold">Weeks 14–17 &middot; Month 4</span>
+              <h3 class="text-xl sm:text-2xl font-bold text-white">Start B1 and Strengthen Grammar</h3>
+            </div>
+          </div>
+          <span class="px-3 py-1 rounded-full text-xs font-bold bg-purple-400/10 text-purple-300 border border-purple-400/30">Target: Transition into Independent Speaker</span>
+        </div>
+
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-4">
+          <strong>Primary Resources:</strong> Menschen B1 coursebook &middot; B1 Intensivtrainer &middot; H&ouml;ren Sie mal (Recordings 76–100) &middot; Start Jojo sucht das Gl&uuml;ck (Episodes 1–10).
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mb-5">
+          <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-800 text-xs">
+            <div class="text-purple-400 font-bold mb-1">Expressing Opinions</div>
+            <div class="text-slate-400"><em>Meiner Meinung nach, Ich bin der Ansicht, dass..., Einerseits... andererseits</em>.</div>
+          </div>
+          <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-800 text-xs">
+            <div class="text-purple-400 font-bold mb-1">Relative Clauses</div>
+            <div class="text-slate-400"><em>Der Mann, der..., Das Buch, das ich lese...</em> with correct cases.</div>
+          </div>
+          <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-800 text-xs">
+            <div class="text-purple-400 font-bold mb-1">Konjunktiv II</div>
+            <div class="text-slate-400">Polite requests &amp; hypotheticals: <em>h&auml;tte, w&auml;re, w&uuml;rde + Infinitiv, k&ouml;nnte</em>.</div>
+          </div>
+          <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-800 text-xs">
+            <div class="text-purple-400 font-bold mb-1">Passive Voice</div>
+            <div class="text-slate-400">Processes &amp; facts: <em>werden + Partizip II</em> (z.B. <em>Das Auto wird repariert</em>).</div>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-purple-950/40 border border-purple-500/20 text-xs sm:text-sm text-purple-200 flex items-start gap-3">
+          <svg class="w-5 h-5 text-purple-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <div>
+            <strong class="text-purple-400">Checkpoint 4:</strong> Explain your opinion on a familiar topic, justify why you like/dislike something, describe a past work or travel experience, and write connected paragraphs.
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 5 -->
+      <div class="glass-card p-6 sm:p-8 border-l-4 border-l-rose-400 relative">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-4">
+          <div class="flex items-center gap-3">
+            <span class="w-10 h-10 rounded-xl bg-rose-400/20 text-rose-400 flex items-center justify-center font-black text-lg">05</span>
+            <div>
+              <span class="text-xs uppercase tracking-wider text-rose-400 font-bold">Weeks 18–22 &middot; Month 5</span>
+              <h3 class="text-xl sm:text-2xl font-bold text-white">Finish B1 Content &amp; Active Production</h3>
+            </div>
+          </div>
+          <span class="px-3 py-1 rounded-full text-xs font-bold bg-rose-400/10 text-rose-300 border border-rose-400/30">Target: Advanced B1 Mastery</span>
+        </div>
+
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-4">
+          <strong>Primary Resources:</strong> Finish Menschen B1 &middot; B1 Intensivtrainer &middot; H&ouml;ren Sie mal (Recordings 101–119) &middot; Jojo sucht das Gl&uuml;ck (Episodes 11–33).
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mb-5">
+          <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-800 text-xs">
+            <div class="text-rose-400 font-bold mb-1">Longer Listening</div>
+            <div class="text-slate-400">Extracting nuanced facts and attitudes from extended natural dialogues.</div>
+          </div>
+          <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-800 text-xs">
+            <div class="text-rose-400 font-bold mb-1">Spontaneous Speech</div>
+            <div class="text-slate-400">Narrating events, discussing pros &amp; cons, handling unexpected conversation turns.</div>
+          </div>
+          <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-800 text-xs">
+            <div class="text-rose-400 font-bold mb-1">Formal Letter Writing</div>
+            <div class="text-slate-400">Formal complaints, inquiries, applications, and structured argument essays.</div>
+          </div>
+          <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-800 text-xs">
+            <div class="text-rose-400 font-bold mb-1">B1 Lexical Range</div>
+            <div class="text-slate-400">Workplace, environment, social issues, higher education, and technology.</div>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-rose-950/40 border border-rose-500/20 text-xs sm:text-sm text-rose-200 flex items-start gap-3">
+          <svg class="w-5 h-5 text-rose-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <div>
+            <strong class="text-rose-400">Checkpoint 5:</strong> Complete a timed B1 practice examination (Goethe/telc). Identify which of the 4 sections (Lesen, H&ouml;ren, Schreiben, Sprechen) needs targeted remediation.
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 6 -->
+      <div class="glass-card p-6 sm:p-8 border-l-4 border-l-amber-400 relative">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-4">
+          <div class="flex items-center gap-3">
+            <span class="w-10 h-10 rounded-xl bg-amber-400/20 text-amber-400 flex items-center justify-center font-black text-lg">06</span>
+            <div>
+              <span class="text-xs uppercase tracking-wider text-amber-400 font-bold">Weeks 23–26 &middot; Month 6</span>
+              <h3 class="text-xl sm:text-2xl font-bold text-white">Consolidation and B1 Exam Readiness</h3>
+            </div>
+          </div>
+          <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-400 text-slate-950">Target: Exam Confident</span>
+        </div>
+
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-4">
+          <strong>Primary Resources:</strong> Review B1 notes &middot; B1 Intensivtrainer &middot; Timed practice papers from Goethe-Institut &amp; telc &middot; Partner or recorded monologue practice.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mb-5">
+          <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-800 text-xs">
+            <div class="text-amber-400 font-bold mb-1">Lesen Mastery</div>
+            <div class="text-slate-400">5 reading tasks under 65 minutes. Skimming, scanning, and identifying subtle distractors.</div>
+          </div>
+          <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-800 text-xs">
+            <div class="text-amber-400 font-bold mb-1">H&ouml;ren Mastery</div>
+            <div class="text-slate-400">4 listening tasks under 40 minutes. Announcements, interviews, discussions.</div>
+          </div>
+          <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-800 text-xs">
+            <div class="text-amber-400 font-bold mb-1">Schreiben Mastery</div>
+            <div class="text-slate-400">Task 1: informal message (80 words); Task 2: opinion comment (80 words); Task 3: formal letter (40 words).</div>
+          </div>
+          <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-800 text-xs">
+            <div class="text-amber-400 font-bold mb-1">Sprechen Mastery</div>
+            <div class="text-slate-400">Joint planning with partner (Teil 1) &middot; Topic presentation with slides (Teil 2 &amp; 3).</div>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-amber-950/40 border border-amber-500/20 text-xs sm:text-sm text-amber-200 flex items-start gap-3">
+          <svg class="w-5 h-5 text-amber-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <div>
+            <strong class="text-amber-400">Final Checkpoint:</strong> Complete at least two full mock tests under realistic timed conditions. Reach the required pass criteria (60%+ in each module) across reading, listening, writing, and speaking.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 3: Weekly Timetable & Routine -->
+  <section id="routine" class="py-16 px-4 sm:px-6 max-w-6xl mx-auto">
+    <div class="mb-10 text-center sm:text-left">
+      <div class="text-xs font-bold uppercase tracking-widest text-amber-400">Sustainable Habit Loop</div>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">3. Your Weekly Timetable (~9 Hours)</h2>
+      <p class="text-slate-400 text-sm sm:text-base mt-2 max-w-2xl">
+        Designed to fit alongside full-time work and IIT Madras Data Science coursework. Daily 45–60 minute sessions produce vastly superior retention compared to a 6-hour weekend binge.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      
+      <div class="glass-card p-5 border-t-2 border-t-amber-400">
+        <div class="flex items-center justify-between mb-3">
+          <span class="font-extrabold text-white text-base">Monday</span>
+          <span class="text-xs font-bold px-2.5 py-0.5 rounded bg-amber-500/20 text-amber-300">60 mins</span>
+        </div>
+        <div class="text-xs font-bold uppercase tracking-wider text-amber-400 mb-1">New Grammar &amp; Structure</div>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          Open the week by introducing the new grammar point of the current lesson (e.g., Akkusativ or Modal verbs). Read the reference rules and complete 3–4 written exercises from the workbook.
+        </p>
+      </div>
+
+      <div class="glass-card p-5 border-t-2 border-t-indigo-400">
+        <div class="flex items-center justify-between mb-3">
+          <span class="font-extrabold text-white text-base">Tuesday</span>
+          <span class="text-xs font-bold px-2.5 py-0.5 rounded bg-indigo-500/20 text-indigo-300">45 mins</span>
+        </div>
+        <div class="text-xs font-bold uppercase tracking-wider text-indigo-400 mb-1">Audio &amp; Vocabulary Review</div>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          Listen to 2–3 tracks of <em>H&ouml;ren Sie mal</em> using the 3-pass method. Review 20 Anki flashcards. Add 10 new words from yesterday's grammar lesson with full articles and plurals.
+        </p>
+      </div>
+
+      <div class="glass-card p-5 border-t-2 border-t-emerald-400">
+        <div class="flex items-center justify-between mb-3">
+          <span class="font-extrabold text-white text-base">Wednesday</span>
+          <span class="text-xs font-bold px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300">60 mins</span>
+        </div>
+        <div class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1">Textbook Dialogues &amp; Readings</div>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          Work through the <em>Menschen</em> core reading passages and conversation models. Read aloud three times to train mouth muscles and intonation on German vowels.
+        </p>
+      </div>
+
+      <div class="glass-card p-5 border-t-2 border-t-purple-400">
+        <div class="flex items-center justify-between mb-3">
+          <span class="font-extrabold text-white text-base">Thursday</span>
+          <span class="text-xs font-bold px-2.5 py-0.5 rounded bg-purple-500/20 text-purple-300">45 mins</span>
+        </div>
+        <div class="text-xs font-bold uppercase tracking-wider text-purple-400 mb-1">Active Speaking &amp; Shadowing</div>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          Record a 2-minute voice note on your phone describing your day or introducing a topic in German. Shadow a native recording sentence-by-sentence to build rhythm.
+        </p>
+      </div>
+
+      <div class="glass-card p-5 border-t-2 border-t-pink-400">
+        <div class="flex items-center justify-between mb-3">
+          <span class="font-extrabold text-white text-base">Friday</span>
+          <span class="text-xs font-bold px-2.5 py-0.5 rounded bg-pink-500/20 text-pink-300">60 mins</span>
+        </div>
+        <div class="text-xs font-bold uppercase tracking-wider text-pink-400 mb-1">Writing &amp; Expression Drill</div>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          Draft a practical text: an informal email, a letter of apology for rescheduling, or a 50-word opinion post. Self-correct with grammar guides and vocabulary lists.
+        </p>
+      </div>
+
+      <div class="glass-card p-5 border-t-2 border-t-cyan-400">
+        <div class="flex items-center justify-between mb-3">
+          <span class="font-extrabold text-white text-base">Saturday</span>
+          <span class="text-xs font-bold px-2.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300">90 mins</span>
+        </div>
+        <div class="text-xs font-bold uppercase tracking-wider text-cyan-400 mb-1">Deep Workbook Consolidation</div>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          Intensive trainer session: complete the chapter's hardest written exercises. Tackle tricky sentence ordering, preposition choices, and irregular conjugation drills.
+        </p>
+      </div>
+
+      <div class="glass-card p-5 border-t-2 border-t-emerald-400 md:col-span-2 lg:col-span-3">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+          <div class="flex items-center gap-2">
+            <span class="font-extrabold text-white text-base">Sunday &middot; Comprehensive Review &amp; Metric Assessment</span>
+            <span class="text-xs font-bold px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300">90 mins</span>
+          </div>
+          <span class="text-xs text-slate-400">Total Week: ~8.5–9.5 Hours Completed</span>
+        </div>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          Review the week's notes. Do a 20-minute timed mock quiz or testtrainer section. Identify error patterns (e.g. missing <em>-en</em> in accusative, misplaced verbs in subordinate clauses). Set 3 specific improvement objectives for the upcoming week.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 4 & 5: Listening & Grammar Techniques -->
+  <section class="py-16 px-4 sm:px-6 max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      
+      <!-- Listening Technique -->
+      <div class="glass-card p-6 sm:p-8">
+        <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-cyan-400 mb-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg>
+          Listening Methodology
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-4">The 3-Pass Method for 119 Audio Tracks</h3>
+        <p class="text-slate-300 text-xs sm:text-sm mb-6 leading-relaxed">
+          Never listen passively while distracted. Maximize each of your 119 recordings by training auditory processing systematically:
+        </p>
+        
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <span class="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-300 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
+            <div>
+              <div class="text-white text-xs font-bold">Pass 1: Blind Global Comprehension</div>
+              <div class="text-slate-400 text-xs mt-0.5">Listen without transcript. Identify the context: Who is talking? Where are they? What is the main problem or message?</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-300 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">2</span>
+            <div>
+              <div class="text-white text-xs font-bold">Pass 2: Selective Detail Mining</div>
+              <div class="text-slate-400 text-xs mt-0.5">Listen again with specific questions: Note down times, dates, prices, names, and emotional tones.</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-300 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">3</span>
+            <div>
+              <div class="text-white text-xs font-bold">Pass 3: Transcript Shadowing &amp; Pronunciation</div>
+              <div class="text-slate-400 text-xs mt-0.5">Open the transcript. Read simultaneously with the audio. Pause and repeat difficult phrases to match rhythm and liaisons.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grammar & Vocabulary System -->
+      <div class="glass-card p-6 sm:p-8">
+        <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-400 mb-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+          Grammar &amp; Vocabulary Systems
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-4">Golden Rules for High Retention</h3>
+        <p class="text-slate-300 text-xs sm:text-sm mb-6 leading-relaxed">
+          German grammar is rigorous and logical. Prevent bad habits early with these two non-negotiable systems:
+        </p>
+
+        <div class="space-y-4">
+          <div class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
+            <div class="text-xs font-bold text-amber-400 mb-1">Rule 1: Always Learn Nouns with Article + Plural</div>
+            <div class="text-xs text-slate-300">
+              Never write just <em>"Tisch = table"</em>. Always write:
+              <span class="font-mono text-cyan-300 block mt-1">der Tisch, -e (masculine) &middot; das Buch, &quot;-er (neuter) &middot; die Lampe, -n (feminine)</span>
+              Without the gender, you cannot form Akkusativ, Dativ, or correct adjective endings later!
+            </div>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
+            <div class="text-xs font-bold text-indigo-400 mb-1">Rule 2: The Three Principal Forms for Verbs</div>
+            <div class="text-xs text-slate-300">
+              For every verb, record its triad and preposition:
+              <span class="font-mono text-indigo-300 block mt-1">sprechen &rarr; sprach &rarr; hat gesprochen (mit + Dativ)</span>
+              <span class="font-mono text-indigo-300 block">gehen &rarr; ging &rarr; <strong>ist</strong> gegangen (nach / zu)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 6: Book Sections (Menschen Curriculum) -->
+  <section id="books" class="py-16 px-4 sm:px-6 max-w-6xl mx-auto">
+    <div class="mb-12 text-center">
+      <div class="text-xs font-bold uppercase tracking-widest text-amber-400">Coursebook Curriculum</div>
+      <h2 class="text-3xl sm:text-5xl font-black text-white mt-1">Menschen Coursebooks &amp; Chapters</h2>
+      <p class="text-slate-400 text-sm sm:text-base mt-2 max-w-2xl mx-auto">
+        Structured chapter-by-chapter progression. Explore the interactive modules below:
+      </p>
+    </div>
+
+    <!-- Book 1: Menschen A1.1 (Featured) -->
+    <div id="menschen-a1-1" class="mb-12">
+      <div class="book-card-active rounded-2xl p-6 sm:p-8">
+        
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+          <div>
+            <div class="flex items-center gap-2 mb-1.5">
+              <span class="px-2.5 py-0.5 rounded-md text-xs font-extrabold bg-amber-400 text-slate-950 uppercase tracking-wider">Book 1 &middot; Active</span>
+              <span class="px-2.5 py-0.5 rounded-md text-xs font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">A1.1 Level</span>
+              <span class="text-xs text-slate-400">12 Chapters (Lektionen 1–12)</span>
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-black text-white">Menschen A1.1 &mdash; Foundation</h3>
+            <p class="text-xs sm:text-sm text-slate-300 mt-1">
+              Introductions, personal information, countries, professions, daily routines, food, and home environment.
+            </p>
+          </div>
+
+          <a href="./menschen-a1-1/index.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-sm shadow-lg transition shrink-0">
+            <span>Open Chapter 1</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+
+        <!-- Chapter Grid inside A1.1 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5 mt-6">
+          
+          <!-- Chapter 1 (Active Masterclass) -->
+          <a href="./menschen-a1-1/index.html" class="group p-4 rounded-xl bg-gradient-to-br from-amber-500/10 via-slate-900 to-indigo-950/40 border-2 border-amber-400/80 hover:border-amber-400 transition block shadow-md hover:shadow-amber-400/20">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-black uppercase text-amber-400">Lektion 1 &middot; Masterclass</span>
+              <span class="text-[10px] font-black uppercase px-2 py-0.5 rounded bg-amber-400 text-slate-950 animate-pulse">Interactive Ready</span>
+            </div>
+            <div class="font-extrabold text-white group-hover:text-amber-300 text-base transition">
+              Hallo! Ich bin Nicole.
+            </div>
+            <p class="text-xs text-slate-300 mt-1.5 leading-relaxed">
+              Introductions, greetings, countries &amp; origins (<em>aus</em>), the German alphabet, and verbs <em>hei&szlig;en</em>, <em>kommen</em>, <em>sein</em>. Includes live speech synthesis and audio synths!
+            </p>
+            <div class="mt-3 flex items-center gap-1.5 text-xs font-bold text-amber-400 group-hover:translate-x-1 transition">
+              <span>Launch Masterclass</span> &rarr;
+            </div>
+          </a>
+
+          <!-- Chapter 2 -->
+          <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 opacity-80 hover:opacity-100 transition">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold uppercase text-slate-400">Lektion 2</span>
+              <span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-400">Upcoming</span>
+            </div>
+            <div class="font-bold text-white text-sm">Wie geht's?</div>
+            <p class="text-xs text-slate-400 mt-1">
+              Personal state, feelings, phone numbers, email addresses, numbers 0–20, personal pronouns <em>du/Sie</em>.
+            </p>
+          </div>
+
+          <!-- Chapter 3 -->
+          <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 opacity-80 hover:opacity-100 transition">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold uppercase text-slate-400">Lektion 3</span>
+              <span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-400">Upcoming</span>
+            </div>
+            <div class="font-bold text-white text-sm">Was kostet das?</div>
+            <p class="text-xs text-slate-400 mt-1">
+              Shopping, everyday items, furniture, prices &amp; currency, colors, definite articles <em>der, das, die</em>.
+            </p>
+          </div>
+
+          <!-- Chapter 4 -->
+          <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 opacity-80 hover:opacity-100 transition">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold uppercase text-slate-400">Lektion 4</span>
+              <span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-400">Upcoming</span>
+            </div>
+            <div class="font-bold text-white text-sm">Wiener Schnitzel</div>
+            <p class="text-xs text-slate-400 mt-1">
+              Food, beverages, grocery shopping, recipes, measurements, indefinite articles &amp; negation <em>kein/keine</em>.
+            </p>
+          </div>
+
+          <!-- Chapter 5 -->
+          <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 opacity-80 hover:opacity-100 transition">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold uppercase text-slate-400">Lektion 5</span>
+              <span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-400">Upcoming</span>
+            </div>
+            <div class="font-bold text-white text-sm">Von 8 bis 17 Uhr</div>
+            <p class="text-xs text-slate-400 mt-1">
+              Clock times (official &amp; conversational), daily schedule, weekdays, separable verbs (<em>aufstehen, anfangen</em>).
+            </p>
+          </div>
+
+          <!-- Chapter 6 -->
+          <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 opacity-80 hover:opacity-100 transition">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold uppercase text-slate-400">Lektion 6</span>
+              <span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-400">Upcoming</span>
+            </div>
+            <div class="font-bold text-white text-sm">Online &amp; Freizeit</div>
+            <p class="text-xs text-slate-400 mt-1">
+              Hobbies, digital communication, weekend plans, modal verbs <em>k&ouml;nnen</em> and <em>wollen</em>.
+            </p>
+          </div>
+
+          <!-- Chapters 7-12 collapsed summary -->
+          <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800/80 md:col-span-2 lg:col-span-3 text-xs text-slate-400 flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <strong class="text-slate-300">Lektionen 7–12 Overview:</strong>
+              Lektion 7 (Mein Tag) &middot; Lektion 8 (Das Haus) &middot; Lektion 9 (Stadtbesichtigung) &middot; Lektion 10 (Gesundheit &amp; Krankheit) &middot; Lektion 11 (Unterwegs) &middot; Lektion 12 (Kundenservice).
+            </div>
+            <span class="text-indigo-400 font-semibold">Included in Phase 1 &amp; Phase 2</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Remaining Coursebooks Summary (A1.2, A2.1, A2.2, B1.1, B1.2) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <!-- Menschen A1.2 -->
+      <div class="glass-card p-6 border-t-4 border-t-emerald-400">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-400">Book 2 &middot; Weeks 5–8</span>
+          <span class="text-xs px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">Lektionen 13–24</span>
+        </div>
+        <h4 class="text-xl font-bold text-white mb-2">Menschen A1.2</h4>
+        <p class="text-xs text-slate-300 leading-relaxed mb-4">
+          Clothing, weather, vacation travel, city life, doctors visits, living spaces, past tense <em>Perfekt</em> introduction, and prepositions with Dative. Concludes with the official A1 Testtrainer revision.
+        </p>
+        <div class="text-[11px] font-semibold text-slate-400">Key Milestone: Pass A1 Mock Test (60%+)</div>
+      </div>
+
+      <!-- Menschen A2.1 & A2.2 -->
+      <div class="glass-card p-6 border-t-4 border-t-indigo-400">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs font-extrabold uppercase tracking-wider text-indigo-400">Books 3 &amp; 4 &middot; Weeks 9–13</span>
+          <span class="text-xs px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300">Lektionen 1–24 (A2)</span>
+        </div>
+        <h4 class="text-xl font-bold text-white mb-2">Menschen A2.1 &amp; A2.2</h4>
+        <p class="text-xs text-slate-300 leading-relaxed mb-4">
+          Education, work routines, consumer world, transport, health, celebrations, two-way prepositions (<em>Wechselpr&auml;positionen</em>), reflexive verbs, subordinate clauses with <em>weil, dass, wenn</em>, and adjective endings.
+        </p>
+        <div class="text-[11px] font-semibold text-slate-400">Key Milestone: 3-Minute Spontaneous Monologue</div>
+      </div>
+
+      <!-- Menschen B1.1 & B1.2 -->
+      <div class="glass-card p-6 border-t-4 border-t-purple-400 md:col-span-2">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs font-extrabold uppercase tracking-wider text-purple-400">Books 5 &amp; 6 &middot; Weeks 14–26</span>
+          <span class="text-xs px-2 py-0.5 rounded bg-purple-500/20 text-purple-300">Lektionen 1–24 (B1 Complete)</span>
+        </div>
+        <h4 class="text-xl font-bold text-white mb-2">Menschen B1.1 &amp; B1.2 &middot; Independent Communicator</h4>
+        <p class="text-xs text-slate-300 leading-relaxed mb-4">
+          Abstract discussions, media &amp; society, relationships, culture, work environment, Passiv (process passive), Konjunktiv II (wishes, hypothetical situations, polite suggestions), Genitive case, infinitive with <em>zu</em>, relative clauses in all cases, and timed mock exam training for Goethe-Zertifikat B1 / telc Deutsch B1.
+        </p>
+        <div class="flex flex-wrap items-center gap-2 text-xs">
+          <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 font-medium">B1 Intensivtrainer</span>
+          <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 font-medium">Jojo sucht das Gl&uuml;ck (33 Episodes)</span>
+          <span class="px-2.5 py-1 rounded bg-slate-800 text-slate-300 font-medium">Full Mock Exams</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 7: Interactive Milestone Progress Tracker (18 Checkpoints) -->
+  <section id="milestones" class="py-16 px-4 sm:px-6 max-w-6xl mx-auto">
+    <div class="glass-card p-6 sm:p-10 border border-slate-700">
+      
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-slate-800">
+        <div>
+          <div class="text-xs font-bold uppercase tracking-widest text-emerald-400">Progress Tracker</div>
+          <h2 class="text-3xl sm:text-4xl font-black text-white mt-1">7. Track Your 18 Milestones</h2>
+          <p class="text-slate-400 text-xs sm:text-sm mt-1">
+            Check off each milestone as you achieve it. Your progress is saved automatically in your browser's localStorage.
+          </p>
+        </div>
+
+        <div class="bg-slate-900/90 border border-slate-700 rounded-2xl p-4 min-w-[240px] text-center">
+          <div class="text-xs text-slate-400 font-semibold mb-1">Total Completion</div>
+          <div id="milestoneCounter" class="text-3xl font-black text-amber-400">0 / 18</div>
+          <div class="w-full h-2.5 bg-slate-800 rounded-full mt-3 overflow-hidden">
+            <div id="milestoneProgressBar" class="h-full bg-gradient-to-r from-amber-400 via-indigo-400 to-emerald-400 transition-all duration-500" style="width: 0%"></div>
+          </div>
+          <div id="milestonePercentage" class="text-[11px] text-slate-400 mt-1.5 font-bold">0% achieved</div>
+        </div>
+      </div>
+
+      <!-- 6 Month Grid of Checkpoints -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+
+        <!-- Month 1 -->
+        <div class="space-y-3">
+          <div class="flex items-center gap-2 pb-2 border-b border-slate-800">
+            <span class="w-6 h-6 rounded-md bg-amber-400/20 text-amber-400 flex items-center justify-center text-xs font-black">M1</span>
+            <span class="text-sm font-bold text-white">Month 1: A1.1 Foundation</span>
+          </div>
+          <label class="flex items-start gap-3 text-xs text-slate-300 cursor-pointer hover:text-white transition">
+            <input type="checkbox" class="checkbox-custom mt-0.5" data-milestone="m1-1">
+            <span>Introduce yourself and spell your name fluently</span>
+          </label>
+          <label class="flex items-start gap-3 text-xs text-slate-300 cursor-pointer hover:text-white transition">
+            <input type="checkbox" class="checkbox-custom mt-0.5" data-milestone="m1-2">
+            <span>Conjugate regular present tense &amp; <em>sein/haben</em></span>
+          </label>
+          <label class="flex items-start gap-3 text-xs text-slate-300 cursor-pointer hover:text-white transition">
+            <input type="checkbox" class="checkbox-custom mt-0.5" data-milestone="m1-3">
+            <span>Order food and drinks in German with numbers</span>
+          </label>
+        </div>
+
+        <!-- Month 2 -->
+        <div class="space-y-3">
+          <div class="flex items-center gap-2 pb-2 border-b border-slate-800">
+            <span class="w-6 h-6 rounded-md bg-emerald-400/20 text-emerald-400 flex items-center justify-center text-xs font-black">M2</span>
+            <span class="text-sm font-bold text-white">Month 2: Complete A1</span>
+          </div>
+          <label class="flex items-start gap-3 text-xs text-slate-300 cursor-pointer hover:text-white transition">
+            <input type="checkbox" class="checkbox-custom mt-0.5" data-milestone="m2-1">
+            <span>Use accusative case (<em>den/einen</em>) accurately</span>
+          </label>
+          <label class="flex items-start gap-3 text-xs text-slate-300 cursor-pointer hover:text-white transition">
+            <input type="checkbox" class="checkbox-custom mt-0.5" data-milestone="m2-2">
+            <span>Write a 40–50 word informal email without aids</span>
+          </label>
+          <label class="flex items-start gap-3 text-xs text-slate-300 cursor-pointer hover:text-white transition">
+            <input type="checkbox" class="checkbox-custom mt-0.5" data-milestone="m2-3">
+            <span>Score &ge; 60% on full A1 Testtrainer revision</span>
+          </label>
+        </div>
+
+        <!-- Month 3 -->
+        <div class="space-y-3">
+          <div class="flex items-center gap-2 pb-2 border-b border-slate-800">
+            <span class="w-6 h-6 rounded-md bg-indigo-400/20 text-indigo-400 flex items-center justify-center text-xs font-black">M3</span>
+            <span class="text-sm font-bold text-white">Month 3: Complete A2</span>
+          </div>
+          <label class="flex items-start gap-3 text-xs text-slate-300 cursor-pointer hover:text-white transition">
+            <input type="checkbox" class="checkbox-custom mt-0.5" data-milestone="m3-1">
+            <span>Master Dativ &amp; two-way prepositions (Wo vs Wohin)</span>
+          </label>
+          <label class="flex items-start gap-3 text-xs text-slate-300 cursor-pointer hover:text-white transition">
+            <input type="checkbox" class="checkbox-custom mt-0.5" data-milestone="m3-2">
+            <span>Form spoken Perfekt with <em>haben</em> and <em>sein</em></span>
+          </label>
+          <label class="flex items-start gap-3 text-xs text-slate-300 cursor-pointer hover:text-white transition">
+            <input type="checkbox" class="checkbox-custom mt-0.5" data-milestone="m3-3">
+            <span>Speak for 3 minutes about your weekend or routine</span>
+          </label>
+        </div>
+
+        <!-- Month 4 -->
+        <div class="space-y-3">
+          <div class="flex items-center gap-2 pb-2 border-b border-slate-800">
+            <span class="w-6 h-6 rounded-md bg-purple-400/20 text-purple-400 flex items-center justify-center text-xs font-black">M4</span>
+            <span class="text-sm font-bold text-white">Month 4: Start B1</span>
+          </div>
+          <label class="flex items-start gap-3 text-xs text-slate-300 cursor-pointer hover:text-white transition">
+            <input type="checkbox" class="checkbox-custom mt-0.5" data-milestone="m4-1">
+            <span>Explain opinions using <em>weil, dass, obwohl</em></span>
+          </label>
+          <label class="flex items-start gap-3 text-xs text-slate-300 cursor-pointer hover:text-white transition">
+            <input type="checkbox" class="checkbox-custom mt-0.5" data-milestone="m4-2">
+            <span>Build relative clauses (<em>der Mann, den ich kenne</em>)</span>
+          </label>
+          <label class="flex items-start gap-3 text-xs text-slate-300 cursor-pointer hover:text-white transition">
+            <input type="checkbox" class="checkbox-custom mt-0.5" data-milestone="m4-3">
+            <span>Understand DW <em>Jojo</em> Episodes 1–10 with subtitles</span>
+          </label>
+        </div>
+
+        <!-- Month 5 -->
+        <div class="space-y-3">
+          <div class="flex items-center gap-2 pb-2 border-b border-slate-800">
+            <span class="w-6 h-6 rounded-md bg-rose-400/20 text-rose-400 flex items-center justify-center text-xs font-black">M5</span>
+            <span class="text-sm font-bold text-white">Month 5: B1 Active Production</span>
+          </div>
+          <label class="flex items-start gap-3 text-xs text-slate-300 cursor-pointer hover:text-white transition">
+            <input type="checkbox" class="checkbox-custom mt-0.5" data-milestone="m5-1">
+            <span>Use Passiv and Konjunktiv II (<em>w&uuml;rde/h&auml;tte/w&auml;re</em>)</span>
+          </label>
+          <label class="flex items-start gap-3 text-xs text-slate-300 cursor-pointer hover:text-white transition">
+            <input type="checkbox" class="checkbox-custom mt-0.5" data-milestone="m5-2">
+            <span>Write structured 80-word opinion &amp; complaint letters</span>
+          </label>
+          <label class="flex items-start gap-3 text-xs text-slate-300 cursor-pointer hover:text-white transition">
+            <input type="checkbox" class="checkbox-custom mt-0.5" data-milestone="m5-3">
+            <span>Extract specific answers from 4-minute audio broadcasts</span>
+          </label>
+        </div>
+
+        <!-- Month 6 -->
+        <div class="space-y-3">
+          <div class="flex items-center gap-2 pb-2 border-b border-slate-800">
+            <span class="w-6 h-6 rounded-md bg-amber-400/20 text-amber-400 flex items-center justify-center text-xs font-black">M6</span>
+            <span class="text-sm font-bold text-white">Month 6: Exam Readiness</span>
+          </div>
+          <label class="flex items-start gap-3 text-xs text-slate-300 cursor-pointer hover:text-white transition">
+            <input type="checkbox" class="checkbox-custom mt-0.5" data-milestone="m6-1">
+            <span>Complete Timed Mock Exam 1 (Pass all 4 modules)</span>
+          </label>
+          <label class="flex items-start gap-3 text-xs text-slate-300 cursor-pointer hover:text-white transition">
+            <input type="checkbox" class="checkbox-custom mt-0.5" data-milestone="m6-2">
+            <span>Deliver 3-minute B1 topic presentation with slides</span>
+          </label>
+          <label class="flex items-start gap-3 text-xs text-slate-300 cursor-pointer hover:text-white transition">
+            <input type="checkbox" class="checkbox-custom mt-0.5" data-milestone="m6-3">
+            <span>Complete Timed Mock Exam 2 (&ge; 70% in all sections)</span>
+          </label>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Final Recommendation & Footer -->
+  <footer class="border-t border-slate-800/80 bg-slate-950 py-12 px-4 sm:px-6">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <div class="font-extrabold text-white text-base">Project Learn German &middot; Anuj Chaudhary</div>
+        <div class="text-xs text-slate-400 mt-1">Structured 26-Week Roadmap &middot; Menschen A1 to B1 Interactive Curriculum</div>
+      </div>
+
+      <div class="flex items-center gap-4 text-xs font-semibold text-slate-400">
+        <a href="../../pages/projects.html" class="hover:text-amber-400 transition">&larr; Back to Portfolio Projects</a>
+        <span>&middot;</span>
+        <a href="./menschen-a1-1/index.html" class="hover:text-amber-400 transition">Chapter 1 Masterclass &rarr;</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive LocalStorage Script -->
+  <script>
+    // Scroll progress bar
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('scrollProgressBar').style.width = scrolled + '%';
+    });
+
+    // Milestone LocalStorage State
+    const STORAGE_KEY = 'german_roadmap_milestones_anuj';
+    const checkboxes = document.querySelectorAll('.checkbox-custom');
+    const counterEl = document.getElementById('milestoneCounter');
+    const progressBar = document.getElementById('milestoneProgressBar');
+    const percentEl = document.getElementById('milestonePercentage');
+    const heroBadge = document.getElementById('heroProgressBadge');
+
+    function loadState() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+        checkboxes.forEach(cb => {
+          const id = cb.getAttribute('data-milestone');
+          if (saved[id]) cb.checked = true;
+        });
+      } catch (e) {
+        console.warn('Could not load milestone state', e);
+      }
+      updateUI();
+    }
+
+    function saveState() {
+      const state = {};
+      checkboxes.forEach(cb => {
+        const id = cb.getAttribute('data-milestone');
+        state[id] = cb.checked;
+      });
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      updateUI();
+    }
+
+    function updateUI() {
+      let count = 0;
+      checkboxes.forEach(cb => { if (cb.checked) count++; });
+      const total = checkboxes.length;
+      const pct = Math.round((count / total) * 100);
+
+      if (counterEl) counterEl.textContent = count + ' / ' + total;
+      if (progressBar) progressBar.style.width = pct + '%';
+      if (percentEl) percentEl.textContent = pct + '% completed';
+      if (heroBadge) heroBadge.textContent = count + '/' + total + ' Achieved (' + pct + '%)';
+    }
+
+    checkboxes.forEach(cb => {
+      cb.addEventListener('change', saveState);
+    });
+
+    document.addEventListener('DOMContentLoaded', loadState);
+    loadState();
+  </script>
+
+</body>
+</html>
